@@ -16,9 +16,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'surname', 'bio', 'username', 'slug', 'avatar', 'cv', 'cellphone', 'address', 'email', 'password',
+        'name', 'surname', 'bio', 'username', 'slug', 'avatar', 'cv', 'cellphone', 'address', 'email', 'password'
     ];
-
+    public function categories(){
+        return $this->belongsToMany('App\Category');
+    }
     /**
      * The attributes that should be hidden for arrays.
      *
