@@ -11,7 +11,6 @@
     <div id="app">
 
     </div>
-ciao aaa
     <script src="{{asset("js/front.js")}}"></script>
 </body>
 </html>
