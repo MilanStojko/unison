@@ -3,17 +3,21 @@
         <div class="jumbo-overlay"></div>
         <div class="container">
             <div class="row jumbo-content">
-                <div class="col-md-6 col-sm-12 jumbo-text">
+                <div class="col-lg-6 col-sm-12 jumbo-text">
                     <p>
                         Lorem Ipsum is simply dummy text of the printing and
                         typesetting industry. Lorem Ipsum has been the
                         industry's standard
                     </p>
                 </div>
-                <div class="col-md-6 col-sm-12 jumbo-form">
+                <div class="col-lg-6 col-md-12 jumbo-form">
                     <input type="text" placeholder="Cerca Musicista" />
                     <button>Cerca</button>
                 </div>
+            </div>
+            <div class="jumbo-social">
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-facebook-square"></i>
             </div>
         </div>
     </div>
@@ -28,14 +32,14 @@ export default {
 <style lang="scss" scoped>
 .jumbo {
     background-color: #000;
-    background-image: url("../../../images/jumbo-1.jpg");
+    background-image: url("../../../../images/jumbo-1.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     color: rgb(226, 226, 226);
 
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 50px);
     backface-visibility: hidden;
     animation-name: slideBg;
     animation-duration: 30s;
@@ -62,6 +66,10 @@ export default {
 
         @media screen and (max-width: 2000px) {
             width: 1140px;
+        }
+
+        @media screen and (max-width: 1200px) {
+            width: 80%;
         }
     }
 
@@ -96,28 +104,57 @@ export default {
             border: none;
         }
     }
+
+    &-social {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 20px;
+
+        i {
+            font-size: 30px;
+            padding: 0px 5px;
+            cursor: pointer;
+            transition: all 0.3s linear;
+
+            &:hover {
+                transform: scale(1.2);
+            }
+        }
+
+        i:first-child {
+            &:hover {
+                color: #d12874;
+            }
+        }
+        i:nth-child(2) {
+            &:hover {
+                color: #3b5998;
+            }
+        }
+    }
 }
 
 @keyframes slideBg {
     0% {
-        background-image: url("../../../images/jumbo-1.jpg");
+        background-image: url("../../../../images/jumbo-1.jpg");
     }
 
     20% {
-        background-image: url("../../../images/jumbo-2.png");
+        background-image: url("../../../../images/jumbo-2.png");
     }
     40% {
-        background-image: url("../../../images/jumbo-6.jpg");
+        background-image: url("../../../../images/jumbo-6.jpg");
     }
     60% {
-        background-image: url("../../../images/jumbo-4.jpg");
+        background-image: url("../../../../images/jumbo-4.jpg");
     }
     80% {
-        background-image: url("../../../images/jumbo-5.jpg");
+        background-image: url("../../../../images/jumbo-5.jpg");
     }
 
     100% {
-        background-image: url("../../../images/jumbo-1.jpg");
+        background-image: url("../../../../images/jumbo-1.jpg");
     }
 }
 </style>
