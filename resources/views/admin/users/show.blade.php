@@ -8,7 +8,6 @@
                     <div class="card-header">La tua dashboard</div>
                     <div class="card-content">
                         <h1></h1>
-
                     </div>
                 </div>
             </div>
