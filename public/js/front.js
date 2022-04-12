@@ -38272,9 +38272,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("nav", [
-      _c("div", { staticClass: "logo" }, [
-        _vm._v("\n          UNISON\n      "),
-      ]),
+      _c("div", { staticClass: "logo" }, [_vm._v("\n        UNISON\n    ")]),
       _vm._v(" "),
       _c("ul", { staticClass: "my_ul" }, [
         _c("li", [
