@@ -16,7 +16,11 @@ class UserController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
         //
+=======
+
+>>>>>>> refs/remotes/origin/back
     }
 
     /**
