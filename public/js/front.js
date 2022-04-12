@@ -6446,7 +6446,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n*[data-v-083b147e]{\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n.logo[data-v-083b147e]{\n    font-size: 30px;\n}\nnav[data-v-083b147e]{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    background-color: rgb(42, 41, 41);\n    height: 50px;\n    padding: 0px 20px;\n    color: white;\n}\n.my_ul[data-v-083b147e]{\n    margin: 0;\n    padding: 0;\n}\nli[data-v-083b147e]{\n    float: left;\n    padding: 0px 15px;\n    list-style: none;\n}\n.my_a[data-v-083b147e]{\n    text-decoration: none;\n    color: white;\n}\n.my_a[data-v-083b147e]:hover{\n    color: white;\n    text-decoration: none;\n}\n.nav-item p[data-v-083b147e]{\n    color: white;\n}\n.navbar-toggler-icon[data-v-083b147e], .navbar-toggler[data-v-083b147e]{\n    color: white;\n}\n.my_ul-icon[data-v-083b147e]{\n    display: none;\n    margin: 0;\n    padding: 0;\n}\n@media only screen and (max-width: 700px){\n.my_ul-icon[data-v-083b147e]{\n        display: block;\n}\n.my_ul[data-v-083b147e]{\n        display: none;\n}\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-083b147e]{\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\n}\n.logo[data-v-083b147e]{\r\n    font-size: 30px;\n}\nnav[data-v-083b147e]{\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    background-color: rgb(42, 41, 41);\r\n    height: 50px;\r\n    padding: 0px 20px;\r\n    color: white;\n}\n.my_ul[data-v-083b147e]{\r\n    margin: 0;\r\n    padding: 0;\n}\nli[data-v-083b147e]{\r\n    float: left;\r\n    padding: 0px 15px;\r\n    list-style: none;\n}\n.my_a[data-v-083b147e]{\r\n    text-decoration: none;\r\n    color: white;\n}\n.my_a[data-v-083b147e]:hover{\r\n    color: white;\r\n    text-decoration: none;\n}\n.nav-item p[data-v-083b147e]{\r\n    color: white;\n}\n.navbar-toggler-icon[data-v-083b147e], .navbar-toggler[data-v-083b147e]{\r\n    color: white;\n}\n.my_ul-icon[data-v-083b147e]{\r\n    display: none;\r\n    margin: 0;\r\n    padding: 0;\n}\n@media only screen and (max-width: 700px){\n.my_ul-icon[data-v-083b147e]{\r\n        display: block;\n}\n.my_ul[data-v-083b147e]{\r\n        display: none;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -54457,7 +54457,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/francescoabritta/Documents/unison/resources/js/guest/front.js */"./resources/js/guest/front.js");
+module.exports = __webpack_require__(/*! C:\Users\hamza\Desktop\Boolean\unison\resources\js\guest\front.js */"./resources/js/guest/front.js");
 
 
 /***/ })
