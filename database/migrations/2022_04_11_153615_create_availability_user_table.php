@@ -14,6 +14,7 @@ class CreateAvailabilityUserTable extends Migration
     public function up()
     {
         Schema::create('availability_user', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('availability_id')->constrained()->onDelete("cascade");
             $table->foreignId('user_id')->constrained()->onDelete("cascade");
             $table->timestamps();
