@@ -1,5 +1,5 @@
 <template>
-  <nav>
+    <nav>
         <div class="logo">
             UNISON
         </div>
