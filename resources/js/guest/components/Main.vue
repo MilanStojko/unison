@@ -1,14 +1,6 @@
 <template>
     <main>
-        <div class="jumbo">
-            <div class="container">
-                <div class="row">
-                    <div class="col-6 jumbo-text">
-                    </div>
-                    <div class="col-6 jumbo-form"></div>
-                </div>
-            </div>
-        </div>
+        <router-view :key="$route.path"></router-view>
     </main>
 </template>
 
