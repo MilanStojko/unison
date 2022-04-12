@@ -25,4 +25,4 @@ Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->
     Route::resource('users', 'UserController');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
