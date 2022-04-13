@@ -1981,6 +1981,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Footer"
 });
@@ -6656,7 +6657,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\nfooter[data-v-4a9fdc62]{\n    padding: 60px;\n    background: black;\n    color: white;\n}\n.top[data-v-4a9fdc62]{\n    display: flex;\n    justify-content: space-between;\n}\n.link[data-v-4a9fdc62]{\n    display: flex;\n}\nul[data-v-4a9fdc62]{\n    list-style: none;\n}\nli[data-v-4a9fdc62]{\n    cursor: pointer;\n    color: rgb(81, 81, 81);\n}\nli[data-v-4a9fdc62]:hover{\n    color: white;\n}\n.bottom[data-v-4a9fdc62]{\n    margin-top: 50px;\n    font-size: 14px;\n    text-align: center;\n}\n", ""]);
+exports.push([module.i, "\nfooter[data-v-4a9fdc62]{\n    padding: 60px;\n    background: black;\n    color: white;\n}\n.top[data-v-4a9fdc62]{\n    display: flex;\n}\n.link[data-v-4a9fdc62]{\n    display: flex;\n}\nul[data-v-4a9fdc62]{\n    list-style: none;\n}\nli[data-v-4a9fdc62]{\n    cursor: pointer;\n    color: rgb(81, 81, 81);\n}\nli[data-v-4a9fdc62]:hover{\n    color: white;\n}\n.bottom[data-v-4a9fdc62]{\n    margin-top: 50px;\n    font-size: 14px;\n    text-align: center;\n}\n@media only screen and (max-width: 1000px){\n.top[data-v-4a9fdc62]{\n        display: block;\n}\n.lorem[data-v-4a9fdc62]{\n        margin-bottom: 40px;\n}\n}\n", ""]);
 
 // exports
 
@@ -38711,15 +38712,19 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("footer", [
       _c("div", { staticClass: "top" }, [
-        _c("div", { staticClass: "lorem col-4" }, [
+        _c("div", { staticClass: "lorem col-lg-6 col-sm-12" }, [
           _vm._v(
             "\n            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi quae quo quis, fugiat earum quasi cumque in delectus, nulla voluptatem, aperiam inventore numquam porro natus dolores? Nostrum quibusdam neque repellat eaque recusandae, odit iste distinctio magni assumenda culpa quos vel natus, numquam laborum. Soluta quo quibusdam quidem, suscipit ea neque!\n        "
           ),
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "link col-6" }, [
+        _c("div", { staticClass: "link col-lg-6 col-sm-12" }, [
           _c("ul", { staticClass: "col-4" }, [
             _c("h2", [_vm._v("LINK")]),
+            _vm._v(" "),
+            _c("li", [_vm._v("ciaociaociao")]),
+            _vm._v(" "),
+            _c("li", [_vm._v("ciaociaociao")]),
             _vm._v(" "),
             _c("li", [_vm._v("ciaociaociao")]),
             _vm._v(" "),
@@ -38734,8 +38739,6 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("ul", { staticClass: "col-4" }, [
             _c("h2", [_vm._v("LINK")]),
-            _vm._v(" "),
-            _c("li", [_vm._v("ciaociaociao")]),
             _vm._v(" "),
             _c("li", [_vm._v("ciaociaociao")]),
             _vm._v(" "),

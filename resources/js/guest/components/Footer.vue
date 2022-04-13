@@ -1,12 +1,14 @@
 <template>
     <footer>
         <div class="top">
-            <div class="lorem col-4">
+            <div class="lorem col-lg-6 col-sm-12">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi quae quo quis, fugiat earum quasi cumque in delectus, nulla voluptatem, aperiam inventore numquam porro natus dolores? Nostrum quibusdam neque repellat eaque recusandae, odit iste distinctio magni assumenda culpa quos vel natus, numquam laborum. Soluta quo quibusdam quidem, suscipit ea neque!
             </div>
-            <div class="link col-6">
+            <div class="link col-lg-6 col-sm-12">
                 <ul class="col-4">
                     <h2>LINK</h2>
+                    <li>ciaociaociao</li>
+                    <li>ciaociaociao</li>
                     <li>ciaociaociao</li>
                     <li>ciaociaociao</li>
                     <li>ciaociaociao</li>
@@ -15,7 +17,6 @@
                 </ul>
                 <ul class="col-4">
                     <h2>LINK</h2>
-                    <li>ciaociaociao</li>
                     <li>ciaociaociao</li>
                     <li>ciaociaociao</li>
                     <li>ciaociaociao</li>
@@ -53,7 +54,6 @@ export default {
 
     .top{
         display: flex;
-        justify-content: space-between;
     }
 
     .link{
@@ -77,5 +77,15 @@ export default {
         margin-top: 50px;
         font-size: 14px;
         text-align: center;
+    }
+
+    @media only screen and (max-width: 1000px){
+        .top{
+            display: block;
+        }
+
+        .lorem{
+            margin-bottom: 40px;
+        }
     }
 </style>
