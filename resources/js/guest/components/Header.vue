@@ -4,14 +4,8 @@
             UNISON
         </div>
         <ul class="my_ul">
-            <li><a class="my_a" href="#">Cerca</a></li>
-            <li><a class="my_a" href="#">Categorie</a></li>
-            <li><a class="my_a" href="#">Eventi</a></li>
-            <li>
-                <a class="my_a login" href="#">
-                    <span class="my_button">Login</span>
-                </a>
-            </li>
+            <li v-for="(voice, index) in link" :key="index"><a class="my_a" href="#"><p>{{voice.name}}</p></a></li>
+            <li><a class="my_a login" href="#"><p class="my_button">Login</p></a></li>
         </ul>
         <ul class="my_ul-icon">
             <li><a class="my_a" href="#">icon</a></li>
@@ -22,6 +16,22 @@
 <script>
 export default {
     name: "Header",
+
+    data() {
+        return {
+            link: [
+                {
+                    name: "Cerca",
+                },
+                {
+                    name: "Categorie",
+                },
+                {
+                    name: "Eventi",
+                },
+            ],
+        };
+    },
 };
 </script>
 
@@ -49,6 +59,8 @@ nav{
 .my_ul{
     margin: 0;
     padding: 0;
+    display: flex;
+    align-items: center;
 }
 
 li{
@@ -62,21 +74,22 @@ li{
     color: white;
 }
 
-.my_a:hover{
-    color: white;
-    text-decoration: underline;
+.my_ul .my_a p{
+    transition: 1s;
 }
 
-.nav-item p{
+.my_ul .my_a p:hover{
     color: white;
+    transform: scale(1.3);
 }
 
-.navbar-toggler-icon, .navbar-toggler{
+.my_ul .my_a:hover .my_button{
     color: white;
+    transform: scale(1.1);
 }
 
-.login{
-    margin-left: 40px;
+.navbar-toggler-icon, .navbar-toggler, .nav-item p{
+    color: white;
 }
 
 .my_button{
@@ -85,11 +98,10 @@ li{
     color: white;
     background: #527A5A;
     border-radius: 20px;
+    margin-left: 40px;
 }
 
-.my_button:hover{
-    text-decoration: underline;
-}
+
 
 .my_ul-icon{
     display: none;
