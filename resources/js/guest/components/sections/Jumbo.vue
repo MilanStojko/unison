@@ -103,6 +103,7 @@ export default {
             padding: 10px;
             border: none;
             outline: none;
+            border-radius: 20px 0px 0px 20px;
         }
 
         button {
@@ -110,6 +111,12 @@ export default {
             color: #fff;
             padding: 10px 20px;
             border: none;
+            border-radius: 0px 20px 20px 0px;
+            transition: all 0.2s linear;
+
+            &:hover {
+                background-color: #3d5e43;
+            }
         }
     }
 

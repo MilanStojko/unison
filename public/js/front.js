@@ -2183,6 +2183,55 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Service"
 });
@@ -6602,7 +6651,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".container[data-v-44af3f59] {\n  max-width: 1200px;\n  margin: 0 auto;\n}\n.events[data-v-44af3f59] {\n  padding: 100px 0px;\n  position: relative;\n}\n.events-heading[data-v-44af3f59] {\n  margin-bottom: 50px;\n}\n.events-heading h2[data-v-44af3f59] {\n  font-size: 50px;\n  text-align: center;\n}\n.events-image[data-v-44af3f59] {\n  z-index: 100;\n}\n.events-image img[data-v-44af3f59] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.events-list[data-v-44af3f59] {\n  background: rgba(255, 255, 255, 0.27);\n  border-radius: 16px;\n  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);\n  backdrop-filter: blur(6.2px);\n  -webkit-backdrop-filter: blur(6.2px);\n  border: 1px solid rgba(255, 255, 255, 0.26);\n  z-index: 100;\n}\n.events-list ul[data-v-44af3f59] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n}\n.events-list li[data-v-44af3f59] {\n  list-style: none;\n  margin: 20px 10px;\n  width: 45%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n@media screen and (max-width: 1200px) {\n.events-list li[data-v-44af3f59] {\n    margin: 20px 5px;\n}\n}\n@media screen and (max-width: 600px) {\n.events-list li[data-v-44af3f59] {\n    width: 80%;\n    margin: 20px auto;\n}\n}\n.events-list a[data-v-44af3f59] {\n  color: #000;\n  width: 100%;\n  padding: 10px 20px;\n  border: 2px solid #bd5db7;\n}\n.events-list a[data-v-44af3f59]:hover {\n  text-decoration: none;\n  color: #fff;\n  background-color: #bd5db7;\n}\n.wave[data-v-44af3f59] {\n  width: 100%;\n  position: absolute;\n  top: 50%;\n  left: 0;\n  overflow: hidden;\n}\n@media screen and (max-width: 991px) {\n.wave[data-v-44af3f59] {\n    top: 80%;\n}\n}\n.wave img[data-v-44af3f59] {\n  width: 100%;\n  height: 100%;\n}\n@media screen and (max-width: 2000px) {\n.wave img[data-v-44af3f59] {\n    width: 2000px;\n}\n}", ""]);
+exports.push([module.i, ".events[data-v-44af3f59] {\n  padding: 100px 0px;\n  position: relative;\n}\n.events-heading[data-v-44af3f59] {\n  margin-bottom: 50px;\n}\n.events-heading h2[data-v-44af3f59] {\n  font-size: 50px;\n  text-align: center;\n  font-weight: bold;\n  letter-spacing: 3px;\n}\n.events-image[data-v-44af3f59] {\n  z-index: 100;\n}\n.events-image img[data-v-44af3f59] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.events-list[data-v-44af3f59] {\n  background: rgba(255, 255, 255, 0.27);\n  border-radius: 16px;\n  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);\n  backdrop-filter: blur(6.2px);\n  -webkit-backdrop-filter: blur(6.2px);\n  border: 1px solid rgba(255, 255, 255, 0.26);\n  z-index: 100;\n}\n.events-list ul[data-v-44af3f59] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n}\n.events-list li[data-v-44af3f59] {\n  list-style: none;\n  margin: 20px 10px;\n  width: 45%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n@media screen and (max-width: 1200px) {\n.events-list li[data-v-44af3f59] {\n    margin: 20px 5px;\n}\n}\n@media screen and (max-width: 600px) {\n.events-list li[data-v-44af3f59] {\n    width: 80%;\n    margin: 20px auto;\n}\n}\n.events-list a[data-v-44af3f59] {\n  color: #000;\n  width: 100%;\n  padding: 10px 20px;\n  border: 2px solid #bd5db7;\n  border-radius: 20px;\n}\n.events-list a[data-v-44af3f59]:hover {\n  text-decoration: none;\n  color: #fff;\n  background-color: #bd5db7;\n}\n.wave[data-v-44af3f59] {\n  width: 100%;\n  position: absolute;\n  top: 50%;\n  left: 0;\n  overflow: hidden;\n}\n@media screen and (max-width: 991px) {\n.wave[data-v-44af3f59] {\n    top: 80%;\n}\n}\n.wave img[data-v-44af3f59] {\n  width: 100%;\n  height: 100%;\n}\n@media screen and (max-width: 2000px) {\n.wave img[data-v-44af3f59] {\n    width: 2000px;\n}\n}", ""]);
 
 // exports
 
@@ -6622,7 +6671,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".jumbo[data-v-d56888bc] {\n  background-color: #000;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-1.jpg */ "./resources/images/jumbo-1.jpg")) + ");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n  color: rgb(226, 226, 226);\n  width: 100%;\n  height: calc(100vh - 50px);\n  -webkit-backface-visibility: hidden;\n          backface-visibility: hidden;\n  -webkit-animation-name: slideBg-data-v-d56888bc;\n          animation-name: slideBg-data-v-d56888bc;\n  -webkit-animation-duration: 30s;\n          animation-duration: 30s;\n  -webkit-animation-timing-function: step-start;\n          animation-timing-function: step-start;\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n  position: relative;\n}\n.jumbo-overlay[data-v-d56888bc] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 0, 0, 0.6);\n}\n.jumbo-content[data-v-d56888bc] {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  justify-content: space-between;\n  align-items: center;\n}\n@media screen and (max-width: 2000px) {\n.jumbo-content[data-v-d56888bc] {\n    width: 1140px;\n}\n}\n@media screen and (max-width: 1200px) {\n.jumbo-content[data-v-d56888bc] {\n    width: 80%;\n}\n}\n.jumbo-text p[data-v-d56888bc] {\n  font-size: 40px;\n  font-weight: bold;\n  letter-spacing: 1px;\n}\n@media screen and (max-width: 2000px) {\n.jumbo-text p[data-v-d56888bc] {\n    font-size: 30px;\n}\n}\n.jumbo-form[data-v-d56888bc] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.jumbo-form input[data-v-d56888bc] {\n  width: 80%;\n  padding: 10px;\n  border: none;\n  outline: none;\n}\n.jumbo-form button[data-v-d56888bc] {\n  background-color: #537a5a;\n  color: #fff;\n  padding: 10px 20px;\n  border: none;\n}\n.jumbo-social[data-v-d56888bc] {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  padding: 20px;\n}\n.jumbo-social img[data-v-d56888bc] {\n  width: 150px;\n  cursor: pointer;\n  transition: all 0.3s linear;\n}\n.jumbo-social img[data-v-d56888bc]:hover {\n  transform: scale(1.05) translateY(-2px);\n}\n@-webkit-keyframes slideBg-data-v-d56888bc {\n0% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-1.jpg */ "./resources/images/jumbo-1.jpg")) + ");\n}\n20% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-2.png */ "./resources/images/jumbo-2.png")) + ");\n}\n40% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-6.jpg */ "./resources/images/jumbo-6.jpg")) + ");\n}\n60% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-4.jpg */ "./resources/images/jumbo-4.jpg")) + ");\n}\n80% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-5.jpg */ "./resources/images/jumbo-5.jpg")) + ");\n}\n100% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-1.jpg */ "./resources/images/jumbo-1.jpg")) + ");\n}\n}\n@keyframes slideBg-data-v-d56888bc {\n0% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-1.jpg */ "./resources/images/jumbo-1.jpg")) + ");\n}\n20% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-2.png */ "./resources/images/jumbo-2.png")) + ");\n}\n40% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-6.jpg */ "./resources/images/jumbo-6.jpg")) + ");\n}\n60% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-4.jpg */ "./resources/images/jumbo-4.jpg")) + ");\n}\n80% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-5.jpg */ "./resources/images/jumbo-5.jpg")) + ");\n}\n100% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-1.jpg */ "./resources/images/jumbo-1.jpg")) + ");\n}\n}", ""]);
+exports.push([module.i, ".jumbo[data-v-d56888bc] {\n  background-color: #000;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-1.jpg */ "./resources/images/jumbo-1.jpg")) + ");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n  color: rgb(226, 226, 226);\n  width: 100%;\n  height: calc(100vh - 50px);\n  -webkit-backface-visibility: hidden;\n          backface-visibility: hidden;\n  -webkit-animation-name: slideBg-data-v-d56888bc;\n          animation-name: slideBg-data-v-d56888bc;\n  -webkit-animation-duration: 30s;\n          animation-duration: 30s;\n  -webkit-animation-timing-function: step-start;\n          animation-timing-function: step-start;\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n  position: relative;\n}\n.jumbo-overlay[data-v-d56888bc] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 0, 0, 0.6);\n}\n.jumbo-content[data-v-d56888bc] {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  justify-content: space-between;\n  align-items: center;\n}\n@media screen and (max-width: 2000px) {\n.jumbo-content[data-v-d56888bc] {\n    width: 1140px;\n}\n}\n@media screen and (max-width: 1200px) {\n.jumbo-content[data-v-d56888bc] {\n    width: 80%;\n}\n}\n.jumbo-text p[data-v-d56888bc] {\n  font-size: 40px;\n  font-weight: bold;\n  letter-spacing: 1px;\n}\n@media screen and (max-width: 2000px) {\n.jumbo-text p[data-v-d56888bc] {\n    font-size: 30px;\n}\n}\n.jumbo-form[data-v-d56888bc] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.jumbo-form input[data-v-d56888bc] {\n  width: 80%;\n  padding: 10px;\n  border: none;\n  outline: none;\n  border-radius: 20px 0px 0px 20px;\n}\n.jumbo-form button[data-v-d56888bc] {\n  background-color: #537a5a;\n  color: #fff;\n  padding: 10px 20px;\n  border: none;\n  border-radius: 0px 20px 20px 0px;\n  transition: all 0.2s linear;\n}\n.jumbo-form button[data-v-d56888bc]:hover {\n  background-color: #3d5e43;\n}\n.jumbo-social[data-v-d56888bc] {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  padding: 20px;\n}\n.jumbo-social img[data-v-d56888bc] {\n  width: 150px;\n  cursor: pointer;\n  transition: all 0.3s linear;\n}\n.jumbo-social img[data-v-d56888bc]:hover {\n  transform: scale(1.05) translateY(-2px);\n}\n@-webkit-keyframes slideBg-data-v-d56888bc {\n0% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-1.jpg */ "./resources/images/jumbo-1.jpg")) + ");\n}\n20% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-2.png */ "./resources/images/jumbo-2.png")) + ");\n}\n40% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-6.jpg */ "./resources/images/jumbo-6.jpg")) + ");\n}\n60% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-4.jpg */ "./resources/images/jumbo-4.jpg")) + ");\n}\n80% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-5.jpg */ "./resources/images/jumbo-5.jpg")) + ");\n}\n100% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-1.jpg */ "./resources/images/jumbo-1.jpg")) + ");\n}\n}\n@keyframes slideBg-data-v-d56888bc {\n0% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-1.jpg */ "./resources/images/jumbo-1.jpg")) + ");\n}\n20% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-2.png */ "./resources/images/jumbo-2.png")) + ");\n}\n40% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-6.jpg */ "./resources/images/jumbo-6.jpg")) + ");\n}\n60% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-4.jpg */ "./resources/images/jumbo-4.jpg")) + ");\n}\n80% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-5.jpg */ "./resources/images/jumbo-5.jpg")) + ");\n}\n100% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-1.jpg */ "./resources/images/jumbo-1.jpg")) + ");\n}\n}", ""]);
 
 // exports
 
@@ -6641,7 +6690,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".service[data-v-f0afa770] {\n  padding: 100px 0px;\n  margin-top: 200px;\n}\n.service-heading[data-v-f0afa770] {\n  margin-bottom: 50px;\n}\n.service-heading h2[data-v-f0afa770] {\n  font-size: 50px;\n  text-align: center;\n}", ""]);
+exports.push([module.i, ".service[data-v-f0afa770] {\n  background-color: #f9e1f6;\n  padding: 100px 0px;\n  margin-top: 200px;\n}\n.service-heading[data-v-f0afa770] {\n  margin-bottom: 50px;\n}\n.service-heading h2[data-v-f0afa770] {\n  font-size: 50px;\n  text-align: center;\n  font-weight: bold;\n  letter-spacing: 3px;\n}\n.service-cards[data-v-f0afa770] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n@media screen and (max-width: 991px) {\n.service-cards[data-v-f0afa770] {\n    flex-wrap: wrap;\n}\n}\n.service-card[data-v-f0afa770] {\n  margin: 15px 5px;\n  padding: 5px 10px;\n  background: rgba(255, 255, 255, 0.27);\n  border-radius: 16px;\n  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);\n  backdrop-filter: blur(6.2px);\n  -webkit-backdrop-filter: blur(6.2px);\n  border: 1px solid rgba(255, 255, 255, 0.26);\n}\n.service-card_img[data-v-f0afa770] {\n  height: 350px;\n}\n.service-card_img img[data-v-f0afa770] {\n  width: 100%;\n  height: 100%;\n}\n.service-card_text h4[data-v-f0afa770] {\n  text-align: center;\n}", ""]);
 
 // exports
 
@@ -38891,7 +38940,7 @@ var render = function () {
   return _c("section", { staticClass: "events" }, [
     _vm._m(0),
     _vm._v(" "),
-    _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "container-xl" }, [
       _c("div", { staticClass: "row" }, [
         _vm._m(1),
         _vm._v(" "),
@@ -39053,6 +39102,66 @@ var staticRenderFns = [
     return _c("section", { staticClass: "service" }, [
       _c("div", { staticClass: "service-heading" }, [
         _c("h2", [_vm._v("Come Funziona Unison")]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "container-xl" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-12 service-cards" }, [
+            _c("div", { staticClass: "service-card" }, [
+              _c("div", { staticClass: "service-card_img" }, [
+                _c("img", {
+                  attrs: { src: __webpack_require__(/*! ../../../../images/service-1.svg */ "./resources/images/service-1.svg") },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "service-card_text" }, [
+                _c("h4", [_vm._v("Scegli il Musicista")]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "\n                            Lorem ipsum dolor sit amet consectetur,\n                            adipisicing elit. Aspernatur quibusdam sequi\n                            beatae officia, qui expedita aliquam nesciunt\n                            cumque illum quae.\n                        "
+                  ),
+                ]),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "service-card" }, [
+              _c("div", { staticClass: "service-card_img" }, [
+                _c("img", {
+                  attrs: { src: __webpack_require__(/*! ../../../../images/service-2.svg */ "./resources/images/service-2.svg") },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "service-card_text" }, [
+                _c("h4", [_vm._v("Contatta il Musicista")]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "\n                            Lorem ipsum dolor sit amet consectetur,\n                            adipisicing elit. Aspernatur quibusdam sequi\n                            beatae officia, qui expedita aliquam nesciunt\n                            cumque illum quae.\n                        "
+                  ),
+                ]),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "service-card" }, [
+              _c("div", { staticClass: "service-card_img" }, [
+                _c("img", {
+                  attrs: { src: __webpack_require__(/*! ../../../../images/service-3.svg */ "./resources/images/service-3.svg") },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "service-card_text" }, [
+                _c("h4", [_vm._v("Goditi la Musica")]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "\n                            Lorem ipsum dolor sit amet consectetur,\n                            adipisicing elit. Aspernatur quibusdam sequi\n                            beatae officia, qui expedita aliquam nesciunt\n                            cumque illum quae.\n                        "
+                  ),
+                ]),
+              ]),
+            ]),
+          ]),
+        ]),
       ]),
     ])
   },
@@ -54556,6 +54665,39 @@ module.exports = "/images/jumbo-6.jpg?f74a0b86e1e713f36c3e961f3462cdf1";
 
 /***/ }),
 
+/***/ "./resources/images/service-1.svg":
+/*!****************************************!*\
+  !*** ./resources/images/service-1.svg ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/service-1.svg?36dfac5c21687396fc0474822bd25b50";
+
+/***/ }),
+
+/***/ "./resources/images/service-2.svg":
+/*!****************************************!*\
+  !*** ./resources/images/service-2.svg ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/service-2.svg?873386b536739120913088afd1c42f81";
+
+/***/ }),
+
+/***/ "./resources/images/service-3.svg":
+/*!****************************************!*\
+  !*** ./resources/images/service-3.svg ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/service-3.svg?eba2a9055d13786db8f54b0f3ba5d556";
+
+/***/ }),
+
 /***/ "./resources/images/wave.svg":
 /*!***********************************!*\
   !*** ./resources/images/wave.svg ***!
@@ -54563,7 +54705,7 @@ module.exports = "/images/jumbo-6.jpg?f74a0b86e1e713f36c3e961f3462cdf1";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/wave.svg?27b5d5df389ecdf8f47466d3fa41e6c9";
+module.exports = "/images/wave.svg?3d8bc604125d77811c1a4e9267f06eba";
 
 /***/ }),
 

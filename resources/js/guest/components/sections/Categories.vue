@@ -3,7 +3,7 @@
         <div class="events-heading">
             <h2>Eventi</h2>
         </div>
-        <div class="container">
+        <div class="container-xl">
             <div class="row">
                 <div
                     class="col-lg-6 col-md-12 events-image d-flex justify-content-center align-items-center"
@@ -78,10 +78,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
 .events {
     padding: 100px 0px;
     position: relative;
@@ -91,6 +87,8 @@ export default {
         h2 {
             font-size: 50px;
             text-align: center;
+            font-weight: bold;
+            letter-spacing: 3px;
         }
     }
 
@@ -140,6 +138,7 @@ export default {
             width: 100%;
             padding: 10px 20px;
             border: 2px solid #bd5db7;
+            border-radius: 20px;
 
             &:hover {
                 text-decoration: none;
