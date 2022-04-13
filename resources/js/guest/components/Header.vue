@@ -7,7 +7,11 @@
             <li><a class="my_a" href="#">Cerca</a></li>
             <li><a class="my_a" href="#">Categorie</a></li>
             <li><a class="my_a" href="#">Eventi</a></li>
-            <li><a class="my_a" href="#">LOGIN</a></li>
+            <li>
+                <a class="my_a login" href="#">
+                    <span class="my_button">Login</span>
+                </a>
+            </li>
         </ul>
         <ul class="my_ul-icon">
             <li><a class="my_a" href="#">icon</a></li>
@@ -60,7 +64,7 @@ li{
 
 .my_a:hover{
     color: white;
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 .nav-item p{
@@ -69,6 +73,22 @@ li{
 
 .navbar-toggler-icon, .navbar-toggler{
     color: white;
+}
+
+.login{
+    margin-left: 40px;
+}
+
+.my_button{
+    padding: 5px 15px;
+    border: 0;
+    color: white;
+    background: #527A5A;
+    border-radius: 20px;
+}
+
+.my_button:hover{
+    text-decoration: underline;
 }
 
 .my_ul-icon{

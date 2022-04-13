@@ -16,8 +16,16 @@
                 </div>
             </div>
             <div class="jumbo-social">
-                <i class="fa-brands fa-instagram"></i>
-                <i class="fa-brands fa-facebook-square"></i>
+                <a href="#"
+                    ><img
+                        src="../../../../images/app-store.png"
+                        alt="Scarica dall'App Store"
+                /></a>
+                <a href="#"
+                    ><img
+                        src="../../../../images/googleplay.png"
+                        alt="Scarica dal Play Store"
+                /></a>
             </div>
         </div>
     </div>
@@ -111,25 +119,13 @@ export default {
         left: 0;
         padding: 20px;
 
-        i {
-            font-size: 30px;
-            padding: 0px 5px;
+        img {
+            width: 150px;
             cursor: pointer;
             transition: all 0.3s linear;
 
             &:hover {
-                transform: scale(1.2);
-            }
-        }
-
-        i:first-child {
-            &:hover {
-                color: #d12874;
-            }
-        }
-        i:nth-child(2) {
-            &:hover {
-                color: #3b5998;
+                transform: scale(1.05) translateY(-2px);
             }
         }
     }
