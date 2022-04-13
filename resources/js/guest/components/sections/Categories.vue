@@ -8,7 +8,7 @@
                 <div
                     class="col-lg-6 col-md-12 events-image d-flex justify-content-center align-items-center"
                 >
-                    <img src="../../../../images/band.jpg" alt="Evento" />
+                    <img src="../../../../images/band.svg" alt="Evento" />
                 </div>
                 <div class="col-lg-6 col-md-12 events-list">
                     <ul>
@@ -18,6 +18,9 @@
                     </ul>
                 </div>
             </div>
+        </div>
+        <div class="wave">
+            <img src="../../../../images/wave.svg" alt="Evento" />
         </div>
     </section>
 </template>
@@ -81,6 +84,8 @@ export default {
 }
 .events {
     padding: 100px 0px;
+    position: relative;
+
     &-heading {
         margin-bottom: 50px;
         h2 {
@@ -89,7 +94,8 @@ export default {
         }
     }
 
-    .events-image {
+    &-image {
+        z-index: 100;
         img {
             width: 100%;
             height: 100%;
@@ -97,7 +103,14 @@ export default {
         }
     }
 
-    .events-list {
+    &-list {
+        background: rgba(255, 255, 255, 0.27);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(6.2px);
+        -webkit-backdrop-filter: blur(6.2px);
+        border: 1px solid rgba(255, 255, 255, 0.26);
+        z-index: 100;
         ul {
             display: flex;
             flex-wrap: wrap;
@@ -115,6 +128,11 @@ export default {
             @media screen and (max-width: 1200px) {
                 margin: 20px 5px;
             }
+
+            @media screen and (max-width: 600px) {
+                width: 80%;
+                margin: 20px auto;
+            }
         }
 
         a {
@@ -128,6 +146,27 @@ export default {
                 color: #fff;
                 background-color: #bd5db7;
             }
+        }
+    }
+}
+
+.wave {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    overflow: hidden;
+
+    @media screen and (max-width: 991px) {
+        top: 80%;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+
+        @media screen and (max-width: 2000px) {
+            width: 2000px;
         }
     }
 }

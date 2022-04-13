@@ -2113,6 +2113,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Categories",
   data: function data() {
@@ -6705,7 +6708,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".container[data-v-44af3f59] {\n  max-width: 1200px;\n  margin: 0 auto;\n}\n.events[data-v-44af3f59] {\n  padding: 100px 0px;\n}\n.events-heading[data-v-44af3f59] {\n  margin-bottom: 50px;\n}\n.events-heading h2[data-v-44af3f59] {\n  font-size: 50px;\n  text-align: center;\n}\n.events .events-image img[data-v-44af3f59] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.events .events-list ul[data-v-44af3f59] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n}\n.events .events-list li[data-v-44af3f59] {\n  list-style: none;\n  margin: 20px 10px;\n  width: 45%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n@media screen and (max-width: 1200px) {\n.events .events-list li[data-v-44af3f59] {\n    margin: 20px 5px;\n}\n}\n.events .events-list a[data-v-44af3f59] {\n  color: #000;\n  width: 100%;\n  padding: 10px 20px;\n  border: 2px solid #bd5db7;\n}\n.events .events-list a[data-v-44af3f59]:hover {\n  text-decoration: none;\n  color: #fff;\n  background-color: #bd5db7;\n}", ""]);
+exports.push([module.i, ".container[data-v-44af3f59] {\n  max-width: 1200px;\n  margin: 0 auto;\n}\n.events[data-v-44af3f59] {\n  padding: 100px 0px;\n  position: relative;\n}\n.events-heading[data-v-44af3f59] {\n  margin-bottom: 50px;\n}\n.events-heading h2[data-v-44af3f59] {\n  font-size: 50px;\n  text-align: center;\n}\n.events-image[data-v-44af3f59] {\n  z-index: 100;\n}\n.events-image img[data-v-44af3f59] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.events-list[data-v-44af3f59] {\n  background: rgba(255, 255, 255, 0.27);\n  border-radius: 16px;\n  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);\n  backdrop-filter: blur(6.2px);\n  -webkit-backdrop-filter: blur(6.2px);\n  border: 1px solid rgba(255, 255, 255, 0.26);\n  z-index: 100;\n}\n.events-list ul[data-v-44af3f59] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n}\n.events-list li[data-v-44af3f59] {\n  list-style: none;\n  margin: 20px 10px;\n  width: 45%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n@media screen and (max-width: 1200px) {\n.events-list li[data-v-44af3f59] {\n    margin: 20px 5px;\n}\n}\n@media screen and (max-width: 600px) {\n.events-list li[data-v-44af3f59] {\n    width: 80%;\n    margin: 20px auto;\n}\n}\n.events-list a[data-v-44af3f59] {\n  color: #000;\n  width: 100%;\n  padding: 10px 20px;\n  border: 2px solid #bd5db7;\n}\n.events-list a[data-v-44af3f59]:hover {\n  text-decoration: none;\n  color: #fff;\n  background-color: #bd5db7;\n}\n.wave[data-v-44af3f59] {\n  width: 100%;\n  position: absolute;\n  top: 50%;\n  left: 0;\n  overflow: hidden;\n}\n@media screen and (max-width: 991px) {\n.wave[data-v-44af3f59] {\n    top: 80%;\n}\n}\n.wave img[data-v-44af3f59] {\n  width: 100%;\n  height: 100%;\n}\n@media screen and (max-width: 2000px) {\n.wave img[data-v-44af3f59] {\n    width: 2000px;\n}\n}", ""]);
 
 // exports
 
@@ -6763,7 +6766,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".service[data-v-f0afa770] {\n  padding: 100px 0px;\n}\n.service-heading[data-v-f0afa770] {\n  margin-bottom: 50px;\n}\n.service-heading h2[data-v-f0afa770] {\n  font-size: 50px;\n  text-align: center;\n}", ""]);
+exports.push([module.i, ".service[data-v-f0afa770] {\n  padding: 100px 0px;\n  margin-top: 200px;\n}\n.service-heading[data-v-f0afa770] {\n  margin-bottom: 50px;\n}\n.service-heading h2[data-v-f0afa770] {\n  font-size: 50px;\n  text-align: center;\n}", ""]);
 
 // exports
 
@@ -39049,6 +39052,8 @@ var render = function () {
         ]),
       ]),
     ]),
+    _vm._v(" "),
+    _vm._m(2),
   ])
 }
 var staticRenderFns = [
@@ -39072,10 +39077,20 @@ var staticRenderFns = [
       },
       [
         _c("img", {
-          attrs: { src: __webpack_require__(/*! ../../../../images/band.jpg */ "./resources/images/band.jpg"), alt: "Evento" },
+          attrs: { src: __webpack_require__(/*! ../../../../images/band.svg */ "./resources/images/band.svg"), alt: "Evento" },
         }),
       ]
     )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "wave" }, [
+      _c("img", {
+        attrs: { src: __webpack_require__(/*! ../../../../images/wave.svg */ "./resources/images/wave.svg"), alt: "Evento" },
+      }),
+    ])
   },
 ]
 render._withStripped = true
@@ -54702,14 +54717,14 @@ module.exports = "/images/app-store.png?0e328d4b51ee0641d890c8fa6780d8f3";
 
 /***/ }),
 
-/***/ "./resources/images/band.jpg":
+/***/ "./resources/images/band.svg":
 /*!***********************************!*\
-  !*** ./resources/images/band.jpg ***!
+  !*** ./resources/images/band.svg ***!
   \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/band.jpg?6f70d3b4a881f6d8aa8b6691b3d7d995";
+module.exports = "/images/band.svg?b92bd976389daeafaa6600d4eaf6a1a6";
 
 /***/ }),
 
@@ -54776,6 +54791,17 @@ module.exports = "/images/jumbo-5.jpg?a824cc782cf6d96efff839f40b405d97";
 /***/ (function(module, exports) {
 
 module.exports = "/images/jumbo-6.jpg?f74a0b86e1e713f36c3e961f3462cdf1";
+
+/***/ }),
+
+/***/ "./resources/images/wave.svg":
+/*!***********************************!*\
+  !*** ./resources/images/wave.svg ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/wave.svg?43a35363c696e4bc7544c1bd1eb0b68f";
 
 /***/ }),
 
