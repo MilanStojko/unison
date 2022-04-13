@@ -1,6 +1,11 @@
 {
     "/js/admin.js": "/js/admin.js",
     "/css/admin.css": "/css/admin.css",
+<<<<<<< HEAD
     "/css/front.css": "/css/front.css",
     "/js/front.js": "/js/front.js"
+=======
+    "/js/front.js": "/js/front.js",
+    "/css/front.css": "/css/front.css"
+>>>>>>> 405c8b3e1e7fc9d610b37ca4b88746e80ffeeb27
 }
