@@ -15,6 +15,7 @@ export default {
 <style lang="scss" scoped>
 .service {
     padding: 100px 0px;
+    margin-top: 200px;
     &-heading {
         margin-bottom: 50px;
         h2 {

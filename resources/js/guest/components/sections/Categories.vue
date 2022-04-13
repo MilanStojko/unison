@@ -128,6 +128,11 @@ export default {
             @media screen and (max-width: 1200px) {
                 margin: 20px 5px;
             }
+
+            @media screen and (max-width: 600px) {
+                width: 80%;
+                margin: 20px auto;
+            }
         }
 
         a {
@@ -150,10 +155,19 @@ export default {
     position: absolute;
     top: 50%;
     left: 0;
+    overflow: hidden;
+
+    @media screen and (max-width: 991px) {
+        top: 80%;
+    }
 
     img {
         width: 100%;
         height: 100%;
+
+        @media screen and (max-width: 2000px) {
+            width: 2000px;
+        }
     }
 }
 </style>
