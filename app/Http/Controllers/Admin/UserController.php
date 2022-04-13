@@ -23,9 +23,9 @@ class UserController extends Controller
         'cv' => 'nullable|image',
         'cellphone' => 'required|int',
         'address' => 'nullable',
-        'categories' => 'nullable|exist:categories,id',
-        'availabilities' => 'nullable|exist:availabilities,id',
-        'sponsorships' => 'nullable|exist:sponsorships,id',
+        'categories' => 'nullable|exists:categories,id',
+        'availabilities' => 'nullable|exists:availabilities,id',
+        'sponsorships' => 'nullable|exists:sponsorships,id',
         'email' => 'required|string|email|max:255|unique:users',
     ];
 

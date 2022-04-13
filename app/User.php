@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'surname', 'bio', 'username', 'slug', 'avatar', 'cv', 'cellphone', 'address', 'email', 'password'
+        'name', 'surname', 'bio', 'username', 'slug', 'avatar', 'cv', 'cellphone', 'address', 'email', 'password', 'category_id'
     ];
 
     public function categories(){

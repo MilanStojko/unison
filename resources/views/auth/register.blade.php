@@ -75,7 +75,26 @@
                                     @enderror
                                 </div>
                             </div>
-
+                            @if ($categories->count() > 0)
+                                <div class="form-group row">
+                                    <label for="email"
+                                        class="col-md-4 col-form-label text-md-right">{{ __('Categorie') }}</label>
+                                    <select class="selectpicker col-sm-12 md-12" id="selectpicker" name="categories[]"
+                                        required>
+                                        @foreach ($categories as $categories)
+                                            <option class="com-sm-4 md-4" aria-expanded="false"
+                                                value="{{ $categories->id }}">
+                                                <strong>{{ $categories->name }}</strong>
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    @error('category_id')
+                                        <span class="invalid-feedback-detail" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            @endif
                             <div class="form-group row">
                                 <label for="password"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
