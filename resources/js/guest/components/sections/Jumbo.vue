@@ -100,7 +100,7 @@ export default {
 
         input {
             width: 80%;
-            padding: 10px;
+            padding: 10px 20px;
             border: none;
             outline: none;
             border-radius: 20px 0px 0px 20px;
