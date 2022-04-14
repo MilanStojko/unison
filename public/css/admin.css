@@ -10962,3 +10962,10 @@ a.text-dark:focus {
   }
 }
 
+.profile-image {
+  width: 100px;
+  height: 100px;
+  background-color: green;
+  border-radius: 50%;
+}
+
