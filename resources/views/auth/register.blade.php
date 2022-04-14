@@ -78,7 +78,7 @@
                             @if ($categories->count() > 0)
                                 <div class="form-group row">
                                     <label for="category_id"
-                                        class="col-md-4 col-form-label text-md-right">{{ __('Categorie') }}</label>
+                                        class="col-md-4 col-form-label text-md-right">{{ __('Qual è la tua specialità?') }}</label>
                                     <select class="selectpicker col-sm-12 md-12" id="selectpicker" name="category_id"
                                         required>
                                         @foreach ($categories as $categories)
