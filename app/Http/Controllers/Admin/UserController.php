@@ -77,8 +77,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show()
     {
+        $user = Auth::user();
         return view('admin.users.show', compact('user'));
     }
 
@@ -88,8 +89,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit()
     {
+        $user = Auth::user();
         $categories = Category::all();
         $availabilities = Availability::all();
         $sponsorships = Sponsorship::all();
