@@ -78,17 +78,6 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-        // $categories = DB::table('categories')
-        //     ->whereIn(
-        //         'name',
-        //         [
-        //             request()->categories
-        //         ]
-        //     )
-        //     ->pluck('id')->toArray();
-
-        // dd($categories);
-
         $user = User::create([
             'name' => $data['name'],
             'surname' => $data['surname'],
@@ -100,18 +89,5 @@ class RegisterController extends Controller
 
         $user->categories()->attach($data['category_id']);
         return $user;
-    }
-
-    protected function registered(Request $request, $user)
-    {
-
-        $cat = CategoryUser::create([
-            'category_id' => $request['category'],
-            'user_id' => $user->id
-        ]);
-
-        dd($cat);
-
-        return $cat;
     }
 }
