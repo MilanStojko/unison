@@ -63,7 +63,6 @@ export default {
 
 <style lang="scss" scoped>
 .service {
-    background-color: #f9e1f6;
     padding: 100px 0px;
     margin-top: 200px;
     &-heading {

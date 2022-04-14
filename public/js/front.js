@@ -2188,7 +2188,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Instruments",
+  name: "Categories",
   data: function data() {
     return {
       instruments: [{
@@ -6776,7 +6776,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".container[data-v-349fd402] {\n  max-width: 1200px;\n  margin: 0 auto;\n}\n.events[data-v-349fd402] {\n  padding: 100px 0px;\n}\n.events-heading[data-v-349fd402] {\n  margin-bottom: 50px;\n}\n.events-heading h2[data-v-349fd402] {\n  font-size: 50px;\n  text-align: center;\n}\n.events .events-image img[data-v-349fd402] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.events .events-list ul[data-v-349fd402] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n}\n.events .events-list li[data-v-349fd402] {\n  list-style: none;\n  margin: 20px 10px;\n  width: 45%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n@media screen and (max-width: 1200px) {\n.events .events-list li[data-v-349fd402] {\n    margin: 20px 5px;\n}\n}\n.events .events-list a[data-v-349fd402] {\n  color: #000;\n  width: 100%;\n  padding: 10px 20px;\n  border: 2px solid #527A5A;\n}\n.events .events-list a[data-v-349fd402]:hover {\n  text-decoration: none;\n  color: #fff;\n  background-color: #527A5A;\n}", ""]);
+exports.push([module.i, ".instruments[data-v-349fd402] {\n  padding: 100px 0px;\n  position: relative;\n  background-color: #f9e1f6;\n}\n.instruments-heading[data-v-349fd402] {\n  margin-bottom: 50px;\n}\n.instruments-heading h2[data-v-349fd402] {\n  font-size: 50px;\n  text-align: center;\n  font-weight: bold;\n  letter-spacing: 3px;\n}\n.instruments-image[data-v-349fd402] {\n  z-index: 100;\n}\n.instruments-image img[data-v-349fd402] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.instruments-list[data-v-349fd402] {\n  background: white;\n  border-radius: 16px;\n  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);\n  backdrop-filter: blur(6.2px);\n  -webkit-backdrop-filter: blur(6.2px);\n  border: 1px solid rgba(255, 255, 255, 0.26);\n  z-index: 100;\n}\n.instruments-list ul[data-v-349fd402] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n}\n.instruments-list li[data-v-349fd402] {\n  list-style: none;\n  margin: 20px 10px;\n  width: 45%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n@media screen and (max-width: 1200px) {\n.instruments-list li[data-v-349fd402] {\n    margin: 20px 5px;\n}\n}\n@media screen and (max-width: 600px) {\n.instruments-list li[data-v-349fd402] {\n    width: 80%;\n    margin: 20px auto;\n}\n}\n.instruments-list a[data-v-349fd402] {\n  color: #000;\n  width: 100%;\n  padding: 10px 20px;\n  border: 2px solid #527A5A;\n  border-radius: 20px;\n}\n.instruments-list a[data-v-349fd402]:hover {\n  text-decoration: none;\n  color: #fff;\n  background-color: #527A5A;\n}\n.wave[data-v-349fd402] {\n  width: 100%;\n  position: absolute;\n  top: 50%;\n  left: 0;\n  overflow: hidden;\n}\n@media screen and (max-width: 991px) {\n.wave[data-v-349fd402] {\n    top: 80%;\n}\n}\n.wave img[data-v-349fd402] {\n  width: 100%;\n  height: 100%;\n}\n@media screen and (max-width: 2000px) {\n.wave img[data-v-349fd402] {\n    width: 2000px;\n}\n}", ""]);
 
 // exports
 
@@ -6815,7 +6815,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".service[data-v-f0afa770] {\n  background-color: #f9e1f6;\n  padding: 100px 0px;\n  margin-top: 200px;\n}\n.service-heading[data-v-f0afa770] {\n  margin-bottom: 50px;\n}\n.service-heading h2[data-v-f0afa770] {\n  font-size: 50px;\n  text-align: center;\n  font-weight: bold;\n  letter-spacing: 3px;\n}\n.service-cards[data-v-f0afa770] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n@media screen and (max-width: 991px) {\n.service-cards[data-v-f0afa770] {\n    flex-wrap: wrap;\n}\n}\n.service-card[data-v-f0afa770] {\n  margin: 15px 5px;\n  padding: 5px 10px;\n  background: rgba(255, 255, 255, 0.27);\n  border-radius: 16px;\n  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);\n  backdrop-filter: blur(6.2px);\n  -webkit-backdrop-filter: blur(6.2px);\n  border: 1px solid rgba(255, 255, 255, 0.26);\n}\n.service-card_img[data-v-f0afa770] {\n  height: 350px;\n}\n.service-card_img img[data-v-f0afa770] {\n  width: 100%;\n  height: 100%;\n}\n.service-card_text h4[data-v-f0afa770] {\n  text-align: center;\n}", ""]);
+exports.push([module.i, ".service[data-v-f0afa770] {\n  padding: 100px 0px;\n  margin-top: 200px;\n}\n.service-heading[data-v-f0afa770] {\n  margin-bottom: 50px;\n}\n.service-heading h2[data-v-f0afa770] {\n  font-size: 50px;\n  text-align: center;\n  font-weight: bold;\n  letter-spacing: 3px;\n}\n.service-cards[data-v-f0afa770] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n@media screen and (max-width: 991px) {\n.service-cards[data-v-f0afa770] {\n    flex-wrap: wrap;\n}\n}\n.service-card[data-v-f0afa770] {\n  margin: 15px 5px;\n  padding: 5px 10px;\n  background: rgba(255, 255, 255, 0.27);\n  border-radius: 16px;\n  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);\n  backdrop-filter: blur(6.2px);\n  -webkit-backdrop-filter: blur(6.2px);\n  border: 1px solid rgba(255, 255, 255, 0.26);\n}\n.service-card_img[data-v-f0afa770] {\n  height: 350px;\n}\n.service-card_img img[data-v-f0afa770] {\n  width: 100%;\n  height: 100%;\n}\n.service-card_text h4[data-v-f0afa770] {\n  text-align: center;\n}", ""]);
 
 // exports
 
@@ -6853,7 +6853,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n*[data-v-083b147e]{\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\n}\n.logo[data-v-083b147e]{\r\n    font-size: 30px;\n}\nnav[data-v-083b147e]{\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    background-color: rgb(42, 41, 41);\r\n    height: 50px;\r\n    padding: 0px 20px;\r\n    color: white;\n}\n.my_ul[data-v-083b147e]{\r\n    margin: 0;\r\n    padding: 0;\r\n    display: flex;\r\n    align-items: center;\n}\nli[data-v-083b147e]{\r\n    float: left;\r\n    padding: 0px 15px;\r\n    list-style: none;\n}\n.my_a[data-v-083b147e]{\r\n    text-decoration: none;\r\n    color: white;\n}\n.my_ul .my_a p[data-v-083b147e]{\r\n    transition: 1s;\n}\n.my_ul .my_a p[data-v-083b147e]:hover{\r\n    color: white;\r\n    transform: scale(1.3);\n}\n.my_ul .my_a:hover .my_button[data-v-083b147e]{\r\n    color: white;\r\n    transform: scale(1.1);\n}\n.navbar-toggler-icon[data-v-083b147e], .navbar-toggler[data-v-083b147e], .nav-item p[data-v-083b147e]{\r\n    color: white;\n}\n.my_button[data-v-083b147e]{\r\n    padding: 5px 15px;\r\n    border: 0;\r\n    color: white;\r\n    background: #527A5A;\r\n    border-radius: 20px;\r\n    margin-left: 40px;\n}\n.my_ul-icon[data-v-083b147e]{\r\n    display: none;\r\n    margin: 0;\r\n    padding: 0;\n}\n@media only screen and (max-width: 700px){\n.my_ul-icon[data-v-083b147e]{\r\n        display: block;\n}\n.my_ul[data-v-083b147e]{\r\n        display: none;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n*[data-v-083b147e]{\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n.logo[data-v-083b147e]{\n    font-size: 30px;\n}\nnav[data-v-083b147e]{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    background-color: rgb(42, 41, 41);\n    height: 50px;\n    padding: 0px 20px;\n    color: white;\n}\n.my_ul[data-v-083b147e]{\n    margin: 0;\n    padding: 0;\n    display: flex;\n    align-items: center;\n}\nli[data-v-083b147e]{\n    float: left;\n    padding: 0px 15px;\n    list-style: none;\n}\n.my_a[data-v-083b147e]{\n    text-decoration: none;\n    color: white;\n}\n.my_ul .my_a p[data-v-083b147e]{\n    transition: 1s;\n}\n.my_ul .my_a p[data-v-083b147e]:hover{\n    color: white;\n    transform: scale(1.3);\n}\n.my_ul .my_a:hover .my_button[data-v-083b147e]{\n    color: white;\n    transform: scale(1.1);\n}\n.navbar-toggler-icon[data-v-083b147e], .navbar-toggler[data-v-083b147e], .nav-item p[data-v-083b147e]{\n    color: white;\n}\n.my_button[data-v-083b147e]{\n    padding: 5px 15px;\n    border: 0;\n    color: white;\n    background: #527A5A;\n    border-radius: 20px;\n    margin-left: 40px;\n}\n.my_ul-icon[data-v-083b147e]{\n    display: none;\n    margin: 0;\n    padding: 0;\n}\n@media only screen and (max-width: 700px){\n.my_ul-icon[data-v-083b147e]{\n        display: block;\n}\n.my_ul[data-v-083b147e]{\n        display: none;\n}\n}\n", ""]);
 
 // exports
 
@@ -39163,12 +39163,12 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", { staticClass: "events" }, [
+  return _c("section", { staticClass: "instruments" }, [
     _vm._m(0),
     _vm._v(" "),
-    _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "container-xl" }, [
       _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-lg-6 col-md-12 events-list" }, [
+        _c("div", { staticClass: "col-lg-6 col-md-12 instruments-list" }, [
           _c(
             "ul",
             _vm._l(_vm.instruments, function (instrument, index) {
@@ -39192,7 +39192,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "events-heading" }, [
+    return _c("div", { staticClass: "instruments-heading" }, [
       _c("h2", [_vm._v("Strumenti")]),
     ])
   },
@@ -39204,13 +39204,13 @@ var staticRenderFns = [
       "div",
       {
         staticClass:
-          "col-lg-6 col-md-12 events-image d-flex justify-content-center align-items-center",
+          "col-lg-6 col-md-12 instruments-image d-flex justify-content-center align-items-center",
       },
       [
         _c("img", {
           attrs: {
-            src: __webpack_require__(/*! ../../../../images/Strumenti.webp */ "./resources/images/Strumenti.webp"),
-            alt: "Evento",
+            src: __webpack_require__(/*! ../../../../images/Composer-rafiki.svg */ "./resources/images/Composer-rafiki.svg"),
+            alt: "Strumento",
           },
         }),
       ]
@@ -54804,14 +54804,14 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./resources/images/Strumenti.webp":
-/*!*****************************************!*\
-  !*** ./resources/images/Strumenti.webp ***!
-  \*****************************************/
+/***/ "./resources/images/Composer-rafiki.svg":
+/*!**********************************************!*\
+  !*** ./resources/images/Composer-rafiki.svg ***!
+  \**********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Strumenti.webp?0602c68d616548b22eeed244ca0c5003";
+module.exports = "/images/Composer-rafiki.svg?494ef01ffb74263147758704d9fc7326";
 
 /***/ }),
 
@@ -54943,7 +54943,7 @@ module.exports = "/images/service-3.svg?eba2a9055d13786db8f54b0f3ba5d556";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/wave.svg?3d8bc604125d77811c1a4e9267f06eba";
+module.exports = "/images/wave.svg?aef79995629b40b24f4277c44b0be010";
 
 /***/ }),
 
@@ -55783,7 +55783,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\hamza\Desktop\Boolean\unison\resources\js\guest\front.js */"./resources/js/guest/front.js");
+module.exports = __webpack_require__(/*! /Users/francescoabritta/Documents/unison/resources/js/guest/front.js */"./resources/js/guest/front.js");
 
 
 /***/ })

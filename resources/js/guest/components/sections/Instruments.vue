@@ -1,12 +1,11 @@
 <template>
-    <section class="events">
-        <div class="events-heading">
+    <section class="instruments">
+        <div class="instruments-heading">
             <h2>Strumenti</h2>
         </div>
-        <div class="container">
+        <div class="container-xl">
             <div class="row">
-                
-                <div class="col-lg-6 col-md-12 events-list">
+                <div class="col-lg-6 col-md-12 instruments-list">
                     <ul>
                         <li v-for="(instrument, index) in instruments" :key="index">
                             <a href="#">{{ instrument.name }}</a>
@@ -14,10 +13,11 @@
                     </ul>
                 </div>
                 <div
-                    class="col-lg-6 col-md-12 events-image d-flex justify-content-center align-items-center"
+                    class="col-lg-6 col-md-12 instruments-image d-flex justify-content-center align-items-center"
                 >
-                    <img src="../../../../images/Strumenti.webp" alt="Evento" />
+                    <img src="../../../../images/Composer-rafiki.svg" alt="Strumento" />
                 </div>
+                
             </div>
         </div>
     </section>
@@ -25,7 +25,7 @@
 
 <script>
 export default {
-    name: "Instruments",
+    name: "Categories",
 
     data() {
         return {
@@ -70,21 +70,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-.events {
+.instruments {
     padding: 100px 0px;
+    position: relative;
+    background-color: #f9e1f6;
+
     &-heading {
         margin-bottom: 50px;
         h2 {
             font-size: 50px;
             text-align: center;
+            font-weight: bold;
+            letter-spacing: 3px;
         }
     }
 
-    .events-image {
+    &-image {
+        z-index: 100;
         img {
             width: 100%;
             height: 100%;
@@ -92,7 +94,15 @@ export default {
         }
     }
 
-    .events-list {
+    &-list {
+        // background: rgba(255, 255, 255, 0.27);
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(6.2px);
+        -webkit-backdrop-filter: blur(6.2px);
+        border: 1px solid rgba(255, 255, 255, 0.26);
+        z-index: 100;
         ul {
             display: flex;
             flex-wrap: wrap;
@@ -110,6 +120,11 @@ export default {
             @media screen and (max-width: 1200px) {
                 margin: 20px 5px;
             }
+
+            @media screen and (max-width: 600px) {
+                width: 80%;
+                margin: 20px auto;
+            }
         }
 
         a {
@@ -117,12 +132,34 @@ export default {
             width: 100%;
             padding: 10px 20px;
             border: 2px solid #527A5A;
+            border-radius: 20px;
 
             &:hover {
                 text-decoration: none;
                 color: #fff;
                 background-color: #527A5A;
             }
+        }
+    }
+}
+
+.wave {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    overflow: hidden;
+
+    @media screen and (max-width: 991px) {
+        top: 80%;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+
+        @media screen and (max-width: 2000px) {
+            width: 2000px;
         }
     }
 }
