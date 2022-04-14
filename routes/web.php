@@ -25,4 +25,6 @@ Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->
     Route::resource('users', 'UserController');
 });
 
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('{any?}', function () {
+    return view('front');
+})->where("any", ".*");
