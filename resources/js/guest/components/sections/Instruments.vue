@@ -7,7 +7,10 @@
             <div class="row">
                 <div class="col-lg-6 col-md-12 instruments-list">
                     <ul>
-                        <li v-for="(instrument, index) in instruments" :key="index">
+                        <li
+                            v-for="(instrument, index) in instruments"
+                            :key="index"
+                        >
                             <a href="#">{{ instrument.name }}</a>
                         </li>
                     </ul>
@@ -15,9 +18,11 @@
                 <div
                     class="col-lg-6 col-md-12 instruments-image d-flex justify-content-center align-items-center"
                 >
-                    <img src="../../../../images/Composer-rafiki.svg" alt="Strumento" />
+                    <img
+                        src="../../../../images/Composer-rafiki.svg"
+                        alt="Strumento"
+                    />
                 </div>
-                
             </div>
         </div>
     </section>
@@ -75,6 +80,10 @@ export default {
     position: relative;
     background-color: #f9e1f6;
 
+    @media screen and(min-width: 2000px) {
+        margin-top: 80px;
+    }
+
     &-heading {
         margin-bottom: 50px;
         h2 {
@@ -131,13 +140,13 @@ export default {
             color: #000;
             width: 100%;
             padding: 10px 20px;
-            border: 2px solid #527A5A;
+            border: 2px solid #527a5a;
             border-radius: 20px;
 
             &:hover {
                 text-decoration: none;
                 color: #fff;
-                background-color: #527A5A;
+                background-color: #527a5a;
             }
         }
     }
