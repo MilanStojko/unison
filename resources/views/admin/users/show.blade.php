@@ -7,7 +7,22 @@
                 <div class="card">
                     <div class="card-header">La tua dashboard</div>
                     <div class="card-content">
-                        <h1></h1>
+                        <h1>
+                            {{$user->name}}
+                        </h1>
+                        <span>Categorie</span>
+                        <ul>
+                            @foreach($user->categories as $category)
+                            <li>{{$category->name}}</li>
+                            @endforeach
+                        </ul>
+                        <span>Prestazioni</span>
+                        <ul>
+                            @foreach($user->availabilities as $availability)
+                            <li>{{$availability->name}}</li>
+                            @endforeach
+                        </ul>
+                        <a href="{{route('admin.users.edit', auth()->user())}}">edit</a>
                     </div>
                 </div>
             </div>
