@@ -12,3 +12,4 @@ npm-debug.log
 yarn-error.log
 /public/js/front.js
 /public/js/admin.js
+/public/mix-manifest.json
