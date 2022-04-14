@@ -22,7 +22,8 @@ Auth::routes();
 
 Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->group(function () {
     Route::get('/', 'HomeController@index')->name('home');
-    Route::resource('posts', 'PostController');
+    Route::resource('/user', 'UserController');
+    Route::post('/update/{user}', 'UserController@update')->name('user.update');
 });
 
 Route::get('{any?}', function () {

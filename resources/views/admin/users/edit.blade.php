@@ -7,28 +7,33 @@
                 <div class="card">
                     <div class="card-header">Edit User</div>
                     <div class="card-content">
-                        <form action="{{route('admin.users.update'), $user->id}}" method="POST">
-                            @csrf
+                        <form action="{{ route('admin.user.update'), $user->id }}" method="POST">
                             @method('PUT')
+                            @csrf
                             {{-- NOME --}}
                             <div class="form-group">
                                 <label for="">Nome</label>
-                                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="nome" value="{{old('name'), $user->name}}" required>
+                                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
+                                    placeholder="nome" value="{{ old('name'), $user->name }}" required>
                             </div>
                             {{-- COGNOME --}}
                             <div class="form-group">
                                 <label for="">Cognome</label>
-                                <input type="text" name="surname" class="form-control @error('surname') is-invalid @enderror" placeholder="cognome" value="{{old('surname'), $user->surname}}" required>
+                                <input type="text" name="surname" class="form-control @error('surname') is-invalid @enderror"
+                                    placeholder="cognome" value="{{ old('surname'), $user->surname }}" required>
                             </div>
-                             {{-- DESC --}}
-                             <div class="form-group">
+                            {{-- DESC --}}
+                            <div class="form-group">
                                 <label>Bio</label>
-                                <textarea name="bio" class="form-control @error('bio') is-invalid @enderror" cols="30" rows="10" required>{{old('bio', $post->bio)}}</textarea>
+                                <textarea name="bio" class="form-control @error('bio') is-invalid @enderror" cols="30" rows="10"
+                                    required>{{ old('bio', $post->bio) }}</textarea>
                             </div>
                             {{-- NICK --}}
                             <div class="form-group">
                                 <label for="">Username</label>
-                                <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" placeholder="username" value="{{old('username'), $user->username}}" required>
+                                <input type="text" name="username"
+                                    class="form-control @error('username') is-invalid @enderror" placeholder="username"
+                                    value="{{ old('username'), $user->username }}" required>
                             </div>
                             {{-- AVATAR --}}
                             <div class="form-group">
@@ -43,21 +48,24 @@
                             {{-- CELL --}}
                             <div class="form-group">
                                 <label for="">Num. Cellulare</label>
-                                <input type="tel" name="cellphone" class="form-control @error('cellphone') is-invalid @enderror" required>
+                                <input type="tel" name="cellphone"
+                                    class="form-control @error('cellphone') is-invalid @enderror" required>
                             </div>
                             {{-- INDIRIZZO --}}
                             <div class="form-group">
                                 <label for="">Indirizzo</label>
-                                <input type="text" name="address" class="form-control @error('address') is-invalid @enderror" placeholder="address" value="{{old('address'), $user->address}}" required>
+                                <input type="text" name="address"
+                                    class="form-control @error('address') is-invalid @enderror" placeholder="address"
+                                    value="{{ old('address'), $user->address }}" required>
                             </div>
-                            {{--CAT--}}
+                            {{-- CAT --}}
                             <div class="form-group">
                                 <label for="">Categorie</label>
                                 <select name="category_id" class="form-control">
                                     <option value="">-- select a category --</option>
                                 </select>
                             </div>
-                            {{--SPEC--}}
+                            {{-- SPEC --}}
                             <div class="form-group">
                                 <label for="">Prestazioni</label>
                                 <select name="availability_id" class="form-control">
@@ -67,7 +75,8 @@
                             {{-- EMAIL --}}
                             <div class="form-group">
                                 <label for="">Email</label>
-                                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="email" value="{{old('email'), $user->email}}" required>
+                                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
+                                    placeholder="email" value="{{ old('email'), $user->email }}" required>
                             </div>
                             {{-- SUBMIT --}}
                             <div class="form-group">

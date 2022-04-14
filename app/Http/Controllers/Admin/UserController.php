@@ -94,7 +94,7 @@ class UserController extends Controller
         $availabilities = Availability::all();
         $sponsorships = Sponsorship::all();
 
-        return view('admin.users.edit', compact('user', 'categories', 'availabilities', 'sponsorships'));
+        return view('admin.users.edit', compact(['user', 'categories', 'availabilities', 'sponsorships']));
     }
 
     /**
@@ -110,7 +110,15 @@ class UserController extends Controller
 
         $data = $request->all();
 
-        $data["slug"] = ($user->title == $data['name']) ? $user->slug : $this->slug($data["name"], $user->id);
+        $data["slug"] = ($user->title == $data['name']) ? $user->slug : $this->slug($data['name'], $user->id);
+
+        $user->update($data);
+
+        $user->categories()->sync(isset($data['categories']) ? $data['categories'] : []);
+        $user->sponsorships()->sync(isset($data['sponsorships']) ? $data['sponsorships'] : []);
+        $user->availabilities()->sync(isset($data['availabilities']) ? $data['availabilities'] : []);
+
+        return redirect()->route('admin.users.show', $user->id);
     }
 
     /**
