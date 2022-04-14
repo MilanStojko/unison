@@ -55,15 +55,16 @@
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="">
+                            <a class="nav-link active" href="{{route('admin.home')}}">
                                 <i class="bi bi-house-door"></i>
-                                Dashboard
+                                Main menu
                             </a>
                         </li>
+                        <h1></h1>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{route('admin.users.show', auth()->user())}}">
                                 <i class="bi bi-people"></i>
-                                Users
+                                Il mio profilo
                             </a>
                         </li>
                         <li class="nav-item">
