@@ -16,8 +16,28 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'surname', 'bio', 'username', 'slug', 'avatar', 'cv', 'cellphone', 'address', 'email', 'password', 'category_id'
     ];
+
+    public function categories(){
+        return $this->belongsToMany('App\Category');
+    }
+
+    public function availabilities(){
+        return $this->belongsToMany('App\Availability');
+    }
+
+    public function sponsorships(){
+        return $this->belongsToMany('App\Sponsorship');
+    }
+
+    public function messages(){
+        return $this->hasMany('App\Message');
+    }
+
+    public function reviews(){
+        return $this->hasMany('App\Review');
+    }
 
     /**
      * The attributes that should be hidden for arrays.
