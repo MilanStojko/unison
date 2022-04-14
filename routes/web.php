@@ -20,11 +20,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->group(function () {
-    Route::get('/', 'HomeController@index')->name('home');
-    Route::resource('users', 'UserController');
-});
-
 Route::get('{any?}', function () {
     return view('front');
 })->where("any", ".*");
