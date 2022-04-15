@@ -3,17 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Message;
+use App\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class MessageController extends Controller
+class ReviewController extends Controller
 {
-
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
     /**
      * Display a listing of the resource.
      *
@@ -21,8 +16,8 @@ class MessageController extends Controller
      */
     public function index()
     {
-        $messages = Message::where('user_id', Auth::user()->id)->get();
-        return view('admin.messages.index', compact('messages'));
+        $reviews = Review::where('user_id', Auth::user()->id)->get();
+        return view('admin.reviews.index', compact('reviews'));
     }
 
     /**

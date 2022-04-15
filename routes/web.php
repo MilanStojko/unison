@@ -23,7 +23,8 @@ Auth::routes();
 Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->group(function () {
     Route::get('/', 'HomeController@index')->name('home');
     Route::resource('/users', 'UserController');
-    //Route::post('/update/{user}', 'UserController@update')->name('user.update');
+    Route::resource('/messages', 'MessageController');
+    Route::resource('/reviews', 'ReviewController');
 });
 
 Route::get('{any?}', function () {
