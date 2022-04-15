@@ -17,16 +17,16 @@ class UserController extends Controller
     protected $validation = [
         'name' => 'required|string|max:255',
         'surname' => 'required|string|max:25',
-        'bio' => 'required|text|max:255',
-        'username' => 'required|string|max:255|unique:users',
+        'bio' => 'required|string|max:255',
+        'username' => 'nullable|string|max:255',
         'avatar' => 'nullable|image',
         'cv' => 'nullable|image',
-        'cellphone' => 'required|int',
+        'cellphone' => 'nullable',
         'address' => 'nullable',
         'categories' => 'nullable|exists:categories,id',
         'availabilities' => 'nullable|exists:availabilities,id',
         'sponsorships' => 'nullable|exists:sponsorships,id',
-        'email' => 'required|string|email|max:255|unique:users',
+        'email' => 'required|string|email|max:255',
     ];
 
     protected function slug($title = "", $id = "")
@@ -77,8 +77,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show()
     {
+        $user = Auth::user();
         return view('admin.users.show', compact('user'));
     }
 
@@ -88,8 +89,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit()
     {
+        $user = Auth::user();
         $categories = Category::all();
         $availabilities = Availability::all();
         $sponsorships = Sponsorship::all();

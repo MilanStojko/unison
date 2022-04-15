@@ -24,46 +24,42 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark flex-md-nowrap p-0">
-        <a class="navbar-brand col-sm-3 col-md-2" href="#">Boolpress</a>
-        <ul class="navbar-nav px-3">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Go</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false" v-pre>
-                    {{ Auth::user()->name }}
-                </a>
-
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+        
+    <nav class="u_navbar">
+        <a class="logo" href="http://127.0.0.1:8000/">Unison</a>
+                <div>
+                    <a class="logout" href="{{ route('logout') }}" onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
+
+<i class="bi bi-door-open-fill"></i> 
+{{ __('Logout') }}
                     </a>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>
                 </div>
-            </li>
-        </ul>
     </nav>
     <div class="container-fluid">
         <div class="row">
-            <nav class="col-md-2 d-none d-md-block bg-light sidebar py-4">
+            <nav class="u_menu">
                 <div class="sidebar-sticky">
+                    <div class="u_menu-info">
+                        <img src="{{URL::asset('/images/jumbo-2.png')}}">
+
+                        <h4>{{auth()->user()->name}} {{auth()->user()->surname}}</h4>
+                    </div>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="">
+                            <a class="nav-link active" href="{{route('admin.home')}}">
                                 <i class="bi bi-house-door"></i>
-                                Dashboard
+                                Main menu
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{route('admin.users.show', auth()->user())}}">
                                 <i class="bi bi-people"></i>
-                                Users
+                                Il mio profilo
                             </a>
                         </li>
                         <li class="nav-item">
@@ -83,7 +79,7 @@
             </nav>
 
 
-            <main class="col-md-9 col-lg-10 px-4 py-4">
+            <main class="u_main">
                 @yield('content')
             </main>
         </div>

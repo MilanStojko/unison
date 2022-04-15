@@ -1,16 +1,7 @@
 @extends('layouts.menu')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">La tua dashboard</div>
-                    <div class="card-content">
-                        <h1></h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="card-header py-4 d-flex justify-content-between align-items-center">
+    <h2><i class="bi bi-house-door"></i> Home</h2>
+</div>
 @endsection
