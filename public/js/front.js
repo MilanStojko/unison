@@ -2048,10 +2048,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Header",
   data: function data() {
     return {
+      click: 0,
       link: [{
         name: "Cerca"
       }, {
@@ -2060,6 +2080,11 @@ __webpack_require__.r(__webpack_exports__);
         name: "Eventi"
       }]
     };
+  },
+  methods: {
+    show: function show(click) {
+      this.click = !click;
+    }
   }
 });
 
@@ -6864,7 +6889,11 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
+<<<<<<< HEAD
+exports.push([module.i, "\n.burger-wrapper[data-v-083b147e] {\n  cursor: pointer;\n}\n#menyAvPaa[data-v-083b147e] {\n    display: none;\n}\n#burger[data-v-083b147e] {\n    position: absolute;\n    cursor: pointer;\n    width: 2rem;\n    height: 1.5rem;\n    right: 1rem;\n    top: 1rem;\n    display: flex;\n    justify-content: space-between;\n    flex-direction: column;\n}\n#burger > div[data-v-083b147e] {\n    height: 4px;\n    background-color: white;\n    transition: 0.5s;\n    z-index: 999;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e] {\n  background-color: #fff;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(1) {\n    transform: translateY(10px) rotate(45deg);\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(2) {\n    opacity: 0;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(3) {\n    transform: translateY(-10px) rotate(-45deg);\n}\n.slide-fade-enter-active[data-v-083b147e] {\n  transition: opacity 1.5s ease-out;\n}\n.slide-fade-leave-active[data-v-083b147e] {\n  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);\n}\n.slide-fade-enter-from[data-v-083b147e],\n.slide-fade-leave-to[data-v-083b147e] {\n  transform: translateX(20px);\n  opacity: 0;\n}\n*[data-v-083b147e] {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n.logo[data-v-083b147e] {\n  font-size: 30px;\n}\nnav[data-v-083b147e] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: rgb(42, 41, 41);\n  height: 50px;\n  padding: 0px 20px;\n  color: white;\n  position: relative;\n}\n.my_ul[data-v-083b147e] {\n  margin: 0;\n  padding: 0;\n  display: flex;\n  align-items: center;\n}\n.my_ul li[data-v-083b147e] {\n  float: left;\n  padding: 0px 15px;\n  list-style: none;\n}\n.my_a[data-v-083b147e] {\n  text-decoration: none;\n  color: white;\n}\n.my_ul .my_a p[data-v-083b147e] {\n  transition: 1s;\n}\n.my_ul .my_a p[data-v-083b147e]:hover {\n  color: white;\n  transform: scale(1.3);\n}\n.my_ul .my_a:hover .my_button[data-v-083b147e] {\n  color: white;\n  transform: scale(1.1);\n}\n.navbar-toggler-icon[data-v-083b147e],\n.navbar-toggler[data-v-083b147e],\n.nav-item p[data-v-083b147e] {\n  color: white;\n}\n.my_button[data-v-083b147e] {\n  padding: 5px 15px;\n  border: 0;\n  color: white;\n  background: #527a5a;\n  border-radius: 15px;\n}\n.my_ul-icon[data-v-083b147e] {\n  display: none;\n  margin: 0;\n  padding: 0;\n}\n.my_ul-icon li[data-v-083b147e]{\n  list-style: none;\n}\n.listmenu[data-v-083b147e]{\n  position: absolute;\n  right: 0;\n  z-index: 999;\n  padding: 20px;\n  width: 100%;\n  height: calc(100vh - 50px);\n  text-align: center;\n  background: rgb(255, 255, 255, 0.9);\n  display: flex;\n  flex-direction: column;\n}\n.listmenu li[data-v-083b147e]{\n  line-height: 100px;\n  font-weight: bold;\n  font-size: 40px;\n  list-style: none;\n}\n.listmenu .buttonlogin[data-v-083b147e]{\n  margin-top: 50px;\n}\n.my_a_mobile[data-v-083b147e] {\n  text-decoration: none;\n  color: black;\n}\n@media only screen and (max-width: 700px) {\n.my_ul-icon[data-v-083b147e] {\n    display: block;\n}\n.my_ul[data-v-083b147e] {\n    display: none;\n}\n}\n", ""]);
+=======
 exports.push([module.i, "\n*[data-v-083b147e] {\r\n  margin: 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\n}\n.logo[data-v-083b147e] {\r\n  font-size: 30px;\n}\nnav[data-v-083b147e] {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  background-color: rgb(42, 41, 41);\r\n  height: 50px;\r\n  padding: 0px 20px;\r\n  color: white;\n}\n.my_ul[data-v-083b147e] {\r\n  margin: 0;\r\n  padding: 0;\r\n  display: flex;\r\n  align-items: center;\n}\nli[data-v-083b147e] {\r\n  float: left;\r\n  padding: 0px 15px;\r\n  list-style: none;\n}\n.my_a[data-v-083b147e] {\r\n  text-decoration: none;\r\n  color: white;\n}\n.my_ul .my_a p[data-v-083b147e] {\r\n  transition: 1s;\n}\n.my_ul .my_a p[data-v-083b147e]:hover {\r\n  color: white;\r\n  transform: scale(1.3);\n}\n.my_ul .my_a:hover .my_button[data-v-083b147e] {\r\n  color: white;\r\n  transform: scale(1.1);\n}\n.navbar-toggler-icon[data-v-083b147e],\r\n.navbar-toggler[data-v-083b147e],\r\n.nav-item p[data-v-083b147e] {\r\n  color: white;\n}\n.my_button[data-v-083b147e] {\r\n  padding: 5px 15px;\r\n  border: 0;\r\n  color: white;\r\n  background: #527a5a;\r\n  border-radius: 20px;\r\n  margin-left: 40px;\n}\n.my_ul-icon[data-v-083b147e] {\r\n  display: none;\r\n  margin: 0;\r\n  padding: 0;\n}\n@media only screen and (max-width: 700px) {\n.my_ul-icon[data-v-083b147e] {\r\n    display: block;\n}\n.my_ul[data-v-083b147e] {\r\n    display: none;\n}\n}\r\n", ""]);
+>>>>>>> 9609833e8b794f365611d58d17b49ee131c7ba5a
 
 // exports
 
@@ -39000,28 +39029,96 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("nav", [
-    _c("div", { staticClass: "logo" }, [_vm._v("UNISON")]),
-    _vm._v(" "),
-    _c(
-      "ul",
-      { staticClass: "my_ul" },
-      [
-        _vm._l(_vm.link, function (voice, index) {
-          return _c("li", { key: index }, [
-            _c("a", { staticClass: "my_a", attrs: { href: "#" } }, [
-              _c("p", [_vm._v(_vm._s(voice.name))]),
-            ]),
-          ])
-        }),
+  return _c(
+    "div",
+    [
+      _c("nav", [
+        _c("div", { staticClass: "logo" }, [_vm._v("UNISON")]),
         _vm._v(" "),
-        _vm._m(0),
-      ],
-      2
-    ),
-    _vm._v(" "),
-    _vm._m(1),
-  ])
+        _c(
+          "ul",
+          { staticClass: "my_ul" },
+          [
+            _vm._l(_vm.link, function (voice, index) {
+              return _c("li", { key: index }, [
+                _c("a", { staticClass: "my_a", attrs: { href: "#" } }, [
+                  _c("p", [_vm._v(_vm._s(voice.name))]),
+                ]),
+              ])
+            }),
+            _vm._v(" "),
+            _vm._m(0),
+          ],
+          2
+        ),
+        _vm._v(" "),
+        _c("ul", { staticClass: "my_ul-icon" }, [
+          _c("li", [
+            _c("input", {
+              attrs: { type: "checkbox", id: "menyAvPaa" },
+              on: {
+                click: function ($event) {
+                  return _vm.show(_vm.click)
+                },
+              },
+            }),
+            _vm._v(" "),
+            _vm._m(1),
+          ]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("Transition", { attrs: { name: "slide-fade" } }, [
+        _c(
+          "div",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.click == 1,
+                expression: "click==1",
+              },
+            ],
+            staticClass: "listmenu",
+          },
+          [
+            _c(
+              "ul",
+              [
+                _vm._l(_vm.link, function (voice, indice) {
+                  return _c("li", { key: indice }, [
+                    _c(
+                      "a",
+                      { staticClass: "my_a_mobile", attrs: { href: "#" } },
+                      [_c("span", [_vm._v(_vm._s(voice.name))])]
+                    ),
+                  ])
+                }),
+                _vm._v(" "),
+                _c("li", { staticClass: "buttonlogin" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "my_a login",
+                      attrs: { href: "http://127.0.0.1:8000/login" },
+                    },
+                    [
+                      _c("span", { staticClass: "my_button" }, [
+                        _vm._v("Login"),
+                      ]),
+                    ]
+                  ),
+                ]),
+              ],
+              2
+            ),
+          ]
+        ),
+      ]),
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function () {
@@ -39043,12 +39140,12 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("ul", { staticClass: "my_ul-icon" }, [
-      _c("li", [
-        _c("a", { staticClass: "my_a", attrs: { href: "#" } }, [
-          _vm._v("icon"),
-        ]),
-      ]),
+    return _c("label", { attrs: { id: "burger", for: "menyAvPaa" } }, [
+      _c("div"),
+      _vm._v(" "),
+      _c("div"),
+      _vm._v(" "),
+      _c("div"),
     ])
   },
 ]
