@@ -58,7 +58,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link u_menu-info-link" href="{{route('admin.users.show', auth()->user())}}">
+                            <a class="nav-link u_menu-info-link {{request()->is('admin/users/*') ? 'menu-active' : ''}}" href="{{route('admin.users.show', auth()->user())}}">
                                 <i class="bi bi-people"></i>
                                 Il mio profilo
                             </a>
@@ -81,7 +81,6 @@
 
 
             <main class="u_main">
-
                 @yield('content')
             </main>
         </div>
