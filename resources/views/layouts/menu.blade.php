@@ -52,7 +52,7 @@
                     </div>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link u_menu-info-link" href="{{route('admin.home')}}">
+                            <a class="nav-link u_menu-info-link {{request()->is('admin') ? 'menu-active' : ''}}" href="{{route('admin.home')}}">
                                 <i class="bi bi-house-door"></i>
                                 Main menu
                             </a>
@@ -81,6 +81,7 @@
 
 
             <main class="u_main">
+
                 @yield('content')
             </main>
         </div>

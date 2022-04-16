@@ -11079,7 +11079,7 @@ li {
   font-size: 20px;
 }
 
-.u_menu .active {
+.u_menu .menu-active {
   background-color: #0b0d0d;
   border-left: 2px solid #f4821f;
 }
@@ -11261,5 +11261,49 @@ li {
 .category_spec-label {
   color: #f4821f !important;
   border-bottom: 1px solid #dcdcdc;
+}
+
+.app-logo {
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-size: 30px;
+  color: #f4821f;
+  padding-left: 10px;
+}
+
+.app-logo:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+.app-link {
+  padding: 5px 10px;
+  font-size: 16px;
+  border-bottom: 2px solid #343a40;
+  /*@media screen and (width: 767px) {
+      background-color: #0b0d0d;
+      border-bottom: 2px solid #0b0d0d;
+  }
+  */
+}
+
+.app-link a {
+  color: #fff !important;
+}
+
+.app-link a:hover {
+  color: #f4821f !important;
+}
+
+.app-link i {
+  padding-right: 5px;
+}
+
+.app-active {
+  border-bottom: 2px solid #f4821f;
+}
+
+.app-active a {
+  color: #f4821f !important;
 }
 
