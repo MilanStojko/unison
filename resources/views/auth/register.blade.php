@@ -4,10 +4,10 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Register') }}</div>
+                
+                    <div class="card-header u_register-header">{{ __('Registrati') }}</div>
 
-                    <div class="card-body">
+                    <div class="u_register">
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
 
@@ -79,7 +79,7 @@
                                 <div class="form-group row">
                                     <label for="category_id"
                                         class="col-md-4 col-form-label text-md-right">{{ __('Qual è la tua specialità?') }}</label>
-                                    <select class="selectpicker col-sm-12 md-12" id="selectpicker" name="category_id"
+                                    <select class="" id="selectpicker" name="category_id"
                                         required>
                                         @foreach ($categories as $categories)
                                             <option class="com-sm-4 md-4" aria-expanded="false"
@@ -131,7 +131,7 @@
                             </div>
                         </form>
                     </div>
-                </div>
+                
             </div>
         </div>
     </div>
