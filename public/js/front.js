@@ -2023,70 +2023,9 @@ __webpack_require__.r(__webpack_exports__);
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/guest/components/Header.vue?vue&type=script&lang=js& ***!
   \***********************************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Header",
-  data: function data() {
-    return {
-      click: 0,
-      link: [{
-        name: "Cerca"
-      }, {
-        name: "Categorie"
-      }, {
-        name: "Eventi"
-      }]
-    };
-  },
-  methods: {
-    show: function show(click) {
-      this.click = !click;
-    }
-  }
-});
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/francescoabritta/Documents/unison/resources/js/guest/components/Header.vue: Unexpected token (67:0)\n\n\u001b[0m \u001b[90m 65 |\u001b[39m   data() {\u001b[0m\n\u001b[0m \u001b[90m 66 |\u001b[39m     \u001b[36mreturn\u001b[39m {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 67 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 68 |\u001b[39m       click\u001b[33m:\u001b[39m \u001b[35m0\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 69 |\u001b[39m \u001b[33m===\u001b[39m\u001b[33m===\u001b[39m\u001b[33m=\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 70 |\u001b[39m \u001b[33m>>>\u001b[39m\u001b[33m>>>\u001b[39m\u001b[33m>\u001b[39m db6154c1beb86863c6c1650de9919cf7900fa26d\u001b[0m\n    at instantiate (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:72:32)\n    at constructor (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:358:12)\n    at Parser.raise (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:3335:19)\n    at Parser.unexpected (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:3373:16)\n    at Parser.parsePropertyName (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:13748:24)\n    at Parser.parsePropertyDefinition (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:13579:22)\n    at Parser.parseObjectLike (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:13499:21)\n    at Parser.parseExprAtom (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:12890:23)\n    at Parser.parseExprSubscripts (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:12540:23)\n    at Parser.parseUpdate (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:12519:21)\n    at Parser.parseMaybeUnary (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:12490:23)\n    at Parser.parseMaybeUnaryOrPrivate (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:12284:61)\n    at Parser.parseExprOps (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:12291:23)\n    at Parser.parseMaybeConditional (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:12261:23)\n    at Parser.parseMaybeAssign (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:12214:21)\n    at Parser.parseExpressionBase (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:12150:23)\n    at /Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:12144:39\n    at Parser.allowInAnd (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:14236:16)\n    at Parser.parseExpression (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:12144:17)\n    at Parser.parseReturnStatement (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:14948:28)\n    at Parser.parseStatementContent (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:14587:21)\n    at Parser.parseStatement (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:14533:17)\n    at Parser.parseBlockOrModuleBlockBody (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:15176:25)\n    at Parser.parseBlockBody (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:15167:10)\n    at Parser.parseBlock (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:15151:10)\n    at Parser.parseFunctionBody (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:13841:24)\n    at Parser.parseFunctionBodyAndFinish (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:13825:10)\n    at Parser.parseMethod (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:13775:10)\n    at Parser.parseObjectMethod (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:13651:19)\n    at Parser.parseObjPropValue (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:13692:23)\n    at Parser.parsePropertyDefinition (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:13609:10)\n    at Parser.parseObjectLike (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:13499:21)\n    at Parser.parseExprAtom (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:12890:23)\n    at Parser.parseExprSubscripts (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:12540:23)\n    at Parser.parseUpdate (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:12519:21)\n    at Parser.parseMaybeUnary (/Users/francescoabritta/Documents/unison/node_modules/@babel/parser/lib/index.js:12490:23)");
 
 /***/ }),
 
@@ -6882,17 +6821,9 @@ exports.push([module.i, "\nfooter[data-v-4a9fdc62]{\n    padding: 60px;\n    bac
   !*** ./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/guest/components/Header.vue?vue&type=style&index=0&id=083b147e&scoped=true&lang=css& ***!
   \******************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.burger-wrapper[data-v-083b147e] {\n  cursor: pointer;\n}\n#menyAvPaa[data-v-083b147e] {\n    display: none;\n}\n#burger[data-v-083b147e] {\n    position: absolute;\n    cursor: pointer;\n    width: 2rem;\n    height: 1.5rem;\n    right: 1rem;\n    top: 1rem;\n    display: flex;\n    justify-content: space-between;\n    flex-direction: column;\n}\n#burger > div[data-v-083b147e] {\n    height: 4px;\n    background-color: white;\n    transition: 0.5s;\n    z-index: 999;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e] {\n  background-color: #fff;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(1) {\n    transform: translateY(10px) rotate(45deg);\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(2) {\n    opacity: 0;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(3) {\n    transform: translateY(-10px) rotate(-45deg);\n}\n.slide-fade-enter-active[data-v-083b147e] {\n  transition: opacity 1.5s ease-out;\n}\n.slide-fade-leave-active[data-v-083b147e] {\n  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);\n}\n.slide-fade-enter-from[data-v-083b147e],\n.slide-fade-leave-to[data-v-083b147e] {\n  transform: translateX(20px);\n  opacity: 0;\n}\n*[data-v-083b147e] {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n.logo[data-v-083b147e] {\n  font-size: 30px;\n}\nnav[data-v-083b147e] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: rgb(42, 41, 41);\n  height: 50px;\n  padding: 0px 20px;\n  color: white;\n  position: relative;\n}\n.my_ul[data-v-083b147e] {\n  margin: 0;\n  padding: 0;\n  display: flex;\n  align-items: center;\n}\n.my_ul li[data-v-083b147e] {\n  float: left;\n  padding: 0px 15px;\n  list-style: none;\n}\n.my_a[data-v-083b147e] {\n  text-decoration: none;\n  color: white;\n}\n.my_ul .my_a p[data-v-083b147e] {\n  transition: 1s;\n}\n.my_ul .my_a p[data-v-083b147e]:hover {\n  color: white;\n  transform: scale(1.3);\n}\n.my_ul .my_a:hover .my_button[data-v-083b147e] {\n  color: white;\n  transform: scale(1.1);\n}\n.navbar-toggler-icon[data-v-083b147e],\n.navbar-toggler[data-v-083b147e],\n.nav-item p[data-v-083b147e] {\n  color: white;\n}\n.my_button[data-v-083b147e] {\n  padding: 5px 15px;\n  border: 0;\n  color: white;\n  background: #527a5a;\n  border-radius: 15px;\n}\n.my_ul-icon[data-v-083b147e] {\n  display: none;\n  margin: 0;\n  padding: 0;\n}\n.my_ul-icon li[data-v-083b147e]{\n  list-style: none;\n}\n.listmenu[data-v-083b147e]{\n  position: absolute;\n  right: 0;\n  z-index: 999;\n  padding: 20px;\n  width: 100%;\n  height: calc(100vh - 50px);\n  text-align: center;\n  background: rgb(255, 255, 255, 0.9);\n  display: flex;\n  flex-direction: column;\n}\n.listmenu li[data-v-083b147e]{\n  line-height: 100px;\n  font-weight: bold;\n  font-size: 40px;\n  list-style: none;\n}\n.listmenu .buttonlogin[data-v-083b147e]{\n  margin-top: 50px;\n}\n.my_a_mobile[data-v-083b147e] {\n  text-decoration: none;\n  color: black;\n}\n@media only screen and (max-width: 700px) {\n.my_ul-icon[data-v-083b147e] {\n    display: block;\n}\n.my_ul[data-v-083b147e] {\n    display: none;\n}\n}\n", ""]);
-
-// exports
-
+throw new Error("Module build failed (from ./node_modules/postcss-loader/src/index.js):\nSyntaxError\n\n(167:1) Unknown word\n\n \u001b[90m 165 | \u001b[39m  text-decoration\u001b[33m:\u001b[39m none\u001b[33m;\u001b[39m\n \u001b[90m 166 | \u001b[39m  color\u001b[33m:\u001b[39m white\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 167 | \u001b[39m>>>>>>> db6154c1beb86863c6c1650de9919cf7900fa26d\n \u001b[90m     | \u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 168 | \u001b[39m\u001b[33m}\u001b[39m\n \u001b[90m 169 | \u001b[39m\u001b[35m#menyAvPaa\u001b[39m\u001b[33m:\u001b[39mchecked ~ \u001b[35m#burger\u001b[39m > div\u001b[33m:\u001b[39m\u001b[36mnth-child\u001b[39m\u001b[36m(2)\u001b[39m \u001b[33m{\u001b[39m\n");
 
 /***/ }),
 
@@ -39021,131 +38952,8 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("nav", [
-        _c("div", { staticClass: "logo" }, [_vm._v("UNISON")]),
-        _vm._v(" "),
-        _c(
-          "ul",
-          { staticClass: "my_ul" },
-          [
-            _vm._l(_vm.link, function (voice, index) {
-              return _c("li", { key: index }, [
-                _c("a", { staticClass: "my_a", attrs: { href: "#" } }, [
-                  _c("p", [_vm._v(_vm._s(voice.name))]),
-                ]),
-              ])
-            }),
-            _vm._v(" "),
-            _vm._m(0),
-          ],
-          2
-        ),
-        _vm._v(" "),
-        _c("ul", { staticClass: "my_ul-icon" }, [
-          _c("li", [
-            _c("input", {
-              attrs: { type: "checkbox", id: "menyAvPaa" },
-              on: {
-                click: function ($event) {
-                  return _vm.show(_vm.click)
-                },
-              },
-            }),
-            _vm._v(" "),
-            _vm._m(1),
-          ]),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("Transition", { attrs: { name: "slide-fade" } }, [
-        _c(
-          "div",
-          {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: _vm.click == 1,
-                expression: "click==1",
-              },
-            ],
-            staticClass: "listmenu",
-          },
-          [
-            _c(
-              "ul",
-              [
-                _vm._l(_vm.link, function (voice, indice) {
-                  return _c("li", { key: indice }, [
-                    _c(
-                      "a",
-                      { staticClass: "my_a_mobile", attrs: { href: "#" } },
-                      [_c("span", [_vm._v(_vm._s(voice.name))])]
-                    ),
-                  ])
-                }),
-                _vm._v(" "),
-                _c("li", { staticClass: "buttonlogin" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "my_a login",
-                      attrs: { href: "http://127.0.0.1:8000/login" },
-                    },
-                    [
-                      _c("span", { staticClass: "my_button" }, [
-                        _vm._v("Login"),
-                      ]),
-                    ]
-                  ),
-                ]),
-              ],
-              2
-            ),
-          ]
-        ),
-      ]),
-    ],
-    1
-  )
-}
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c(
-        "a",
-        {
-          staticClass: "my_a login",
-          attrs: { href: "http://127.0.0.1:8000/login" },
-        },
-        [_c("p", { staticClass: "my_button" }, [_vm._v("Login")])]
-      ),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { id: "burger", for: "menyAvPaa" } }, [
-      _c("div"),
-      _vm._v(" "),
-      _c("div"),
-      _vm._v(" "),
-      _c("div"),
-    ])
-  },
-]
-render._withStripped = true
+var render = function () {}
+var staticRenderFns = []
 
 
 

@@ -1,9 +1,13 @@
 <template>
+<<<<<<< HEAD
 <div>
+=======
+>>>>>>> db6154c1beb86863c6c1650de9919cf7900fa26d
   <nav>
     <div class="logo">UNISON</div>
     <ul class="my_ul">
       <li v-for="(voice, index) in link" :key="index">
+<<<<<<< HEAD
         <a class="my_a" href="#"><p>{{ voice.name }}</p></a>
       </li>
       <li>
@@ -36,6 +40,22 @@
 </div>
 
   
+=======
+        <a class="my_a" href="#"
+          ><p>{{ voice.name }}</p></a
+        >
+      </li>
+      <li>
+        <a class="my_a login" href="http://127.0.0.1:8000/login"
+          ><p class="my_button">Login</p></a
+        >
+      </li>
+    </ul>
+    <ul class="my_ul-icon">
+      <li><a class="my_a" href="#">icon</a></li>
+    </ul>
+  </nav>
+>>>>>>> db6154c1beb86863c6c1650de9919cf7900fa26d
 </template>
 
 <script>
@@ -44,7 +64,10 @@ export default {
 
   data() {
     return {
+<<<<<<< HEAD
       click: 0,
+=======
+>>>>>>> db6154c1beb86863c6c1650de9919cf7900fa26d
       link: [
         {
           name: "Cerca",
@@ -58,15 +81,19 @@ export default {
       ],
     };
   },
+<<<<<<< HEAD
   methods:{
     show: function(click){
       this.click=!click;
     },
   }
+=======
+>>>>>>> db6154c1beb86863c6c1650de9919cf7900fa26d
 };
 </script>
 
 <style scoped>
+<<<<<<< HEAD
 
 
 .burger-wrapper {
@@ -100,6 +127,44 @@ export default {
 
 #menyAvPaa:checked ~ #burger > div:nth-child(1) {
     transform: translateY(10px) rotate(45deg);
+=======
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.logo {
+  font-size: 30px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(42, 41, 41);
+  height: 50px;
+  padding: 0px 20px;
+  color: white;
+}
+
+.my_ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+li {
+  float: left;
+  padding: 0px 15px;
+  list-style: none;
+}
+
+.my_a {
+  text-decoration: none;
+  color: white;
+>>>>>>> db6154c1beb86863c6c1650de9919cf7900fa26d
 }
 #menyAvPaa:checked ~ #burger > div:nth-child(2) {
     opacity: 0;
@@ -112,6 +177,7 @@ export default {
 
 
 
+<<<<<<< HEAD
 
 
 
@@ -201,10 +267,42 @@ nav {
   border-radius: 15px;
 }
 
+=======
+.my_ul .my_a p {
+  transition: 1s;
+}
+
+.my_ul .my_a p:hover {
+  color: white;
+  transform: scale(1.3);
+}
+
+.my_ul .my_a:hover .my_button {
+  color: white;
+  transform: scale(1.1);
+}
+
+.navbar-toggler-icon,
+.navbar-toggler,
+.nav-item p {
+  color: white;
+}
+
+.my_button {
+  padding: 5px 15px;
+  border: 0;
+  color: white;
+  background: #527a5a;
+  border-radius: 20px;
+  margin-left: 40px;
+}
+
+>>>>>>> db6154c1beb86863c6c1650de9919cf7900fa26d
 .my_ul-icon {
   display: none;
   margin: 0;
   padding: 0;
+<<<<<<< HEAD
 }
 
 .my_ul-icon li{
@@ -240,6 +338,10 @@ nav {
   color: black;
 }
 
+=======
+}
+
+>>>>>>> db6154c1beb86863c6c1650de9919cf7900fa26d
 @media only screen and (max-width: 700px) {
   .my_ul-icon {
     display: block;
