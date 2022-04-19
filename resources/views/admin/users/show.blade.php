@@ -13,6 +13,7 @@
             </div>
         </div>
 
+
         <div class="u_info">
             <div class="u_info-head">
                 <div class="profile-image">
@@ -57,6 +58,7 @@
                             <li>{{$user->email}}</li>
                             
                             <li>
+                                @if(count($user->categories) > 0)
                                 @foreach($user->categories as $category)
                                 {{$category->name}}
 
@@ -64,8 +66,14 @@
                                     ,
                                     @endif
                                 @endforeach
+
+                                @else 
+                                {{'-'}}
+
+                                @endif
                             </li>
                             <li>
+                                @if(count($user->availabilities) > 0)
                                 @foreach($user->availabilities as $availability)
                                 {{$availability->name}}
 
@@ -73,6 +81,11 @@
                                     ,
                                     @endif
                                 @endforeach
+
+                                @else 
+                                {{'-'}}
+
+                                @endif
                             </li>
                             
                         </ul>

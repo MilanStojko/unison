@@ -373,7 +373,6 @@ li {
         padding: 20px;
         font-size: 20px;
         text-align: center;
-
     }
 
     select {
@@ -383,4 +382,79 @@ li {
         margin-left: 15px;
         border: 1px solid #ccc;
     }
+}
+
+// Messages
+
+.u_messages {
+    padding: 50px 0px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .u_message {
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        padding: 20px;
+        margin: 30px auto;
+        width: 800px;
+        -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
+
+        &_text {
+            border-bottom: 1px solid #f2f3f7;
+
+            span {
+                background-color: #212121;
+                color: #fff;
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                border-radius: 50%;
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    a {
+        color: $back-primary;
+        text-decoration: underline;
+
+        &:hover {
+            color: #212121;
+        }
+    }
+
+    button {
+        border: none;
+        align-self: center;
+        background-color: #212121;
+        color: #fff;
+        padding: 5px 15px;
+    }
+
+    .vote {
+        color: #f4821f;
+    }
+}
+
+.paragraph {
+    display: block;
+    overflow: hidden;
+    height: 3.6em;
+    line-height: 1.8em;
+    margin: 10px 0px;
+}
+
+.showContent p {
+    height: auto;
+}
+
+.message-box {
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
 }

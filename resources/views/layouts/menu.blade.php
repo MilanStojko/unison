@@ -64,13 +64,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link u_menu-info-link" href="{{route('admin.messages.index')}}">
+                            <a class="nav-link u_menu-info-link {{request()->is('admin/messages') ? 'menu-active' : ''}}" href="{{route('admin.messages.index')}}">
                                 <i class="bi bi-chat-dots"></i>
                                 Messaggi
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link u_menu-info-link" href="{{route('admin.reviews.index')}}">
+                            <a class="nav-link u_menu-info-link {{request()->is('admin/reviews') ? 'menu-active' : ''}}" href="{{route('admin.reviews.index')}}">
                                 <i class="bi bi-file-text"></i>
                                 Recensioni
                             </a>
@@ -85,6 +85,17 @@
             </main>
         </div>
     </div>
+
+    <script>
+       function changeButton(e) {
+           if(e.textContent == 'Read More') {
+            e.textContent = 'Read Less'
+           } else if(e.textContent == 'Read Less') {
+            e.textContent = 'Read More'
+           }
+       }
+        
+    </script>
 </body>
 
 </html>
