@@ -24,6 +24,7 @@
 </head>
 
 <body>
+
         
     <nav class="u_navbar">
         <a class="logo" href="http://127.0.0.1:8000/">Unison</a>
@@ -51,27 +52,27 @@
                     </div>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="{{route('admin.home')}}">
+                            <a class="nav-link u_menu-info-link {{request()->is('admin') ? 'menu-active' : ''}}" href="{{route('admin.home')}}">
                                 <i class="bi bi-house-door"></i>
                                 Main menu
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('admin.users.show', auth()->user())}}">
+                            <a class="nav-link u_menu-info-link {{request()->is('admin/users/*') ? 'menu-active' : ''}}" href="{{route('admin.users.show', auth()->user())}}">
                                 <i class="bi bi-people"></i>
                                 Il mio profilo
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="bi bi-binoculars"></i>
-                                Availabilities
+                            <a class="nav-link u_menu-info-link" href="{{route('admin.messages.index')}}">
+                                <i class="bi bi-chat-dots"></i>
+                                Messaggi
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="bi bi-tag"></i>
-                                Categories
+                            <a class="nav-link u_menu-info-link" href="{{route('admin.reviews.index')}}">
+                                <i class="bi bi-file-text"></i>
+                                Recensioni
                             </a>
                         </li>
                     </ul>

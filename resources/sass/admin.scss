@@ -73,7 +73,7 @@ li {
 }
 
 .u_menu {
-    background-color: #253031;
+    background-color: #212121;
     height: 100vh;
     padding: 20px 0px;
     width: 300px;
@@ -118,6 +118,11 @@ li {
     i {
         font-size: 20px;
     }
+
+    .menu-active {
+        background-color: #0b0d0d;
+        border-left: 2px solid $back-primary;
+    }
 }
 
 .show {
@@ -143,7 +148,7 @@ li {
     a {
         color: #000;
         border: 1px solid #000;
-        padding: 5px;
+        padding: 10px;
         background-color: #fff;
 
         &:hover {
@@ -151,6 +156,8 @@ li {
             color: #fff;
             background-color: $back-primary;
             border: 1px solid $back-primary;
+            -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
         }
     }
 }
@@ -169,6 +176,7 @@ li {
         display: flex;
         justify-content: flex-start;
         align-items: center;
+        border-radius: 10px;
 
         &_text {
             margin-left: 20px;
@@ -189,6 +197,7 @@ li {
         color: #515151;
         -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
         box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
 
         .personal-info {
             border-bottom: 2px solid #f2f3f7;
@@ -256,12 +265,15 @@ li {
     margin: 0 auto;
     background-color: #fff;
     margin-top: 50px;
+    margin-bottom: 50px;
     -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 
     &_header {
         color: #f2f3f7;
-        background-color: #253031;
+        background-color: #212121;
         padding: 20px;
     }
 
@@ -295,5 +307,80 @@ li {
     &-label {
         color: $back-primary !important;
         border-bottom: 1px solid #dcdcdc;
+    }
+}
+
+// Layout app.blade Navbar
+.app-logo {
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-size: 30px;
+    color: $back-primary;
+    padding-left: 10px;
+
+    &:hover {
+        text-decoration: none;
+        color: #fff;
+    }
+}
+
+.app-link {
+    padding: 5px 10px;
+    font-size: 16px;
+    border-bottom: 2px solid #212121;
+
+    /*@media screen and (width: 767px) {
+        background-color: #0b0d0d;
+        border-bottom: 2px solid #0b0d0d;
+    }
+    */
+
+    a {
+        color: #fff !important;
+
+        &:hover {
+            color: $back-primary !important;
+        }
+    }
+    i {
+        padding-right: 5px;
+    }
+}
+
+.app-active {
+    border-bottom: 2px solid $back-primary;
+
+    a {
+        color: #f4821f !important;
+    }
+}
+
+.u_log-navbar {
+    background-color: #212121;
+}
+
+// Register / Login
+.u_register {
+    padding: 30px 20px;
+    border: none;
+    background-color: #fff;
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
+    &-header {
+        margin-top: 50px;
+        color: #f2f3f7;
+        background-color: #212121;
+        padding: 20px;
+        font-size: 20px;
+        text-align: center;
+
+    }
+
+    select {
+        width: 200px;
+        align-self: center;
+        justify-self: center;
+        margin-left: 15px;
+        border: 1px solid #ccc;
     }
 }
