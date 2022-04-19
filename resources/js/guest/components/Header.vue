@@ -7,7 +7,13 @@
         <a class="my_a" href="#"><p>{{ voice.name }}</p></a>
       </li>
       <li>
-        <a class="my_a login" href="http://127.0.0.1:8000/login"><p class="my_button">Login</p></a>
+          <a class="my_a login" href="http://127.0.0.1:8000/login"><p class="my_button">Login</p></a>
+        <!-- <span v-if="isLoggedIn()">
+          <a class="my_a login" href="http://127.0.0.1:8000/login"><p class="my_button">Profilo</p></a>
+        </span>
+        <span v-else>
+          <a class="my_a login" href="http://127.0.0.1:8000/login"><p class="my_button">Login</p></a>
+        </span> -->
       </li>
     </ul>
     <ul class="my_ul-icon">
@@ -58,9 +64,21 @@ export default {
       ],
     };
   },
+  computed: {
+    isLoggedIn() {      
+      return window.localStorage.getItem("username");      
+    }
+  },
   methods:{
     show: function(click){
       this.click=!click;
+    },
+    login() {      
+      window.location.replace("http://127.0.0.1:8000/login");
+    },
+    logout() {
+      window.localStorage.removeItem("username");
+      window.location.replace("http://127.0.0.1:8000/login");
     },
   }
 };
