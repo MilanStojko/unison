@@ -16,7 +16,7 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        $reviews = Review::where('user_id', Auth::user()->id)->get();
+        $reviews = Review::where('user_id', Auth::user()->id)->orderBy('id', 'DESC')->get();
         return view('admin.reviews.index', compact('reviews'));
     }
 
