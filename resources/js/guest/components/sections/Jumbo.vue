@@ -9,11 +9,13 @@
                         typesetting industry. Lorem Ipsum has been the
                         industry's standard
                     </p>
+                    
                 </div>
                 <div class="col-lg-6 col-md-12 jumbo-form">
                     <input type="text" placeholder="Cerca Musicista" />
                     <button>Cerca</button>
                 </div>
+            <Filtra/>
             </div>
             <div class="jumbo-social">
                 <a href="#"
@@ -32,8 +34,13 @@
 </template>
 
 <script>
+import Filtra from "./Filtra.vue";
+
 export default {
     name: "Jumbo",
+    components:{
+        Filtra
+    }
 };
 </script>
 

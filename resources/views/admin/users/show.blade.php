@@ -17,7 +17,11 @@
         <div class="u_info">
             <div class="u_info-head">
                 <div class="profile-image">
-                    <img src="{{URL::asset('/images/jumbo-2.png')}}">
+                    @if(isset($user->avatar))
+                        <img src="{{asset("storage/{$user->avatar}")}}" alt="">
+                    @else   
+                        <img src="{{URL::asset('/images/jumbo-2.png')}}">
+                    @endif
                 </div>
 
                 <div class="u_info-head_text">
