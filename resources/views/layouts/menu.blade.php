@@ -64,15 +64,15 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link u_menu-info-link" href="#">
-                                <i class="bi bi-binoculars"></i>
-                                Availabilities
+                            <a class="nav-link u_menu-info-link" href="{{route('admin.messages.index')}}">
+                                <i class="bi bi-chat-dots"></i>
+                                Messaggi
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link u_menu-info-link" href="#">
-                                <i class="bi bi-tag"></i>
-                                Categories
+                            <a class="nav-link u_menu-info-link" href="{{route('admin.reviews.index')}}">
+                                <i class="bi bi-file-text"></i>
+                                Recensioni
                             </a>
                         </li>
                     </ul>
