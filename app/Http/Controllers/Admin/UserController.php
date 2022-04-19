@@ -69,7 +69,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-
     }
 
     /**
@@ -114,10 +113,13 @@ class UserController extends Controller
         $data = $request->all();
 
         $data["slug"] = ($user->title == $data['name']) ? $user->slug : $this->slug($data['name'], $user->id);
-        if(isset($data['avatar'])){
+        if (isset($data['avatar'])) {
             $img_path = Storage::put('uploads', $data['avatar']);
             $data['avatar'] = $img_path;
         }
+
+        $data["slug"] = ($user->name == $data['name']) ? $user->slug : $this->slug($data['name'], $user->id);
+        dd($data['slug']);
         $user->update($data);
 
         $user->categories()->sync(isset($data['categories']) ? $data['categories'] : []);
