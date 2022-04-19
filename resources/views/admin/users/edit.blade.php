@@ -8,7 +8,7 @@
         <div class="u_edit-form_header">
             <h3>Modifica il mio profilo</h3>
         </div>
-        <form action="{{ route('admin.users.update', auth()->user()) }}" method="POST">
+        <form action="{{ route('admin.users.update', auth()->user()) }}" method="POST" enctype="multipart/form-data">
             @method('PUT')
             @csrf
             {{-- NOME --}}
@@ -41,7 +41,7 @@
             {{-- AVATAR --}}
             <div class="form-group">
                 <label for="">Image</label>
-                <input type="file" name="image" class="form-control">
+                <input type="file" name="avatar" class="form-control">
             </div>
             {{-- CV --}}
             <div class="form-group">

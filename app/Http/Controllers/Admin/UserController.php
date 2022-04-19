@@ -10,6 +10,7 @@ use App\Sponsorship;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -19,8 +20,8 @@ class UserController extends Controller
         'surname' => 'required|string|max:25',
         'bio' => 'required|string|max:255',
         'username' => 'nullable|string|max:255',
-        'avatar' => 'nullable|image',
-        'cv' => 'nullable|image',
+        'avatar' => 'nullable|image|mimes:jpeg,png|max:2048',
+        'cv' => 'nullable|file|mimes:pdf|max:2048',
         'cellphone' => 'nullable',
         'address' => 'nullable',
         'categories' => 'nullable|exists:categories,id',
@@ -68,7 +69,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -113,7 +114,10 @@ class UserController extends Controller
         $data = $request->all();
 
         $data["slug"] = ($user->title == $data['name']) ? $user->slug : $this->slug($data['name'], $user->id);
-
+        if(isset($data['avatar'])){
+            $img_path = Storage::put('uploads', $data['avatar']);
+            $data['avatar'] = $img_path;
+        }
         $user->update($data);
 
         $user->categories()->sync(isset($data['categories']) ? $data['categories'] : []);
