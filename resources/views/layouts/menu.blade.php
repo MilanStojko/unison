@@ -46,7 +46,11 @@
             <nav class="u_menu">
                 <div class="sidebar-sticky">
                     <div class="u_menu-info">
-                        <img src="{{URL::asset('/images/jumbo-2.png')}}">
+                        @if(isset($user->avatar))
+                            <img src="{{asset("storage/{$user->avatar}")}}" alt="">
+                         @else   
+                            <img src="{{URL::asset('/images/jumbo-2.png')}}">
+                         @endif
 
                         <h4>{{auth()->user()->name}} {{auth()->user()->surname}}</h4>
                     </div>
