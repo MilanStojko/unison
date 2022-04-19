@@ -1,7 +1,6 @@
 @extends('layouts.menu')
 
 @section('content')
-    
     <div class="show">
         <div class="card-header py-4 d-flex justify-content-between align-items-center">
             <h2><i class="bi bi-people"></i> Il mio profilo</h2>
@@ -53,7 +52,7 @@
                             <li>{{$user->name}} </li>
                             <li>{{$user->surname}}</li>
                             <li>{{$user->username}}</li>
-                            <li>{{$user->address}}</li>
+                            <li>{{$user->address ? $user->address : '-'}}</li>
                             <li>{{$user->cellphone ? $user->cellphone : '-'}}</li>
                             <li>{{$user->email}}</li>
                             
@@ -83,12 +82,12 @@
 
                 <div class="personal-data">
                     <div class="messages-reviews">
-                        <h5>24</h5>
+                        <h5>{{auth()->user()->messages->count()}}</h5>
                         <p>Messaggi</p>
                     </div>
 
                     <div class="messages-reviews">
-                        <h5>10</h5>
+                        <h5>{{auth()->user()->reviews->count()}}</h5>
                         <p>Recensioni</p>
                     </div>
                 </div>

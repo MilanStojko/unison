@@ -73,7 +73,7 @@ li {
 }
 
 .u_menu {
-    background-color: #253031;
+    background-color: #212121;
     height: 100vh;
     padding: 20px 0px;
     width: 300px;
@@ -273,7 +273,7 @@ li {
 
     &_header {
         color: #f2f3f7;
-        background-color: #253031;
+        background-color: #212121;
         padding: 20px;
     }
 
@@ -327,7 +327,7 @@ li {
 .app-link {
     padding: 5px 10px;
     font-size: 16px;
-    border-bottom: 2px solid #343a40;
+    border-bottom: 2px solid #212121;
 
     /*@media screen and (width: 767px) {
         background-color: #0b0d0d;
@@ -352,5 +352,35 @@ li {
 
     a {
         color: #f4821f !important;
+    }
+}
+
+.u_log-navbar {
+    background-color: #212121;
+}
+
+// Register / Login
+.u_register {
+    padding: 30px 20px;
+    border: none;
+    background-color: #fff;
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
+    &-header {
+        margin-top: 50px;
+        color: #f2f3f7;
+        background-color: #212121;
+        padding: 20px;
+        font-size: 20px;
+        text-align: center;
+
+    }
+
+    select {
+        width: 200px;
+        align-self: center;
+        justify-self: center;
+        margin-left: 15px;
+        border: 1px solid #ccc;
     }
 }
