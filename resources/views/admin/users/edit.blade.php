@@ -15,19 +15,19 @@
             <div class="form-group">
                 <label for="formGroupExampleInput">Nome</label>
                 <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
-                    placeholder="nome" value="{{ old('name', $user->name) }}" required>
+                    placeholder="nome" value="{{ old('name', $user->name) }}">
             </div>
             {{-- COGNOME --}}
             <div class="form-group">
                 <label for="formGroupExampleInput">Cognome</label>
                 <input type="text" name="surname"
                     class="form-control @error('surname') is-invalid @enderror" placeholder="cognome"
-                    value="{{ old('surname', $user->surname) }}" required>
+                    value="{{ old('surname', $user->surname) }}">
             </div>
             {{-- DESC --}}
             <div class="form-group">
                 <label>Bio</label>
-                <textarea name="bio" class="form-control @error('bio') is-invalid @enderror" cols="30" rows="10" required>
+                <textarea name="bio" class="form-control @error('bio') is-invalid @enderror" cols="30" rows="10">
                 {{ old('bio', $user->bio) }}
             </textarea>
             </div>
@@ -36,7 +36,7 @@
                 <label for="formGroupExampleInput">Username</label>
                 <input type="text" name="username"
                     class="form-control @error('username') is-invalid @enderror"
-                    value="{{ old('username', $user->username) }}" required>
+                    value="{{ old('username', $user->username) }}">
             </div>
             {{-- AVATAR --}}
             <div class="form-group">
@@ -59,7 +59,7 @@
                 <label for="">Indirizzo</label>
                 <input type="text" name="address"
                     class="form-control @error('address') is-invalid @enderror" placeholder="address"
-                    value="{{ old('address', $user->address) }}" required>
+                    value="{{ old('address', $user->address) }}">
             </div>
 
             <div class="category_spec">
@@ -107,7 +107,7 @@
             <div class="form-group">
                 <label for="">Email</label>
                 <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
-                    placeholder="email" value="{{ old('email', $user->email) }}" required>
+                    placeholder="email" value="{{ old('email', $user->email) }}">
             </div>
             {{-- SUBMIT --}}
             <div class="form-group">
