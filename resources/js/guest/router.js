@@ -19,11 +19,11 @@ const router = new VueRouter({
             name: "list-musicians",
             component: Musicians,
         },
-        {
-            path: "/single",
-            name: "user-single",
-            component: SingleMusician,
-        },
+        // {
+        //     path: "/single",
+        //     name: "user-single",
+        //     component: SingleMusician,
+        // },
     ],
 });
 
