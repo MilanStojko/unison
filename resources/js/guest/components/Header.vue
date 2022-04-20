@@ -3,6 +3,9 @@
   <nav>
     <div class="logo">UNISON</div>
     <ul class="my_ul">
+      <li>
+        <router-link :to="{ name: 'list-musicians' }">Vai ai musicisti</router-link>
+      </li>
       <li v-for="(voice, index) in link" :key="index">
         <a class="my_a" href="#"><p>{{ voice.name }}</p></a>
       </li>
