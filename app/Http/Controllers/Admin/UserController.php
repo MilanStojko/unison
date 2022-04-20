@@ -20,7 +20,7 @@ class UserController extends Controller
         'surname' => 'required|string|max:25',
         'bio' => 'required|string|max:255',
         'username' => 'nullable|string|max:255',
-        'avatar' => 'nullable|image|mimes:jpeg,png|max:2048',
+        'avatar'=>'nullable|mimes:mimes:jpeg,jpg,png,gif|max:2048',
         'cv' => 'nullable|file|mimes:pdf|max:2048',
         'cellphone' => 'nullable',
         'address' => 'nullable',
@@ -119,7 +119,6 @@ class UserController extends Controller
         }
 
         $data["slug"] = ($user->name == $data['name']) ? $user->slug : $this->slug($data['name'], $user->id);
-        dd($data['slug']);
         $user->update($data);
 
         $user->categories()->sync(isset($data['categories']) ? $data['categories'] : []);
