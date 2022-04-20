@@ -4,7 +4,8 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 import Home from "./pages/Home";
-import Musicians from "./pages/Musicians";
+//import Musicians from "./pages/Musicians";
+import SingleMusician from "./pages/SingleMusician";
 
 const router = new VueRouter({
     mode: "history",
@@ -14,11 +15,11 @@ const router = new VueRouter({
             name: "home",
             component: Home,
         },
-        {
-            path: "/list-musicians",
-            name: "list-musicians",
-            component: Musicians,
-        },
+        // // // {
+        // // //     path: "/list-musicians",
+        // // //     name: "list-musicians",
+        // // //     component: Musicians,
+        // // // },
         {
             path: "/single",
             name: "user-single",
