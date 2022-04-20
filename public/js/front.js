@@ -56223,9 +56223,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/Home */ "./resources/js/guest/pages/Home.vue");
+!(function webpackMissingModule() { var e = new Error("Cannot find module './pages/Musicians'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
 
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: "history",
@@ -56233,6 +56235,14 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: "/",
     name: "home",
     component: _pages_Home__WEBPACK_IMPORTED_MODULE_2__["default"]
+  }, {
+    path: "/list-musicians",
+    name: "list-musicians",
+    component: !(function webpackMissingModule() { var e = new Error("Cannot find module './pages/Musicians'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())
+  }, {
+    path: "/single",
+    name: "user-single",
+    component: SingleMusician
   }]
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);
