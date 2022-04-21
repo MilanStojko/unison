@@ -21,8 +21,10 @@ use Illuminate\Support\Facades\Route;
 Route::namespace('Api')->name('api.')->group(function () {
     Route::get("/users", "UserController@index")->name('users');
     Route::get("/users/show/{slug}", "UserController@show")->name('users.show');
+    Route::get("/users/count", "UserController@getCountReview");
+    Route::get("/users/avg/{minvote}", "UserController@getAvgVote");
     Route::get("/filtered/getavailability/{availability_id}", "FilterController@getAvailability")->name('fileter.getAvailability');
     Route::get("/filtered/getname/{nome}", "FilterController@getFullName")->name('fileter.getFullName');
     Route::get("/review/show/{userid}", "ReviewController@index")->name('review.index');
-    Route::get("/review/count", "ReviewController@getCountReview");
+    Route::post("/review/postReview", "ReviewController@store");
 });

@@ -52,13 +52,4 @@ class ReviewController extends Controller
         return response()->json($review);
     }
 
-    public function getCountReview()
-    {
-        $review = User::join("reviews", "user_id", "=", "reviews.user_id")
-            ->select(array('users.*', DB::raw('COUNT(`user_id`) as num_rev')))
-            ->groupBy(DB::raw("CONVERT(users.id, CHAR)"), 'users.id')
-            ->orderBy('users.id', 'desc')
-            ->get();
-        return response()->json($review);
-    }
 }

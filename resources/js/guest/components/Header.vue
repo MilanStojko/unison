@@ -3,8 +3,8 @@
   <nav>
     <div class="logo">UNISON</div>
     <ul class="my_ul">
-      <li>
-        <router-link :to="{ name: 'list-musicians' }">Vai ai musicisti</router-link>
+      <li class="my_li">
+        <router-link :to="{ name: 'list-musicians' }"><p>Vai ai musicisti</p></router-link>
       </li>
       <li v-for="(voice, index) in link" :key="index">
         <a class="my_a" href="#"><p>{{ voice.name }}</p></a>
@@ -153,7 +153,19 @@ export default {
 
 
 
+.my_li a{
+  text-decoration: none;
+  color: white;
+}
 
+.my_li a p{
+  transition: 1s;
+}
+
+.my_li a p:hover{
+  color: white;
+  transform: scale(1.3);
+}
 
 * {
   margin: 0;
