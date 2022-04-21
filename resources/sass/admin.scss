@@ -180,6 +180,7 @@ li {
 
         &_text {
             margin-left: 20px;
+
             h3 {
                 color: #515151;
                 font-weight: bold;
@@ -187,6 +188,8 @@ li {
 
             p {
                 color: #8f8f8f;
+                word-break: break-all;
+                white-space: pre-wrap;
             }
         }
     }
