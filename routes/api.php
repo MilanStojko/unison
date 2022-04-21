@@ -26,4 +26,5 @@ Route::namespace('Api')->name('api.')->group(function () {
     Route::get("/filtered/getavailability/{availability_id}", "FilterController@getAvailability")->name('fileter.getAvailability');
     Route::get("/filtered/getname/{nome}", "FilterController@getFullName")->name('fileter.getFullName');
     Route::get("/review/show/{userid}", "ReviewController@index")->name('review.index');
+    Route::post("/review/postReview", "ReviewController@store");
 });
