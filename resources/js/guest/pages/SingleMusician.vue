@@ -1,60 +1,63 @@
 <template>
-    <div class="container-xl">
-        <!-- POP UP Message -->
-        <div class="popup-message" :class="{ 'display-block': popupMessage }">
-            <div class="popup-message_box">
-                <div class="message-heading">
-                    <h3>Scrivi il tuo messaggio</h3>
-                    <div @click="popupMessage = false" class="close-popup">
-                        <i class="fa-solid fa-xmark"></i>
-                    </div>
-                </div>
-                <div class="message-body">
-                    <form>
-                        <input type="text" placeholder="Nome" />
-                        <textarea
-                            cols="30"
-                            rows="10"
-                            placeholder="Scrivi il tuo messaggio"
-                        ></textarea>
-                        <div class="cta text-center py-3">
-                            <button class="px-5" @click="popupMessage = false">
-                                Invia <i class="fa-solid fa-paper-plane"></i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+  <div class="container-xl">
+    <!-- POP UP Message -->
+    <div class="popup-message" :class="{ 'display-block': popupMessage }">
+      <div class="popup-message_box">
+        <div class="message-heading">
+          <h3>Scrivi il tuo messaggio</h3>
+          <div @click="popupMessage = false" class="close-popup">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
         </div>
-        <!-- POP UP Review -->
-        <div class="popup-message" :class="{ 'display-block': popupReview }">
-            <div class="popup-review_box">
-                <div class="message-heading">
-                    <h3>Scrivi la tua recensione</h3>
-                    <div @click="popupReview = false" class="close-popup">
-                        <i class="fa-solid fa-xmark"></i>
-                    </div>
-                </div>
-                <div class="message-body">
-                    <form @submit.prevent="addReview()">
-                        <input
-                            type="text"
-                            placeholder="Username"
-                            v-model="formData.username"
-                        />
-                        <input
-                            type="text"
-                            placeholder="Voto"
-                            v-model="formData.vote"
-                        />
-                        <textarea
-                            cols="30"
-                            rows="10"
-                            placeholder="Scrivi la tua recensione"
-                            v-model="formData.content"
-                        ></textarea>
-                        
-                        <!-- <div class="make_review-rating">
+        <div class="message-body">
+          <form>
+            <input type="text" placeholder="Nome" />
+            <textarea
+              cols="30"
+              rows="10"
+              placeholder="Scrivi il tuo messaggio"
+            ></textarea>
+            <div class="cta text-center py-3">
+              <button class="px-5" @click="popupMessage = false">
+                Invia <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- POP UP Review -->
+    <div class="popup-message" :class="{ 'display-block': popupReview }">
+      <div class="popup-review_box">
+        <div class="message-heading">
+          <h3>Scrivi la tua recensione</h3>
+          <div @click="popupReview = false" class="close-popup">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+        </div>
+        <div class="message-body">
+          <form @submit.prevent="addReview()">
+            <input
+              id="username"
+              type="text"
+              placeholder="Username"
+              v-model="formData.username"
+            />
+            <input
+              id="vote"
+              type="text"
+              placeholder="Voto"
+              v-model="formData.vote"
+            />
+            <textarea
+              id="content"
+              cols="30"
+              rows="10"
+              placeholder="Scrivi la tua recensione"
+              v-model="formData.content"
+            ></textarea>
+
+            <!-- <div class="make_review-rating">
                             <div class="feedback">
                                 <div class="rating">
                                     <input
@@ -437,661 +440,646 @@
                                 </div>
                             </div>
                         </div> -->
-                        <div class="cta text-center py-3">
-                            <button type="submit" class="px-5">
-                                Invia <i class="fa-solid fa-paper-plane"></i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
+            <div class="cta text-center py-3">
+              <button type="submit" class="px-5">
+                Invia <i class="fa-solid fa-paper-plane"></i>
+              </button>
             </div>
+          </form>
         </div>
-        <!-- Single Musician -->
-        <div class="singleMusician">
-            <!-- Single Musician Profile -->
-            <div class="singleMusician-profile">
-                <div class="singleMusician-profile_left">
-                    <h2>{{ user.name }} {{ user.surname }}</h2>
-                    <img v-if="user.avatar" :src="`/storage/${user.avatar}`" />
-
-                    <div class="address">
-                        <ul>
-                            <li>
-                                <i class="fa-solid fa-location-dot"></i> 123
-                                {{ user.address }}
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-phone"></i>
-                                <a
-                                    v-if="user.cellphone"
-                                    href="callto:+39 345678987"
-                                    >{{ user.cellphone }}</a
-                                >
-                                <span v-else> - </span>
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-envelope"></i>
-                                <a href="mailto:hamza@hamza.com">{{
-                                    user.email
-                                }}</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="social">
-                        <a href="#"
-                            ><i class="fa-brands fa-instagram-square"></i
-                        ></a>
-                        <a href="#"
-                            ><i class="fa-brands fa-facebook-square"></i
-                        ></a>
-                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                    </div>
-                </div>
-                <div class="singleMusician-profile_right">
-                    <div class="cta">
-                        <button @click="popupMessage = true">
-                            Contattami <i class="fa-solid fa-envelope"></i>
-                        </button>
-                    </div>
-                    <div class="bio">
-                        <h2>Bio</h2>
-                        <p>
-                            {{ user.bio }}
-                        </p>
-                    </div>
-                    <div class="categorie-eventi">
-                        <div class="categorie">
-                            <h4>Categorie:</h4>
-                            <ul>
-                                <li
-                                    v-for="category in user.categories"
-                                    :key="category.slug"
-                                >
-                                    {{ category.name }}
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="eventi">
-                            <h4>Disponibilità:</h4>
-                            <ul>
-                                <li
-                                    v-for="availability in user.availabilities"
-                                    :key="availability.slug"
-                                >
-                                    {{ availability.name }}
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="cv">
-                        <a href="#" download
-                            ><i class="fa-solid fa-file-arrow-down"></i> Scarica
-                            CV</a
-                        >
-                    </div>
-                </div>
-            </div>
-            <!-- Single Musician Reviews -->
-            <div class="singleMusician-reviews">
-                <div class="singleMusician-reviews_heading">
-                    <div class="d-flex align-items-center">
-                        <h4 v-if="user.reviews">
-                            {{ user.reviews.length }} recensioni
-                        </h4>
-                        <div class="music-notes">
-                            <img src="../../../images/music.svg" />
-                            <img src="../../../images/music.svg" />
-                            <img src="../../../images/music.svg" />
-                            <img src="../../../images/music.svg" />
-                            <img src="../../../images/music.svg" />
-                        </div>
-                    </div>
-
-                    <div class="make-review">
-                        <button @click="popupReview = true">
-                            Lascia una recensione
-                        </button>
-                    </div>
-                </div>
-                <div
-                    v-for="(review, index) in user.reviews"
-                    :key="index"
-                    class="review"
-                >
-                    <div class="review-head">
-                        <h5>{{ review.username }}</h5>
-                        <div class="notes">
-                            <div
-                                class="notes_inner"
-                                :class="starsWidth(review.vote)"
-                            ></div>
-                        </div>
-                    </div>
-                    <div class="review-body">
-                        <span
-                            ><i class="fa-solid fa-calendar-days"></i>
-                            {{ getDate(review.created_at) }}</span
-                        >
-                        <p>
-                            {{ review.content }}
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+    <!-- Single Musician -->
+    <div class="singleMusician">
+      <!-- Single Musician Profile -->
+      <div class="singleMusician-profile">
+        <div class="singleMusician-profile_left">
+          <h2>{{ user.name }} {{ user.surname }}</h2>
+          <img v-if="user.avatar" :src="`/storage/${user.avatar}`" />
+
+          <div class="address">
+            <ul>
+              <li>
+                <i class="fa-solid fa-location-dot"></i> 123
+                {{ user.address }}
+              </li>
+              <li>
+                <i class="fa-solid fa-phone"></i>
+                <a v-if="user.cellphone" href="callto:+39 345678987">{{
+                  user.cellphone
+                }}</a>
+                <span v-else> - </span>
+              </li>
+              <li>
+                <i class="fa-solid fa-envelope"></i>
+                <a href="mailto:hamza@hamza.com">{{ user.email }}</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="social">
+            <a href="#"><i class="fa-brands fa-instagram-square"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook-square"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="singleMusician-profile_right">
+          <div class="cta">
+            <button @click="popupMessage = true">
+              Contattami <i class="fa-solid fa-envelope"></i>
+            </button>
+          </div>
+          <div class="bio">
+            <h2>Bio</h2>
+            <p>
+              {{ user.bio }}
+            </p>
+          </div>
+          <div class="categorie-eventi">
+            <div class="categorie">
+              <h4>Categorie:</h4>
+              <ul>
+                <li v-for="category in user.categories" :key="category.slug">
+                  {{ category.name }}
+                </li>
+              </ul>
+            </div>
+
+            <div class="eventi">
+              <h4>Disponibilità:</h4>
+              <ul>
+                <li
+                  v-for="availability in user.availabilities"
+                  :key="availability.slug"
+                >
+                  {{ availability.name }}
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="cv">
+            <a href="#" download
+              ><i class="fa-solid fa-file-arrow-down"></i> Scarica CV</a
+            >
+          </div>
+        </div>
+      </div>
+      <!-- Single Musician Reviews -->
+      <div class="singleMusician-reviews">
+        <div class="singleMusician-reviews_heading">
+          <div class="d-flex align-items-center">
+            <h4 v-if="user.reviews">{{ user.reviews.length }} recensioni</h4>
+            <div class="music-notes">
+              <img src="../../../images/music.svg" />
+              <img src="../../../images/music.svg" />
+              <img src="../../../images/music.svg" />
+              <img src="../../../images/music.svg" />
+              <img src="../../../images/music.svg" />
+            </div>
+          </div>
+
+          <div class="make-review">
+            <button @click="popupReview = true">Lascia una recensione</button>
+          </div>
+        </div>
+        <div
+          v-for="(review, index) in user.reviews"
+          :key="index"
+          class="review"
+        >
+          <div class="review-head">
+            <h5>{{ review.username }}</h5>
+            <div class="notes">
+              <div class="notes_inner" :class="starsWidth(review.vote)"></div>
+            </div>
+          </div>
+          <div class="review-body">
+            <span
+              ><i class="fa-solid fa-calendar-days"></i>
+              {{ getDate(review.created_at) }}</span
+            >
+            <p>
+              {{ review.content }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-    name: "SingleMusician",
+  name: "SingleMusician",
 
-    data() {
-        return {
-            popupMessage: false,
-            popupReview: false,
-            user: {},
-            formData: {
-                username: "",
-                content: "",
-                vote: "",
-            },
-        };
+  data() {
+    return {
+      popupMessage: false,
+      popupReview: false,
+      user: {},
+      formData: {
+        username: "",
+        content: "",
+        vote: "",
+        user_id: 1,
+      },
+    };
+  },
+  methods: {
+    getDate: function (date) {
+      return new Date(date).toLocaleDateString("it", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
     },
-    methods: {
-        getDate: function (date) {
-            return new Date(date).toLocaleDateString("it", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-            });
-        },
-        starsWidth: function (numero) {
-            return "starFill" + numero;
-        },
+    starsWidth: function (numero) {
+      return "starFill" + numero;
+    },
 
-        addReview: function () {
-            axios
-                .post(`/api/review/postReview/`, this.formData)
-                .then((response) => {
-                    this.popupReview = false;
-                    console.log("inviato");
-                });
-        },
+    addReview: function () {
+      axios
+        .post(`/api/review/postReview/`, this.formData)
+        .then((response) => {
+          this.popupReview = false;
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error.response.data);
+        });
     },
-    created() {
-        axios
-            .get(`/api/users/show/${this.$route.params.slug}`)
-            .then((response) => {
-                this.user = response.data;
-                console.log(this.user);
-            })
-            .catch((error) => {
-                this.$router.push({ name: "page-404" });
-            });
-    },
+  },
+  created() {
+    axios
+      .get(`/api/users/show/${this.$route.params.slug}`)
+      .then((response) => {
+        this.user = response.data;
+        console.log(this.user);
+      })
+      .catch((error) => {
+        this.$router.push({ name: "page-404" });
+      });
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 li {
-    list-style: none;
+  list-style: none;
 }
 .singleMusician {
-    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
-    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }
 
 // Personal Info
 .singleMusician-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  padding-bottom: 50px;
+
+  &_left {
+    width: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    margin-top: 50px;
-    padding-bottom: 50px;
+    flex-direction: column;
+    background-color: #ededed;
+    padding: 10px 0px;
 
-    &_left {
-        width: 30%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        background-color: #ededed;
-        padding: 10px 0px;
-
-        h2 {
-            color: #2a2929;
-            margin-top: 20px;
-            font-weight: bold;
-        }
-
-        img {
-            margin: 20px 0px;
-            width: 80%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 30px;
-        }
-
-        .address {
-            li {
-                margin: 15px 0px;
-            }
-
-            a {
-                color: #2a2929;
-
-                &:hover {
-                    text-decoration: none;
-                }
-            }
-
-            i {
-                margin-right: 10px;
-            }
-        }
-
-        .social {
-            margin: 20px 0px;
-            a {
-                color: #2a2929;
-                transition: all 0.2s linear;
-
-                &:first-child:hover {
-                    color: #bb366c;
-                }
-                &:nth-child(2):hover {
-                    color: #395693;
-                }
-                &:nth-child(3):hover {
-                    color: #0870a2;
-                }
-            }
-
-            i {
-                font-size: 30px;
-                margin: 0px 10px;
-            }
-        }
+    h2 {
+      color: #2a2929;
+      margin-top: 20px;
+      font-weight: bold;
     }
 
-    &_right {
-        width: 70%;
-        padding: 10px 20px;
-
-        h2,
-        h4 {
-            color: #527a5a;
-            font-weight: bold;
-            font-size: 30px;
-        }
-
-        .bio {
-            margin-bottom: 50px;
-        }
-
-        .categorie-eventi {
-            display: flex;
-            align-items: flex-start;
-            flex-wrap: wrap;
-        }
-
-        .categorie {
-            margin-right: 100px;
-        }
-
-        .cv {
-            a {
-                font-size: 18px;
-                color: #2a2929;
-
-                &:hover {
-                    color: #527a5a;
-                    text-decoration: none;
-                }
-            }
-        }
+    img {
+      margin: 20px 0px;
+      width: 80%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 30px;
     }
+
+    .address {
+      li {
+        margin: 15px 0px;
+      }
+
+      a {
+        color: #2a2929;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      i {
+        margin-right: 10px;
+      }
+    }
+
+    .social {
+      margin: 20px 0px;
+      a {
+        color: #2a2929;
+        transition: all 0.2s linear;
+
+        &:first-child:hover {
+          color: #bb366c;
+        }
+        &:nth-child(2):hover {
+          color: #395693;
+        }
+        &:nth-child(3):hover {
+          color: #0870a2;
+        }
+      }
+
+      i {
+        font-size: 30px;
+        margin: 0px 10px;
+      }
+    }
+  }
+
+  &_right {
+    width: 70%;
+    padding: 10px 20px;
+
+    h2,
+    h4 {
+      color: #527a5a;
+      font-weight: bold;
+      font-size: 30px;
+    }
+
+    .bio {
+      margin-bottom: 50px;
+    }
+
+    .categorie-eventi {
+      display: flex;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .categorie {
+      margin-right: 100px;
+    }
+
+    .cv {
+      a {
+        font-size: 18px;
+        color: #2a2929;
+
+        &:hover {
+          color: #527a5a;
+          text-decoration: none;
+        }
+      }
+    }
+  }
 }
 // Reviews
 .singleMusician-reviews {
-    padding: 20px;
+  padding: 20px;
 
-    &_heading {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-bottom: 20px;
-        border-bottom: 1px solid #ededed;
+  &_heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ededed;
 
-        h4 {
-            margin-bottom: 0px;
-            font-weight: bold;
-            color: #5b5b5b;
-            margin-right: 10px;
-        }
+    h4 {
+      margin-bottom: 0px;
+      font-weight: bold;
+      color: #5b5b5b;
+      margin-right: 10px;
+    }
+  }
+
+  .music-notes {
+    img {
+      width: 25px;
+      height: auto;
+      color: #527a5a;
+    }
+  }
+
+  .review {
+    background-color: #ededed;
+    padding: 10px;
+    width: 80%;
+    margin: 30px auto;
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+
+    &-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      h5 {
+        font-weight: bold;
+      }
     }
 
-    .music-notes {
-        img {
-            width: 25px;
-            height: auto;
-            color: #527a5a;
-        }
+    &-body {
+      span {
+        display: block;
+        padding: 10px 0px;
+        border-bottom: 1px solid #c6c6c6;
+      }
+
+      p {
+        padding: 10px 0px;
+      }
     }
 
-    .review {
-        background-color: #ededed;
-        padding: 10px;
-        width: 80%;
-        margin: 30px auto;
-        -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
-        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
-
-        &-head {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            h5 {
-                font-weight: bold;
-            }
-        }
-
-        &-body {
-            span {
-                display: block;
-                padding: 10px 0px;
-                border-bottom: 1px solid #c6c6c6;
-            }
-
-            p {
-                padding: 10px 0px;
-            }
-        }
-
-        &-music_notes {
-            img {
-                width: 20px;
-                height: auto;
-                color: #527a5a;
-            }
-        }
+    &-music_notes {
+      img {
+        width: 20px;
+        height: auto;
+        color: #527a5a;
+      }
     }
+  }
 }
 
 //POP UP Message
 .popup-message,
 .popup-review {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 2000;
-    display: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  display: none;
 }
 
 .popup-message_box,
 .popup-review_box {
-    width: 600px;
-    background-color: #ededed;
-    position: absolute;
-    top: 20%;
-    left: 30%;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-    animation: pop-up 0.3s linear;
+  width: 600px;
+  background-color: #ededed;
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  animation: pop-up 0.3s linear;
 
-    .message-heading {
-        background-color: #2a2929;
-        color: #fff;
-        font-size: 20px;
-        padding: 15px 0px;
-        text-align: center;
-        position: relative;
+  .message-heading {
+    background-color: #2a2929;
+    color: #fff;
+    font-size: 20px;
+    padding: 15px 0px;
+    text-align: center;
+    position: relative;
 
-        h3 {
-            margin-bottom: 0px;
-        }
-
-        .close-popup {
-            background-color: rgba(210, 36, 36, 0.438);
-            color: #fff;
-            width: 30px;
-            height: 30px;
-            line-height: 30px;
-            border-radius: 50%;
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            cursor: pointer;
-
-            &:hover {
-                background-color: rgb(210, 36, 36);
-            }
-        }
+    h3 {
+      margin-bottom: 0px;
     }
 
-    .message-body {
-        form {
-            display: flex;
-            flex-direction: column;
-            padding: 15px;
+    .close-popup {
+      background-color: rgba(210, 36, 36, 0.438);
+      color: #fff;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      border-radius: 50%;
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      cursor: pointer;
 
-            input,
-            textarea {
-                margin: 10px 0px;
-                border: none;
-                border-bottom: 1px solid #c6c6c6;
-                background-color: #ededed;
-                outline: none;
-            }
-        }
+      &:hover {
+        background-color: rgb(210, 36, 36);
+      }
     }
+  }
+
+  .message-body {
+    form {
+      display: flex;
+      flex-direction: column;
+      padding: 15px;
+
+      input,
+      textarea {
+        margin: 10px 0px;
+        border: none;
+        border-bottom: 1px solid #c6c6c6;
+        background-color: #ededed;
+        outline: none;
+      }
+    }
+  }
 }
 
 .popup-review_box {
-    top: 5%;
-    left: 30%;
+  top: 5%;
+  left: 30%;
 }
 
 // Buttons
 .cta,
 .make-review {
-    text-align: right;
-    button {
-        background-color: #527a5a;
-        color: #fff;
-        padding: 10px 20px;
-        border: none;
-        //border-radius: 20px;
+  text-align: right;
+  button {
+    background-color: #527a5a;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    //border-radius: 20px;
 
-        &:hover {
-            text-decoration: none;
-            background-color: #6aa275;
-            -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
-            box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
-        }
+    &:hover {
+      text-decoration: none;
+      background-color: #6aa275;
+      -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
+      box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
     }
+  }
 }
 
 .display-block {
-    display: block;
+  display: block;
 }
 
 // Animation
 @keyframes pop-up {
-    0% {
-        transform: scale(0);
-    }
+  0% {
+    transform: scale(0);
+  }
 
-    100% {
-        transform: scale(1);
-    }
+  100% {
+    transform: scale(1);
+  }
 }
 
 // Rating
 .rating {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    overflow: hidden;
-    flex-direction: row-reverse;
-    height: 150px;
-    position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  overflow: hidden;
+  flex-direction: row-reverse;
+  height: 150px;
+  position: relative;
 }
 
 .rating-0 {
-    filter: grayscale(100%);
+  filter: grayscale(100%);
 }
 
 .rating > input {
-    display: none;
+  display: none;
 }
 
 .rating > label {
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    margin-top: auto;
-    background-image: url("../../../images/music.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 76%;
-    transition: 0.3s;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  margin-top: auto;
+  background-image: url("../../../images/music.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 76%;
+  transition: 0.3s;
 }
 
 .rating > input:checked ~ label,
 .rating > input:checked ~ label ~ label {
-    background-image: url("../../../images/music.svg");
+  background-image: url("../../../images/music.svg");
 }
 
 .rating > input:not(:checked) ~ label:hover,
 .rating > input:not(:checked) ~ label:hover ~ label {
-    background-image: url("../../../images/music.svg");
+  background-image: url("../../../images/music.svg");
 }
 
 .emoji-wrapper {
-    width: 100%;
-    text-align: center;
-    height: 100px;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
+  width: 100%;
+  text-align: center;
+  height: 100px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .emoji-wrapper:before,
 .emoji-wrapper:after {
-    content: "";
-    height: 15px;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    z-index: 1;
+  content: "";
+  height: 15px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  z-index: 1;
 }
 
 .emoji {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.3s;
 }
 
 .emoji > svg {
-    margin: 15px 0;
-    width: 70px;
-    height: 70px;
-    flex-shrink: 0;
+  margin: 15px 0;
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
 }
 
 #rating-1:checked ~ .emoji-wrapper > .emoji {
-    transform: translateY(-100px);
+  transform: translateY(-100px);
 }
 #rating-2:checked ~ .emoji-wrapper > .emoji {
-    transform: translateY(-200px);
+  transform: translateY(-200px);
 }
 #rating-3:checked ~ .emoji-wrapper > .emoji {
-    transform: translateY(-300px);
+  transform: translateY(-300px);
 }
 #rating-4:checked ~ .emoji-wrapper > .emoji {
-    transform: translateY(-400px);
+  transform: translateY(-400px);
 }
 #rating-5:checked ~ .emoji-wrapper > .emoji {
-    transform: translateY(-500px);
+  transform: translateY(-500px);
 }
 
 .feedback {
-    max-width: 360px;
-    background-color: #ededed;
-    width: 100%;
-    padding: 30px;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  max-width: 360px;
+  background-color: #ededed;
+  width: 100%;
+  padding: 30px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
 }
 
 .make_review-rating {
-    display: flex;
-    justify-content: center;
-    padding: 20px 0px;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0px;
 }
 
 // Music Note Rating
 
 .notes {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 
-    &::before {
-        content: "\f001 \f001 \f001 \f001 \f001";
-        font-family: "Font Awesome 6 Free";
-        font-weight: 900;
-        color: rgba(171, 171, 171, 0.649);
-    }
+  &::before {
+    content: "\f001 \f001 \f001 \f001 \f001";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: rgba(171, 171, 171, 0.649);
+  }
 }
 
 .notes_inner {
-    position: absolute;
-    top: 0;
-    left: 0;
-    white-space: nowrap;
-    overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
 
-    &::before {
-        content: "\f001 \f001 \f001 \f001 \f001";
-        font-family: "Font Awesome 6 Free";
-        font-weight: 900;
-        color: #527a5a;
-    }
+  &::before {
+    content: "\f001 \f001 \f001 \f001 \f001";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: #527a5a;
+  }
 }
 
 .starFill0 {
-    width: 0%;
+  width: 0%;
 }
 .starFill1 {
-    width: 20%;
+  width: 20%;
 }
 .starFill2 {
-    width: 40%;
+  width: 40%;
 }
 .starFill3 {
-    width: 60%;
+  width: 60%;
 }
 .starFill4 {
-    width: 80%;
+  width: 80%;
 }
 .starFill5 {
-    width: 100%;
+  width: 100%;
 }
 </style>
