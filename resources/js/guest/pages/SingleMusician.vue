@@ -440,24 +440,29 @@
             <!-- Single Musician Profile -->
             <div class="singleMusician-profile">
                 <div class="singleMusician-profile_left">
-                    <h2>Hamza Bouzid</h2>
-                    <img src="../../../images/jumbo-2.png" />
+                    <h2>{{ user.name }} {{ user.surname }}</h2>
+                    <img v-if="user.avatar" :src="`/storage/${user.avatar}`" />
 
                     <div class="address">
                         <ul>
                             <li>
                                 <i class="fa-solid fa-location-dot"></i> 123
-                                Somewhere St. City, State
+                                {{ user.address }}
                             </li>
                             <li>
                                 <i class="fa-solid fa-phone"></i>
-                                <a href="callto:+39 345678987">+39 345678987</a>
+                                <a
+                                    v-if="user.cellphone"
+                                    href="callto:+39 345678987"
+                                    >{{ user.cellphone }}</a
+                                >
+                                <span v-else> - </span>
                             </li>
                             <li>
                                 <i class="fa-solid fa-envelope"></i>
-                                <a href="mailto:hamza@hamza.com"
-                                    >hamza@hamza.com</a
-                                >
+                                <a href="mailto:hamza@hamza.com">{{
+                                    user.email
+                                }}</a>
                             </li>
                         </ul>
                     </div>
@@ -481,43 +486,31 @@
                     <div class="bio">
                         <h2>Bio</h2>
                         <p>
-                            Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry. Lorem Ipsum has been the
-                            industry's standard dummy text ever since the 1500s,
-                            when an unknown printer took a galley of type and
-                            scrambled it to make a type specimen book. It has
-                            survived not only five centuries, but also the leap
-                            into electronic typesetting, remaining essentially
-                            unchanged. It was popularised in the 1960s with the
-                            release of Letraset sheets containing Lorem Ipsum
-                            passages, and more recently with desktop publishing
-                            software like Aldus PageMaker including versions of
-                            Lorem Ipsum.
+                            {{ user.bio }}
                         </p>
                     </div>
                     <div class="categorie-eventi">
                         <div class="categorie">
                             <h4>Categorie:</h4>
                             <ul>
-                                <li>Cantante</li>
-                                <li>Chitarrista</li>
-                                <li>Pianista</li>
-                                <li>Violinista</li>
+                                <li
+                                    v-for="category in user.categories"
+                                    :key="category.slug"
+                                >
+                                    {{ category.name }}
+                                </li>
                             </ul>
                         </div>
 
                         <div class="eventi">
                             <h4>Disponibilità:</h4>
                             <ul>
-                                <li>Matrimoni</li>
-                                <li>Natale</li>
-                                <li>Compleanni</li>
-                                <li>Locali</li>
-                                <li>Pranzi</li>
-                                <li>Festa Aziendale</li>
-                                <li>Capodanno</li>
-                                <li>Anniversario</li>
-                                <li>Festa Privata</li>
+                                <li
+                                    v-for="availability in user.availabilities"
+                                    :key="availability.slug"
+                                >
+                                    {{ availability.name }}
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -533,7 +526,9 @@
             <div class="singleMusician-reviews">
                 <div class="singleMusician-reviews_heading">
                     <div class="d-flex align-items-center">
-                        <h4>15 recensioni</h4>
+                        <h4 v-if="user.reviews">
+                            {{ user.reviews.length }} recensioni
+                        </h4>
                         <div class="music-notes">
                             <img src="../../../images/music.svg" />
                             <img src="../../../images/music.svg" />
@@ -549,57 +544,27 @@
                         </button>
                     </div>
                 </div>
-                <div class="review">
+                <div
+                    v-for="(review, index) in user.reviews"
+                    :key="index"
+                    class="review"
+                >
                     <div class="review-head">
-                        <h5>Marco</h5>
-                        <div class="review-music_notes">
-                            <img src="../../../images/music.svg" />
-                            <img src="../../../images/music.svg" />
-                            <img src="../../../images/music.svg" />
-                            <img src="../../../images/music.svg" />
-                            <img src="../../../images/music.svg" />
+                        <h5>{{ review.username }}</h5>
+                        <div class="notes">
+                            <div
+                                class="notes_inner"
+                                :class="starsWidth(review.vote)"
+                            ></div>
                         </div>
                     </div>
                     <div class="review-body">
                         <span
-                            ><i class="fa-solid fa-calendar-days"></i> 30 Marzo
-                            2022</span
+                            ><i class="fa-solid fa-calendar-days"></i>
+                            {{ getDate(review.created_at) }}</span
                         >
                         <p>
-                            Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry. Lorem Ipsum has been the
-                            industry's standard dummy text ever since the 1500s,
-                            when an unknown printer took a galley of type and
-                            scrambled it to make a type specimen book. It has
-                            survived not only five centuries, but also the leap
-                            into electronic typesetting, remaining essentially
-                        </p>
-                    </div>
-                </div>
-                <div class="review">
-                    <div class="review-head">
-                        <h5>Marco</h5>
-                        <div class="review-music_notes">
-                            <img src="../../../images/music.svg" />
-                            <img src="../../../images/music.svg" />
-                            <img src="../../../images/music.svg" />
-                            <img src="../../../images/music.svg" />
-                            <img src="../../../images/music.svg" />
-                        </div>
-                    </div>
-                    <div class="review-body">
-                        <span
-                            ><i class="fa-solid fa-calendar-days"></i> 30 Marzo
-                            2022</span
-                        >
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry. Lorem Ipsum has been the
-                            industry's standard dummy text ever since the 1500s,
-                            when an unknown printer took a galley of type and
-                            scrambled it to make a type specimen book. It has
-                            survived not only five centuries, but also the leap
-                            into electronic typesetting, remaining essentially
+                            {{ review.content }}
                         </p>
                     </div>
                 </div>
@@ -616,7 +581,31 @@ export default {
         return {
             popupMessage: false,
             popupReview: false,
+            user: {},
         };
+    },
+    methods: {
+        getDate: function (date) {
+            return new Date(date).toLocaleDateString("it", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+            });
+        },
+        starsWidth: function (numero) {
+            return "starFill" + numero;
+        },
+    },
+    created() {
+        axios
+            .get(`/api/users/show/${this.$route.params.slug}`)
+            .then((response) => {
+                this.user = response.data;
+                console.log(this.user);
+            })
+            .catch((error) => {
+                this.$router.push({ name: "page-404" });
+            });
     },
 };
 </script>
@@ -1031,5 +1020,53 @@ li {
     display: flex;
     justify-content: center;
     padding: 20px 0px;
+}
+
+// Music Note Rating
+
+.notes {
+    position: relative;
+    display: inline-block;
+
+    &::before {
+        content: "\f001 \f001 \f001 \f001 \f001";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        color: rgba(171, 171, 171, 0.649);
+    }
+}
+
+.notes_inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+
+    &::before {
+        content: "\f001 \f001 \f001 \f001 \f001";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        color: #527a5a;
+    }
+}
+
+.starFill0 {
+    width: 0%;
+}
+.starFill1 {
+    width: 20%;
+}
+.starFill2 {
+    width: 40%;
+}
+.starFill3 {
+    width: 60%;
+}
+.starFill4 {
+    width: 80%;
+}
+.starFill5 {
+    width: 100%;
 }
 </style>

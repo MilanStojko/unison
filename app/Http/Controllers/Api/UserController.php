@@ -13,13 +13,13 @@ class UserController extends Controller
 {
     public function index()
     {
-        $user = User::with('categories', 'availabilities', 'sponsorships')->get();
+        $user = User::with('categories', 'availabilities', 'sponsorships', 'reviews')->get();
         return response()->json($user);
     }
 
     public function show($slug)
     {
-        $user = User::where('slug', $slug)->with('categories', 'availabilities', 'sponsorships')->first();
+        $user = User::where('slug', $slug)->with('categories', 'availabilities', 'sponsorships', 'reviews')->first();
         return response()->json($user);
     }
 
