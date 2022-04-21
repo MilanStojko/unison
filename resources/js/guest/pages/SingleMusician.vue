@@ -36,14 +36,28 @@
                     </div>
                 </div>
                 <div class="message-body">
-                    <form>
-                        <input type="text" placeholder="Username" />
+                    <form @submit.prevent="addReview()">
+                        <input
+                            id="username"
+                            type="text"
+                            placeholder="Username"
+                            v-model="formData.username"
+                        />
+                        <input
+                            id="vote"
+                            type="text"
+                            placeholder="Voto"
+                            v-model="formData.vote"
+                        />
                         <textarea
+                            id="content"
                             cols="30"
                             rows="10"
                             placeholder="Scrivi la tua recensione"
+                            v-model="formData.content"
                         ></textarea>
-                        <div class="make_review-rating">
+
+                        <!-- <div class="make_review-rating">
                             <div class="feedback">
                                 <div class="rating">
                                     <input
@@ -425,9 +439,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="cta text-center py-3">
-                            <button class="px-5" @click="popupReview = false">
+                            <button type="submit" class="px-5">
                                 Invia <i class="fa-solid fa-paper-plane"></i>
                             </button>
                         </div>
@@ -545,7 +559,7 @@
                     </div>
                 </div>
                 <div
-                    v-for="(review, index) in user.reviews"
+                    v-for="(review, index) in user.reviews.slice().reverse()"
                     :key="index"
                     class="review"
                 >
@@ -582,6 +596,12 @@ export default {
             popupMessage: false,
             popupReview: false,
             user: {},
+            formData: {
+                username: "",
+                content: "",
+                vote: "",
+                user_id: 2,
+            },
         };
     },
     methods: {
@@ -594,6 +614,18 @@ export default {
         },
         starsWidth: function (numero) {
             return "starFill" + numero;
+        },
+
+        addReview: function () {
+            axios
+                .post(`/api/review/postReview/`, this.formData)
+                .then((response) => {
+                    this.popupReview = false;
+                    console.log(response);
+                })
+                .catch((error) => {
+                    console.log(error.response.data);
+                });
         },
     },
     created() {
@@ -708,6 +740,11 @@ li {
 
         .bio {
             margin-bottom: 50px;
+
+            p {
+                word-break: break-all;
+                white-space: pre-wrap;
+            }
         }
 
         .categorie-eventi {

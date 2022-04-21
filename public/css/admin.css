@@ -11141,6 +11141,8 @@ li {
 
 .u_info-head_text p {
   color: #8f8f8f;
+  word-break: break-all;
+  white-space: pre-wrap;
 }
 
 .u_info-body {
