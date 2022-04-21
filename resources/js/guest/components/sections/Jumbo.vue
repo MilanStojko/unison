@@ -11,9 +11,13 @@
                     </p>
                     
                 </div>
+                <!-- SEARCH BAR -->
                 <div class="col-lg-6 col-md-12 jumbo-form">
-                    <input type="text" placeholder="Cerca Musicista" />
-                    <button>Cerca</button>
+                    <!-- <input type="text" placeholder="Cerca Musicista" /> -->
+                    <select name="availabilities" id="availabilities" @change="saveValue($event)">
+                        <option v-for="(availability, index) in availabilities" :value="availability.name" :key="index">{{availability.name}}</option>
+                    </select>
+                    <button @click.prevent="sendSelected()"><router-link :to="{name: 'search'}"><p>Cerca</p></router-link></button>
                 </div>
             <!-- <div class="d-flex justify-content-center w-100 mt-1">
                 <Filtra/>
@@ -37,11 +41,34 @@
 
 <script>
 import Filtra from "./Filtra.vue";
-
+import {bus} from '../../front'
 export default {
     name: "Jumbo",
     components:{
         Filtra
+    },
+   data(){
+        return{
+            availabilities:[],
+            prestazione: ''
+        }
+    },
+    //Api con tutte le prestazioni
+    created(){
+        axios.get('/api/availability/index').then((respAll)=>{
+            this.availabilities = respAll.data;
+        })
+    },
+    methods:{
+        //Assegnazione del valore selezionato dall'utente
+        saveValue(selected){
+            this.prestazione = selected.target.value;
+        },
+        //Trasmissione del valore tramite emit bus a Search.vue
+        sendSelected(){
+            // this.$emit('saveValue')
+            bus.$emit('saveValue', this.prestazione);
+        }
     }
 };
 </script>
