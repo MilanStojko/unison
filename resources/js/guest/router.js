@@ -6,6 +6,7 @@ Vue.use(VueRouter);
 import Home from "./pages/Home";
 import Musicians from "./pages/Musicians";
 import SingleMusician from "./pages/SingleMusician";
+import PageNotFound from "./pages/PageNotFound";
 
 const router = new VueRouter({
     mode: "history",
@@ -16,7 +17,7 @@ const router = new VueRouter({
             component: Home,
         },
         {
-            path: "/single",
+            path: "/single/:slug",
             name: "user-single",
             component: SingleMusician,
         },
@@ -24,6 +25,11 @@ const router = new VueRouter({
             path: "/list-musicians",
             name: "list-musicians",
             component: Musicians,
+        },
+        {
+            path: "*",
+            name: "page-404",
+            component: PageNotFound,
         },
     ],
 });
