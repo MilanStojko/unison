@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Review;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
@@ -22,24 +23,36 @@ class ReviewController extends Controller
 
         $data = $request->all();
 
-        if ($request->fails()){
+        if ($request->fails()) {
             dd($request->errors());
             return response()->json([
                 "success" => false,
                 "errors" => $request->errors(),
-                "data" => $data            
+                "data" => $data
             ], 400);
         };
 
         $newReview = new Review();
-        $newReview->username = $data ['username'];
-        $newReview->content = $data ['content'];
-        $newReview->vote = $data ['vote'];
-        $newReview->post_id = $data ['post_id'];
+        $newReview->username = $data['username'];
+        $newReview->content = $data['content'];
+        $newReview->vote = $data['vote'];
+        $newReview->user_id = $data['user_id'];
         $newReview->save();
 
         return response()->json([
             "success" => true
         ]);
+    }
+
+    public function index($userid)
+    {
+        $review = Review::where('user_id', $userid)->with('user')->get();
+        return response()->json($review);
+    }
+
+    public function getCountReview()
+    {
+        $review = Review::orderBy("user_id")->count()->get();
+        return response()->json($review);
     }
 }
