@@ -23,12 +23,24 @@ class UserController extends Controller
         return response()->json($user);
     }
 
-    public function getReviewNumber()
+    public function getCountReview()
     {
-        // $user = User::whereHas('reviews', function (Builder $query) {
-        //     $query->where("user_id", "=", "reviews.user.id")->count()->sortByDesc();
-        // })->get();
-        // dd($user);
-        // return response()->json($user);
+        $user = User::join("reviews", "user_id", "=", "reviews.user_id")
+            ->select(array('users.*', DB::raw('COUNT(`user_id`) as num_rev')))
+            ->groupBy(DB::raw("CONVERT(users.id, CHAR)"), 'users.id')
+            ->orderBy('users.id', 'desc')
+            ->get();
+        return response()->json($user);
+    }
+
+    public function getAvgVote($minvote)
+    {
+        $user = User::join("reviews", "user_id", "=", "reviews.user_id")
+            ->select(array('users.*', DB::raw('AVG(`vote`) as avg_vote')))
+            ->groupBy(DB::raw("CONVERT(users.id, CHAR)"), 'users.id')
+            ->havingRaw("avg_vote BETWEEN ? AND ?", [$minvote, 5])
+            ->orderBy('users.id', 'desc')
+            ->get();
+        return response()->json($user);
     }
 }

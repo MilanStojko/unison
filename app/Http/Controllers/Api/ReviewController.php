@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Review;
+use App\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
@@ -50,9 +52,4 @@ class ReviewController extends Controller
         return response()->json($review);
     }
 
-    public function getCountReview()
-    {
-        $review = Review::orderBy("user_id")->count()->get();
-        return response()->json($review);
-    }
 }
