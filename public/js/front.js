@@ -2240,8 +2240,7 @@ __webpack_require__.r(__webpack_exports__);
   name: "Filtra",
   data: function data() {
     return {
-      click: 1,
-      res: false,
+      click: 0,
       events: [{
         name: "Addio al nubilato / celibato"
       }, {
@@ -2297,12 +2296,6 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     show: function show(click) {
       this.click = !click;
-
-      if (this.click == 1) {
-        this.res = 'true';
-      } else {
-        this.res = 'false';
-      }
     }
   }
 });
@@ -7892,7 +7885,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\nselect[data-v-b0277c92]{\n    max-width: 180px;\n    border: 0;\n    padding: 5px 10px;\n    border-radius: 10px;\n    cursor: pointer;\n}\nbutton[data-v-b0277c92]{\n    padding: 10px 15px;\n    border: 0;\n    border-radius: 10px;\n    color: white;\n    background: #527A5A;\n}\n.filtra[data-v-b0277c92]{\n    margin-top: 10px;\n    background: rgb(255, 255, 255, 0.8);\n    padding: 20px;\n    border-radius: 10px;\n    display: flex;\n    flex-wrap: wrap;\n    opacity: 0;\n}\n.eventi[data-v-b0277c92], .strumenti[data-v-b0277c92]{\n    color: black;\n}\n.show[data-v-b0277c92]{\n    opacity: 1;\n}\n\n\n", ""]);
+exports.push([module.i, "\nselect[data-v-b0277c92]{\n    border: 0;\n    padding: 5px 10px;\n    border-radius: 10px;\n    cursor: pointer;\n}\nbutton[data-v-b0277c92]{\n    padding: 10px 15px;\n    border: 0;\n    border-radius: 10px;\n    color: white;\n    background: #527A5A;\n}\n.filtra[data-v-b0277c92]{\n    margin-top: 10px;\n    background: rgb(255, 255, 255, 0.8);\n    padding: 20px;\n    border-radius: 10px;\n    display: flex;\n    flex-wrap: wrap;\n    opacity: 0;\n    font-size: 20px;\n}\n.eventi[data-v-b0277c92], .strumenti[data-v-b0277c92]{\n    color: black;\n}\n.show[data-v-b0277c92]{\n    opacity: 1;\n}\n@media only screen and (max-width: 700px){\nselect[data-v-b0277c92]{\n        max-width: 100px;\n}\n}\n\n\n", ""]);
 
 // exports
 
@@ -40449,7 +40442,7 @@ var render = function () {
         [_vm._v("Filtra "), _c("i", { staticClass: "fas fa-chevron-down" })]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "filtra col-12", class: { show: _vm.res } }, [
+      _c("div", { staticClass: "filtra col-12", class: { show: _vm.click } }, [
         _c("div", { staticClass: "eventi col-lg-6 col-md-12 col-sm-12" }, [
           _c("label", { attrs: { for: "events" } }, [
             _vm._v("Scegli un evento:"),
@@ -40584,71 +40577,54 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "jumbo" }, [
-    _c("div", { staticClass: "jumbo-overlay" }),
-    _vm._v(" "),
-    _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row jumbo-content" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._m(1),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "d-flex justify-content-center w-100 mt-1" },
-          [_c("Filtra")],
-          1
-        ),
-      ]),
-      _vm._v(" "),
-      _vm._m(2),
-    ]),
-  ])
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-6 col-sm-12 jumbo-text" }, [
-      _c("p", [
-        _vm._v(
-          "\n                    Lorem Ipsum is simply dummy text of the printing and\n                    typesetting industry. Lorem Ipsum has been the\n                    industry's standard\n                "
-        ),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-6 col-md-12 jumbo-form" }, [
-      _c("input", { attrs: { type: "text", placeholder: "Cerca Musicista" } }),
+    return _c("div", { staticClass: "jumbo" }, [
+      _c("div", { staticClass: "jumbo-overlay" }),
       _vm._v(" "),
-      _c("button", [_vm._v("Cerca")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "jumbo-social" }, [
-      _c("a", { attrs: { href: "#" } }, [
-        _c("img", {
-          attrs: {
-            src: __webpack_require__(/*! ../../../../images/app-store.png */ "./resources/images/app-store.png"),
-            alt: "Scarica dall'App Store",
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("a", { attrs: { href: "#" } }, [
-        _c("img", {
-          attrs: {
-            src: __webpack_require__(/*! ../../../../images/googleplay.png */ "./resources/images/googleplay.png"),
-            alt: "Scarica dal Play Store",
-          },
-        }),
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row jumbo-content" }, [
+          _c("div", { staticClass: "col-lg-6 col-sm-12 jumbo-text" }, [
+            _c("p", [
+              _vm._v(
+                "\n                    Lorem Ipsum is simply dummy text of the printing and\n                    typesetting industry. Lorem Ipsum has been the\n                    industry's standard\n                "
+              ),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-lg-6 col-md-12 jumbo-form" }, [
+            _c("input", {
+              attrs: { type: "text", placeholder: "Cerca Musicista" },
+            }),
+            _vm._v(" "),
+            _c("button", [_vm._v("Cerca")]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "jumbo-social" }, [
+          _c("a", { attrs: { href: "#" } }, [
+            _c("img", {
+              attrs: {
+                src: __webpack_require__(/*! ../../../../images/app-store.png */ "./resources/images/app-store.png"),
+                alt: "Scarica dall'App Store",
+              },
+            }),
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [
+            _c("img", {
+              attrs: {
+                src: __webpack_require__(/*! ../../../../images/googleplay.png */ "./resources/images/googleplay.png"),
+                alt: "Scarica dal Play Store",
+              },
+            }),
+          ]),
+        ]),
       ]),
     ])
   },
