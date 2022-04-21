@@ -15,9 +15,9 @@
                     <input type="text" placeholder="Cerca Musicista" />
                     <button>Cerca</button>
                 </div>
-            <div class="d-flex justify-content-center w-100 mt-1">
+            <!-- <div class="d-flex justify-content-center w-100 mt-1">
                 <Filtra/>
-            </div>
+            </div> -->
             </div>
             <div class="jumbo-social">
                 <a href="#"

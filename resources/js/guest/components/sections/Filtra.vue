@@ -1,7 +1,7 @@
 <template>
     <div class="d-flex flex-column align-items-center w-100">
         <button @click="show(click)">Filtra <i class="fas fa-chevron-down"></i></button>
-        <div class="filtra col-12" :class="{ show: res }">
+        <div class="filtra col-12" :class="{ show: click }">
             <div class="eventi col-lg-6 col-md-12 col-sm-12">
                 <label for="events">Scegli un evento:</label>
                 
@@ -26,8 +26,7 @@ export default {
 
     data(){
         return{
-            click: 1,
-            res: false,
+            click: 0,
             events: [
                 {
                     name: "Addio al nubilato / celibato",
@@ -109,12 +108,6 @@ export default {
     methods:{
         show: function(click){
             this.click=!click;
-            if(this.click==1){
-                this.res='true';
-            }
-            else{
-                this.res='false';
-            }
         },
     }
 }
@@ -123,7 +116,6 @@ export default {
 <style scoped>
 
     select{
-        max-width: 180px;
         border: 0;
         padding: 5px 10px;
         border-radius: 10px;
@@ -144,6 +136,7 @@ export default {
         display: flex;
         flex-wrap: wrap;
         opacity: 0;
+        font-size: 20px;
     }
     .eventi, .strumenti{
         color: black;
@@ -153,5 +146,11 @@ export default {
         opacity: 1;
     }
 
-    
+    @media only screen and (max-width: 700px){
+        select{
+            max-width: 100px;
+        }
+    }
+
+
 </style>
