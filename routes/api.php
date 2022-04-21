@@ -21,17 +21,20 @@ use Illuminate\Support\Facades\Route;
 Route::namespace('Api')->name('api.')->group(function () {
     // TUTTI GLI USER
     Route::get("/users", "UserController@index")->name('users');
+    // SINGOLO USER CON FILTRO SULLO SLUG
     Route::get("/users/show/{slug}", "UserController@show")->name('users.show');
+    // SOMMA RECENSIONI IN ORDINE DECRESCENTE
     Route::get("/users/count", "UserController@getCountReview");
-    // MEDIA RECENSIONI
+    // MEDIA RECENSIONI -- DA FIXARE CON REQUEST
     Route::get("/users/avg/{minvote}", "UserController@getAvgVote");
     // TUTTE LE AVAILABILITY
     Route::get("/availability/index", "AvailabilityController@index");
-    // FILTRO AVAILABILITY
-    Route::get("/filtered/getavailability/{availability_id}", "FilterController@getAvailability")->name('fileter.getAvailability');
-    // FILTRO NOME
-    Route::get("/filtered/getname/{nome}", "FilterController@getFullName")->name('fileter.getFullName');
-    // RECENSIONI
+    // RESTITUISCE GLI USER CON FILTRO SU AVAILABILITY
+    Route::get("/filtered/getavailability", "FilterController@getAvailability")->name('filter.getAvailability');
+    // FILTRO NOME -- DA FIXARE CON REQUEST
+    Route::get("/filtered/getname", "FilterController@getFullName")->name('filter.getFullName');
+    // RECENSIONI DEL SINGOLO USER
     Route::get("/review/show/{userid}", "ReviewController@index")->name('review.index');
+    // MANDA LA RECENSIONE ALL'USER
     Route::post("/review/postReview", "ReviewController@store");
 });
