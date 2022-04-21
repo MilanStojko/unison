@@ -1,15 +1,15 @@
 <template>
-    <div>
+    <div class="d-flex flex-column align-items-center w-100">
         <button @click="show(click)">Filtra <i class="fas fa-chevron-down"></i></button>
-        <div class="filtra col-12" v-show="click==1">
-            <div class="eventi col-6">
+        <div class="filtra col-12" :class="{ show: res }">
+            <div class="eventi col-lg-6 col-md-12 col-sm-12">
                 <label for="events">Scegli un evento:</label>
                 
                 <select name="events" id="events">
                     <option v-for="(event, index) in events" :key="index" value="">{{event.name}}</option>
                 </select>
             </div>
-            <div class="strumenti col-6">
+            <div class="strumenti col-lg-6 col-md-12 col-sm-12">
                 <label for="instruments">Scegli uno strumento:</label>
 
                 <select name="instruments" id="instruments">
@@ -26,7 +26,8 @@ export default {
 
     data(){
         return{
-            click: 0,
+            click: 1,
+            res: false,
             events: [
                 {
                     name: "Addio al nubilato / celibato",
@@ -108,6 +109,12 @@ export default {
     methods:{
         show: function(click){
             this.click=!click;
+            if(this.click==1){
+                this.res='true';
+            }
+            else{
+                this.res='false';
+            }
         },
     }
 }
@@ -116,6 +123,7 @@ export default {
 <style scoped>
 
     select{
+        max-width: 180px;
         border: 0;
         padding: 5px 10px;
         border-radius: 10px;
@@ -130,16 +138,20 @@ export default {
     }
     .filtra{
         margin-top: 10px;
-        position: absolute;
         background: rgb(255, 255, 255, 0.8);
         padding: 20px;
         border-radius: 10px;
         display: flex;
+        flex-wrap: wrap;
+        opacity: 0;
     }
     .eventi, .strumenti{
         color: black;
     }
 
+    .show{
+        opacity: 1;
+    }
 
     
 </style>
