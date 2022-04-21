@@ -2076,18 +2076,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Header",
   data: function data() {
     return {
-      click: 0,
-      link: [{
-        name: "Cerca"
-      }, {
-        name: "Categorie"
-      }, {
-        name: "Eventi"
-      }]
+      click: 0 // link: [
+      //   {
+      //     name: "Cerca",
+      //   },
+      //   {
+      //     name: "Categorie",
+      //   },
+      //   {
+      //     name: "Eventi",
+      //   },
+      // ],
+
     };
   },
   computed: {
@@ -2384,6 +2396,11 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Filtra_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Filtra.vue */ "./resources/js/guest/components/sections/Filtra.vue");
+/* harmony import */ var _front__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../front */ "./resources/js/guest/front.js");
+//
+//
+//
+//
 //
 //
 //
@@ -2422,10 +2439,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Jumbo",
   components: {
     Filtra: _Filtra_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      availabilities: [],
+      prestazione: ''
+    };
+  },
+  //Api con tutte le prestazioni
+  created: function created() {
+    var _this = this;
+
+    axios.get('/api/availability/index').then(function (respAll) {
+      _this.availabilities = respAll.data;
+    });
+  },
+  methods: {
+    //Assegnazione del valore selezionato dall'utente
+    saveValue: function saveValue(selected) {
+      this.prestazione = selected.target.value;
+    },
+    //Trasmissione del valore tramite emit bus a Search.vue
+    sendSelected: function sendSelected() {
+      // this.$emit('saveValue')
+      _front__WEBPACK_IMPORTED_MODULE_1__["bus"].$emit('saveValue', this.prestazione);
+    }
   }
 });
 
@@ -2727,6 +2770,53 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "PageNotFound"
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/guest/pages/Search.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/guest/pages/Search.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _front__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../front */ "./resources/js/guest/front.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "Search",
+  data: function data() {
+    return {
+      musicians: [],
+      ava: ''
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    _front__WEBPACK_IMPORTED_MODULE_0__["bus"].$on('saveValue', function (data) {
+      //Dato ricevuto dall'emit in jumbo
+      _this.ava = data;
+      console.log(_this.ava);
+    });
+    axios.get('/api/users').then(function (respAll) {
+      _this.musicians = respAll.data;
+    });
+  }
 });
 
 /***/ }),
@@ -3315,13 +3405,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SingleMusician",
   data: function data() {
     return {
       popupMessage: false,
       popupReview: false,
-      user: {}
+      user: {},
+      formData: {
+        username: "",
+        content: "",
+        vote: "",
+        user_id: 2
+      }
     };
   },
   methods: {
@@ -3334,16 +3444,26 @@ __webpack_require__.r(__webpack_exports__);
     },
     starsWidth: function starsWidth(numero) {
       return "starFill" + numero;
+    },
+    addReview: function addReview() {
+      var _this = this;
+
+      axios.post("/api/review/postReview/", this.formData).then(function (response) {
+        _this.popupReview = false;
+        console.log(response);
+      })["catch"](function (error) {
+        console.log(error.response.data);
+      });
     }
   },
   created: function created() {
-    var _this = this;
+    var _this2 = this;
 
     axios.get("/api/users/show/".concat(this.$route.params.slug)).then(function (response) {
-      _this.user = response.data;
-      console.log(_this.user);
+      _this2.user = response.data;
+      console.log(_this2.user);
     })["catch"](function (error) {
-      _this.$router.push({
+      _this2.$router.push({
         name: "page-404"
       });
     });
@@ -7828,7 +7948,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "li[data-v-d39608ce] {\n  list-style: none;\n}\n.singleMusician[data-v-d39608ce] {\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n  border-top-right-radius: 10px;\n  border-top-left-radius: 10px;\n}\n.singleMusician-profile[data-v-d39608ce] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-wrap: wrap;\n  margin-top: 50px;\n  padding-bottom: 50px;\n}\n.singleMusician-profile_left[data-v-d39608ce] {\n  width: 30%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column;\n  background-color: #ededed;\n  padding: 10px 0px;\n}\n.singleMusician-profile_left h2[data-v-d39608ce] {\n  color: #2a2929;\n  margin-top: 20px;\n  font-weight: bold;\n}\n.singleMusician-profile_left img[data-v-d39608ce] {\n  margin: 20px 0px;\n  width: 80%;\n  height: 300px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 30px;\n}\n.singleMusician-profile_left .address li[data-v-d39608ce] {\n  margin: 15px 0px;\n}\n.singleMusician-profile_left .address a[data-v-d39608ce] {\n  color: #2a2929;\n}\n.singleMusician-profile_left .address a[data-v-d39608ce]:hover {\n  text-decoration: none;\n}\n.singleMusician-profile_left .address i[data-v-d39608ce] {\n  margin-right: 10px;\n}\n.singleMusician-profile_left .social[data-v-d39608ce] {\n  margin: 20px 0px;\n}\n.singleMusician-profile_left .social a[data-v-d39608ce] {\n  color: #2a2929;\n  transition: all 0.2s linear;\n}\n.singleMusician-profile_left .social a[data-v-d39608ce]:first-child:hover {\n  color: #bb366c;\n}\n.singleMusician-profile_left .social a[data-v-d39608ce]:nth-child(2):hover {\n  color: #395693;\n}\n.singleMusician-profile_left .social a[data-v-d39608ce]:nth-child(3):hover {\n  color: #0870a2;\n}\n.singleMusician-profile_left .social i[data-v-d39608ce] {\n  font-size: 30px;\n  margin: 0px 10px;\n}\n.singleMusician-profile_right[data-v-d39608ce] {\n  width: 70%;\n  padding: 10px 20px;\n}\n.singleMusician-profile_right h2[data-v-d39608ce],\n.singleMusician-profile_right h4[data-v-d39608ce] {\n  color: #527a5a;\n  font-weight: bold;\n  font-size: 30px;\n}\n.singleMusician-profile_right .bio[data-v-d39608ce] {\n  margin-bottom: 50px;\n}\n.singleMusician-profile_right .categorie-eventi[data-v-d39608ce] {\n  display: flex;\n  align-items: flex-start;\n  flex-wrap: wrap;\n}\n.singleMusician-profile_right .categorie[data-v-d39608ce] {\n  margin-right: 100px;\n}\n.singleMusician-profile_right .cv a[data-v-d39608ce] {\n  font-size: 18px;\n  color: #2a2929;\n}\n.singleMusician-profile_right .cv a[data-v-d39608ce]:hover {\n  color: #527a5a;\n  text-decoration: none;\n}\n.singleMusician-reviews[data-v-d39608ce] {\n  padding: 20px;\n}\n.singleMusician-reviews_heading[data-v-d39608ce] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-bottom: 20px;\n  border-bottom: 1px solid #ededed;\n}\n.singleMusician-reviews_heading h4[data-v-d39608ce] {\n  margin-bottom: 0px;\n  font-weight: bold;\n  color: #5b5b5b;\n  margin-right: 10px;\n}\n.singleMusician-reviews .music-notes img[data-v-d39608ce] {\n  width: 25px;\n  height: auto;\n  color: #527a5a;\n}\n.singleMusician-reviews .review[data-v-d39608ce] {\n  background-color: #ededed;\n  padding: 10px;\n  width: 80%;\n  margin: 30px auto;\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);\n}\n.singleMusician-reviews .review-head[data-v-d39608ce] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.singleMusician-reviews .review-head h5[data-v-d39608ce] {\n  font-weight: bold;\n}\n.singleMusician-reviews .review-body span[data-v-d39608ce] {\n  display: block;\n  padding: 10px 0px;\n  border-bottom: 1px solid #c6c6c6;\n}\n.singleMusician-reviews .review-body p[data-v-d39608ce] {\n  padding: 10px 0px;\n}\n.singleMusician-reviews .review-music_notes img[data-v-d39608ce] {\n  width: 20px;\n  height: auto;\n  color: #527a5a;\n}\n.popup-message[data-v-d39608ce],\n.popup-review[data-v-d39608ce] {\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.6);\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 2000;\n  display: none;\n}\n.popup-message_box[data-v-d39608ce],\n.popup-review_box[data-v-d39608ce] {\n  width: 600px;\n  background-color: #ededed;\n  position: absolute;\n  top: 20%;\n  left: 30%;\n  border-top-right-radius: 10px;\n  border-top-left-radius: 10px;\n  -webkit-animation: pop-up-data-v-d39608ce 0.3s linear;\n          animation: pop-up-data-v-d39608ce 0.3s linear;\n}\n.popup-message_box .message-heading[data-v-d39608ce],\n.popup-review_box .message-heading[data-v-d39608ce] {\n  background-color: #2a2929;\n  color: #fff;\n  font-size: 20px;\n  padding: 15px 0px;\n  text-align: center;\n  position: relative;\n}\n.popup-message_box .message-heading h3[data-v-d39608ce],\n.popup-review_box .message-heading h3[data-v-d39608ce] {\n  margin-bottom: 0px;\n}\n.popup-message_box .message-heading .close-popup[data-v-d39608ce],\n.popup-review_box .message-heading .close-popup[data-v-d39608ce] {\n  background-color: rgba(210, 36, 36, 0.438);\n  color: #fff;\n  width: 30px;\n  height: 30px;\n  line-height: 30px;\n  border-radius: 50%;\n  position: absolute;\n  top: -10px;\n  right: -10px;\n  cursor: pointer;\n}\n.popup-message_box .message-heading .close-popup[data-v-d39608ce]:hover,\n.popup-review_box .message-heading .close-popup[data-v-d39608ce]:hover {\n  background-color: rgb(210, 36, 36);\n}\n.popup-message_box .message-body form[data-v-d39608ce],\n.popup-review_box .message-body form[data-v-d39608ce] {\n  display: flex;\n  flex-direction: column;\n  padding: 15px;\n}\n.popup-message_box .message-body form input[data-v-d39608ce],\n.popup-message_box .message-body form textarea[data-v-d39608ce],\n.popup-review_box .message-body form input[data-v-d39608ce],\n.popup-review_box .message-body form textarea[data-v-d39608ce] {\n  margin: 10px 0px;\n  border: none;\n  border-bottom: 1px solid #c6c6c6;\n  background-color: #ededed;\n  outline: none;\n}\n.popup-review_box[data-v-d39608ce] {\n  top: 5%;\n  left: 30%;\n}\n.cta[data-v-d39608ce],\n.make-review[data-v-d39608ce] {\n  text-align: right;\n}\n.cta button[data-v-d39608ce],\n.make-review button[data-v-d39608ce] {\n  background-color: #527a5a;\n  color: #fff;\n  padding: 10px 20px;\n  border: none;\n}\n.cta button[data-v-d39608ce]:hover,\n.make-review button[data-v-d39608ce]:hover {\n  text-decoration: none;\n  background-color: #6aa275;\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n}\n.display-block[data-v-d39608ce] {\n  display: block;\n}\n@-webkit-keyframes pop-up-data-v-d39608ce {\n0% {\n    transform: scale(0);\n}\n100% {\n    transform: scale(1);\n}\n}\n@keyframes pop-up-data-v-d39608ce {\n0% {\n    transform: scale(0);\n}\n100% {\n    transform: scale(1);\n}\n}\n.rating[data-v-d39608ce] {\n  display: flex;\n  width: 100%;\n  justify-content: center;\n  overflow: hidden;\n  flex-direction: row-reverse;\n  height: 150px;\n  position: relative;\n}\n.rating-0[data-v-d39608ce] {\n  filter: grayscale(100%);\n}\n.rating > input[data-v-d39608ce] {\n  display: none;\n}\n.rating > label[data-v-d39608ce] {\n  cursor: pointer;\n  width: 40px;\n  height: 40px;\n  margin-top: auto;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../images/music.svg */ "./resources/images/music.svg")) + ");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: 76%;\n  transition: 0.3s;\n}\n.rating > input:checked ~ label[data-v-d39608ce],\n.rating > input:checked ~ label ~ label[data-v-d39608ce] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../../images/music.svg */ "./resources/images/music.svg")) + ");\n}\n.rating > input:not(:checked) ~ label[data-v-d39608ce]:hover,\n.rating > input:not(:checked) ~ label:hover ~ label[data-v-d39608ce] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../../images/music.svg */ "./resources/images/music.svg")) + ");\n}\n.emoji-wrapper[data-v-d39608ce] {\n  width: 100%;\n  text-align: center;\n  height: 100px;\n  overflow: hidden;\n  position: absolute;\n  top: 0;\n  left: 0;\n}\n.emoji-wrapper[data-v-d39608ce]:before,\n.emoji-wrapper[data-v-d39608ce]:after {\n  content: \"\";\n  height: 15px;\n  width: 100%;\n  position: absolute;\n  left: 0;\n  z-index: 1;\n}\n.emoji[data-v-d39608ce] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  transition: 0.3s;\n}\n.emoji > svg[data-v-d39608ce] {\n  margin: 15px 0;\n  width: 70px;\n  height: 70px;\n  flex-shrink: 0;\n}\n#rating-1:checked ~ .emoji-wrapper > .emoji[data-v-d39608ce] {\n  transform: translateY(-100px);\n}\n#rating-2:checked ~ .emoji-wrapper > .emoji[data-v-d39608ce] {\n  transform: translateY(-200px);\n}\n#rating-3:checked ~ .emoji-wrapper > .emoji[data-v-d39608ce] {\n  transform: translateY(-300px);\n}\n#rating-4:checked ~ .emoji-wrapper > .emoji[data-v-d39608ce] {\n  transform: translateY(-400px);\n}\n#rating-5:checked ~ .emoji-wrapper > .emoji[data-v-d39608ce] {\n  transform: translateY(-500px);\n}\n.feedback[data-v-d39608ce] {\n  max-width: 360px;\n  background-color: #ededed;\n  width: 100%;\n  padding: 30px;\n  border-radius: 8px;\n  display: flex;\n  flex-direction: column;\n  flex-wrap: wrap;\n  align-items: center;\n  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);\n}\n.make_review-rating[data-v-d39608ce] {\n  display: flex;\n  justify-content: center;\n  padding: 20px 0px;\n}\n.notes[data-v-d39608ce] {\n  position: relative;\n  display: inline-block;\n}\n.notes[data-v-d39608ce]::before {\n  content: \"\\F001\\F001\\F001\\F001\\F001\";\n  font-family: \"Font Awesome 6 Free\";\n  font-weight: 900;\n  color: rgba(171, 171, 171, 0.649);\n}\n.notes_inner[data-v-d39608ce] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  white-space: nowrap;\n  overflow: hidden;\n}\n.notes_inner[data-v-d39608ce]::before {\n  content: \"\\F001\\F001\\F001\\F001\\F001\";\n  font-family: \"Font Awesome 6 Free\";\n  font-weight: 900;\n  color: #527a5a;\n}\n.starFill0[data-v-d39608ce] {\n  width: 0%;\n}\n.starFill1[data-v-d39608ce] {\n  width: 20%;\n}\n.starFill2[data-v-d39608ce] {\n  width: 40%;\n}\n.starFill3[data-v-d39608ce] {\n  width: 60%;\n}\n.starFill4[data-v-d39608ce] {\n  width: 80%;\n}\n.starFill5[data-v-d39608ce] {\n  width: 100%;\n}", ""]);
+exports.push([module.i, "li[data-v-d39608ce] {\n  list-style: none;\n}\n.singleMusician[data-v-d39608ce] {\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n  border-top-right-radius: 10px;\n  border-top-left-radius: 10px;\n}\n.singleMusician-profile[data-v-d39608ce] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-wrap: wrap;\n  margin-top: 50px;\n  padding-bottom: 50px;\n}\n.singleMusician-profile_left[data-v-d39608ce] {\n  width: 30%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column;\n  background-color: #ededed;\n  padding: 10px 0px;\n}\n.singleMusician-profile_left h2[data-v-d39608ce] {\n  color: #2a2929;\n  margin-top: 20px;\n  font-weight: bold;\n}\n.singleMusician-profile_left img[data-v-d39608ce] {\n  margin: 20px 0px;\n  width: 80%;\n  height: 300px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 30px;\n}\n.singleMusician-profile_left .address li[data-v-d39608ce] {\n  margin: 15px 0px;\n}\n.singleMusician-profile_left .address a[data-v-d39608ce] {\n  color: #2a2929;\n}\n.singleMusician-profile_left .address a[data-v-d39608ce]:hover {\n  text-decoration: none;\n}\n.singleMusician-profile_left .address i[data-v-d39608ce] {\n  margin-right: 10px;\n}\n.singleMusician-profile_left .social[data-v-d39608ce] {\n  margin: 20px 0px;\n}\n.singleMusician-profile_left .social a[data-v-d39608ce] {\n  color: #2a2929;\n  transition: all 0.2s linear;\n}\n.singleMusician-profile_left .social a[data-v-d39608ce]:first-child:hover {\n  color: #bb366c;\n}\n.singleMusician-profile_left .social a[data-v-d39608ce]:nth-child(2):hover {\n  color: #395693;\n}\n.singleMusician-profile_left .social a[data-v-d39608ce]:nth-child(3):hover {\n  color: #0870a2;\n}\n.singleMusician-profile_left .social i[data-v-d39608ce] {\n  font-size: 30px;\n  margin: 0px 10px;\n}\n.singleMusician-profile_right[data-v-d39608ce] {\n  width: 70%;\n  padding: 10px 20px;\n}\n.singleMusician-profile_right h2[data-v-d39608ce],\n.singleMusician-profile_right h4[data-v-d39608ce] {\n  color: #527a5a;\n  font-weight: bold;\n  font-size: 30px;\n}\n.singleMusician-profile_right .bio[data-v-d39608ce] {\n  margin-bottom: 50px;\n}\n.singleMusician-profile_right .bio p[data-v-d39608ce] {\n  word-break: break-all;\n  white-space: pre-wrap;\n}\n.singleMusician-profile_right .categorie-eventi[data-v-d39608ce] {\n  display: flex;\n  align-items: flex-start;\n  flex-wrap: wrap;\n}\n.singleMusician-profile_right .categorie[data-v-d39608ce] {\n  margin-right: 100px;\n}\n.singleMusician-profile_right .cv a[data-v-d39608ce] {\n  font-size: 18px;\n  color: #2a2929;\n}\n.singleMusician-profile_right .cv a[data-v-d39608ce]:hover {\n  color: #527a5a;\n  text-decoration: none;\n}\n.singleMusician-reviews[data-v-d39608ce] {\n  padding: 20px;\n}\n.singleMusician-reviews_heading[data-v-d39608ce] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-bottom: 20px;\n  border-bottom: 1px solid #ededed;\n}\n.singleMusician-reviews_heading h4[data-v-d39608ce] {\n  margin-bottom: 0px;\n  font-weight: bold;\n  color: #5b5b5b;\n  margin-right: 10px;\n}\n.singleMusician-reviews .music-notes img[data-v-d39608ce] {\n  width: 25px;\n  height: auto;\n  color: #527a5a;\n}\n.singleMusician-reviews .review[data-v-d39608ce] {\n  background-color: #ededed;\n  padding: 10px;\n  width: 80%;\n  margin: 30px auto;\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);\n}\n.singleMusician-reviews .review-head[data-v-d39608ce] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.singleMusician-reviews .review-head h5[data-v-d39608ce] {\n  font-weight: bold;\n}\n.singleMusician-reviews .review-body span[data-v-d39608ce] {\n  display: block;\n  padding: 10px 0px;\n  border-bottom: 1px solid #c6c6c6;\n}\n.singleMusician-reviews .review-body p[data-v-d39608ce] {\n  padding: 10px 0px;\n}\n.singleMusician-reviews .review-music_notes img[data-v-d39608ce] {\n  width: 20px;\n  height: auto;\n  color: #527a5a;\n}\n.popup-message[data-v-d39608ce],\n.popup-review[data-v-d39608ce] {\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.6);\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 2000;\n  display: none;\n}\n.popup-message_box[data-v-d39608ce],\n.popup-review_box[data-v-d39608ce] {\n  width: 600px;\n  background-color: #ededed;\n  position: absolute;\n  top: 20%;\n  left: 30%;\n  border-top-right-radius: 10px;\n  border-top-left-radius: 10px;\n  -webkit-animation: pop-up-data-v-d39608ce 0.3s linear;\n          animation: pop-up-data-v-d39608ce 0.3s linear;\n}\n.popup-message_box .message-heading[data-v-d39608ce],\n.popup-review_box .message-heading[data-v-d39608ce] {\n  background-color: #2a2929;\n  color: #fff;\n  font-size: 20px;\n  padding: 15px 0px;\n  text-align: center;\n  position: relative;\n}\n.popup-message_box .message-heading h3[data-v-d39608ce],\n.popup-review_box .message-heading h3[data-v-d39608ce] {\n  margin-bottom: 0px;\n}\n.popup-message_box .message-heading .close-popup[data-v-d39608ce],\n.popup-review_box .message-heading .close-popup[data-v-d39608ce] {\n  background-color: rgba(210, 36, 36, 0.438);\n  color: #fff;\n  width: 30px;\n  height: 30px;\n  line-height: 30px;\n  border-radius: 50%;\n  position: absolute;\n  top: -10px;\n  right: -10px;\n  cursor: pointer;\n}\n.popup-message_box .message-heading .close-popup[data-v-d39608ce]:hover,\n.popup-review_box .message-heading .close-popup[data-v-d39608ce]:hover {\n  background-color: rgb(210, 36, 36);\n}\n.popup-message_box .message-body form[data-v-d39608ce],\n.popup-review_box .message-body form[data-v-d39608ce] {\n  display: flex;\n  flex-direction: column;\n  padding: 15px;\n}\n.popup-message_box .message-body form input[data-v-d39608ce],\n.popup-message_box .message-body form textarea[data-v-d39608ce],\n.popup-review_box .message-body form input[data-v-d39608ce],\n.popup-review_box .message-body form textarea[data-v-d39608ce] {\n  margin: 10px 0px;\n  border: none;\n  border-bottom: 1px solid #c6c6c6;\n  background-color: #ededed;\n  outline: none;\n}\n.popup-review_box[data-v-d39608ce] {\n  top: 5%;\n  left: 30%;\n}\n.cta[data-v-d39608ce],\n.make-review[data-v-d39608ce] {\n  text-align: right;\n}\n.cta button[data-v-d39608ce],\n.make-review button[data-v-d39608ce] {\n  background-color: #527a5a;\n  color: #fff;\n  padding: 10px 20px;\n  border: none;\n}\n.cta button[data-v-d39608ce]:hover,\n.make-review button[data-v-d39608ce]:hover {\n  text-decoration: none;\n  background-color: #6aa275;\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n}\n.display-block[data-v-d39608ce] {\n  display: block;\n}\n@-webkit-keyframes pop-up-data-v-d39608ce {\n0% {\n    transform: scale(0);\n}\n100% {\n    transform: scale(1);\n}\n}\n@keyframes pop-up-data-v-d39608ce {\n0% {\n    transform: scale(0);\n}\n100% {\n    transform: scale(1);\n}\n}\n.rating[data-v-d39608ce] {\n  display: flex;\n  width: 100%;\n  justify-content: center;\n  overflow: hidden;\n  flex-direction: row-reverse;\n  height: 150px;\n  position: relative;\n}\n.rating-0[data-v-d39608ce] {\n  filter: grayscale(100%);\n}\n.rating > input[data-v-d39608ce] {\n  display: none;\n}\n.rating > label[data-v-d39608ce] {\n  cursor: pointer;\n  width: 40px;\n  height: 40px;\n  margin-top: auto;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../images/music.svg */ "./resources/images/music.svg")) + ");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: 76%;\n  transition: 0.3s;\n}\n.rating > input:checked ~ label[data-v-d39608ce],\n.rating > input:checked ~ label ~ label[data-v-d39608ce] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../../images/music.svg */ "./resources/images/music.svg")) + ");\n}\n.rating > input:not(:checked) ~ label[data-v-d39608ce]:hover,\n.rating > input:not(:checked) ~ label:hover ~ label[data-v-d39608ce] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../../images/music.svg */ "./resources/images/music.svg")) + ");\n}\n.emoji-wrapper[data-v-d39608ce] {\n  width: 100%;\n  text-align: center;\n  height: 100px;\n  overflow: hidden;\n  position: absolute;\n  top: 0;\n  left: 0;\n}\n.emoji-wrapper[data-v-d39608ce]:before,\n.emoji-wrapper[data-v-d39608ce]:after {\n  content: \"\";\n  height: 15px;\n  width: 100%;\n  position: absolute;\n  left: 0;\n  z-index: 1;\n}\n.emoji[data-v-d39608ce] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  transition: 0.3s;\n}\n.emoji > svg[data-v-d39608ce] {\n  margin: 15px 0;\n  width: 70px;\n  height: 70px;\n  flex-shrink: 0;\n}\n#rating-1:checked ~ .emoji-wrapper > .emoji[data-v-d39608ce] {\n  transform: translateY(-100px);\n}\n#rating-2:checked ~ .emoji-wrapper > .emoji[data-v-d39608ce] {\n  transform: translateY(-200px);\n}\n#rating-3:checked ~ .emoji-wrapper > .emoji[data-v-d39608ce] {\n  transform: translateY(-300px);\n}\n#rating-4:checked ~ .emoji-wrapper > .emoji[data-v-d39608ce] {\n  transform: translateY(-400px);\n}\n#rating-5:checked ~ .emoji-wrapper > .emoji[data-v-d39608ce] {\n  transform: translateY(-500px);\n}\n.feedback[data-v-d39608ce] {\n  max-width: 360px;\n  background-color: #ededed;\n  width: 100%;\n  padding: 30px;\n  border-radius: 8px;\n  display: flex;\n  flex-direction: column;\n  flex-wrap: wrap;\n  align-items: center;\n  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);\n}\n.make_review-rating[data-v-d39608ce] {\n  display: flex;\n  justify-content: center;\n  padding: 20px 0px;\n}\n.notes[data-v-d39608ce] {\n  position: relative;\n  display: inline-block;\n}\n.notes[data-v-d39608ce]::before {\n  content: \"\\F001\\F001\\F001\\F001\\F001\";\n  font-family: \"Font Awesome 6 Free\";\n  font-weight: 900;\n  color: rgba(171, 171, 171, 0.649);\n}\n.notes_inner[data-v-d39608ce] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  white-space: nowrap;\n  overflow: hidden;\n}\n.notes_inner[data-v-d39608ce]::before {\n  content: \"\\F001\\F001\\F001\\F001\\F001\";\n  font-family: \"Font Awesome 6 Free\";\n  font-weight: 900;\n  color: #527a5a;\n}\n.starFill0[data-v-d39608ce] {\n  width: 0%;\n}\n.starFill1[data-v-d39608ce] {\n  width: 20%;\n}\n.starFill2[data-v-d39608ce] {\n  width: 40%;\n}\n.starFill3[data-v-d39608ce] {\n  width: 60%;\n}\n.starFill4[data-v-d39608ce] {\n  width: 80%;\n}\n.starFill5[data-v-d39608ce] {\n  width: 100%;\n}", ""]);
 
 // exports
 
@@ -7866,7 +7986,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.burger-wrapper[data-v-083b147e] {\n  cursor: pointer;\n}\n#menyAvPaa[data-v-083b147e] {\n    display: none;\n}\n#burger[data-v-083b147e] {\n    position: absolute;\n    cursor: pointer;\n    width: 2rem;\n    height: 1.5rem;\n    right: 1rem;\n    top: 1rem;\n    display: flex;\n    justify-content: space-between;\n    flex-direction: column;\n}\n#burger > div[data-v-083b147e] {\n    height: 4px;\n    background-color: white;\n    transition: 0.5s;\n    z-index: 999;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e] {\n  background-color: #fff;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(1) {\n    transform: translateY(10px) rotate(45deg);\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(2) {\n    opacity: 0;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(3) {\n    transform: translateY(-10px) rotate(-45deg);\n}\n.slide-fade-enter-active[data-v-083b147e] {\n  transition: opacity 1.5s ease-out;\n}\n.slide-fade-leave-active[data-v-083b147e] {\n  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);\n}\n.slide-fade-enter-from[data-v-083b147e],\n.slide-fade-leave-to[data-v-083b147e] {\n  transform: translateX(20px);\n  opacity: 0;\n}\n.my_li a[data-v-083b147e]{\n  text-decoration: none;\n  color: white;\n}\n.my_li a p[data-v-083b147e]{\n  transition: 1s;\n}\n.my_li a p[data-v-083b147e]:hover{\n  color: white;\n  transform: scale(1.3);\n}\n*[data-v-083b147e] {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n.logo[data-v-083b147e] {\n  font-size: 30px;\n}\nnav[data-v-083b147e] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: rgb(42, 41, 41);\n  height: 50px;\n  padding: 0px 20px;\n  color: white;\n  position: relative;\n}\n.my_ul[data-v-083b147e] {\n  margin: 0;\n  padding: 0;\n  display: flex;\n  align-items: center;\n}\n.my_ul li[data-v-083b147e] {\n  float: left;\n  padding: 0px 15px;\n  list-style: none;\n}\n.my_a[data-v-083b147e] {\n  text-decoration: none;\n  color: white;\n}\n.my_ul .my_a p[data-v-083b147e] {\n  transition: 1s;\n}\n.my_ul .my_a p[data-v-083b147e]:hover {\n  color: white;\n  transform: scale(1.3);\n}\n.my_ul .my_a:hover .my_button[data-v-083b147e] {\n  color: white;\n  transform: scale(1.1);\n}\n.navbar-toggler-icon[data-v-083b147e],\n.navbar-toggler[data-v-083b147e],\n.nav-item p[data-v-083b147e] {\n  color: white;\n}\n.my_button[data-v-083b147e] {\n  padding: 5px 15px;\n  border: 0;\n  color: white;\n  background: #527a5a;\n  border-radius: 15px;\n}\n.my_ul-icon[data-v-083b147e] {\n  display: none;\n  margin: 0;\n  padding: 0;\n}\n.my_ul-icon li[data-v-083b147e]{\n  list-style: none;\n}\n.listmenu[data-v-083b147e]{\n  position: absolute;\n  right: 0;\n  z-index: 999;\n  padding: 20px;\n  width: 100%;\n  height: calc(100vh - 50px);\n  text-align: center;\n  background: rgb(255, 255, 255, 0.9);\n  display: flex;\n  flex-direction: column;\n}\n.listmenu li[data-v-083b147e]{\n  line-height: 100px;\n  font-weight: bold;\n  font-size: 40px;\n  list-style: none;\n}\n.listmenu .buttonlogin[data-v-083b147e]{\n  margin-top: 50px;\n}\n.my_a_mobile[data-v-083b147e] {\n  text-decoration: none;\n  color: black;\n}\n@media only screen and (max-width: 700px) {\n.my_ul-icon[data-v-083b147e] {\n    display: block;\n}\n.my_ul[data-v-083b147e] {\n    display: none;\n}\n}\n", ""]);
+exports.push([module.i, "\n.burger-wrapper[data-v-083b147e] {\r\n  cursor: pointer;\n}\n#menyAvPaa[data-v-083b147e] {\r\n    display: none;\n}\n#burger[data-v-083b147e] {\r\n    position: absolute;\r\n    cursor: pointer;\r\n    width: 2rem;\r\n    height: 1.5rem;\r\n    right: 1rem;\r\n    top: 1rem;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    flex-direction: column;\n}\n#burger > div[data-v-083b147e] {\r\n    height: 4px;\r\n    background-color: white;\r\n    transition: 0.5s;\r\n    z-index: 999;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e] {\r\n  background-color: #fff;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(1) {\r\n    transform: translateY(10px) rotate(45deg);\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(2) {\r\n    opacity: 0;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(3) {\r\n    transform: translateY(-10px) rotate(-45deg);\n}\n.slide-fade-enter-active[data-v-083b147e] {\r\n  transition: opacity 1.5s ease-out;\n}\n.slide-fade-leave-active[data-v-083b147e] {\r\n  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);\n}\n.slide-fade-enter-from[data-v-083b147e],\r\n.slide-fade-leave-to[data-v-083b147e] {\r\n  transform: translateX(20px);\r\n  opacity: 0;\n}\n.my_li a[data-v-083b147e]{\r\n  text-decoration: none;\r\n  color: white;\n}\n.my_li a p[data-v-083b147e]{\r\n  transition: 1s;\n}\n.my_li a p[data-v-083b147e]:hover{\r\n  color: white;\r\n  transform: scale(1.3);\n}\n*[data-v-083b147e] {\r\n  margin: 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\n}\n.logo[data-v-083b147e] {\r\n  font-size: 30px;\n}\nnav[data-v-083b147e] {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  background-color: rgb(42, 41, 41);\r\n  height: 50px;\r\n  padding: 0px 20px;\r\n  color: white;\r\n  position: relative;\n}\n.my_ul[data-v-083b147e] {\r\n  margin: 0;\r\n  padding: 0;\r\n  display: flex;\r\n  align-items: center;\n}\n.my_ul li[data-v-083b147e] {\r\n  float: left;\r\n  padding: 0px 15px;\r\n  list-style: none;\n}\n.my_a[data-v-083b147e] {\r\n  text-decoration: none;\r\n  color: white;\n}\n.my_ul .my_a p[data-v-083b147e] {\r\n  transition: 1s;\n}\n.my_ul .my_a p[data-v-083b147e]:hover {\r\n  color: white;\r\n  transform: scale(1.3);\n}\n.my_ul .my_a:hover .my_button[data-v-083b147e] {\r\n  color: white;\r\n  transform: scale(1.1);\n}\n.navbar-toggler-icon[data-v-083b147e],\r\n.navbar-toggler[data-v-083b147e],\r\n.nav-item p[data-v-083b147e] {\r\n  color: white;\n}\n.my_button[data-v-083b147e] {\r\n  padding: 5px 15px;\r\n  border: 0;\r\n  color: white;\r\n  background: #527a5a;\r\n  border-radius: 15px;\n}\n.my_ul-icon[data-v-083b147e] {\r\n  display: none;\r\n  margin: 0;\r\n  padding: 0;\n}\n.my_ul-icon li[data-v-083b147e]{\r\n  list-style: none;\n}\n.listmenu[data-v-083b147e]{\r\n  position: absolute;\r\n  right: 0;\r\n  z-index: 999;\r\n  padding: 20px;\r\n  width: 100%;\r\n  height: calc(100vh - 50px);\r\n  text-align: center;\r\n  background: rgb(255, 255, 255, 0.9);\r\n  display: flex;\r\n  flex-direction: column;\n}\n.listmenu li[data-v-083b147e]{\r\n  line-height: 100px;\r\n  font-weight: bold;\r\n  font-size: 40px;\r\n  list-style: none;\n}\n.listmenu .buttonlogin[data-v-083b147e]{\r\n  margin-top: 50px;\n}\n.my_a_mobile[data-v-083b147e] {\r\n  text-decoration: none;\r\n  color: black;\n}\n@media only screen and (max-width: 700px) {\n.my_ul-icon[data-v-083b147e] {\r\n    display: block;\n}\n.my_ul[data-v-083b147e] {\r\n    display: none;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -40166,111 +40286,86 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("nav", [
-        _c("div", { staticClass: "logo" }, [_vm._v("UNISON")]),
-        _vm._v(" "),
+  return _c("div", [
+    _c("nav", [
+      _c(
+        "div",
+        { staticClass: "logo" },
+        [
+          _c("router-link", { attrs: { to: { name: "home" } } }, [
+            _vm._v("UNISON"),
+          ]),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("ul", { staticClass: "my_ul" }, [
         _c(
-          "ul",
-          { staticClass: "my_ul" },
+          "li",
+          { staticClass: "my_li" },
           [
-            _c(
-              "li",
-              { staticClass: "my_li" },
-              [
-                _c(
-                  "router-link",
-                  { attrs: { to: { name: "list-musicians" } } },
-                  [_c("p", [_vm._v("Vai ai musicisti")])]
-                ),
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _vm._l(_vm.link, function (voice, index) {
-              return _c("li", { key: index }, [
-                _c("a", { staticClass: "my_a", attrs: { href: "#" } }, [
-                  _c("p", [_vm._v(_vm._s(voice.name))]),
-                ]),
-              ])
-            }),
-            _vm._v(" "),
-            _vm._m(0),
+            _c("router-link", { attrs: { to: { name: "list-musicians" } } }, [
+              _c("p", [_vm._v("Vai ai musicisti")]),
+            ]),
           ],
-          2
+          1
         ),
         _vm._v(" "),
-        _c("ul", { staticClass: "my_ul-icon" }, [
-          _c("li", [
-            _c("input", {
-              attrs: { type: "checkbox", id: "menyAvPaa" },
-              on: {
-                click: function ($event) {
-                  return _vm.show(_vm.click)
-                },
-              },
-            }),
-            _vm._v(" "),
-            _vm._m(1),
-          ]),
-        ]),
+        _c(
+          "li",
+          [
+            _c("router-link", { attrs: { to: { name: "search" } } }, [
+              _c("p", [_vm._v("Cerca")]),
+            ]),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
+        _vm._m(2),
       ]),
       _vm._v(" "),
-      _c("Transition", { attrs: { name: "slide-fade" } }, [
-        _c(
-          "div",
-          {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: _vm.click == 1,
-                expression: "click==1",
+      _c("ul", { staticClass: "my_ul-icon" }, [
+        _c("li", [
+          _c("input", {
+            attrs: { type: "checkbox", id: "menyAvPaa" },
+            on: {
+              click: function ($event) {
+                return _vm.show(_vm.click)
               },
-            ],
-            staticClass: "listmenu",
-          },
-          [
-            _c(
-              "ul",
-              [
-                _vm._l(_vm.link, function (voice, indice) {
-                  return _c("li", { key: indice }, [
-                    _c(
-                      "a",
-                      { staticClass: "my_a_mobile", attrs: { href: "#" } },
-                      [_c("span", [_vm._v(_vm._s(voice.name))])]
-                    ),
-                  ])
-                }),
-                _vm._v(" "),
-                _c("li", { staticClass: "buttonlogin" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "my_a login",
-                      attrs: { href: "http://127.0.0.1:8000/login" },
-                    },
-                    [
-                      _c("span", { staticClass: "my_button" }, [
-                        _vm._v("Login"),
-                      ]),
-                    ]
-                  ),
-                ]),
-              ],
-              2
-            ),
-          ]
-        ),
+            },
+          }),
+          _vm._v(" "),
+          _vm._m(3),
+        ]),
       ]),
-    ],
-    1
-  )
+    ]),
+  ])
 }
 var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("a", { staticClass: "my_a", attrs: { href: "" } }, [
+        _c("p", [_vm._v("Eventi")]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("a", { staticClass: "my_a", attrs: { href: "" } }, [
+        _c("p", [_vm._v("Categorie")]),
+      ]),
+    ])
+  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
@@ -40577,54 +40672,92 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "jumbo" }, [
+    _c("div", { staticClass: "jumbo-overlay" }),
+    _vm._v(" "),
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "row jumbo-content" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-6 col-md-12 jumbo-form" }, [
+          _c(
+            "select",
+            {
+              attrs: { name: "availabilities", id: "availabilities" },
+              on: {
+                change: function ($event) {
+                  return _vm.saveValue($event)
+                },
+              },
+            },
+            _vm._l(_vm.availabilities, function (availability, index) {
+              return _c(
+                "option",
+                { key: index, domProps: { value: availability.name } },
+                [_vm._v(_vm._s(availability.name))]
+              )
+            }),
+            0
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              on: {
+                click: function ($event) {
+                  $event.preventDefault()
+                  return _vm.sendSelected()
+                },
+              },
+            },
+            [
+              _c("router-link", { attrs: { to: { name: "search" } } }, [
+                _c("p", [_vm._v("Cerca")]),
+              ]),
+            ],
+            1
+          ),
+        ]),
+      ]),
+      _vm._v(" "),
+      _vm._m(1),
+    ]),
+  ])
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "jumbo" }, [
-      _c("div", { staticClass: "jumbo-overlay" }),
+    return _c("div", { staticClass: "col-lg-6 col-sm-12 jumbo-text" }, [
+      _c("p", [
+        _vm._v(
+          "\n                    Lorem Ipsum is simply dummy text of the printing and\n                    typesetting industry. Lorem Ipsum has been the\n                    industry's standard\n                "
+        ),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "jumbo-social" }, [
+      _c("a", { attrs: { href: "#" } }, [
+        _c("img", {
+          attrs: {
+            src: __webpack_require__(/*! ../../../../images/app-store.png */ "./resources/images/app-store.png"),
+            alt: "Scarica dall'App Store",
+          },
+        }),
+      ]),
       _vm._v(" "),
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "row jumbo-content" }, [
-          _c("div", { staticClass: "col-lg-6 col-sm-12 jumbo-text" }, [
-            _c("p", [
-              _vm._v(
-                "\n                    Lorem Ipsum is simply dummy text of the printing and\n                    typesetting industry. Lorem Ipsum has been the\n                    industry's standard\n                "
-              ),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-lg-6 col-md-12 jumbo-form" }, [
-            _c("input", {
-              attrs: { type: "text", placeholder: "Cerca Musicista" },
-            }),
-            _vm._v(" "),
-            _c("button", [_vm._v("Cerca")]),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "jumbo-social" }, [
-          _c("a", { attrs: { href: "#" } }, [
-            _c("img", {
-              attrs: {
-                src: __webpack_require__(/*! ../../../../images/app-store.png */ "./resources/images/app-store.png"),
-                alt: "Scarica dall'App Store",
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [
-            _c("img", {
-              attrs: {
-                src: __webpack_require__(/*! ../../../../images/googleplay.png */ "./resources/images/googleplay.png"),
-                alt: "Scarica dal Play Store",
-              },
-            }),
-          ]),
-        ]),
+      _c("a", { attrs: { href: "#" } }, [
+        _c("img", {
+          attrs: {
+            src: __webpack_require__(/*! ../../../../images/googleplay.png */ "./resources/images/googleplay.png"),
+            alt: "Scarica dal Play Store",
+          },
+        }),
       ]),
     ])
   },
@@ -40863,7 +40996,7 @@ var render = function () {
                       { staticStyle: { "font-size": "20px" } },
                       [
                         _vm._v(
-                          "\n                                Recensioni:\n                                "
+                          "\r\n                                Recensioni:\r\n                                "
                         ),
                         _vm._l(user.reviews, function (nota) {
                           return _c("span", { key: "piena" + nota }, [
@@ -40941,6 +41074,47 @@ var staticRenderFns = [
     ])
   },
 ]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/guest/pages/Search.vue?vue&type=template&id=4e14df48&":
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/guest/pages/Search.vue?vue&type=template&id=4e14df48& ***!
+  \**********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "select-availabilities" },
+    [
+      _c("label", { attrs: { for: "availabilities" } }, [
+        _vm._v("Scegli uno strumento:"),
+      ]),
+      _vm._v(" "),
+      _c("select", { attrs: { name: "availabilities", id: "availabilities" } }),
+      _vm._v(" "),
+      _vm._l(_vm.musicians, function (musician, index) {
+        return _c("div", { key: index }, [_vm._v(_vm._s(musician.name))])
+      }),
+      _vm._v(" "),
+      _c("h1", [_vm._v(_vm._s(_vm.ava))]),
+    ],
+    2
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -41049,630 +41223,92 @@ var render = function () {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "message-body" }, [
-            _c("form", [
-              _c("input", { attrs: { type: "text", placeholder: "Username" } }),
-              _vm._v(" "),
-              _c("textarea", {
-                attrs: {
-                  cols: "30",
-                  rows: "10",
-                  placeholder: "Scrivi la tua recensione",
+            _c(
+              "form",
+              {
+                on: {
+                  submit: function ($event) {
+                    $event.preventDefault()
+                    return _vm.addReview()
+                  },
                 },
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "make_review-rating" }, [
-                _c("div", { staticClass: "feedback" }, [
-                  _c("div", { staticClass: "rating" }, [
-                    _c("input", {
-                      attrs: { type: "radio", name: "rating", id: "rating-5" },
-                    }),
-                    _vm._v(" "),
-                    _c("label", { attrs: { for: "rating-5" } }),
-                    _vm._v(" "),
-                    _c("input", {
-                      attrs: { type: "radio", name: "rating", id: "rating-4" },
-                    }),
-                    _vm._v(" "),
-                    _c("label", { attrs: { for: "rating-4" } }),
-                    _vm._v(" "),
-                    _c("input", {
-                      attrs: { type: "radio", name: "rating", id: "rating-3" },
-                    }),
-                    _vm._v(" "),
-                    _c("label", { attrs: { for: "rating-3" } }),
-                    _vm._v(" "),
-                    _c("input", {
-                      attrs: { type: "radio", name: "rating", id: "rating-2" },
-                    }),
-                    _vm._v(" "),
-                    _c("label", { attrs: { for: "rating-2" } }),
-                    _vm._v(" "),
-                    _c("input", {
-                      attrs: { type: "radio", name: "rating", id: "rating-1" },
-                    }),
-                    _vm._v(" "),
-                    _c("label", { attrs: { for: "rating-1" } }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "emoji-wrapper" }, [
-                      _c("div", { staticClass: "emoji" }, [
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "rating-0",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              viewBox: "0 0 512 512",
-                            },
-                          },
-                          [
-                            _c("circle", {
-                              attrs: {
-                                cx: "256",
-                                cy: "256",
-                                r: "256",
-                                fill: "#ffd93b",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d: "M512 256c0 141.44-114.64 256-256 256-80.48 0-152.32-37.12-199.28-95.28 43.92 35.52 99.84 56.72 160.72 56.72 141.36 0 256-114.56 256-256 0-60.88-21.2-116.8-56.72-160.72C474.8 103.68 512 175.52 512 256z",
-                                fill: "#f4c534",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("ellipse", {
-                              attrs: {
-                                transform:
-                                  "scale(-1) rotate(31.21 715.433 -595.455)",
-                                cx: "166.318",
-                                cy: "199.829",
-                                rx: "56.146",
-                                ry: "56.13",
-                                fill: "#fff",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("ellipse", {
-                              attrs: {
-                                transform: "rotate(-148.804 180.87 175.82)",
-                                cx: "180.871",
-                                cy: "175.822",
-                                rx: "28.048",
-                                ry: "28.08",
-                                fill: "#3e4347",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("ellipse", {
-                              attrs: {
-                                transform: "rotate(-113.778 194.434 165.995)",
-                                cx: "194.433",
-                                cy: "165.993",
-                                rx: "8.016",
-                                ry: "5.296",
-                                fill: "#5a5f63",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("ellipse", {
-                              attrs: {
-                                transform:
-                                  "scale(-1) rotate(31.21 715.397 -1237.664)",
-                                cx: "345.695",
-                                cy: "199.819",
-                                rx: "56.146",
-                                ry: "56.13",
-                                fill: "#fff",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("ellipse", {
-                              attrs: {
-                                transform: "rotate(-148.804 360.25 175.837)",
-                                cx: "360.252",
-                                cy: "175.84",
-                                rx: "28.048",
-                                ry: "28.08",
-                                fill: "#3e4347",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("ellipse", {
-                              attrs: {
-                                transform:
-                                  "scale(-1) rotate(66.227 254.508 -573.138)",
-                                cx: "373.794",
-                                cy: "165.987",
-                                rx: "8.016",
-                                ry: "5.296",
-                                fill: "#5a5f63",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d: "M370.56 344.4c0 7.696-6.224 13.92-13.92 13.92H155.36c-7.616 0-13.92-6.224-13.92-13.92s6.304-13.92 13.92-13.92h201.296c7.696.016 13.904 6.224 13.904 13.92z",
-                                fill: "#3e4347",
-                              },
-                            }),
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "rating-1",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              viewBox: "0 0 512 512",
-                            },
-                          },
-                          [
-                            _c("circle", {
-                              attrs: {
-                                cx: "256",
-                                cy: "256",
-                                r: "256",
-                                fill: "#ffd93b",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d: "M512 256A256 256 0 0 1 56.7 416.7a256 256 0 0 0 360-360c58.1 47 95.3 118.8 95.3 199.3z",
-                                fill: "#f4c534",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d: "M328.4 428a92.8 92.8 0 0 0-145-.1 6.8 6.8 0 0 1-12-5.8 86.6 86.6 0 0 1 84.5-69 86.6 86.6 0 0 1 84.7 69.8c1.3 6.9-7.7 10.6-12.2 5.1z",
-                                fill: "#3e4347",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d: "M269.2 222.3c5.3 62.8 52 113.9 104.8 113.9 52.3 0 90.8-51.1 85.6-113.9-2-25-10.8-47.9-23.7-66.7-4.1-6.1-12.2-8-18.5-4.2a111.8 111.8 0 0 1-60.1 16.2c-22.8 0-42.1-5.6-57.8-14.8-6.8-4-15.4-1.5-18.9 5.4-9 18.2-13.2 40.3-11.4 64.1z",
-                                fill: "#f4c534",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d: "M357 189.5c25.8 0 47-7.1 63.7-18.7 10 14.6 17 32.1 18.7 51.6 4 49.6-26.1 89.7-67.5 89.7-41.6 0-78.4-40.1-82.5-89.7A95 95 0 0 1 298 174c16 9.7 35.6 15.5 59 15.5z",
-                                fill: "#fff",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d: "M396.2 246.1a38.5 38.5 0 0 1-38.7 38.6 38.5 38.5 0 0 1-38.6-38.6 38.6 38.6 0 1 1 77.3 0z",
-                                fill: "#3e4347",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d: "M380.4 241.1c-3.2 3.2-9.9 1.7-14.9-3.2-4.8-4.8-6.2-11.5-3-14.7 3.3-3.4 10-2 14.9 2.9 4.9 5 6.4 11.7 3 15z",
-                                fill: "#fff",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d: "M242.8 222.3c-5.3 62.8-52 113.9-104.8 113.9-52.3 0-90.8-51.1-85.6-113.9 2-25 10.8-47.9 23.7-66.7 4.1-6.1 12.2-8 18.5-4.2 16.2 10.1 36.2 16.2 60.1 16.2 22.8 0 42.1-5.6 57.8-14.8 6.8-4 15.4-1.5 18.9 5.4 9 18.2 13.2 40.3 11.4 64.1z",
-                                fill: "#f4c534",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d: "M155 189.5c-25.8 0-47-7.1-63.7-18.7-10 14.6-17 32.1-18.7 51.6-4 49.6 26.1 89.7 67.5 89.7 41.6 0 78.4-40.1 82.5-89.7A95 95 0 0 0 214 174c-16 9.7-35.6 15.5-59 15.5z",
-                                fill: "#fff",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d: "M115.8 246.1a38.5 38.5 0 0 0 38.7 38.6 38.5 38.5 0 0 0 38.6-38.6 38.6 38.6 0 1 0-77.3 0z",
-                                fill: "#3e4347",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d: "M131.6 241.1c3.2 3.2 9.9 1.7 14.9-3.2 4.8-4.8 6.2-11.5 3-14.7-3.3-3.4-10-2-14.9 2.9-4.9 5-6.4 11.7-3 15z",
-                                fill: "#fff",
-                              },
-                            }),
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "rating-2",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              viewBox: "0 0 512 512",
-                            },
-                          },
-                          [
-                            _c("circle", {
-                              attrs: {
-                                cx: "256",
-                                cy: "256",
-                                r: "256",
-                                fill: "#ffd93b",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d: "M512 256A256 256 0 0 1 56.7 416.7a256 256 0 0 0 360-360c58.1 47 95.3 118.8 95.3 199.3z",
-                                fill: "#f4c534",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d: "M336.6 403.2c-6.5 8-16 10-25.5 5.2a117.6 117.6 0 0 0-110.2 0c-9.4 4.9-19 3.3-25.6-4.6-6.5-7.7-4.7-21.1 8.4-28 45.1-24 99.5-24 144.6 0 13 7 14.8 19.7 8.3 27.4z",
-                                fill: "#3e4347",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d: "M276.6 244.3a79.3 79.3 0 1 1 158.8 0 79.5 79.5 0 1 1-158.8 0z",
-                                fill: "#fff",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("circle", {
-                              attrs: {
-                                cx: "340",
-                                cy: "260.4",
-                                r: "36.2",
-                                fill: "#3e4347",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("g", { attrs: { fill: "#fff" } }, [
-                              _c("ellipse", {
-                                attrs: {
-                                  transform: "rotate(-135 326.4 246.6)",
-                                  cx: "326.4",
-                                  cy: "246.6",
-                                  rx: "6.5",
-                                  ry: "10",
-                                },
-                              }),
-                              _vm._v(" "),
-                              _c("path", {
-                                attrs: {
-                                  d: "M231.9 244.3a79.3 79.3 0 1 0-158.8 0 79.5 79.5 0 1 0 158.8 0z",
-                                },
-                              }),
-                            ]),
-                            _vm._v(" "),
-                            _c("circle", {
-                              attrs: {
-                                cx: "168.5",
-                                cy: "260.4",
-                                r: "36.2",
-                                fill: "#3e4347",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("ellipse", {
-                              attrs: {
-                                transform: "rotate(-135 182.1 246.7)",
-                                cx: "182.1",
-                                cy: "246.7",
-                                rx: "10",
-                                ry: "6.5",
-                                fill: "#fff",
-                              },
-                            }),
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "rating-3",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              viewBox: "0 0 512 512",
-                            },
-                          },
-                          [
-                            _c("circle", {
-                              attrs: {
-                                cx: "256",
-                                cy: "256",
-                                r: "256",
-                                fill: "#ffd93b",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d: "M407.7 352.8a163.9 163.9 0 0 1-303.5 0c-2.3-5.5 1.5-12 7.5-13.2a780.8 780.8 0 0 1 288.4 0c6 1.2 9.9 7.7 7.6 13.2z",
-                                fill: "#3e4347",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d: "M512 256A256 256 0 0 1 56.7 416.7a256 256 0 0 0 360-360c58.1 47 95.3 118.8 95.3 199.3z",
-                                fill: "#f4c534",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("g", { attrs: { fill: "#fff" } }, [
-                              _c("path", {
-                                attrs: {
-                                  d: "M115.3 339c18.2 29.6 75.1 32.8 143.1 32.8 67.1 0 124.2-3.2 143.2-31.6l-1.5-.6a780.6 780.6 0 0 0-284.8-.6z",
-                                },
-                              }),
-                              _vm._v(" "),
-                              _c("ellipse", {
-                                attrs: {
-                                  cx: "356.4",
-                                  cy: "205.3",
-                                  rx: "81.1",
-                                  ry: "81",
-                                },
-                              }),
-                            ]),
-                            _vm._v(" "),
-                            _c("ellipse", {
-                              attrs: {
-                                cx: "356.4",
-                                cy: "205.3",
-                                rx: "44.2",
-                                ry: "44.2",
-                                fill: "#3e4347",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("g", { attrs: { fill: "#fff" } }, [
-                              _c("ellipse", {
-                                attrs: {
-                                  transform: "scale(-1) rotate(45 454 -906)",
-                                  cx: "375.3",
-                                  cy: "188.1",
-                                  rx: "12",
-                                  ry: "8.1",
-                                },
-                              }),
-                              _vm._v(" "),
-                              _c("ellipse", {
-                                attrs: {
-                                  cx: "155.6",
-                                  cy: "205.3",
-                                  rx: "81.1",
-                                  ry: "81",
-                                },
-                              }),
-                            ]),
-                            _vm._v(" "),
-                            _c("ellipse", {
-                              attrs: {
-                                cx: "155.6",
-                                cy: "205.3",
-                                rx: "44.2",
-                                ry: "44.2",
-                                fill: "#3e4347",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("ellipse", {
-                              attrs: {
-                                transform: "scale(-1) rotate(45 454 -421.3)",
-                                cx: "174.5",
-                                cy: "188",
-                                rx: "12",
-                                ry: "8.1",
-                                fill: "#fff",
-                              },
-                            }),
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "rating-4",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              viewBox: "0 0 512 512",
-                            },
-                          },
-                          [
-                            _c("circle", {
-                              attrs: {
-                                cx: "256",
-                                cy: "256",
-                                r: "256",
-                                fill: "#ffd93b",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d: "M512 256A256 256 0 0 1 56.7 416.7a256 256 0 0 0 360-360c58.1 47 95.3 118.8 95.3 199.3z",
-                                fill: "#f4c534",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d: "M232.3 201.3c0 49.2-74.3 94.2-74.3 94.2s-74.4-45-74.4-94.2a38 38 0 0 1 74.4-11.1 38 38 0 0 1 74.3 11.1z",
-                                fill: "#e24b4b",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d: "M96.1 173.3a37.7 37.7 0 0 0-12.4 28c0 49.2 74.3 94.2 74.3 94.2C80.2 229.8 95.6 175.2 96 173.3z",
-                                fill: "#d03f3f",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d: "M215.2 200c-3.6 3-9.8 1-13.8-4.1-4.2-5.2-4.6-11.5-1.2-14.1 3.6-2.8 9.7-.7 13.9 4.4 4 5.2 4.6 11.4 1.1 13.8z",
-                                fill: "#fff",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d: "M428.4 201.3c0 49.2-74.4 94.2-74.4 94.2s-74.3-45-74.3-94.2a38 38 0 0 1 74.4-11.1 38 38 0 0 1 74.3 11.1z",
-                                fill: "#e24b4b",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d: "M292.2 173.3a37.7 37.7 0 0 0-12.4 28c0 49.2 74.3 94.2 74.3 94.2-77.8-65.7-62.4-120.3-61.9-122.2z",
-                                fill: "#d03f3f",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d: "M411.3 200c-3.6 3-9.8 1-13.8-4.1-4.2-5.2-4.6-11.5-1.2-14.1 3.6-2.8 9.7-.7 13.9 4.4 4 5.2 4.6 11.4 1.1 13.8z",
-                                fill: "#fff",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d: "M381.7 374.1c-30.2 35.9-75.3 64.4-125.7 64.4s-95.4-28.5-125.8-64.2a17.6 17.6 0 0 1 16.5-28.7 627.7 627.7 0 0 0 218.7-.1c16.2-2.7 27 16.1 16.3 28.6z",
-                                fill: "#3e4347",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d: "M256 438.5c25.7 0 50-7.5 71.7-19.5-9-33.7-40.7-43.3-62.6-31.7-29.7 15.8-62.8-4.7-75.6 34.3 20.3 10.4 42.8 17 66.5 17z",
-                                fill: "#e24b4b",
-                              },
-                            }),
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "rating-5",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              viewBox: "0 0 512 512",
-                            },
-                          },
-                          [
-                            _c("g", { attrs: { fill: "#ffd93b" } }, [
-                              _c("circle", {
-                                attrs: { cx: "256", cy: "256", r: "256" },
-                              }),
-                              _vm._v(" "),
-                              _c("path", {
-                                attrs: {
-                                  d: "M512 256A256 256 0 0 1 56.8 416.7a256 256 0 0 0 360-360c58 47 95.2 118.8 95.2 199.3z",
-                                },
-                              }),
-                            ]),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d: "M512 99.4v165.1c0 11-8.9 19.9-19.7 19.9h-187c-13 0-23.5-10.5-23.5-23.5v-21.3c0-12.9-8.9-24.8-21.6-26.7-16.2-2.5-30 10-30 25.5V261c0 13-10.5 23.5-23.5 23.5h-187A19.7 19.7 0 0 1 0 264.7V99.4c0-10.9 8.8-19.7 19.7-19.7h472.6c10.8 0 19.7 8.7 19.7 19.7z",
-                                fill: "#e9eff4",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d: "M204.6 138v88.2a23 23 0 0 1-23 23H58.2a23 23 0 0 1-23-23v-88.3a23 23 0 0 1 23-23h123.4a23 23 0 0 1 23 23z",
-                                fill: "#45cbea",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d: "M476.9 138v88.2a23 23 0 0 1-23 23H330.3a23 23 0 0 1-23-23v-88.3a23 23 0 0 1 23-23h123.4a23 23 0 0 1 23 23z",
-                                fill: "#e84d88",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("g", { attrs: { fill: "#38c0dc" } }, [
-                              _c("path", {
-                                attrs: {
-                                  d: "M95.2 114.9l-60 60v15.2l75.2-75.2zM123.3 114.9L35.1 203v23.2c0 1.8.3 3.7.7 5.4l116.8-116.7h-29.3z",
-                                },
-                              }),
-                            ]),
-                            _vm._v(" "),
-                            _c("g", { attrs: { fill: "#d23f77" } }, [
-                              _c("path", {
-                                attrs: {
-                                  d: "M373.3 114.9l-66 66V196l81.3-81.2zM401.5 114.9l-94.1 94v17.3c0 3.5.8 6.8 2.2 9.8l121.1-121.1h-29.2z",
-                                },
-                              }),
-                            ]),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d: "M329.5 395.2c0 44.7-33 81-73.4 81-40.7 0-73.5-36.3-73.5-81s32.8-81 73.5-81c40.5 0 73.4 36.3 73.4 81z",
-                                fill: "#3e4347",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d: "M256 476.2a70 70 0 0 0 53.3-25.5 34.6 34.6 0 0 0-58-25 34.4 34.4 0 0 0-47.8 26 69.9 69.9 0 0 0 52.6 24.5z",
-                                fill: "#e24b4b",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                d: "M290.3 434.8c-1 3.4-5.8 5.2-11 3.9s-8.4-5.1-7.4-8.7c.8-3.3 5.7-5 10.7-3.8 5.1 1.4 8.5 5.3 7.7 8.6z",
-                                fill: "#fff",
-                                opacity: ".2",
-                              },
-                            }),
-                          ]
-                        ),
-                      ]),
-                    ]),
-                  ]),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "cta text-center py-3" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "px-5",
-                    on: {
-                      click: function ($event) {
-                        _vm.popupReview = false
-                      },
+              },
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.formData.username,
+                      expression: "formData.username",
+                    },
+                  ],
+                  attrs: {
+                    id: "username",
+                    type: "text",
+                    placeholder: "Username",
+                  },
+                  domProps: { value: _vm.formData.username },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.formData, "username", $event.target.value)
                     },
                   },
-                  [
-                    _vm._v("\n                            Invia "),
-                    _c("i", { staticClass: "fa-solid fa-paper-plane" }),
-                  ]
-                ),
-              ]),
-            ]),
+                }),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.formData.vote,
+                      expression: "formData.vote",
+                    },
+                  ],
+                  attrs: { id: "vote", type: "text", placeholder: "Voto" },
+                  domProps: { value: _vm.formData.vote },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.formData, "vote", $event.target.value)
+                    },
+                  },
+                }),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.formData.content,
+                      expression: "formData.content",
+                    },
+                  ],
+                  attrs: {
+                    id: "content",
+                    cols: "30",
+                    rows: "10",
+                    placeholder: "Scrivi la tua recensione",
+                  },
+                  domProps: { value: _vm.formData.content },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.formData, "content", $event.target.value)
+                    },
+                  },
+                }),
+                _vm._v(" "),
+                _vm._m(0),
+              ]
+            ),
           ]),
         ]),
       ]
@@ -41720,7 +41356,7 @@ var render = function () {
             ]),
           ]),
           _vm._v(" "),
-          _vm._m(0),
+          _vm._m(1),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "singleMusician-profile_right" }, [
@@ -41791,7 +41427,7 @@ var render = function () {
             ]),
           ]),
           _vm._v(" "),
-          _vm._m(1),
+          _vm._m(2),
         ]),
       ]),
       _vm._v(" "),
@@ -41811,7 +41447,7 @@ var render = function () {
                   ])
                 : _vm._e(),
               _vm._v(" "),
-              _vm._m(2),
+              _vm._m(3),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "make-review" }, [
@@ -41833,7 +41469,7 @@ var render = function () {
             ]),
           ]),
           _vm._v(" "),
-          _vm._l(_vm.user.reviews, function (review, index) {
+          _vm._l(_vm.user.reviews.slice().reverse(), function (review, index) {
             return _c("div", { key: index, staticClass: "review" }, [
               _c("div", { staticClass: "review-head" }, [
                 _c("h5", [_vm._v(_vm._s(review.username))]),
@@ -41872,6 +41508,17 @@ var render = function () {
   ])
 }
 var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "cta text-center py-3" }, [
+      _c("button", { staticClass: "px-5", attrs: { type: "submit" } }, [
+        _vm._v("\n                            Invia "),
+        _c("i", { staticClass: "fa-solid fa-paper-plane" }),
+      ]),
+    ])
+  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
@@ -57461,7 +57108,7 @@ module.exports = "/images/service-3.svg?eba2a9055d13786db8f54b0f3ba5d556";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/wave.svg?aef79995629b40b24f4277c44b0be010";
+module.exports = "/images/wave.svg?3d8bc604125d77811c1a4e9267f06eba";
 
 /***/ }),
 
@@ -58261,24 +57908,29 @@ __webpack_require__.r(__webpack_exports__);
 /*!*************************************!*\
   !*** ./resources/js/guest/front.js ***!
   \*************************************/
-/*! no exports provided */
+/*! exports provided: bus */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App.vue */ "./resources/js/guest/App.vue");
-/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./router */ "./resources/js/guest/router.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bus", function() { return bus; });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue */ "./resources/js/guest/App.vue");
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./router */ "./resources/js/guest/router.js");
 __webpack_require__(/*! ../bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
 
-var app = new Vue({
+
+var bus = new vue__WEBPACK_IMPORTED_MODULE_0___default.a();
+var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: "#app",
   render: function render(h) {
-    return h(_App_vue__WEBPACK_IMPORTED_MODULE_0__["default"]);
+    return h(_App_vue__WEBPACK_IMPORTED_MODULE_1__["default"]);
   },
-  router: _router__WEBPACK_IMPORTED_MODULE_1__["default"]
+  router: _router__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
 
 /***/ }),
@@ -58526,6 +58178,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/guest/pages/Search.vue":
+/*!*********************************************!*\
+  !*** ./resources/js/guest/pages/Search.vue ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Search_vue_vue_type_template_id_4e14df48___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Search.vue?vue&type=template&id=4e14df48& */ "./resources/js/guest/pages/Search.vue?vue&type=template&id=4e14df48&");
+/* harmony import */ var _Search_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Search.vue?vue&type=script&lang=js& */ "./resources/js/guest/pages/Search.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Search_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Search_vue_vue_type_template_id_4e14df48___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Search_vue_vue_type_template_id_4e14df48___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/guest/pages/Search.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/guest/pages/Search.vue?vue&type=script&lang=js&":
+/*!**********************************************************************!*\
+  !*** ./resources/js/guest/pages/Search.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Search_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Search.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/guest/pages/Search.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Search_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/guest/pages/Search.vue?vue&type=template&id=4e14df48&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/guest/pages/Search.vue?vue&type=template&id=4e14df48& ***!
+  \****************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Search_vue_vue_type_template_id_4e14df48___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Search.vue?vue&type=template&id=4e14df48& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/guest/pages/Search.vue?vue&type=template&id=4e14df48&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Search_vue_vue_type_template_id_4e14df48___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Search_vue_vue_type_template_id_4e14df48___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/guest/pages/SingleMusician.vue":
 /*!*****************************************************!*\
   !*** ./resources/js/guest/pages/SingleMusician.vue ***!
@@ -58626,12 +58347,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/Home */ "./resources/js/guest/pages/Home.vue");
-/* harmony import */ var _pages_Musicians__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/Musicians */ "./resources/js/guest/pages/Musicians.vue");
-/* harmony import */ var _pages_SingleMusician__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/SingleMusician */ "./resources/js/guest/pages/SingleMusician.vue");
-/* harmony import */ var _pages_PageNotFound__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/PageNotFound */ "./resources/js/guest/pages/PageNotFound.vue");
+/* harmony import */ var _pages_Search__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/Search */ "./resources/js/guest/pages/Search.vue");
+/* harmony import */ var _pages_Musicians__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/Musicians */ "./resources/js/guest/pages/Musicians.vue");
+/* harmony import */ var _pages_SingleMusician__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/SingleMusician */ "./resources/js/guest/pages/SingleMusician.vue");
+/* harmony import */ var _pages_PageNotFound__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/PageNotFound */ "./resources/js/guest/pages/PageNotFound.vue");
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
 
 
 
@@ -58643,17 +58366,21 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: "home",
     component: _pages_Home__WEBPACK_IMPORTED_MODULE_2__["default"]
   }, {
+    path: "/search",
+    name: "search",
+    component: _pages_Search__WEBPACK_IMPORTED_MODULE_3__["default"]
+  }, {
     path: "/single/:slug",
     name: "user-single",
-    component: _pages_SingleMusician__WEBPACK_IMPORTED_MODULE_4__["default"]
+    component: _pages_SingleMusician__WEBPACK_IMPORTED_MODULE_5__["default"]
   }, {
     path: "/list-musicians",
     name: "list-musicians",
-    component: _pages_Musicians__WEBPACK_IMPORTED_MODULE_3__["default"]
+    component: _pages_Musicians__WEBPACK_IMPORTED_MODULE_4__["default"]
   }, {
     path: "*",
     name: "page-404",
-    component: _pages_PageNotFound__WEBPACK_IMPORTED_MODULE_5__["default"]
+    component: _pages_PageNotFound__WEBPACK_IMPORTED_MODULE_6__["default"]
   }]
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);
@@ -58667,7 +58394,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/francescoabritta/Documents/unison/resources/js/guest/front.js */"./resources/js/guest/front.js");
+module.exports = __webpack_require__(/*! C:\Users\simon\Desktop\unison\resources\js\guest\front.js */"./resources/js/guest/front.js");
 
 
 /***/ })

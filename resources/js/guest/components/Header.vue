@@ -1,13 +1,21 @@
 <template>
 <div>
   <nav>
-    <div class="logo">UNISON</div>
+    <div class="logo">
+      <router-link :to="{ name: 'home' }">UNISON</router-link>
+    </div>
     <ul class="my_ul">
       <li class="my_li">
         <router-link :to="{ name: 'list-musicians' }"><p>Vai ai musicisti</p></router-link>
       </li>
-      <li v-for="(voice, index) in link" :key="index">
-        <a class="my_a" href="#"><p>{{ voice.name }}</p></a>
+      <li>
+        <router-link :to="{name: 'search'}"><p>Cerca</p></router-link>
+      </li>
+      <li>  
+        <a class="my_a" href=""><p>Eventi</p></a>
+      </li>
+      <li>  
+        <a class="my_a" href=""><p>Categorie</p></a>
       </li>
       <li>
           <a class="my_a login" href="http://127.0.0.1:8000/login"><p class="my_button">Login</p></a>
@@ -30,7 +38,7 @@
       </li>
     </ul>
   </nav>
-  <Transition name="slide-fade">
+  <!-- <Transition name="slide-fade">
   <div class="listmenu" v-show="click==1">
       <ul>
         <li v-for="(voice, indice) in link" :key="indice">
@@ -41,7 +49,7 @@
         </li>
       </ul>
   </div>
-  </Transition>
+  </Transition> -->
 </div>
 
   
@@ -54,17 +62,17 @@ export default {
   data() {
     return {
       click: 0,
-      link: [
-        {
-          name: "Cerca",
-        },
-        {
-          name: "Categorie",
-        },
-        {
-          name: "Eventi",
-        },
-      ],
+      // link: [
+      //   {
+      //     name: "Cerca",
+      //   },
+      //   {
+      //     name: "Categorie",
+      //   },
+      //   {
+      //     name: "Eventi",
+      //   },
+      // ],
     };
   },
   computed: {

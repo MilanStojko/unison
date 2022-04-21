@@ -19,12 +19,19 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::namespace('Api')->name('api.')->group(function () {
+    // TUTTI GLI USER
     Route::get("/users", "UserController@index")->name('users');
     Route::get("/users/show/{slug}", "UserController@show")->name('users.show');
     Route::get("/users/count", "UserController@getCountReview");
+    // MEDIA RECENSIONI
     Route::get("/users/avg/{minvote}", "UserController@getAvgVote");
+    // TUTTE LE AVAILABILITY
+    Route::get("/availability/index", "AvailabilityController@index");
+    // FILTRO AVAILABILITY
     Route::get("/filtered/getavailability/{availability_id}", "FilterController@getAvailability")->name('fileter.getAvailability');
+    // FILTRO NOME
     Route::get("/filtered/getname/{nome}", "FilterController@getFullName")->name('fileter.getFullName');
+    // RECENSIONI
     Route::get("/review/show/{userid}", "ReviewController@index")->name('review.index');
     Route::post("/review/postReview", "ReviewController@store");
 });
