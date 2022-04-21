@@ -19,16 +19,7 @@ class UserController extends Controller
 
     public function show($slug)
     {
-        $user = User::where('slug', $slug)->with('categories', 'availabilities', 'sponsorships')->first();
+        $user = User::where('slug', $slug)->with('categories', 'availabilities', 'sponsorships', 'reviews')->first();
         return response()->json($user);
-    }
-
-    public function getReviewNumber()
-    {
-        // $user = User::whereHas('reviews', function (Builder $query) {
-        //     $query->where("user_id", "=", "reviews.user.id")->count()->sortByDesc();
-        // })->get();
-        // dd($user);
-        // return response()->json($user);
     }
 }
