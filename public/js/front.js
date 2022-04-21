@@ -2683,6 +2683,215 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/guest/pages/SingleMusician.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/guest/pages/SingleMusician.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "SingleMusician"
+});
+
+/***/ }),
+
 /***/ "./node_modules/bootstrap/dist/js/bootstrap.js":
 /*!*****************************************************!*\
   !*** ./node_modules/bootstrap/dist/js/bootstrap.js ***!
@@ -7121,6 +7330,25 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 // module
 exports.push([module.i, ".service[data-v-f0afa770] {\n  padding: 100px 0px;\n}\n.service-heading[data-v-f0afa770] {\n  margin-bottom: 50px;\n}\n.service-heading h2[data-v-f0afa770] {\n  font-size: 50px;\n  text-align: center;\n  font-weight: bold;\n  letter-spacing: 3px;\n}\n.service-cards[data-v-f0afa770] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n@media screen and (max-width: 991px) {\n.service-cards[data-v-f0afa770] {\n    flex-wrap: wrap;\n}\n}\n.service-card[data-v-f0afa770] {\n  margin: 15px 5px;\n  padding: 5px 10px;\n  background: rgba(255, 255, 255, 0.27);\n  border-radius: 16px;\n  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);\n  backdrop-filter: blur(6.2px);\n  -webkit-backdrop-filter: blur(6.2px);\n  border: 1px solid rgba(255, 255, 255, 0.26);\n}\n.service-card_img[data-v-f0afa770] {\n  height: 350px;\n}\n.service-card_img img[data-v-f0afa770] {\n  width: 100%;\n  height: 100%;\n}\n.service-card_text h4[data-v-f0afa770] {\n  text-align: center;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/guest/pages/SingleMusician.vue?vue&type=style&index=0&id=d39608ce&lang=scss&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--8-2!./node_modules/sass-loader/dist/cjs.js??ref--8-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/guest/pages/SingleMusician.vue?vue&type=style&index=0&id=d39608ce&lang=scss&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "li[data-v-d39608ce] {\n  list-style: none;\n}\n.singleMusician[data-v-d39608ce] {\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n  border-top-right-radius: 10px;\n  border-top-left-radius: 10px;\n}\n.singleMusician-profile[data-v-d39608ce] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-wrap: wrap;\n  margin-top: 50px;\n  padding-bottom: 50px;\n}\n.singleMusician-profile_left[data-v-d39608ce] {\n  width: 30%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column;\n  background-color: #ededed;\n  padding: 10px 0px;\n}\n.singleMusician-profile_left h2[data-v-d39608ce] {\n  color: #2a2929;\n  margin-top: 20px;\n  font-weight: bold;\n}\n.singleMusician-profile_left img[data-v-d39608ce] {\n  margin: 20px 0px;\n  width: 80%;\n  height: 300px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 30px;\n}\n.singleMusician-profile_left .address li[data-v-d39608ce] {\n  margin: 15px 0px;\n}\n.singleMusician-profile_left .address a[data-v-d39608ce] {\n  color: #2a2929;\n}\n.singleMusician-profile_left .address a[data-v-d39608ce]:hover {\n  text-decoration: none;\n}\n.singleMusician-profile_left .address i[data-v-d39608ce] {\n  margin-right: 10px;\n}\n.singleMusician-profile_left .social[data-v-d39608ce] {\n  margin: 20px 0px;\n}\n.singleMusician-profile_left .social a[data-v-d39608ce] {\n  color: #2a2929;\n  transition: all 0.2s linear;\n}\n.singleMusician-profile_left .social a[data-v-d39608ce]:first-child:hover {\n  color: #bb366c;\n}\n.singleMusician-profile_left .social a[data-v-d39608ce]:nth-child(2):hover {\n  color: #395693;\n}\n.singleMusician-profile_left .social a[data-v-d39608ce]:nth-child(3):hover {\n  color: #0870a2;\n}\n.singleMusician-profile_left .social i[data-v-d39608ce] {\n  font-size: 30px;\n  margin: 0px 10px;\n}\n.singleMusician-profile_right[data-v-d39608ce] {\n  width: 70%;\n  padding: 10px 20px;\n}\n.singleMusician-profile_right h2[data-v-d39608ce],\n.singleMusician-profile_right h4[data-v-d39608ce] {\n  color: #527a5a;\n  font-weight: bold;\n  font-size: 30px;\n}\n.singleMusician-profile_right .bio[data-v-d39608ce] {\n  margin-bottom: 50px;\n}\n.singleMusician-profile_right .categorie-eventi[data-v-d39608ce] {\n  display: flex;\n  align-items: flex-start;\n  flex-wrap: wrap;\n}\n.singleMusician-profile_right .categorie[data-v-d39608ce] {\n  margin-right: 100px;\n}\n.singleMusician-profile_right .cv a[data-v-d39608ce] {\n  font-size: 18px;\n  color: #2a2929;\n}\n.singleMusician-profile_right .cv a[data-v-d39608ce]:hover {\n  color: #527a5a;\n  text-decoration: none;\n}\n.singleMusician-reviews[data-v-d39608ce] {\n  padding: 20px;\n}\n.singleMusician-reviews_heading[data-v-d39608ce] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-bottom: 20px;\n  border-bottom: 1px solid #ededed;\n}\n.singleMusician-reviews_heading h4[data-v-d39608ce] {\n  margin-bottom: 0px;\n  font-weight: bold;\n  color: #5b5b5b;\n  margin-right: 10px;\n}\n.singleMusician-reviews .music-notes img[data-v-d39608ce] {\n  width: 25px;\n  height: auto;\n  color: #527a5a;\n}\n.singleMusician-reviews .review[data-v-d39608ce] {\n  background-color: #ededed;\n  padding: 10px;\n  width: 80%;\n  margin: 30px auto;\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);\n}\n.singleMusician-reviews .review-head[data-v-d39608ce] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.singleMusician-reviews .review-head h5[data-v-d39608ce] {\n  font-weight: bold;\n}\n.singleMusician-reviews .review-body span[data-v-d39608ce] {\n  display: block;\n  padding: 10px 0px;\n  border-bottom: 1px solid #c6c6c6;\n}\n.singleMusician-reviews .review-body p[data-v-d39608ce] {\n  padding: 10px 0px;\n}\n.singleMusician-reviews .review-music_notes img[data-v-d39608ce] {\n  width: 20px;\n  height: auto;\n  color: #527a5a;\n}\n.popup-message[data-v-d39608ce],\n.popup-review[data-v-d39608ce] {\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.6);\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 2000;\n  display: none;\n}\n.popup-message_box[data-v-d39608ce] {\n  width: 600px;\n  background-color: #ededed;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  border-top-right-radius: 10px;\n  border-top-left-radius: 10px;\n}\n.popup-message_box .message-heading[data-v-d39608ce] {\n  background-color: #2a2929;\n  color: #fff;\n  font-size: 20px;\n  padding: 15px 0px;\n  text-align: center;\n}\n.popup-message_box .message-body form[data-v-d39608ce] {\n  display: flex;\n  flex-direction: column;\n  padding: 15px;\n}\n.popup-message_box .message-body form input[data-v-d39608ce],\n.popup-message_box .message-body form textarea[data-v-d39608ce] {\n  margin: 10px 0px;\n  border: none;\n  border-bottom: 1px solid #c6c6c6;\n  background-color: #ededed;\n  outline: none;\n}\n.cta[data-v-d39608ce],\n.make-review[data-v-d39608ce] {\n  text-align: right;\n}\n.cta a[data-v-d39608ce],\n.make-review a[data-v-d39608ce] {\n  background-color: #527a5a;\n  color: #fff;\n  padding: 10px 20px;\n}\n.cta a[data-v-d39608ce]:hover,\n.make-review a[data-v-d39608ce]:hover {\n  text-decoration: none;\n  background-color: #6aa275;\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n}", ""]);
 
 // exports
 
@@ -38567,6 +38795,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/guest/pages/SingleMusician.vue?vue&type=style&index=0&id=d39608ce&lang=scss&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--8-2!./node_modules/sass-loader/dist/cjs.js??ref--8-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/guest/pages/SingleMusician.vue?vue&type=style&index=0&id=d39608ce&lang=scss&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--8-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--8-3!../../../../node_modules/vue-loader/lib??vue-loader-options!./SingleMusician.vue?vue&type=style&index=0&id=d39608ce&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/guest/pages/SingleMusician.vue?vue&type=style&index=0&id=d39608ce&lang=scss&scoped=true&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/guest/components/Footer.vue?vue&type=style&index=0&id=4a9fdc62&scoped=true&lang=css&":
 /*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/guest/components/Footer.vue?vue&type=style&index=0&id=4a9fdc62&scoped=true&lang=css& ***!
@@ -40112,6 +40370,310 @@ var render = function () {
   ])
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/guest/pages/SingleMusician.vue?vue&type=template&id=d39608ce&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/guest/pages/SingleMusician.vue?vue&type=template&id=d39608ce&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container-xl" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "singleMusician" }, [
+      _c("div", { staticClass: "singleMusician-profile" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c("div", { staticClass: "singleMusician-profile_right" }, [
+          _c("div", { staticClass: "cta" }, [
+            _c(
+              "a",
+              {
+                attrs: { href: "#" },
+                on: {
+                  click: function ($event) {
+                    _vm.popup - _vm.message
+                  },
+                },
+              },
+              [
+                _vm._v("Contattami "),
+                _c("i", { staticClass: "fa-solid fa-envelope" }),
+              ]
+            ),
+          ]),
+          _vm._v(" "),
+          _vm._m(2),
+          _vm._v(" "),
+          _vm._m(3),
+          _vm._v(" "),
+          _vm._m(4),
+        ]),
+      ]),
+      _vm._v(" "),
+      _vm._m(5),
+    ]),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "popup-message" }, [
+      _c("div", { staticClass: "popup-message_box" }, [
+        _c("div", { staticClass: "message-heading" }, [
+          _vm._v("Scrivi il tuo messaggio"),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "message-body" }, [
+          _c("form", [
+            _c("input", { attrs: { type: "text", placeholder: "Nome" } }),
+            _vm._v(" "),
+            _c("textarea", {
+              attrs: {
+                cols: "30",
+                rows: "10",
+                placeholder: "Scrivi il tuo messaggio",
+              },
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "cta text-center py-3" }, [
+              _c("a", { attrs: { href: "#" } }, [
+                _vm._v("Invia "),
+                _c("i", { staticClass: "fa-solid fa-paper-plane" }),
+              ]),
+            ]),
+          ]),
+        ]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "singleMusician-profile_left" }, [
+      _c("h2", [_vm._v("Hamza Bouzid")]),
+      _vm._v(" "),
+      _c("img", { attrs: { src: __webpack_require__(/*! ../../../images/jumbo-2.png */ "./resources/images/jumbo-2.png") } }),
+      _vm._v(" "),
+      _c("div", { staticClass: "address" }, [
+        _c("ul", [
+          _c("li", [
+            _c("i", { staticClass: "fa-solid fa-location-dot" }),
+            _vm._v(
+              " 123\n                            Somewhere St. City, State\n                        "
+            ),
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("i", { staticClass: "fa-solid fa-phone" }),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "callto:+39 345678987" } }, [
+              _vm._v("+39 345678987"),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("i", { staticClass: "fa-solid fa-envelope" }),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "mailto:hamza@hamza.com" } }, [
+              _vm._v("hamza@hamza.com"),
+            ]),
+          ]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "social" }, [
+        _c("a", { attrs: { href: "#" } }, [
+          _c("i", { staticClass: "fa-brands fa-instagram-square" }),
+        ]),
+        _vm._v(" "),
+        _c("a", { attrs: { href: "#" } }, [
+          _c("i", { staticClass: "fa-brands fa-facebook-square" }),
+        ]),
+        _vm._v(" "),
+        _c("a", { attrs: { href: "#" } }, [
+          _c("i", { staticClass: "fa-brands fa-linkedin" }),
+        ]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "bio" }, [
+      _c("h2", [_vm._v("Bio")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "\n                        Lorem Ipsum is simply dummy text of the printing and\n                        typesetting industry. Lorem Ipsum has been the\n                        industry's standard dummy text ever since the 1500s,\n                        when an unknown printer took a galley of type and\n                        scrambled it to make a type specimen book. It has\n                        survived not only five centuries, but also the leap\n                        into electronic typesetting, remaining essentially\n                        unchanged. It was popularised in the 1960s with the\n                        release of Letraset sheets containing Lorem Ipsum\n                        passages, and more recently with desktop publishing\n                        software like Aldus PageMaker including versions of\n                        Lorem Ipsum.\n                    "
+        ),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "categorie-eventi" }, [
+      _c("div", { staticClass: "categorie" }, [
+        _c("h4", [_vm._v("Categorie:")]),
+        _vm._v(" "),
+        _c("ul", [
+          _c("li", [_vm._v("Cantante")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("Chitarrista")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("Pianista")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("Violinista")]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "eventi" }, [
+        _c("h4", [_vm._v("Disponibilità:")]),
+        _vm._v(" "),
+        _c("ul", [
+          _c("li", [_vm._v("Matrimoni")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("Natale")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("Compleanni")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("Locali")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("Pranzi")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("Festa Aziendale")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("Capodanno")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("Anniversario")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("Festa Privata")]),
+        ]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "cv" }, [
+      _c("a", { attrs: { href: "#", download: "" } }, [
+        _c("i", { staticClass: "fa-solid fa-file-arrow-down" }),
+        _vm._v(" Scarica\n                        CV"),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "singleMusician-reviews" }, [
+      _c("div", { staticClass: "singleMusician-reviews_heading" }, [
+        _c("div", { staticClass: "d-flex align-items-center" }, [
+          _c("h4", [_vm._v("15 recensioni")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "music-notes" }, [
+            _c("img", { attrs: { src: __webpack_require__(/*! ../../../images/music.svg */ "./resources/images/music.svg") } }),
+            _vm._v(" "),
+            _c("img", { attrs: { src: __webpack_require__(/*! ../../../images/music.svg */ "./resources/images/music.svg") } }),
+            _vm._v(" "),
+            _c("img", { attrs: { src: __webpack_require__(/*! ../../../images/music.svg */ "./resources/images/music.svg") } }),
+            _vm._v(" "),
+            _c("img", { attrs: { src: __webpack_require__(/*! ../../../images/music.svg */ "./resources/images/music.svg") } }),
+            _vm._v(" "),
+            _c("img", { attrs: { src: __webpack_require__(/*! ../../../images/music.svg */ "./resources/images/music.svg") } }),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "make-review" }, [
+          _c("a", { attrs: { href: "" } }, [_vm._v("Lascia una recensione")]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "review" }, [
+        _c("div", { staticClass: "review-head" }, [
+          _c("h5", [_vm._v("Marco")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "review-music_notes" }, [
+            _c("img", { attrs: { src: __webpack_require__(/*! ../../../images/music.svg */ "./resources/images/music.svg") } }),
+            _vm._v(" "),
+            _c("img", { attrs: { src: __webpack_require__(/*! ../../../images/music.svg */ "./resources/images/music.svg") } }),
+            _vm._v(" "),
+            _c("img", { attrs: { src: __webpack_require__(/*! ../../../images/music.svg */ "./resources/images/music.svg") } }),
+            _vm._v(" "),
+            _c("img", { attrs: { src: __webpack_require__(/*! ../../../images/music.svg */ "./resources/images/music.svg") } }),
+            _vm._v(" "),
+            _c("img", { attrs: { src: __webpack_require__(/*! ../../../images/music.svg */ "./resources/images/music.svg") } }),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "review-body" }, [
+          _c("span", [
+            _c("i", { staticClass: "fa-solid fa-calendar-days" }),
+            _vm._v(" 30 Marzo\n                        2022"),
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "\n                        Lorem Ipsum is simply dummy text of the printing and\n                        typesetting industry. Lorem Ipsum has been the\n                        industry's standard dummy text ever since the 1500s,\n                        when an unknown printer took a galley of type and\n                        scrambled it to make a type specimen book. It has\n                        survived not only five centuries, but also the leap\n                        into electronic typesetting, remaining essentially\n                    "
+            ),
+          ]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "review" }, [
+        _c("div", { staticClass: "review-head" }, [
+          _c("h5", [_vm._v("Marco")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "review-music_notes" }, [
+            _c("img", { attrs: { src: __webpack_require__(/*! ../../../images/music.svg */ "./resources/images/music.svg") } }),
+            _vm._v(" "),
+            _c("img", { attrs: { src: __webpack_require__(/*! ../../../images/music.svg */ "./resources/images/music.svg") } }),
+            _vm._v(" "),
+            _c("img", { attrs: { src: __webpack_require__(/*! ../../../images/music.svg */ "./resources/images/music.svg") } }),
+            _vm._v(" "),
+            _c("img", { attrs: { src: __webpack_require__(/*! ../../../images/music.svg */ "./resources/images/music.svg") } }),
+            _vm._v(" "),
+            _c("img", { attrs: { src: __webpack_require__(/*! ../../../images/music.svg */ "./resources/images/music.svg") } }),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "review-body" }, [
+          _c("span", [
+            _c("i", { staticClass: "fa-solid fa-calendar-days" }),
+            _vm._v(" 30 Marzo\n                        2022"),
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "\n                        Lorem Ipsum is simply dummy text of the printing and\n                        typesetting industry. Lorem Ipsum has been the\n                        industry's standard dummy text ever since the 1500s,\n                        when an unknown printer took a galley of type and\n                        scrambled it to make a type specimen book. It has\n                        survived not only five centuries, but also the leap\n                        into electronic typesetting, remaining essentially\n                    "
+            ),
+          ]),
+        ]),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 
@@ -55593,6 +56155,17 @@ module.exports = "/images/jumbo-6.jpg?f74a0b86e1e713f36c3e961f3462cdf1";
 
 /***/ }),
 
+/***/ "./resources/images/music.svg":
+/*!************************************!*\
+  !*** ./resources/images/music.svg ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/music.svg?45010543bc7f7781ee5fface1e9cbd52";
+
+/***/ }),
+
 /***/ "./resources/images/pexels-picjumbocom-196652.jpg":
 /*!********************************************************!*\
   !*** ./resources/images/pexels-picjumbocom-196652.jpg ***!
@@ -56622,6 +57195,93 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/guest/pages/SingleMusician.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/guest/pages/SingleMusician.vue ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SingleMusician_vue_vue_type_template_id_d39608ce_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SingleMusician.vue?vue&type=template&id=d39608ce&scoped=true& */ "./resources/js/guest/pages/SingleMusician.vue?vue&type=template&id=d39608ce&scoped=true&");
+/* harmony import */ var _SingleMusician_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SingleMusician.vue?vue&type=script&lang=js& */ "./resources/js/guest/pages/SingleMusician.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _SingleMusician_vue_vue_type_style_index_0_id_d39608ce_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SingleMusician.vue?vue&type=style&index=0&id=d39608ce&lang=scss&scoped=true& */ "./resources/js/guest/pages/SingleMusician.vue?vue&type=style&index=0&id=d39608ce&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _SingleMusician_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _SingleMusician_vue_vue_type_template_id_d39608ce_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _SingleMusician_vue_vue_type_template_id_d39608ce_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "d39608ce",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/guest/pages/SingleMusician.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/guest/pages/SingleMusician.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/guest/pages/SingleMusician.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleMusician_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./SingleMusician.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/guest/pages/SingleMusician.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleMusician_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/guest/pages/SingleMusician.vue?vue&type=style&index=0&id=d39608ce&lang=scss&scoped=true&":
+/*!***************************************************************************************************************!*\
+  !*** ./resources/js/guest/pages/SingleMusician.vue?vue&type=style&index=0&id=d39608ce&lang=scss&scoped=true& ***!
+  \***************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleMusician_vue_vue_type_style_index_0_id_d39608ce_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--8-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--8-3!../../../../node_modules/vue-loader/lib??vue-loader-options!./SingleMusician.vue?vue&type=style&index=0&id=d39608ce&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/guest/pages/SingleMusician.vue?vue&type=style&index=0&id=d39608ce&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleMusician_vue_vue_type_style_index_0_id_d39608ce_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleMusician_vue_vue_type_style_index_0_id_d39608ce_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleMusician_vue_vue_type_style_index_0_id_d39608ce_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleMusician_vue_vue_type_style_index_0_id_d39608ce_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/js/guest/pages/SingleMusician.vue?vue&type=template&id=d39608ce&scoped=true&":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/guest/pages/SingleMusician.vue?vue&type=template&id=d39608ce&scoped=true& ***!
+  \************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleMusician_vue_vue_type_template_id_d39608ce_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./SingleMusician.vue?vue&type=template&id=d39608ce&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/guest/pages/SingleMusician.vue?vue&type=template&id=d39608ce&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleMusician_vue_vue_type_template_id_d39608ce_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleMusician_vue_vue_type_template_id_d39608ce_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/guest/router.js":
 /*!**************************************!*\
   !*** ./resources/js/guest/router.js ***!
@@ -56635,10 +57295,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/Home */ "./resources/js/guest/pages/Home.vue");
-/* harmony import */ var _pages_Musicians__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/Musicians */ "./resources/js/guest/pages/Musicians.vue");
+/* harmony import */ var _pages_Musicians__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/Musicians */ "./resources/js/guest/pages/Musicians.vue");
+/* harmony import */ var _pages_SingleMusician__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/SingleMusician */ "./resources/js/guest/pages/SingleMusician.vue");
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
 
 
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
@@ -56648,15 +57310,14 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: "home",
     component: _pages_Home__WEBPACK_IMPORTED_MODULE_2__["default"]
   }, {
+    path: "/single",
+    name: "user-single",
+    component: _pages_SingleMusician__WEBPACK_IMPORTED_MODULE_4__["default"]
+  }, {
     path: "/list-musicians",
     name: "list-musicians",
-    component: _pages_Musicians__WEBPACK_IMPORTED_MODULE_4__["default"]
-  } // {
-  //     path: "/single",
-  //     name: "user-single",
-  //     component: SingleMusician,
-  // },
-  ]
+    component: _pages_Musicians__WEBPACK_IMPORTED_MODULE_3__["default"]
+  }]
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);
 
