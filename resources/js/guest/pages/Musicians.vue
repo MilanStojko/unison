@@ -1,4 +1,5 @@
 <template>
+<div class="background">
     <div class="container mt-5">
         <h1>I nostri musicisti</h1>
         <div class="my_card" v-for="(user, indice) in users" :key="indice">
@@ -12,7 +13,7 @@
                         <div>
                             <h5>Strumenti:</h5>
                             <ul>
-                                <li v-for="(category, index) in user.categories" :key="index">{{category.cat}}</li>
+                                <li v-for="(category, index) in user.categories" :key="index"><strong>{{category.cat}}</strong></li>
                             </ul>
                         </div>
                     </div>
@@ -20,7 +21,7 @@
                         <div>
                             <h5>Eventi:</h5>
                             <ul>
-                                <li v-for="(event, index) in user.events" :key="index">{{event.ev}}</li>
+                                <li v-for="(event, index) in user.events" :key="index"><strong>{{event.ev}}</strong></li>
                             </ul>
                         </div>
                     </div>
@@ -33,6 +34,8 @@
             </div>
         </div>
     </div>
+</div>
+    
 </template>
 
 <script>
@@ -177,8 +180,31 @@ export default {
 </script>
 
 <style scoped>
+
+    .background{
+        background-image: url("../../../images/pexels-picjumbocom-196652.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        height: calc(100vh - 50px);
+        overflow-y: scroll;
+    }
+
+    .background::-webkit-scrollbar {
+        display: none;
+    }
+
+    .background {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+
     h1, .info h3{
         text-align: center;
+    }
+
+    h1{
+        font-size: 55px;
     }
 
     .my_card{
@@ -186,7 +212,7 @@ export default {
         max-width: 60%;
         padding: 20px;
         /* background: rgba(210, 206, 206, 0.861); */
-        background: rgba(42, 41, 41, 0.5);
+        background: rgba(42, 41, 41, 0.9);
         border-radius: 20px;
         border: 1px solid black;
         color: white;
@@ -205,7 +231,7 @@ export default {
     .categories li, .events li{
         list-style: none;
         margin-left: 5px;
-        font-size: 14px;
+        font-size: 20px;
     }
 
     .categories li{
@@ -220,8 +246,6 @@ export default {
         border-radius: 15px;
         padding: 15px;
     }
-
-    
     
     .top{
         display: flex;
