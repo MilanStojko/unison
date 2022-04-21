@@ -36,14 +36,25 @@
                     </div>
                 </div>
                 <div class="message-body">
-                    <form>
-                        <input type="text" placeholder="Username" />
+                    <form @submit.prevent="addReview()">
+                        <input
+                            type="text"
+                            placeholder="Username"
+                            v-model="formData.username"
+                        />
+                        <input
+                            type="text"
+                            placeholder="Voto"
+                            v-model="formData.vote"
+                        />
                         <textarea
                             cols="30"
                             rows="10"
                             placeholder="Scrivi la tua recensione"
+                            v-model="formData.content"
                         ></textarea>
-                        <div class="make_review-rating">
+                        
+                        <!-- <div class="make_review-rating">
                             <div class="feedback">
                                 <div class="rating">
                                     <input
@@ -425,9 +436,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="cta text-center py-3">
-                            <button class="px-5" @click="popupReview = false">
+                            <button type="submit" class="px-5">
                                 Invia <i class="fa-solid fa-paper-plane"></i>
                             </button>
                         </div>
@@ -582,6 +593,11 @@ export default {
             popupMessage: false,
             popupReview: false,
             user: {},
+            formData: {
+                username: "",
+                content: "",
+                vote: "",
+            },
         };
     },
     methods: {
@@ -594,6 +610,15 @@ export default {
         },
         starsWidth: function (numero) {
             return "starFill" + numero;
+        },
+
+        addReview: function () {
+            axios
+                .post(`/api/review/postReview/`, this.formData)
+                .then((response) => {
+                    this.popupReview = false;
+                    console.log("inviato");
+                });
         },
     },
     created() {
