@@ -2585,6 +2585,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Musicians",
   data: function data() {
@@ -7890,12 +7893,13 @@ exports.push([module.i, "\nselect[data-v-b0277c92]{\n    border: 0;\n    padding
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+var escape = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/url/escape.js */ "./node_modules/css-loader/lib/url/escape.js");
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
 
 
 // module
-exports.push([module.i, "\nh1[data-v-18581212], .info h3[data-v-18581212]{\n    text-align: center;\n}\n.my_card[data-v-18581212]{\n    margin: 50px auto;\n    max-width: 60%;\n    padding: 20px;\n    /* background: rgba(210, 206, 206, 0.861); */\n    background: rgba(42, 41, 41, 0.5);\n    border-radius: 20px;\n    border: 1px solid black;\n    color: white;\n}\n.bio[data-v-18581212]{\n    line-height: 20px;\n    font-size: 14px;\n    padding: 0 25px;\n}\n.request[data-v-18581212]{\n    display: flex;\n}\n.categories li[data-v-18581212], .events li[data-v-18581212]{\n    list-style: none;\n    margin-left: 5px;\n    font-size: 14px;\n}\n.categories li[data-v-18581212]{\n    color: rgba(91, 121, 93);\n}\n.events li[data-v-18581212]{\n    color: rgba(175, 108, 195);\n}\n.categories div[data-v-18581212], .events div[data-v-18581212]{\n    border-radius: 15px;\n    padding: 15px;\n}\n.top[data-v-18581212]{\n    display: flex;\n    flex-wrap: wrap;\n    padding: 15px 0;\n}\n.info[data-v-18581212]{\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\nimg[data-v-18581212]{\n    /* height: 250px;\n    width: 225px; */\n    border-radius: 50%;\n}\n@media only screen and (max-width: 700px) {\n.categories[data-v-18581212], .events[data-v-18581212]{\n        padding: 0;\n}\n.categories div[data-v-18581212], .events div[data-v-18581212]{\n        max-width: 80%;\n}\n.request[data-v-18581212]{\n        padding: 0 25px;\n}\n.my_card[data-v-18581212]{\n        max-width: 90%;\n}\n}\n", ""]);
+exports.push([module.i, "\n.background[data-v-18581212]{\n    background-image: url(" + escape(__webpack_require__(/*! ../../../images/pexels-picjumbocom-196652.jpg */ "./resources/images/pexels-picjumbocom-196652.jpg")) + ");\n    background-repeat: no-repeat;\n    background-position: center;\n    background-size: cover;\n    height: calc(100vh - 50px);\n    overflow-y: scroll;\n}\n.background[data-v-18581212]::-webkit-scrollbar {\n    display: none;\n}\n.background[data-v-18581212] {\n    -ms-overflow-style: none;  /* IE and Edge */\n    scrollbar-width: none;  /* Firefox */\n}\nh1[data-v-18581212], .info h3[data-v-18581212]{\n    text-align: center;\n}\nh1[data-v-18581212]{\n    font-size: 55px;\n}\n.my_card[data-v-18581212]{\n    margin: 50px auto;\n    max-width: 60%;\n    padding: 20px;\n    /* background: rgba(210, 206, 206, 0.861); */\n    background: rgba(42, 41, 41, 0.9);\n    border-radius: 20px;\n    border: 1px solid black;\n    color: white;\n}\n.bio[data-v-18581212]{\n    line-height: 20px;\n    font-size: 14px;\n    padding: 0 25px;\n}\n.request[data-v-18581212]{\n    display: flex;\n}\n.categories li[data-v-18581212], .events li[data-v-18581212]{\n    list-style: none;\n    margin-left: 5px;\n    font-size: 20px;\n}\n.categories li[data-v-18581212]{\n    color: rgba(91, 121, 93);\n}\n.events li[data-v-18581212]{\n    color: rgba(175, 108, 195);\n}\n.categories div[data-v-18581212], .events div[data-v-18581212]{\n    border-radius: 15px;\n    padding: 15px;\n}\n.top[data-v-18581212]{\n    display: flex;\n    flex-wrap: wrap;\n    padding: 15px 0;\n}\n.info[data-v-18581212]{\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\nimg[data-v-18581212]{\n    /* height: 250px;\n    width: 225px; */\n    border-radius: 50%;\n}\n@media only screen and (max-width: 700px) {\n.categories[data-v-18581212], .events[data-v-18581212]{\n        padding: 0;\n}\n.categories div[data-v-18581212], .events div[data-v-18581212]{\n        max-width: 80%;\n}\n.request[data-v-18581212]{\n        padding: 0 25px;\n}\n.my_card[data-v-18581212]{\n        max-width: 90%;\n}\n}\n", ""]);
 
 // exports
 
@@ -40793,81 +40797,87 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container mt-5" },
-    [
-      _c("h1", [_vm._v("I nostri musicisti")]),
-      _vm._v(" "),
-      _vm._l(_vm.users, function (user, indice) {
-        return _c("div", { key: indice, staticClass: "my_card" }, [
-          _c("div", { staticClass: "top" }, [
-            _c("div", { staticClass: "info col-lg-5 mb-4" }, [
-              _c("h3", [
-                _vm._v(_vm._s(user.name) + " " + _vm._s(user.surname)),
+  return _c("div", { staticClass: "background" }, [
+    _c(
+      "div",
+      { staticClass: "container mt-5" },
+      [
+        _c("h1", [_vm._v("I nostri musicisti")]),
+        _vm._v(" "),
+        _vm._l(_vm.users, function (user, indice) {
+          return _c("div", { key: indice, staticClass: "my_card" }, [
+            _c("div", { staticClass: "top" }, [
+              _c("div", { staticClass: "info col-lg-5 mb-4" }, [
+                _c("h3", [
+                  _vm._v(_vm._s(user.name) + " " + _vm._s(user.surname)),
+                ]),
+                _vm._v(" "),
+                _c("img", {
+                  staticClass: "w-75",
+                  attrs: { src: user.img, alt: "" },
+                }),
               ]),
               _vm._v(" "),
-              _c("img", {
-                staticClass: "w-75",
-                attrs: { src: user.img, alt: "" },
-              }),
+              _c("div", { staticClass: "request col-lg-7 col-sm-12" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "categories mw-50 col-lg-6 col-sm-6 col-xs-6",
+                  },
+                  [
+                    _c("div", [
+                      _c("h5", [_vm._v("Strumenti:")]),
+                      _vm._v(" "),
+                      _c(
+                        "ul",
+                        _vm._l(user.categories, function (category, index) {
+                          return _c("li", { key: index }, [
+                            _c("strong", [_vm._v(_vm._s(category.cat))]),
+                          ])
+                        }),
+                        0
+                      ),
+                    ]),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "events mw-50 col-lg-6 col-sm-6 col-xs-6" },
+                  [
+                    _c("div", [
+                      _c("h5", [_vm._v("Eventi:")]),
+                      _vm._v(" "),
+                      _c(
+                        "ul",
+                        _vm._l(user.events, function (event, index) {
+                          return _c("li", { key: index }, [
+                            _c("strong", [_vm._v(_vm._s(event.ev))]),
+                          ])
+                        }),
+                        0
+                      ),
+                    ]),
+                  ]
+                ),
+              ]),
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "request col-lg-7 col-sm-12" }, [
-              _c(
-                "div",
-                { staticClass: "categories mw-50 col-lg-6 col-sm-6 col-xs-6" },
-                [
-                  _c("div", [
-                    _c("h5", [_vm._v("Strumenti:")]),
-                    _vm._v(" "),
-                    _c(
-                      "ul",
-                      _vm._l(user.categories, function (category, index) {
-                        return _c("li", { key: index }, [
-                          _vm._v(_vm._s(category.cat)),
-                        ])
-                      }),
-                      0
-                    ),
-                  ]),
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "events mw-50 col-lg-6 col-sm-6 col-xs-6" },
-                [
-                  _c("div", [
-                    _c("h5", [_vm._v("Eventi:")]),
-                    _vm._v(" "),
-                    _c(
-                      "ul",
-                      _vm._l(user.events, function (event, index) {
-                        return _c("li", { key: index }, [
-                          _vm._v(_vm._s(event.ev)),
-                        ])
-                      }),
-                      0
-                    ),
-                  ]),
-                ]
-              ),
+            _c("div", [
+              _c("p", { staticClass: "bio" }, [
+                _vm._v(
+                  "\r\n                    " +
+                    _vm._s(user.bio) +
+                    "\r\n                "
+                ),
+              ]),
             ]),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("p", { staticClass: "bio" }, [
-              _vm._v(
-                "\n                " + _vm._s(user.bio) + "\n            "
-              ),
-            ]),
-          ]),
-        ])
-      }),
-    ],
-    2
-  )
+          ])
+        }),
+      ],
+      2
+    ),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -57431,6 +57441,17 @@ module.exports = "/images/jumbo-6.jpg?f74a0b86e1e713f36c3e961f3462cdf1";
 /***/ (function(module, exports) {
 
 module.exports = "/images/music.svg?45010543bc7f7781ee5fface1e9cbd52";
+
+/***/ }),
+
+/***/ "./resources/images/pexels-picjumbocom-196652.jpg":
+/*!********************************************************!*\
+  !*** ./resources/images/pexels-picjumbocom-196652.jpg ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/pexels-picjumbocom-196652.jpg?38747b35446b69d20cd4c9d0e0e624be";
 
 /***/ }),
 

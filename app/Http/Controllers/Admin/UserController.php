@@ -18,7 +18,7 @@ class UserController extends Controller
     protected $validation = [
         'name' => 'required|string|max:255',
         'surname' => 'required|string|max:25',
-        'bio' => 'required|string|max:255',
+        'bio' => 'nullable|string|max:255',
         'username' => 'nullable|string|max:255',
         'avatar'=>'nullable|mimes:mimes:jpeg,jpg,png,gif|max:2048',
         'cv' => 'nullable|file|mimes:pdf|max:2048',
