@@ -22,6 +22,8 @@
 
 <script>
 export default {
+    name: "Filtra",
+
     data(){
         return{
             click: 0,

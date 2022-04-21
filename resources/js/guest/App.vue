@@ -1,15 +1,15 @@
 <template>
     <div>
-        <Header />
+        <Header v-if="!['page-404'].includes($route.name)" />
         <Main />
-        <Footer />
+        <Footer v-if="!['page-404'].includes($route.name)" />
     </div>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
 import Main from "./components/Main.vue";
-import Footer from './components/Footer.vue';
+import Footer from "./components/Footer.vue";
 export default {
     components: {
         Header,
