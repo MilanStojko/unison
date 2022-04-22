@@ -1,44 +1,55 @@
 <template>
-<div>
-  <nav>
-    <div class="logo">
-      <router-link :to="{ name: 'home' }">UNISON</router-link>
-    </div>
-    <ul class="my_ul">
-      <li class="my_li">
-        <router-link :to="{ name: 'list-musicians' }"><p>Vai ai musicisti</p></router-link>
-      </li>
-      <li class="my_li">
-        <router-link :to="{name: 'search'}"><p>Cerca</p></router-link>
-      </li>
-      <li>  
-        <a class="my_a" href=""><p>Eventi</p></a>
-      </li>
-      <li>  
-        <a class="my_a" href=""><p>Categorie</p></a>
-      </li>
-      <li>
-          <a class="my_a login" href="http://127.0.0.1:8000/login"><p class="my_button">Login</p></a>
-        <!-- <span v-if="isLoggedIn()">
-          <a class="my_a login" href="http://127.0.0.1:8000/login"><p class="my_button">Profilo</p></a>
-        </span>
-        <span v-else>
-          <a class="my_a login" href="http://127.0.0.1:8000/login"><p class="my_button">Login</p></a>
-        </span> -->
-      </li>
-    </ul>
-    <ul class="my_ul-icon">
-      <li>
-        <input @click="show(click)" type="checkbox" id="menyAvPaa">
-        <label id="burger" for="menyAvPaa">
-            <div></div>
-            <div></div>
-            <div></div>
-        </label>
-      </li>
-    </ul>
-  </nav>
-  <!-- <Transition name="slide-fade">
+    <div>
+        <nav>
+            <div class="logo">
+                <router-link :to="{ name: 'home' }">UNISON</router-link>
+            </div>
+            <ul class="my_ul">
+                <li class="my_li">
+                    <router-link :to="{ name: 'list-musicians' }"
+                        ><p>Vai ai musicisti</p></router-link
+                    >
+                </li>
+                <li class="my_li">
+                    <router-link :to="{ name: 'search' }"
+                        ><p>Cerca</p></router-link
+                    >
+                </li>
+                <li>
+                    <a class="my_a" href=""><p>Eventi</p></a>
+                </li>
+                <li>
+                    <a class="my_a" href=""><p>Categorie</p></a>
+                </li>
+                <li>
+                    <span v-if="auth_id">
+                        <a class="my_a login" href="http://127.0.0.1:8000/login"
+                            ><p class="my_button">Il Mio Profilo</p></a
+                        >
+                    </span>
+                    <span v-else>
+                        <a class="my_a login" href="http://127.0.0.1:8000/login"
+                            ><p class="my_button">Login</p></a
+                        >
+                    </span>
+                </li>
+            </ul>
+            <ul class="my_ul-icon">
+                <li>
+                    <input
+                        @click="show(click)"
+                        type="checkbox"
+                        id="menyAvPaa"
+                    />
+                    <label id="burger" for="menyAvPaa">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </label>
+                </li>
+            </ul>
+        </nav>
+        <!-- <Transition name="slide-fade">
   <div class="listmenu" v-show="click==1">
       <ul>
         <li v-for="(voice, indice) in link" :key="indice">
@@ -50,56 +61,48 @@
       </ul>
   </div>
   </Transition> -->
-</div>
-
-  
+    </div>
 </template>
 
 <script>
 export default {
-  name: "Header",
+    name: "Header",
 
-  data() {
-    return {
-      click: 0,
-      // link: [
-      //   {
-      //     name: "Cerca",
-      //   },
-      //   {
-      //     name: "Categorie",
-      //   },
-      //   {
-      //     name: "Eventi",
-      //   },
-      // ],
-    };
-  },
-  computed: {
-    isLoggedIn() {      
-      return window.localStorage.getItem("username");      
-    }
-  },
-  methods:{
-    show: function(click){
-      this.click=!click;
+    data() {
+        return {
+            click: 0,
+            auth_id: document
+                .querySelector("meta[name='user-id']")
+                .getAttribute("content"),
+        };
     },
-    login() {      
-      window.location.replace("http://127.0.0.1:8000/login");
+    computed: {
+        isLoggedIn() {
+            return window.localStorage.getItem("username");
+        },
     },
-    logout() {
-      window.localStorage.removeItem("username");
-      window.location.replace("http://127.0.0.1:8000/login");
+    methods: {
+        show: function (click) {
+            this.click = !click;
+        },
+        login() {
+            window.location.replace("http://127.0.0.1:8000/login");
+        },
+        logout() {
+            window.localStorage.removeItem("username");
+            window.location.replace("http://127.0.0.1:8000/login");
+        },
     },
-  }
+
+    created() {
+        console.log(this.auth_id);
+    },
 };
 </script>
 
 <style scoped>
-
-
 .burger-wrapper {
-  cursor: pointer;
+    cursor: pointer;
 }
 #menyAvPaa {
     display: none;
@@ -124,7 +127,7 @@ export default {
 }
 
 #menyAvPaa:checked ~ #burger > div {
-  background-color: #fff;
+    background-color: #fff;
 }
 
 #menyAvPaa:checked ~ #burger > div:nth-child(1) {
@@ -137,157 +140,147 @@ export default {
     transform: translateY(-10px) rotate(-45deg);
 }
 
-
-
-
-
-
-
-
-
 .slide-fade-enter-active {
-  transition: opacity 1.5s ease-out;
+    transition: opacity 1.5s ease-out;
 }
 
 .slide-fade-leave-active {
-  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+    transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
 .slide-fade-enter-from,
 .slide-fade-leave-to {
-  transform: translateX(20px);
-  opacity: 0;
+    transform: translateX(20px);
+    opacity: 0;
 }
 
-
-
-.my_li a{
-  text-decoration: none;
-  color: white;
+.my_li a {
+    text-decoration: none;
+    color: white;
 }
 
-.my_li a p{
-  transition: 1s;
+.my_li a p {
+    transition: 1s;
 }
 
-.my_li a p:hover{
-  color: white;
-  transform: scale(1.3);
+.my_li a p:hover {
+    color: white;
+    transform: scale(1.3);
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .logo {
-  font-size: 30px;
+    font-size: 30px;
 }
 
 nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgb(42, 41, 41);
-  height: 50px;
-  padding: 0px 20px;
-  color: white;
-  position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(42, 41, 41);
+    height: 50px;
+    padding: 0px 20px;
+    color: white;
+    position: relative;
 }
 
 .my_ul {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
 }
 
 .my_ul li {
-  float: left;
-  padding: 0px 15px;
-  list-style: none;
+    float: left;
+    padding: 0px 15px;
+    list-style: none;
 }
 
 .my_a {
-  text-decoration: none;
-  color: white;
+    text-decoration: none;
+    color: white;
 }
 
 .my_ul .my_a p {
-  transition: 1s;
+    transition: 1s;
 }
 
 .my_ul .my_a p:hover {
-  color: white;
-  transform: scale(1.3);
+    color: white;
+    transform: scale(1.3);
 }
 
 .my_ul .my_a:hover .my_button {
-  color: white;
-  transform: scale(1.1);
+    color: white;
+    transform: scale(1.1);
 }
 
 .navbar-toggler-icon,
 .navbar-toggler,
 .nav-item p {
-  color: white;
+    color: white;
 }
 
 .my_button {
-  padding: 5px 15px;
-  border: 0;
-  color: white;
-  background: #527a5a;
-  border-radius: 15px;
+    padding: 5px 15px;
+    border: 0;
+    color: white;
+    background: #527a5a;
+    border-radius: 15px;
 }
 
 .my_ul-icon {
-  display: none;
-  margin: 0;
-  padding: 0;
+    display: none;
+    margin: 0;
+    padding: 0;
 }
 
-.my_ul-icon li{
-  list-style: none;
+.my_ul-icon li {
+    list-style: none;
 }
 
-.listmenu{
-  position: absolute;
-  right: 0;
-  z-index: 999;
-  padding: 20px;
-  width: 100%;
-  height: calc(100vh - 50px);
-  text-align: center;
-  background: rgb(255, 255, 255, 0.9);
-  display: flex;
-  flex-direction: column;
+.listmenu {
+    position: absolute;
+    right: 0;
+    z-index: 999;
+    padding: 20px;
+    width: 100%;
+    height: calc(100vh - 50px);
+    text-align: center;
+    background: rgb(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
 }
 
-.listmenu li{
-  line-height: 100px;
-  font-weight: bold;
-  font-size: 40px;
-  list-style: none;
+.listmenu li {
+    line-height: 100px;
+    font-weight: bold;
+    font-size: 40px;
+    list-style: none;
 }
 
-.listmenu .buttonlogin{
-  margin-top: 50px;
+.listmenu .buttonlogin {
+    margin-top: 50px;
 }
 
 .my_a_mobile {
-  text-decoration: none;
-  color: black;
+    text-decoration: none;
+    color: black;
 }
 
 @media only screen and (max-width: 700px) {
-  .my_ul-icon {
-    display: block;
-  }
+    .my_ul-icon {
+        display: block;
+    }
 
-  .my_ul {
-    display: none;
-  }
+    .my_ul {
+        display: none;
+    }
 }
 </style>

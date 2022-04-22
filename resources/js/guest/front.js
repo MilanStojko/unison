@@ -8,6 +8,8 @@ import router from "./router";
 
 export const bus = new Vue();
 
+
+
 const app = new Vue({
     el: "#app",
     render: (h) => h(App),
