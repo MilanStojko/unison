@@ -10987,6 +10987,7 @@ li {
   justify-content: space-between;
   align-items: center;
   margin-left: 300px;
+  z-index: 2;
   position: fixed;
   box-shadow: 0px 7px 15px -9px rgba(0, 0, 0, 0.2);
 }
@@ -11411,5 +11412,8 @@ li {
 
 .plan-card {
   border: 1px solid red;
+  margin: 50px 0;
+  min-height: 450px;
+  z-index: 0;
 }
 

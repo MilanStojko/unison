@@ -14,7 +14,7 @@
                 <!-- SEARCH BAR -->
                 <div class="col-lg-6 col-md-12 jumbo-form">
                     <!-- <input type="text" placeholder="Cerca Musicista" /> -->
-                    <select name="availabilities" id="availabilities" @change="saveValue($event)">
+                    <select name="availabilities" id="availabilities" @change="saveValue($event)" v-model="valore">
                         <option v-for="(availability, index) in availabilities" :value="availability.name" :key="index">{{availability.name}}</option>
                     </select>
                     <button @click.prevent="sendSelected()"><router-link class="my_search" :to="{name: 'search'}">Cerca</router-link></button>
@@ -50,7 +50,8 @@ export default {
    data(){
         return{
             availabilities:[],
-            prestazione: ''
+            prestazione: '',
+            valore: ''
         }
     },
     //Api con tutte le prestazioni

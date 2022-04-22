@@ -2460,7 +2460,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       availabilities: [],
-      prestazione: ''
+      prestazione: '',
+      valore: ''
     };
   },
   //Api con tutte le prestazioni
@@ -40756,11 +40757,34 @@ var render = function () {
           _c(
             "select",
             {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.valore,
+                  expression: "valore",
+                },
+              ],
               attrs: { name: "availabilities", id: "availabilities" },
               on: {
-                change: function ($event) {
-                  return _vm.saveValue($event)
-                },
+                change: [
+                  function ($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function (o) {
+                        return o.selected
+                      })
+                      .map(function (o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.valore = $event.target.multiple
+                      ? $$selectedVal
+                      : $$selectedVal[0]
+                  },
+                  function ($event) {
+                    return _vm.saveValue($event)
+                  },
+                ],
               },
             },
             _vm._l(_vm.availabilities, function (availability, index) {
