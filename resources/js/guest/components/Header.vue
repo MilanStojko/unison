@@ -49,18 +49,40 @@
                 </li>
             </ul>
         </nav>
-        <!-- <Transition name="slide-fade">
-  <div class="listmenu" v-show="click==1">
-      <ul>
-        <li v-for="(voice, indice) in link" :key="indice">
-          <a class="my_a_mobile" href="#"><span>{{ voice.name }}</span></a>
-        </li>
-        <li class=buttonlogin>
-          <a class="my_a login" href="http://127.0.0.1:8000/login"><span class="my_button">Login</span></a>
-        </li>
-      </ul>
-  </div>
-  </Transition> -->
+        <Transition name="slide-fade">
+        <div class="listmenu" v-show="click==1">
+            <ul>
+                <li class="my_li">
+                    <router-link :to="{ name: 'list-musicians' }"
+                        ><p>Vai ai musicisti</p></router-link
+                    >
+                </li>
+                <li class="my_li">
+                    <router-link :to="{ name: 'search' }"
+                        ><p>Cerca</p></router-link
+                    >
+                </li>
+                <li>
+                    <a class="my_a" href=""><p>Eventi</p></a>
+                </li>
+                <li>
+                    <a class="my_a" href=""><p>Categorie</p></a>
+                </li>
+                <li>
+                    <span v-if="auth_id">
+                        <a class="my_a login" href="http://127.0.0.1:8000/login"
+                            ><p class="my_button">Il Mio Profilo</p></a
+                        >
+                    </span>
+                    <span v-else>
+                        <a class="my_a login" href="http://127.0.0.1:8000/login"
+                            ><p class="my_button">Login</p></a
+                        >
+                    </span>
+                </li>
+            </ul>
+        </div>
+        </Transition>
     </div>
 </template>
 
@@ -142,16 +164,16 @@ export default {
     opacity: 0;
 }
 
-.my_li a {
+.my_ul .my_li a {
     text-decoration: none;
     color: white;
 }
 
-.my_li a p {
+.my_ul .my_li a p {
     transition: 1s;
 }
 
-.my_li a p:hover {
+.my_ul .my_li a p:hover {
     color: white;
     transform: scale(1.3);
 }
@@ -164,6 +186,14 @@ export default {
 
 .logo {
     font-size: 30px;
+}
+
+.logo a{
+  color: white;
+}
+
+.logo:hover a{
+  text-decoration: none;
 }
 
 nav {
@@ -253,6 +283,15 @@ nav {
     list-style: none;
 }
 
+.listmenu a{
+    color: black;
+}
+
+.listmenu:hover a{
+    color: black;
+    text-decoration: none;
+}
+
 .listmenu .buttonlogin {
     margin-top: 50px;
 }
@@ -269,6 +308,12 @@ nav {
 
     .my_ul {
         display: none;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .listmenu{
+      display: none;
     }
 }
 </style>

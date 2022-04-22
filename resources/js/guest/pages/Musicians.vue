@@ -35,8 +35,8 @@
                             <p class="references">
                                 <ul>
                                     <li><i class="fa-solid fa-location-dot"></i> {{musician.address}}</li>
-                                    <li style="font-size: 20px">
-                                        Recensioni:
+                                    <li id="reviews" style="font-size: 20px">
+                                        <p>Recensioni:</p>
                                         <span v-for="nota in 5" :key="'piena'+nota">
                                             <img src="../../../images/music.svg" />
                                         </span>
@@ -134,6 +134,9 @@ export default {
 
     .request{
         display: flex;
+        padding: 5px;
+        border-radius: 10px;
+        background: rgba(28, 28, 28, 0.8);
     }
 
     .categories li, .events li, .references li{
@@ -209,6 +212,10 @@ export default {
         color: black;
     }
 
+    .references #reviews{
+        display: flex;
+    }
+
 
 
     @media only screen and (max-width: 700px) {
@@ -220,10 +227,6 @@ export default {
             max-width: 80%;
         }
 
-        .request{
-            padding: 0 25px;
-        }
-
         .my_card{
             max-width: 90%;
         }
@@ -232,4 +235,21 @@ export default {
             padding: 0 30px;
         }
     }
+
+
+@media only screen and (max-width: 1000px){
+    .references p{
+        display: none;
+    }
+
+    .references #reviews{
+        margin-top: 10px;
+    }
+
+    .references ul{
+        display: flex;
+        flex-direction: column;
+    }
+}
+    
 </style>
