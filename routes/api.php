@@ -29,6 +29,8 @@ Route::namespace('Api')->name('api.')->group(function () {
     Route::get("/users/avg/{minvote}", "UserController@getAvgVote");
     // TUTTE LE AVAILABILITY
     Route::get("/availability/index", "AvailabilityController@index");
+    //TUTTE LE CATEGORY
+    Route::get("/category/index", "CategoryController@index");
     // RESTITUISCE GLI USER CON FILTRO SU AVAILABILITY
     Route::get("/filtered/getavailability", "FilterController@getAvailability")->name('filter.getAvailability');
     // FILTRO NOME -- DA FIXARE CON REQUEST
