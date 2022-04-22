@@ -2084,22 +2084,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Header",
   data: function data() {
     return {
-      click: 0 // link: [
-      //   {
-      //     name: "Cerca",
-      //   },
-      //   {
-      //     name: "Categorie",
-      //   },
-      //   {
-      //     name: "Eventi",
-      //   },
-      // ],
-
+      click: 0,
+      auth_id: document.querySelector("meta[name='user-id']").getAttribute("content")
     };
   },
   computed: {
@@ -2118,6 +2117,9 @@ __webpack_require__.r(__webpack_exports__);
       window.localStorage.removeItem("username");
       window.location.replace("http://127.0.0.1:8000/login");
     }
+  },
+  created: function created() {
+    console.log(this.auth_id);
   }
 });
 
@@ -3439,6 +3441,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SingleMusician",
   data: function data() {
@@ -3446,11 +3452,12 @@ __webpack_require__.r(__webpack_exports__);
       popupMessage: false,
       popupReview: false,
       user: {},
+      auth_id: document.querySelector("meta[name='user-id']").getAttribute("content"),
       formData: {
         username: "",
         content: "",
         vote: "",
-        user_id: 2
+        user_id: null
       }
     };
   },
@@ -3468,12 +3475,16 @@ __webpack_require__.r(__webpack_exports__);
     addReview: function addReview() {
       var _this = this;
 
+      this.checkUserId();
       axios.post("/api/review/postReview/", this.formData).then(function (response) {
         _this.popupReview = false;
         console.log(response);
       })["catch"](function (error) {
         console.log(error.response.data);
       });
+    },
+    checkUserId: function checkUserId() {
+      return this.formData.user_id = this.user.id;
     }
   },
   created: function created() {
@@ -3482,6 +3493,8 @@ __webpack_require__.r(__webpack_exports__);
     axios.get("/api/users/show/".concat(this.$route.params.slug)).then(function (response) {
       _this2.user = response.data;
       console.log(_this2.user);
+      console.log(_this2.auth_id);
+      console.log(_this2.checkUserId());
     })["catch"](function (error) {
       _this2.$router.push({
         name: "page-404"
@@ -8006,7 +8019,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.burger-wrapper[data-v-083b147e] {\n  cursor: pointer;\n}\n#menyAvPaa[data-v-083b147e] {\n    display: none;\n}\n#burger[data-v-083b147e] {\n    position: absolute;\n    cursor: pointer;\n    width: 2rem;\n    height: 1.5rem;\n    right: 1rem;\n    top: 1rem;\n    display: flex;\n    justify-content: space-between;\n    flex-direction: column;\n}\n#burger > div[data-v-083b147e] {\n    height: 4px;\n    background-color: white;\n    transition: 0.5s;\n    z-index: 999;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e] {\n  background-color: #fff;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(1) {\n    transform: translateY(10px) rotate(45deg);\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(2) {\n    opacity: 0;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(3) {\n    transform: translateY(-10px) rotate(-45deg);\n}\n.slide-fade-enter-active[data-v-083b147e] {\n  transition: opacity 1.5s ease-out;\n}\n.slide-fade-leave-active[data-v-083b147e] {\n  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);\n}\n.slide-fade-enter-from[data-v-083b147e],\n.slide-fade-leave-to[data-v-083b147e] {\n  transform: translateX(20px);\n  opacity: 0;\n}\n.my_li a[data-v-083b147e]{\n  text-decoration: none;\n  color: white;\n}\n.my_li a p[data-v-083b147e]{\n  transition: 1s;\n}\n.my_li a p[data-v-083b147e]:hover{\n  color: white;\n  transform: scale(1.3);\n}\n*[data-v-083b147e] {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n.logo[data-v-083b147e] {\n  font-size: 30px;\n}\nnav[data-v-083b147e] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: rgb(42, 41, 41);\n  height: 50px;\n  padding: 0px 20px;\n  color: white;\n  position: relative;\n}\n.my_ul[data-v-083b147e] {\n  margin: 0;\n  padding: 0;\n  display: flex;\n  align-items: center;\n}\n.my_ul li[data-v-083b147e] {\n  float: left;\n  padding: 0px 15px;\n  list-style: none;\n}\n.my_a[data-v-083b147e] {\n  text-decoration: none;\n  color: white;\n}\n.my_ul .my_a p[data-v-083b147e] {\n  transition: 1s;\n}\n.my_ul .my_a p[data-v-083b147e]:hover {\n  color: white;\n  transform: scale(1.3);\n}\n.my_ul .my_a:hover .my_button[data-v-083b147e] {\n  color: white;\n  transform: scale(1.1);\n}\n.navbar-toggler-icon[data-v-083b147e],\n.navbar-toggler[data-v-083b147e],\n.nav-item p[data-v-083b147e] {\n  color: white;\n}\n.my_button[data-v-083b147e] {\n  padding: 5px 15px;\n  border: 0;\n  color: white;\n  background: #527a5a;\n  border-radius: 15px;\n}\n.my_ul-icon[data-v-083b147e] {\n  display: none;\n  margin: 0;\n  padding: 0;\n}\n.my_ul-icon li[data-v-083b147e]{\n  list-style: none;\n}\n.listmenu[data-v-083b147e]{\n  position: absolute;\n  right: 0;\n  z-index: 999;\n  padding: 20px;\n  width: 100%;\n  height: calc(100vh - 50px);\n  text-align: center;\n  background: rgb(255, 255, 255, 0.9);\n  display: flex;\n  flex-direction: column;\n}\n.listmenu li[data-v-083b147e]{\n  line-height: 100px;\n  font-weight: bold;\n  font-size: 40px;\n  list-style: none;\n}\n.listmenu .buttonlogin[data-v-083b147e]{\n  margin-top: 50px;\n}\n.my_a_mobile[data-v-083b147e] {\n  text-decoration: none;\n  color: black;\n}\n@media only screen and (max-width: 700px) {\n.my_ul-icon[data-v-083b147e] {\n    display: block;\n}\n.my_ul[data-v-083b147e] {\n    display: none;\n}\n}\n", ""]);
+exports.push([module.i, "\n.burger-wrapper[data-v-083b147e] {\r\n    cursor: pointer;\n}\n#menyAvPaa[data-v-083b147e] {\r\n    display: none;\n}\n#burger[data-v-083b147e] {\r\n    position: absolute;\r\n    cursor: pointer;\r\n    width: 2rem;\r\n    height: 1.5rem;\r\n    right: 1rem;\r\n    top: 1rem;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    flex-direction: column;\n}\n#burger > div[data-v-083b147e] {\r\n    height: 4px;\r\n    background-color: white;\r\n    transition: 0.5s;\r\n    z-index: 999;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e] {\r\n    background-color: #fff;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(1) {\r\n    transform: translateY(10px) rotate(45deg);\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(2) {\r\n    opacity: 0;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(3) {\r\n    transform: translateY(-10px) rotate(-45deg);\n}\n.slide-fade-enter-active[data-v-083b147e] {\r\n    transition: opacity 1.5s ease-out;\n}\n.slide-fade-leave-active[data-v-083b147e] {\r\n    transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);\n}\n.slide-fade-enter-from[data-v-083b147e],\r\n.slide-fade-leave-to[data-v-083b147e] {\r\n    transform: translateX(20px);\r\n    opacity: 0;\n}\n.my_li a[data-v-083b147e] {\r\n    text-decoration: none;\r\n    color: white;\n}\n.my_li a p[data-v-083b147e] {\r\n    transition: 1s;\n}\n.my_li a p[data-v-083b147e]:hover {\r\n    color: white;\r\n    transform: scale(1.3);\n}\n*[data-v-083b147e] {\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\n}\n.logo[data-v-083b147e] {\r\n    font-size: 30px;\n}\nnav[data-v-083b147e] {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    background-color: rgb(42, 41, 41);\r\n    height: 50px;\r\n    padding: 0px 20px;\r\n    color: white;\r\n    position: relative;\n}\n.my_ul[data-v-083b147e] {\r\n    margin: 0;\r\n    padding: 0;\r\n    display: flex;\r\n    align-items: center;\n}\n.my_ul li[data-v-083b147e] {\r\n    float: left;\r\n    padding: 0px 15px;\r\n    list-style: none;\n}\n.my_a[data-v-083b147e] {\r\n    text-decoration: none;\r\n    color: white;\n}\n.my_ul .my_a p[data-v-083b147e] {\r\n    transition: 1s;\n}\n.my_ul .my_a p[data-v-083b147e]:hover {\r\n    color: white;\r\n    transform: scale(1.3);\n}\n.my_ul .my_a:hover .my_button[data-v-083b147e] {\r\n    color: white;\r\n    transform: scale(1.1);\n}\n.navbar-toggler-icon[data-v-083b147e],\r\n.navbar-toggler[data-v-083b147e],\r\n.nav-item p[data-v-083b147e] {\r\n    color: white;\n}\n.my_button[data-v-083b147e] {\r\n    padding: 5px 15px;\r\n    border: 0;\r\n    color: white;\r\n    background: #527a5a;\r\n    border-radius: 15px;\n}\n.my_ul-icon[data-v-083b147e] {\r\n    display: none;\r\n    margin: 0;\r\n    padding: 0;\n}\n.my_ul-icon li[data-v-083b147e] {\r\n    list-style: none;\n}\n.listmenu[data-v-083b147e] {\r\n    position: absolute;\r\n    right: 0;\r\n    z-index: 999;\r\n    padding: 20px;\r\n    width: 100%;\r\n    height: calc(100vh - 50px);\r\n    text-align: center;\r\n    background: rgb(255, 255, 255, 0.9);\r\n    display: flex;\r\n    flex-direction: column;\n}\n.listmenu li[data-v-083b147e] {\r\n    line-height: 100px;\r\n    font-weight: bold;\r\n    font-size: 40px;\r\n    list-style: none;\n}\n.listmenu .buttonlogin[data-v-083b147e] {\r\n    margin-top: 50px;\n}\n.my_a_mobile[data-v-083b147e] {\r\n    text-decoration: none;\r\n    color: black;\n}\n@media only screen and (max-width: 700px) {\n.my_ul-icon[data-v-083b147e] {\r\n        display: block;\n}\n.my_ul[data-v-083b147e] {\r\n        display: none;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -40346,7 +40359,9 @@ var render = function () {
         _vm._v(" "),
         _vm._m(1),
         _vm._v(" "),
-        _vm._m(2),
+        _c("li", [
+          _vm.auth_id ? _c("span", [_vm._m(2)]) : _c("span", [_vm._m(3)]),
+        ]),
       ]),
       _vm._v(" "),
       _c("ul", { staticClass: "my_ul-icon" }, [
@@ -40360,7 +40375,7 @@ var render = function () {
             },
           }),
           _vm._v(" "),
-          _vm._m(3),
+          _vm._m(4),
         ]),
       ]),
     ]),
@@ -40391,16 +40406,27 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("li", [
-      _c(
-        "a",
-        {
-          staticClass: "my_a login",
-          attrs: { href: "http://127.0.0.1:8000/login" },
-        },
-        [_c("p", { staticClass: "my_button" }, [_vm._v("Login")])]
-      ),
-    ])
+    return _c(
+      "a",
+      {
+        staticClass: "my_a login",
+        attrs: { href: "http://127.0.0.1:8000/login" },
+      },
+      [_c("p", { staticClass: "my_button" }, [_vm._v("Il Mio Profilo")])]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "my_a login",
+        attrs: { href: "http://127.0.0.1:8000/login" },
+      },
+      [_c("p", { staticClass: "my_button" }, [_vm._v("Login")])]
+    )
   },
   function () {
     var _vm = this
@@ -41019,7 +41045,7 @@ var render = function () {
                       { staticStyle: { "font-size": "20px" } },
                       [
                         _vm._v(
-                          "\n                                Recensioni:\n                                "
+                          "\r\n                                Recensioni:\r\n                                "
                         ),
                         _vm._l(user.reviews, function (nota) {
                           return _c("span", { key: "piena" + nota }, [
@@ -41467,79 +41493,85 @@ var render = function () {
         ]),
       ]),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "singleMusician-reviews" },
-        [
-          _c("div", { staticClass: "singleMusician-reviews_heading" }, [
-            _c("div", { staticClass: "d-flex align-items-center" }, [
-              _vm.user.reviews
-                ? _c("h4", [
-                    _vm._v(
-                      "\n                        " +
-                        _vm._s(_vm.user.reviews.length) +
-                        " recensioni\n                    "
-                    ),
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm._m(3),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "make-review" }, [
-              _c(
-                "button",
-                {
-                  on: {
-                    click: function ($event) {
-                      _vm.popupReview = true
-                    },
-                  },
-                },
-                [
+      _c("div", { staticClass: "singleMusician-reviews" }, [
+        _c("div", { staticClass: "singleMusician-reviews_heading" }, [
+          _c("div", { staticClass: "d-flex align-items-center" }, [
+            _vm.user.reviews
+              ? _c("h4", [
                   _vm._v(
-                    "\n                        Lascia una recensione\n                    "
+                    "\n                        " +
+                      _vm._s(_vm.user.reviews.length) +
+                      " recensioni\n                    "
                   ),
-                ]
-              ),
-            ]),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm._m(3),
           ]),
           _vm._v(" "),
-          _vm._l(_vm.user.reviews.slice().reverse(), function (review, index) {
-            return _c("div", { key: index, staticClass: "review" }, [
-              _c("div", { staticClass: "review-head" }, [
-                _c("h5", [_vm._v(_vm._s(review.username))]),
-                _vm._v(" "),
-                _c("div", { staticClass: "notes" }, [
-                  _c("div", {
-                    staticClass: "notes_inner",
-                    class: _vm.starsWidth(review.vote),
-                  }),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "review-body" }, [
-                _c("span", [
-                  _c("i", { staticClass: "fa-solid fa-calendar-days" }),
-                  _vm._v(
-                    "\n                        " +
-                      _vm._s(_vm.getDate(review.created_at))
-                  ),
-                ]),
-                _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    "\n                        " +
-                      _vm._s(review.content) +
-                      "\n                    "
-                  ),
-                ]),
-              ]),
-            ])
-          }),
-        ],
-        2
-      ),
+          _vm.auth_id != _vm.checkUserId()
+            ? _c("div", { staticClass: "make-review" }, [
+                _c(
+                  "button",
+                  {
+                    on: {
+                      click: function ($event) {
+                        _vm.popupReview = true
+                      },
+                    },
+                  },
+                  [
+                    _vm._v(
+                      "\n                        Lascia una recensione\n                    "
+                    ),
+                  ]
+                ),
+              ])
+            : _vm._e(),
+        ]),
+        _vm._v(" "),
+        _vm.user.reviews
+          ? _c(
+              "div",
+              _vm._l(
+                _vm.user.reviews.slice().reverse(),
+                function (review, index) {
+                  return _c("div", { key: index, staticClass: "review" }, [
+                    _c("div", { staticClass: "review-head" }, [
+                      _c("h5", [_vm._v(_vm._s(review.username))]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "notes" }, [
+                        _c("div", {
+                          staticClass: "notes_inner",
+                          class: _vm.starsWidth(review.vote),
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "review-body" }, [
+                      _c("span", [
+                        _c("i", { staticClass: "fa-solid fa-calendar-days" }),
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(_vm.getDate(review.created_at))
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(review.content) +
+                            "\n                        "
+                        ),
+                      ]),
+                    ]),
+                  ])
+                }
+              ),
+              0
+            )
+          : _vm._e(),
+      ]),
     ]),
   ])
 }
@@ -57144,7 +57176,7 @@ module.exports = "/images/service-3.svg?eba2a9055d13786db8f54b0f3ba5d556";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/wave.svg?aef79995629b40b24f4277c44b0be010";
+module.exports = "/images/wave.svg?3d8bc604125d77811c1a4e9267f06eba";
 
 /***/ }),
 
@@ -58420,6 +58452,17 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     component: _pages_PageNotFound__WEBPACK_IMPORTED_MODULE_6__["default"]
   }]
 });
+router.beforeEach(function (to, from, next) {
+  if (!to.meta.authRequired) {
+    next();
+  } else if (store.getters["user/isAuthenticated"]) {
+    next();
+  } else {
+    next({
+      path: "/open-404"
+    });
+  }
+});
 /* harmony default export */ __webpack_exports__["default"] = (router);
 
 /***/ }),
@@ -58431,7 +58474,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/francescoabritta/Documents/unison/resources/js/guest/front.js */"./resources/js/guest/front.js");
+module.exports = __webpack_require__(/*! C:\Users\hamza\Desktop\Boolean\unison\resources\js\guest\front.js */"./resources/js/guest/front.js");
 
 
 /***/ })

@@ -90,13 +90,14 @@
     </div>
 
     <script>
+        
        function changeButton(e) {
            if(e.textContent == 'Read More') {
             e.textContent = 'Read Less'
            } else if(e.textContent == 'Read Less') {
             e.textContent = 'Read More'
            }
-       }
+       } 
         
     </script>
 </body>

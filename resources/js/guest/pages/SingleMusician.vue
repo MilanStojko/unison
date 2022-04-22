@@ -552,34 +552,38 @@
                         </div>
                     </div>
 
-                    <div class="make-review">
+                    <div v-if="auth_id != checkUserId()" class="make-review">
                         <button @click="popupReview = true">
                             Lascia una recensione
                         </button>
                     </div>
                 </div>
-                <div
-                    v-for="(review, index) in user.reviews.slice().reverse()"
-                    :key="index"
-                    class="review"
-                >
-                    <div class="review-head">
-                        <h5>{{ review.username }}</h5>
-                        <div class="notes">
-                            <div
-                                class="notes_inner"
-                                :class="starsWidth(review.vote)"
-                            ></div>
+                <div v-if="user.reviews">
+                    <div
+                        v-for="(review, index) in user.reviews
+                            .slice()
+                            .reverse()"
+                        :key="index"
+                        class="review"
+                    >
+                        <div class="review-head">
+                            <h5>{{ review.username }}</h5>
+                            <div class="notes">
+                                <div
+                                    class="notes_inner"
+                                    :class="starsWidth(review.vote)"
+                                ></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="review-body">
-                        <span
-                            ><i class="fa-solid fa-calendar-days"></i>
-                            {{ getDate(review.created_at) }}</span
-                        >
-                        <p>
-                            {{ review.content }}
-                        </p>
+                        <div class="review-body">
+                            <span
+                                ><i class="fa-solid fa-calendar-days"></i>
+                                {{ getDate(review.created_at) }}</span
+                            >
+                            <p>
+                                {{ review.content }}
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -596,11 +600,14 @@ export default {
             popupMessage: false,
             popupReview: false,
             user: {},
+            auth_id: document
+                .querySelector("meta[name='user-id']")
+                .getAttribute("content"),
             formData: {
                 username: "",
                 content: "",
                 vote: "",
-                user_id: 2,
+                user_id: null,
             },
         };
     },
@@ -617,6 +624,7 @@ export default {
         },
 
         addReview: function () {
+            this.checkUserId();
             axios
                 .post(`/api/review/postReview/`, this.formData)
                 .then((response) => {
@@ -627,6 +635,9 @@ export default {
                     console.log(error.response.data);
                 });
         },
+        checkUserId: function () {
+            return (this.formData.user_id = this.user.id);
+        },
     },
     created() {
         axios
@@ -634,6 +645,8 @@ export default {
             .then((response) => {
                 this.user = response.data;
                 console.log(this.user);
+                console.log(this.auth_id);
+                console.log(this.checkUserId());
             })
             .catch((error) => {
                 this.$router.push({ name: "page-404" });

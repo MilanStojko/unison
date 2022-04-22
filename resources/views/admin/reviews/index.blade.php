@@ -16,8 +16,10 @@
                 <p class="paragraph">{{$review->content}}</p>
                 <div class="vote">
                     <span>Voto:</span> {{$review->vote}} / 5
-                </div>  
+                </div>
+                @if(Str::length($review->content) > 230)
                 <button onclick="this.parentElement.classList.toggle('showContent'); changeButton(this)" class="leggi">Read More</button>
+                @endif
             </div>
             @endforeach
         </div>
