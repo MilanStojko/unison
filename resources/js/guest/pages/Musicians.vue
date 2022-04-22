@@ -1,46 +1,50 @@
 <template>
 <div class="background">
-    <div class="container mt-5">
-        <div class="container">
+    <div class="container">
+        <div class="container p-4">
             <h1>I nostri musicisti</h1>
-            <div class="my_card" v-for="(user, indice) in users" :key="indice">
-                <div class="top">
-                    <div class="info col-lg-5 mb-4">
-                        <h3>{{user.name}} {{user.surname}}</h3>
-                        <img class="w-75" :src="user.img" alt="">
-                    </div>
-                    <div class="request col-lg-7 col-sm-12">
-                        <div class="events mw-50 col-lg-6 col-sm-6 col-xs-6">
-                            <div>
-                                <h5>Eventi:</h5>
-                                <ul>
-                                    <li v-for="(event, index) in user.events" :key="index"><strong>{{event.ev}}</strong></li>
-                                </ul>
+            
+            <div class="my_card" v-for="(musician, indice) in musicians" :key="indice">
+                    <router-link :to="{ name: 'user-single', params: { slug: musician.slug } }">
+                        <div class="top">
+                            <div class="info col-lg-5 mb-4">
+                                <h3>{{musician.name}} {{musician.surname}}</h3>
+                                <img v-if="musician.avatar!=null" :src="`/storage/${musician.avatar}`" alt="">
+                                <img v-else src="https://thumbs.dreamstime.com/b/profilo-utente-vettoriale-avatar-predefinito-179376714.jpg" alt="">
+                            </div>
+                            <div class="request col-lg-7 col-sm-12">
+                                <div class="events mw-50 col-lg-6 col-sm-6 col-xs-6">
+                                    <div>
+                                        <h5>Eventi:</h5>
+                                        <ul>
+                                            <li v-for="(availability, index) in musician.availabilities" :key="index"><strong>{{availability.name}}</strong></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="categories mw-50 col-lg-6 col-sm-6 col-xs-6">
+                                    <div>
+                                        <h5>Strumenti:</h5>
+                                        <ul>
+                                            <li v-for="(category, index) in musician.categories" :key="index"><strong>{{category.name}}</strong></li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="categories mw-50 col-lg-6 col-sm-6 col-xs-6">
-                            <div>
-                                <h5>Strumenti:</h5>
+                        <div>
+                            <p class="references">
                                 <ul>
-                                    <li v-for="(category, index) in user.categories" :key="index"><strong>{{category.cat}}</strong></li>
+                                    <li><i class="fa-solid fa-location-dot"></i> {{musician.address}}</li>
+                                    <li style="font-size: 20px">
+                                        Recensioni:
+                                        <span v-for="nota in 5" :key="'piena'+nota">
+                                            <img src="../../../images/music.svg" />
+                                        </span>
+                                    </li>
                                 </ul>
-                            </div>
+                            </p>
                         </div>
-                    </div>
-                </div>
-                <div>
-                    <p class="references">
-                        <ul>
-                            <li><i class="fa-solid fa-location-dot"></i> {{user.address}}</li>
-                            <li style="font-size: 20px">
-                                Recensioni:
-                                <span v-for="nota in user.reviews" :key="'piena'+nota">
-                                    <img src="../../../images/music.svg" />
-                                </span>
-                            </li>
-                        </ul>
-                    </p>
-                </div>
+                    </router-link>
             </div>
         </div>
     </div>
@@ -53,141 +57,17 @@ export default {
     name: "Musicians",
 
     data() {
-        return{
-            users: [
-                {
-                    name: "Aldo",
-                    surname: "Baglio",
-                    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIeSp-WHhgKpUti2P1pU8F-OPD0pyWrUz5MQ&usqp=CAU",
-                    address: "Via Laurentina 3",
-                    categories: [
-                        {
-                            cat:"jazz"
-                        },
-                        {
-                            cat:"violino"
-                        },
-                        {
-                            cat:"chitarra"
-                        },
-                        {
-                            cat:"voce"
-                        },
-                        
-                    ],
-                    events :[
-                        {
-                            ev:"festival"
-                        },
-                        {
-                            ev:"matrimonio"
-                        },
-                        {
-                            ev:"compleanno"
-                        }
-                    ],
-                    reviews: 5,
-                },
-                {
-                    name: "Aldo",
-                    surname: "Baglio",
-                    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIeSp-WHhgKpUti2P1pU8F-OPD0pyWrUz5MQ&usqp=CAU",
-                    address: "Via Laurentina 3",
-                    categories: [
-                        {
-                            cat:"jazz"
-                        },
-                        {
-                            cat:"violino"
-                        },
-                        {
-                            cat:"chitarra"
-                        },
-                        {
-                            cat:"voce"
-                        },
-                    ],
-                    events :[
-                        {
-                            ev:"festival"
-                        },
-                        {
-                            ev:"matrimonio"
-                        },
-                        {
-                            ev:"compleanno"
-                        }
-                    ],
-                    reviews: 5,
-                },
-                {
-                    name: "Aldo",
-                    surname: "Baglio",
-                    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIeSp-WHhgKpUti2P1pU8F-OPD0pyWrUz5MQ&usqp=CAU",
-                    address: "Via Laurentina 3",
-                    categories: [
-                        {
-                            cat:"jazz"
-                        },
-                        {
-                            cat:"violino"
-                        },
-                        {
-                            cat:"chitarra"
-                        },
-                        {
-                            cat:"voce"
-                        },
-                        
-                    ],
-                    events :[
-                        {
-                            ev:"festival"
-                        },
-                        {
-                            ev:"matrimonio"
-                        },
-                        {
-                            ev:"compleanno"
-                        }
-                    ],
-                    reviews: 5,
-                },
-                {
-                    name: "Aldo",
-                    surname: "Baglio",
-                    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIeSp-WHhgKpUti2P1pU8F-OPD0pyWrUz5MQ&usqp=CAU",
-                    address: "Via Laurentina 3",
-                    categories: [
-                        {
-                            cat:"jazz"
-                        },
-                        {
-                            cat:"violino"
-                        },
-                        {
-                            cat:"chitarra"
-                        },
-                        {
-                            cat:"voce"
-                        },
-                        
-                    ],
-                    events :[
-                        {
-                            ev:"festival"
-                        },
-                        {
-                            ev:"matrimonio"
-                        },
-                        {
-                            ev:"compleanno"
-                        }
-                    ],
-                    reviews: 5,
-                },
-            ]
-        }
+      return {
+        musicians: [],
+      };
+    },
+    created(){
+        axios
+        .get("/api/users")
+        .then((apirisp)=>{
+            this.musicians= apirisp.data;
+            console.log(this.musicians);
+        })
     }
 }
 </script>
@@ -199,8 +79,6 @@ export default {
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover; */
-        height: calc(100vh - 50px);
-        overflow-y: scroll;
         /* background: #E8EBF8; */
         /* background: #595766ad; */
         background: #2a292985;
@@ -250,15 +128,18 @@ export default {
         transform: scale(1.03);
     }
 
+    .my_card:hover a{
+        text-decoration: none;
+    }
+
     .request{
         display: flex;
-        /* background: ; */
     }
 
     .categories li, .events li, .references li{
         list-style: none;
         margin-left: 5px;
-        font-size: 20px;
+        font-size: 17px;
     }
 
     .references ul{
@@ -313,8 +194,8 @@ export default {
     }
 
     .info img{
-        /* height: 250px;
-        width: 225px; */
+        height: 200px;
+        width: 200px;
         border-radius: 50%;
     }
 
@@ -322,6 +203,10 @@ export default {
         width: 25px;
         height: auto;
         color: #527a5a;
+    }
+
+    .references li{
+        color: black;
     }
 
 
