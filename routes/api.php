@@ -41,4 +41,8 @@ Route::namespace('Api')->name('api.')->group(function () {
     Route::get("/review/vote", "ReviewController@vote");
     // MANDA LA RECENSIONE ALL'USER
     Route::post("/review/postReview", "ReviewController@store");
+    // MANDA IL MESSAGGIO ALL'USER
+    Route::post("/message/postMessage", "MessageController@store");
+    // MESSAGGI DEL SINGOLO USER
+    Route::get("/message/show/{userid}", "MessageController@index");
 });
