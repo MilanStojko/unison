@@ -1,71 +1,14 @@
 <template>
-  <!-- <div class="select-categories">
+   <div class="select-categories">
     <label for="category">Scegli uno strumento:</label>
     <select name="categories" id="categories">
         <option v-for="(category, index) in categories" :value="category.name" :key="index">{{category.name}}</option>
-    </select> -->
-    <!-- <h1>{{$ava}}</h1> -->
-    <!-- <div v-for="(musician, index) in musicians" :key="index">
-      <h1>{{ musician.name }}</h1>
-    </div>
-    <h1>{{ ava }}</h1>
-  </div> -->
-  <div class="background">
-    <div class="select">
-      Cerca:
-      <select name="categories" id="categories">
-        <option v-for="(category, index) in categories" :value="category.name" :key="index">{{category.name}}</option>
-      </select>
-    </div>
-    <div class="container">
-        <div class="container p-4">
-            <h1>"Categoria"</h1>
-            
-            <div class="my_card" v-for="(musician, indice) in musicians" :key="indice">
-                    <router-link :to="{ name: 'user-single', params: { slug: musician.slug } }">
-                        <div class="top">
-                            <div class="info col-lg-5 mb-4">
-                                <h3>{{musician.name}} {{musician.surname}}</h3>
-                                <img v-if="musician.avatar!=null" :src="`/storage/${musician.avatar}`" alt="">
-                                <img v-else src="https://thumbs.dreamstime.com/b/profilo-utente-vettoriale-avatar-predefinito-179376714.jpg" alt="">
-                            </div>
-                            <div class="request col-lg-7 col-sm-12 mt-4">
-                                <div class="events mw-50 col-lg-6 col-sm-6 col-xs-6">
-                                    <div>
-                                        <h5>Eventi:</h5>
-                                        <ul>
-                                            <li v-for="(availability, index) in musician.availabilities" :key="index"><strong>{{availability.name}}</strong></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="categories mw-50 col-lg-6 col-sm-6 col-xs-6">
-                                    <div>
-                                        <h5>Strumenti:</h5>
-                                        <ul>
-                                            <li v-for="(category, index) in musician.categories" :key="index"><strong>{{category.name}}</strong></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <p class="references">
-                                <ul>
-                                    <li><i class="fa-solid fa-location-dot"></i> {{musician.address}}</li>
-                                    <li id="reviews" style="font-size: 20px">
-                                        <p>Recensioni:</p>
-                                        <span v-for="nota in 5" :key="'piena'+nota">
-                                            <img src="../../../images/music.svg" />
-                                        </span>
-                                    </li>
-                                </ul>
-                            </p>
-                        </div>
-                    </router-link>
-            </div>
-        </div>
-    </div>
-</div>
+    </select>
+    <ul v-for="(musician, index) in musicians" :key="index">
+      <li>{{ musician.name }}</li>
+    </ul>
+    <h1>Hai cercato per: <span>{{ ava }}</span></h1>
+  </div>
 </template>
 
 <script>
@@ -80,6 +23,7 @@ export default {
     };
   },
   methods: {
+    //Tutte le prestazioni
     getAvailability() {
       axios
         .get(`/api/filtered/getAvailability/${this.$route.params.query}`, {
@@ -96,16 +40,20 @@ export default {
     },
   },
   created() {
+    // Ricezione dato 
     bus.$on("saveValue", (data) => {
       //Dato ricevuto dall'emit in jumbo
       this.ava = data;
       console.log(this.ava);
     });
+
     this.getAvailability();
     // CHIAMATA CATEGORY PER SELECT FILTRO 2
-    axios.get('/api/category/index').then((respAll)=>{
-            this.categories = respAll.data;
-    })
+    // axios.get('/api/category/index').then((respAll)=>{
+    //         this.categories = respAll.data;
+    // })
+
+
   },
 };
 </script>

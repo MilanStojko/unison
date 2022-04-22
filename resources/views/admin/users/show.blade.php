@@ -3,7 +3,7 @@
 @section('content')
     <div class="show">
         <div class="card-header py-4 d-flex justify-content-between align-items-center">
-            <h2><i class="bi bi-people"></i> Il mio profilo</h2>
+            <h2><i class="bi bi-people"></i>La mia dashboard</h2>
 
             <div class="u_edit-user">
                 <a href="{{route('admin.users.edit', auth()->user())}}">
@@ -46,10 +46,9 @@
                             <li>Indirizzo: </li>
                             <li>Cellulare: </li>
                             <li>Email: </li>
+                            <li>Il mio cv:</li>
                             <li>Categorie: </li>
                             <li>Disponibilità:</li>
-                            <li>Il mio cv:</li>
-
                         </ul>
                     </div>
 
@@ -61,7 +60,15 @@
                             <li>{{$user->address ? $user->address : '-'}}</li>
                             <li>{{$user->cellphone ? $user->cellphone : '-'}}</li>
                             <li>{{$user->email}}</li>
-                            
+                            {{-- CV --}}
+                            <li>
+                                @if(isset(auth()->user()->cv))
+                                <a href={{asset('storage/'.auth()->user()->cv)}} target="_blank">Il mio cv</a>
+                                @else
+                                {{'-'}}
+                                @endif
+                            </li>    
+                            {{-- CAT --}}
                             <li>
                                 @if(count($user->categories) > 0)
                                 @foreach($user->categories as $category)
@@ -77,6 +84,7 @@
 
                                 @endif
                             </li>
+                            {{-- AVAIL --}}
                             <li>
                                 @if(count($user->availabilities) > 0)
                                 @foreach($user->availabilities as $availability)
@@ -91,14 +99,7 @@
                                 {{'-'}}
 
                                 @endif
-                            </li>
-                            <li>
-                                @if(isset(auth()->user()->cv))
-                                <a href={{asset('storage/'.auth()->user()->cv)}} target="_blank">Il mio cv</a>
-                                @else
-                                {{'-'}}
-                                @endif
-                            </li>                            
+                            </li>                        
                         </ul>
                     </div>
                     

@@ -2739,63 +2739,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Search",
@@ -2807,6 +2750,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    //Tutte le prestazioni
     getAvailability: function getAvailability() {
       var _this = this;
 
@@ -2824,16 +2768,16 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this2 = this;
 
+    // Ricezione dato 
     _front__WEBPACK_IMPORTED_MODULE_0__["bus"].$on("saveValue", function (data) {
       //Dato ricevuto dall'emit in jumbo
       _this2.ava = data;
       console.log(_this2.ava);
     });
     this.getAvailability(); // CHIAMATA CATEGORY PER SELECT FILTRO 2
-
-    axios.get('/api/category/index').then(function (respAll) {
-      _this2.categories = respAll.data;
-    });
+    // axios.get('/api/category/index').then((respAll)=>{
+    //         this.categories = respAll.data;
+    // })
   }
 });
 
@@ -8053,7 +7997,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.background[data-v-18581212]{\n        /* background-image: url(\"../../../images/pexels-picjumbocom-196652.jpg\");\n        background-repeat: no-repeat;\n        background-position: center;\n        background-size: cover; */\n        /* background: #E8EBF8; */\n        /* background: #595766ad; */\n        background: #2a292985;\n}\n.background[data-v-18581212]::-webkit-scrollbar {\n        display: none;\n}\n.background[data-v-18581212] {\n        -ms-overflow-style: none;  /* IE and Edge */\n        scrollbar-width: none;  /* Firefox */\n}\nh1[data-v-18581212], .info h3[data-v-18581212]{\n        text-align: center;\n}\n.info h3[data-v-18581212], .request[data-v-18581212]{\n        color: white;\n        text-transform: capitalize;\n}\nh1[data-v-18581212]{\n        font-size: 55px;\n}\n.my_card[data-v-18581212]{\n        margin: 50px auto;\n        max-width: 60%;\n        padding: 10px;\n        /* background: rgba(210, 206, 206, 0.861); */\n        /* background: #ededed; */\n        /* background-image: url('https://i.stack.imgur.com/MkSui.jpg'); */\n        background-image: url('https://icbstexas.com/wp-content/uploads/split-color-background.jpg');\n        background-repeat: no-repeat;\n        background-position: center;\n        background-size: cover;\n        border-radius: 10px;\n        /* border: 1px solid black; */\n        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);\n        transition: 1s;\n}\n.my_card[data-v-18581212]:hover{\n        cursor: pointer;\n        transform: scale(1.03);\n}\n.my_card:hover a[data-v-18581212]{\n        text-decoration: none;\n}\n.request[data-v-18581212]{\n        display: flex;\n        padding: 5px;\n        border-radius: 10px;\n        background: rgba(28, 28, 28, 0.8);\n        max-height: 200px;\n}\n.request ul[data-v-18581212]{\n        max-height: 150px;\n        overflow: scroll;\n}\n.request ul[data-v-18581212]::-webkit-scrollbar {\n        display: none;\n}\n.request ul[data-v-18581212]{\n        -ms-overflow-style: none;  /* IE and Edge */\n        scrollbar-width: none;  /* Firefox */\n}\n.categories li[data-v-18581212], .events li[data-v-18581212], .references li[data-v-18581212]{\n        list-style: none;\n        margin-left: 5px;\n        font-size: 17px;\n}\n.references ul[data-v-18581212]{\n        display: flex;\n        justify-content: space-between;\n        align-items: center;\n}\n.references li[data-v-18581212]{\n        display: inline;\n        font-size: 15px;\n}\n.references[data-v-18581212]{\n        padding: 0 50px;\n        /* margin-top: 20px; */\n}\n.categories li[data-v-18581212]{\n        color: rgba(91, 121, 93);\n}\n.events li[data-v-18581212]{\n        color: rgba(175, 108, 195);\n}\n.categories div[data-v-18581212], .events div[data-v-18581212]{\n        border-radius: 15px;\n        padding: 15px;\n}\n.top[data-v-18581212]{\n        display: flex;\n        flex-wrap: wrap;\n        padding: 15px 0;\n}\n\n    /* .container{\n        -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n        border-radius: 10px;\n        padding: 20px;\n        margin-bottom: 40px;\n    }\n    */\n.info[data-v-18581212]{\n        display: flex;\n        flex-direction: column;\n        justify-content: center;\n        align-items: center;\n}\n.info img[data-v-18581212]{\n        height: 200px;\n        width: 200px;\n        border-radius: 50%;\n}\n.references img[data-v-18581212]{\n        width: 25px;\n        height: auto;\n        color: #527a5a;\n}\n.references li[data-v-18581212]{\n        color: black;\n        text-transform: capitalize;\n}\n.references #reviews[data-v-18581212]{\n        display: flex;\n}\n@media only screen and (max-width: 700px) {\n.categories[data-v-18581212], .events[data-v-18581212]{\n            padding: 0;\n}\n.categories div[data-v-18581212], .events div[data-v-18581212]{\n            max-width: 80%;\n}\n.my_card[data-v-18581212]{\n            max-width: 90%;\n}\n.references[data-v-18581212]{\n            padding: 0 30px;\n}\n}\n@media only screen and (max-width: 1000px){\n.references p[data-v-18581212]{\n        display: none;\n}\n.references #reviews[data-v-18581212]{\n        margin-top: 10px;\n}\n.references ul[data-v-18581212]{\n        display: flex;\n        flex-direction: column;\n}\n}\n    \n", ""]);
+exports.push([module.i, "\n.background[data-v-18581212]{\n        /* background-image: url(\"../../../images/pexels-picjumbocom-196652.jpg\");\n        background-repeat: no-repeat;\n        background-position: center;\n        background-size: cover; */\n        /* background: #E8EBF8; */\n        /* background: #595766ad; */\n        background: #2a292985;\n}\n.background[data-v-18581212]::-webkit-scrollbar {\n        display: none;\n}\n.background[data-v-18581212] {\n        -ms-overflow-style: none;  /* IE and Edge */\n        scrollbar-width: none;  /* Firefox */\n}\nh1[data-v-18581212], .info h3[data-v-18581212]{\n        text-align: center;\n}\n.info h3[data-v-18581212], .request[data-v-18581212]{\n        color: white;\n        text-transform: capitalize;\n}\nh1[data-v-18581212]{\n        font-size: 55px;\n}\n.my_card[data-v-18581212]{\n        margin: 50px auto;\n        max-width: 60%;\n        padding: 10px;\n        /* background: rgba(210, 206, 206, 0.861); */\n        /* background: #ededed; */\n        /* background-image: url('https://i.stack.imgur.com/MkSui.jpg'); */\n        background-image: url('https://icbstexas.com/wp-content/uploads/split-color-background.jpg');\n        background-repeat: no-repeat;\n        background-position: center;\n        background-size: cover;\n        border-radius: 10px;\n        /* border: 1px solid black; */\n        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);\n        transition: 1s;\n}\n.my_card[data-v-18581212]:hover{\n        cursor: pointer;\n        transform: scale(1.03);\n}\n.my_card:hover a[data-v-18581212]{\n        text-decoration: none;\n}\n.request[data-v-18581212]{\n        display: flex;\n        padding: 5px;\n        border-radius: 10px;\n        background: rgba(28, 28, 28, 0.8);\n        max-height: 200px;\n}\n.request ul[data-v-18581212]{\n        max-height: 150px;\n        overflow: scroll;\n}\n.request ul[data-v-18581212]::-webkit-scrollbar {\n        display: none;\n}\n.request ul[data-v-18581212]{\n        -ms-overflow-style: none;  /* IE and Edge */\n        scrollbar-width: none;  /* Firefox */\n}\n.categories li[data-v-18581212], .events li[data-v-18581212], .references li[data-v-18581212]{\n        list-style: none;\n        margin-left: 5px;\n        font-size: 17px;\n}\n.references ul[data-v-18581212]{\n        display: flex;\n        justify-content: space-between;\n        align-items: center;\n}\n.references li[data-v-18581212]{\n        display: inline;\n        font-size: 15px;\n}\n.references[data-v-18581212]{\n        padding: 0 50px;\n        /* margin-top: 20px; */\n}\n.categories li[data-v-18581212]{\n        color: rgba(91, 121, 93);\n}\n.events li[data-v-18581212]{\n        color: rgba(175, 108, 195);\n}\n.categories div[data-v-18581212], .events div[data-v-18581212]{\n        border-radius: 15px;\n        padding: 15px;\n}\n.top[data-v-18581212]{\n        display: flex;\n        flex-wrap: wrap;\n        padding: 15px 0;\n}\n\n    /* .container{\n        -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n        border-radius: 10px;\n        padding: 20px;\n        margin-bottom: 40px;\n    }\n    */\n.info[data-v-18581212]{\n        display: flex;\n        flex-direction: column;\n        justify-content: center;\n        align-items: center;\n}\n.info img[data-v-18581212]{\n        height: 200px;\n        width: 200px;\n        border-radius: 50%;\n        -o-object-fit: cover;\n           object-fit: cover;\n}\n.references img[data-v-18581212]{\n        width: 25px;\n        height: auto;\n        color: #527a5a;\n}\n.references li[data-v-18581212]{\n        color: black;\n        text-transform: capitalize;\n}\n.references #reviews[data-v-18581212]{\n        display: flex;\n}\n@media only screen and (max-width: 700px) {\n.categories[data-v-18581212], .events[data-v-18581212]{\n            padding: 0;\n}\n.categories div[data-v-18581212], .events div[data-v-18581212]{\n            max-width: 80%;\n}\n.my_card[data-v-18581212]{\n            max-width: 90%;\n}\n.references[data-v-18581212]{\n            padding: 0 30px;\n}\n}\n@media only screen and (max-width: 1000px){\n.references p[data-v-18581212]{\n        display: none;\n}\n.references #reviews[data-v-18581212]{\n        margin-top: 10px;\n}\n.references ul[data-v-18581212]{\n        display: flex;\n        flex-direction: column;\n}\n}\n    \n", ""]);
 
 // exports
 
@@ -41339,9 +41283,14 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "background" }, [
-    _c("div", { staticClass: "select" }, [
-      _vm._v("\n      Cerca:\n      "),
+  return _c(
+    "div",
+    { staticClass: "select-categories" },
+    [
+      _c("label", { attrs: { for: "category" } }, [
+        _vm._v("Scegli uno strumento:"),
+      ]),
+      _vm._v(" "),
       _c(
         "select",
         { attrs: { name: "categories", id: "categories" } },
@@ -41354,164 +41303,20 @@ var render = function () {
         }),
         0
       ),
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "container" }, [
-      _c(
-        "div",
-        { staticClass: "container p-4" },
-        [
-          _c("h1", [_vm._v('"Categoria"')]),
-          _vm._v(" "),
-          _vm._l(_vm.musicians, function (musician, indice) {
-            return _c(
-              "div",
-              { key: indice, staticClass: "my_card" },
-              [
-                _c(
-                  "router-link",
-                  {
-                    attrs: {
-                      to: {
-                        name: "user-single",
-                        params: { slug: musician.slug },
-                      },
-                    },
-                  },
-                  [
-                    _c("div", { staticClass: "top" }, [
-                      _c("div", { staticClass: "info col-lg-5 mb-4" }, [
-                        _c("h3", [
-                          _vm._v(
-                            _vm._s(musician.name) +
-                              " " +
-                              _vm._s(musician.surname)
-                          ),
-                        ]),
-                        _vm._v(" "),
-                        musician.avatar != null
-                          ? _c("img", {
-                              attrs: {
-                                src: "/storage/" + musician.avatar,
-                                alt: "",
-                              },
-                            })
-                          : _c("img", {
-                              attrs: {
-                                src: "https://thumbs.dreamstime.com/b/profilo-utente-vettoriale-avatar-predefinito-179376714.jpg",
-                                alt: "",
-                              },
-                            }),
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "request col-lg-7 col-sm-12 mt-4" },
-                        [
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "events mw-50 col-lg-6 col-sm-6 col-xs-6",
-                            },
-                            [
-                              _c("div", [
-                                _c("h5", [_vm._v("Eventi:")]),
-                                _vm._v(" "),
-                                _c(
-                                  "ul",
-                                  _vm._l(
-                                    musician.availabilities,
-                                    function (availability, index) {
-                                      return _c("li", { key: index }, [
-                                        _c("strong", [
-                                          _vm._v(_vm._s(availability.name)),
-                                        ]),
-                                      ])
-                                    }
-                                  ),
-                                  0
-                                ),
-                              ]),
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "categories mw-50 col-lg-6 col-sm-6 col-xs-6",
-                            },
-                            [
-                              _c("div", [
-                                _c("h5", [_vm._v("Strumenti:")]),
-                                _vm._v(" "),
-                                _c(
-                                  "ul",
-                                  _vm._l(
-                                    musician.categories,
-                                    function (category, index) {
-                                      return _c("li", { key: index }, [
-                                        _c("strong", [
-                                          _vm._v(_vm._s(category.name)),
-                                        ]),
-                                      ])
-                                    }
-                                  ),
-                                  0
-                                ),
-                              ]),
-                            ]
-                          ),
-                        ]
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("div", [
-                      _c("p", { staticClass: "references" }, [
-                        _c("ul", [
-                          _c("li", [
-                            _c("i", {
-                              staticClass: "fa-solid fa-location-dot",
-                            }),
-                            _vm._v(" " + _vm._s(musician.address)),
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "li",
-                            {
-                              staticStyle: { "font-size": "20px" },
-                              attrs: { id: "reviews" },
-                            },
-                            [
-                              _c("p", [_vm._v("Recensioni:")]),
-                              _vm._v(" "),
-                              _vm._l(5, function (nota) {
-                                return _c("span", { key: "piena" + nota }, [
-                                  _c("img", {
-                                    attrs: {
-                                      src: __webpack_require__(/*! ../../../images/music.svg */ "./resources/images/music.svg"),
-                                    },
-                                  }),
-                                ])
-                              }),
-                            ],
-                            2
-                          ),
-                        ]),
-                      ]),
-                    ]),
-                  ]
-                ),
-              ],
-              1
-            )
-          }),
-        ],
-        2
-      ),
-    ]),
-  ])
+      _vm._v(" "),
+      _vm._l(_vm.musicians, function (musician, index) {
+        return _c("ul", { key: index }, [
+          _c("li", [_vm._v(_vm._s(musician.name))]),
+        ])
+      }),
+      _vm._v(" "),
+      _c("h1", [
+        _vm._v("Hai cercato per: "),
+        _c("span", [_vm._v(_vm._s(_vm.ava))]),
+      ]),
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
