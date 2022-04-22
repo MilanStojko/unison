@@ -17,7 +17,7 @@
                     <select name="availabilities" id="availabilities" @change="saveValue($event)">
                         <option v-for="(availability, index) in availabilities" :value="availability.name" :key="index">{{availability.name}}</option>
                     </select>
-                    <button @click.prevent="sendSelected()"><router-link :to="{name: 'search'}"><p>Cerca</p></router-link></button>
+                    <button @click.prevent="sendSelected()"><router-link class="my_search" :to="{name: 'search'}">Cerca</router-link></button>
                 </div>
             <!-- <div class="d-flex justify-content-center w-100 mt-1">
                 <Filtra/>
@@ -134,7 +134,7 @@ export default {
         justify-content: center;
         align-items: center;
 
-        input {
+        select {
             width: 80%;
             padding: 10px 20px;
             border: none;
@@ -149,9 +149,14 @@ export default {
             border: none;
             border-radius: 0px 20px 20px 0px;
             transition: all 0.2s linear;
-
+            
             &:hover {
                 background-color: #3d5e43;
+            }
+
+            .my_search{
+                color: white;
+                text-decoration: none;
             }
         }
     }

@@ -1,8 +1,8 @@
 <template>
-  <div class="select-availabilities">
-    <label for="availabilities">Scegli uno strumento:</label>
-    <select name="availabilities" id="availabilities">
-      <!-- <option v-for="(availability, index) in availabilities" :key="index" value="">{{availability.name}}</option> -->
+  <div class="select-categories">
+    <label for="category">Scegli uno strumento:</label>
+    <select name="categories" id="categories">
+        <option v-for="(category, index) in categories" :value="category.name" :key="index">{{category.name}}</option>
     </select>
     <!-- <h1>{{$ava}}</h1> -->
     <div v-for="(musician, index) in musicians" :key="index">
@@ -18,6 +18,7 @@ export default {
   name: "Search",
   data() {
     return {
+      categories:[],
       musicians: [],
       ava: "",
     };
@@ -45,6 +46,10 @@ export default {
       console.log(this.ava);
     });
     this.getAvailability();
+    // CHIAMATA CATEGORY PER SELECT FILTRO 2
+    axios.get('/api/category/index').then((respAll)=>{
+            this.categories = respAll.data;
+    })
   },
 };
 </script>

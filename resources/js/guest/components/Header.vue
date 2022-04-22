@@ -8,7 +8,7 @@
       <li class="my_li">
         <router-link :to="{ name: 'list-musicians' }"><p>Vai ai musicisti</p></router-link>
       </li>
-      <li>
+      <li class="my_li">
         <router-link :to="{name: 'search'}"><p>Cerca</p></router-link>
       </li>
       <li>  

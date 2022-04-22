@@ -2796,25 +2796,45 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Search",
   data: function data() {
     return {
+      categories: [],
       musicians: [],
-      ava: ''
+      ava: ""
     };
   },
-  created: function created() {
-    var _this = this;
+  methods: {
+    getAvailability: function getAvailability() {
+      var _this = this;
 
-    _front__WEBPACK_IMPORTED_MODULE_0__["bus"].$on('saveValue', function (data) {
+      axios.get("/api/filtered/getAvailability/".concat(this.$route.params.query), {
+        paramas: {
+          query: this.ava
+        }
+      }).then(function (response) {
+        _this.musicians = response.data.results;
+      })["catch"](function (error) {
+        console.log(error.response.data);
+      });
+    }
+  },
+  created: function created() {
+    var _this2 = this;
+
+    _front__WEBPACK_IMPORTED_MODULE_0__["bus"].$on("saveValue", function (data) {
       //Dato ricevuto dall'emit in jumbo
-      _this.ava = data;
-      console.log(_this.ava);
+      _this2.ava = data;
+      console.log(_this2.ava);
     });
-    axios.get('/api/users').then(function (respAll) {
-      _this.musicians = respAll.data;
+    this.getAvailability(); // CHIAMATA CATEGORY PER SELECT FILTRO 2
+
+    axios.get('/api/category/index').then(function (respAll) {
+      _this2.categories = respAll.data;
     });
   }
 });
@@ -7890,7 +7910,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".jumbo[data-v-d56888bc] {\n  background-color: #000;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-1.jpg */ "./resources/images/jumbo-1.jpg")) + ");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n  color: rgb(226, 226, 226);\n  width: 100%;\n  height: calc(100vh - 50px);\n  -webkit-backface-visibility: hidden;\n          backface-visibility: hidden;\n  -webkit-animation-name: slideBg-data-v-d56888bc;\n          animation-name: slideBg-data-v-d56888bc;\n  -webkit-animation-duration: 30s;\n          animation-duration: 30s;\n  -webkit-animation-timing-function: step-start;\n          animation-timing-function: step-start;\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n  position: relative;\n}\n.jumbo-overlay[data-v-d56888bc] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 0, 0, 0.6);\n}\n.jumbo-content[data-v-d56888bc] {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  justify-content: space-between;\n  align-items: center;\n}\n@media screen and (max-width: 2000px) {\n.jumbo-content[data-v-d56888bc] {\n    width: 1140px;\n}\n}\n@media screen and (max-width: 1200px) {\n.jumbo-content[data-v-d56888bc] {\n    width: 80%;\n}\n}\n.jumbo-text p[data-v-d56888bc] {\n  font-size: 40px;\n  font-weight: bold;\n  letter-spacing: 1px;\n}\n@media screen and (max-width: 2000px) {\n.jumbo-text p[data-v-d56888bc] {\n    font-size: 30px;\n}\n}\n.jumbo-form[data-v-d56888bc] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.jumbo-form input[data-v-d56888bc] {\n  width: 80%;\n  padding: 10px 20px;\n  border: none;\n  outline: none;\n  border-radius: 20px 0px 0px 20px;\n}\n.jumbo-form button[data-v-d56888bc] {\n  background-color: #537a5a;\n  color: #fff;\n  padding: 10px 20px;\n  border: none;\n  border-radius: 0px 20px 20px 0px;\n  transition: all 0.2s linear;\n}\n.jumbo-form button[data-v-d56888bc]:hover {\n  background-color: #3d5e43;\n}\n.jumbo-social[data-v-d56888bc] {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  padding: 20px;\n}\n.jumbo-social img[data-v-d56888bc] {\n  width: 150px;\n  cursor: pointer;\n  transition: all 0.3s linear;\n}\n.jumbo-social img[data-v-d56888bc]:hover {\n  transform: scale(1.05) translateY(-2px);\n}\n@-webkit-keyframes slideBg-data-v-d56888bc {\n0% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-1.jpg */ "./resources/images/jumbo-1.jpg")) + ");\n}\n20% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-2.png */ "./resources/images/jumbo-2.png")) + ");\n}\n40% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-6.jpg */ "./resources/images/jumbo-6.jpg")) + ");\n}\n60% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-4.jpg */ "./resources/images/jumbo-4.jpg")) + ");\n}\n80% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-5.jpg */ "./resources/images/jumbo-5.jpg")) + ");\n}\n100% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-1.jpg */ "./resources/images/jumbo-1.jpg")) + ");\n}\n}\n@keyframes slideBg-data-v-d56888bc {\n0% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-1.jpg */ "./resources/images/jumbo-1.jpg")) + ");\n}\n20% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-2.png */ "./resources/images/jumbo-2.png")) + ");\n}\n40% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-6.jpg */ "./resources/images/jumbo-6.jpg")) + ");\n}\n60% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-4.jpg */ "./resources/images/jumbo-4.jpg")) + ");\n}\n80% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-5.jpg */ "./resources/images/jumbo-5.jpg")) + ");\n}\n100% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-1.jpg */ "./resources/images/jumbo-1.jpg")) + ");\n}\n}", ""]);
+exports.push([module.i, ".jumbo[data-v-d56888bc] {\n  background-color: #000;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-1.jpg */ "./resources/images/jumbo-1.jpg")) + ");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n  color: rgb(226, 226, 226);\n  width: 100%;\n  height: calc(100vh - 50px);\n  -webkit-backface-visibility: hidden;\n          backface-visibility: hidden;\n  -webkit-animation-name: slideBg-data-v-d56888bc;\n          animation-name: slideBg-data-v-d56888bc;\n  -webkit-animation-duration: 30s;\n          animation-duration: 30s;\n  -webkit-animation-timing-function: step-start;\n          animation-timing-function: step-start;\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n  position: relative;\n}\n.jumbo-overlay[data-v-d56888bc] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 0, 0, 0.6);\n}\n.jumbo-content[data-v-d56888bc] {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  justify-content: space-between;\n  align-items: center;\n}\n@media screen and (max-width: 2000px) {\n.jumbo-content[data-v-d56888bc] {\n    width: 1140px;\n}\n}\n@media screen and (max-width: 1200px) {\n.jumbo-content[data-v-d56888bc] {\n    width: 80%;\n}\n}\n.jumbo-text p[data-v-d56888bc] {\n  font-size: 40px;\n  font-weight: bold;\n  letter-spacing: 1px;\n}\n@media screen and (max-width: 2000px) {\n.jumbo-text p[data-v-d56888bc] {\n    font-size: 30px;\n}\n}\n.jumbo-form[data-v-d56888bc] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.jumbo-form select[data-v-d56888bc] {\n  width: 80%;\n  padding: 10px 20px;\n  border: none;\n  outline: none;\n  border-radius: 20px 0px 0px 20px;\n}\n.jumbo-form button[data-v-d56888bc] {\n  background-color: #537a5a;\n  color: #fff;\n  padding: 10px 20px;\n  border: none;\n  border-radius: 0px 20px 20px 0px;\n  transition: all 0.2s linear;\n}\n.jumbo-form button[data-v-d56888bc]:hover {\n  background-color: #3d5e43;\n}\n.jumbo-form button .my_search[data-v-d56888bc] {\n  color: white;\n  text-decoration: none;\n}\n.jumbo-social[data-v-d56888bc] {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  padding: 20px;\n}\n.jumbo-social img[data-v-d56888bc] {\n  width: 150px;\n  cursor: pointer;\n  transition: all 0.3s linear;\n}\n.jumbo-social img[data-v-d56888bc]:hover {\n  transform: scale(1.05) translateY(-2px);\n}\n@-webkit-keyframes slideBg-data-v-d56888bc {\n0% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-1.jpg */ "./resources/images/jumbo-1.jpg")) + ");\n}\n20% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-2.png */ "./resources/images/jumbo-2.png")) + ");\n}\n40% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-6.jpg */ "./resources/images/jumbo-6.jpg")) + ");\n}\n60% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-4.jpg */ "./resources/images/jumbo-4.jpg")) + ");\n}\n80% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-5.jpg */ "./resources/images/jumbo-5.jpg")) + ");\n}\n100% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-1.jpg */ "./resources/images/jumbo-1.jpg")) + ");\n}\n}\n@keyframes slideBg-data-v-d56888bc {\n0% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-1.jpg */ "./resources/images/jumbo-1.jpg")) + ");\n}\n20% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-2.png */ "./resources/images/jumbo-2.png")) + ");\n}\n40% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-6.jpg */ "./resources/images/jumbo-6.jpg")) + ");\n}\n60% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-4.jpg */ "./resources/images/jumbo-4.jpg")) + ");\n}\n80% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-5.jpg */ "./resources/images/jumbo-5.jpg")) + ");\n}\n100% {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../../images/jumbo-1.jpg */ "./resources/images/jumbo-1.jpg")) + ");\n}\n}", ""]);
 
 // exports
 
@@ -40313,6 +40333,7 @@ var render = function () {
         _vm._v(" "),
         _c(
           "li",
+          { staticClass: "my_li" },
           [
             _c("router-link", { attrs: { to: { name: "search" } } }, [
               _c("p", [_vm._v("Cerca")]),
@@ -40711,9 +40732,11 @@ var render = function () {
               },
             },
             [
-              _c("router-link", { attrs: { to: { name: "search" } } }, [
-                _c("p", [_vm._v("Cerca")]),
-              ]),
+              _c(
+                "router-link",
+                { staticClass: "my_search", attrs: { to: { name: "search" } } },
+                [_vm._v("Cerca")]
+              ),
             ],
             1
           ),
@@ -41097,16 +41120,29 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "select-availabilities" },
+    { staticClass: "select-categories" },
     [
-      _c("label", { attrs: { for: "availabilities" } }, [
+      _c("label", { attrs: { for: "category" } }, [
         _vm._v("Scegli uno strumento:"),
       ]),
       _vm._v(" "),
-      _c("select", { attrs: { name: "availabilities", id: "availabilities" } }),
+      _c(
+        "select",
+        { attrs: { name: "categories", id: "categories" } },
+        _vm._l(_vm.categories, function (category, index) {
+          return _c(
+            "option",
+            { key: index, domProps: { value: category.name } },
+            [_vm._v(_vm._s(category.name))]
+          )
+        }),
+        0
+      ),
       _vm._v(" "),
       _vm._l(_vm.musicians, function (musician, index) {
-        return _c("div", { key: index }, [_vm._v(_vm._s(musician.name))])
+        return _c("div", { key: index }, [
+          _c("h1", [_vm._v(_vm._s(musician.name))]),
+        ])
       }),
       _vm._v(" "),
       _c("h1", [_vm._v(_vm._s(_vm.ava))]),
@@ -58368,6 +58404,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: "/search",
     name: "search",
+    query: "name",
     component: _pages_Search__WEBPACK_IMPORTED_MODULE_3__["default"]
   }, {
     path: "/single/:slug",
@@ -58394,7 +58431,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\milan\Documents\Boolean\unison\resources\js\guest\front.js */"./resources/js/guest/front.js");
+module.exports = __webpack_require__(/*! C:\Users\simon\Desktop\unison\resources\js\guest\front.js */"./resources/js/guest/front.js");
 
 
 /***/ })
