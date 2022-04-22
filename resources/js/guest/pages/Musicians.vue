@@ -12,7 +12,7 @@
                                 <img v-if="musician.avatar!=null" :src="`/storage/${musician.avatar}`" alt="">
                                 <img v-else src="https://thumbs.dreamstime.com/b/profilo-utente-vettoriale-avatar-predefinito-179376714.jpg" alt="">
                             </div>
-                            <div class="request col-lg-7 col-sm-12">
+                            <div class="request col-lg-7 col-sm-12 mt-4">
                                 <div class="events mw-50 col-lg-6 col-sm-6 col-xs-6">
                                     <div>
                                         <h5>Eventi:</h5>
@@ -99,6 +99,7 @@ export default {
 
     .info h3, .request{
         color: white;
+        text-transform: capitalize;
     }
 
     h1{
@@ -137,6 +138,21 @@ export default {
         padding: 5px;
         border-radius: 10px;
         background: rgba(28, 28, 28, 0.8);
+        max-height: 200px;
+    }
+
+    .request ul{
+        max-height: 150px;
+        overflow: scroll;
+    }
+
+    .request ul::-webkit-scrollbar {
+        display: none;
+    }
+
+    .request ul{
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
     }
 
     .categories li, .events li, .references li{
@@ -158,7 +174,7 @@ export default {
 
     .references{
         padding: 0 50px;
-        margin-top: 20px;
+        /* margin-top: 20px; */
     }
 
     .categories li{
@@ -210,6 +226,7 @@ export default {
 
     .references li{
         color: black;
+        text-transform: capitalize;
     }
 
     .references #reviews{

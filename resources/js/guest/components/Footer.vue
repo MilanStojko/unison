@@ -8,15 +8,21 @@
             <div class="link col-lg-6 col-sm-12">
                 <ul class="col-4">
                     <h2>LINK</h2>
-                    <li v-for="(link, index) in linkfooter1" :key="index">{{link.name}}</li>
+                    <li v-for="(link, index) in linkfooter1" :key="index">
+                        <a href="">{{link.name}}</a>
+                    </li>
                 </ul>
                 <ul class="col-4">
                     <h2>LINK</h2>
-                    <li v-for="(link, index) in linkfooter2" :key="index">{{link.name}}</li>
+                    <li v-for="(link, index) in linkfooter2" :key="index">
+                        <a href="">{{link.name}}</a>
+                    </li>
                 </ul>
                 <ul class="col-4">
                     <h2>LINK</h2>
-                    <li v-for="(link, index) in linkfooter3" :key="index">{{link.name}}</li>
+                    <li v-for="(link, index) in linkfooter3" :key="index">
+                        <a href="">{{link.name}}</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -116,12 +122,12 @@ export default {
         list-style: none;
     }
 
-    li{
-        cursor: pointer;
+    a{
         color: rgb(81, 81, 81);
+        text-decoration: none;
     }
 
-    li:hover{
+    a:hover{
         color: white;
     }
 
