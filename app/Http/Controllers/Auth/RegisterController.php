@@ -9,7 +9,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -30,6 +30,17 @@ class RegisterController extends Controller
     {
         $categories = Category::all();
         return view('auth.register', compact('categories'));
+    }
+
+    protected function slug($name = "", $id = "")
+    {
+        $tmp = Str::slug($name);
+        $count = 1;
+        while (User::where('slug', $tmp)->where('id', '!=', $id)->first()) {
+            $tmp = Str::slug($name) . "-" . $count;
+            $count++;
+        }
+        return $tmp;
     }
 
     /**
@@ -80,6 +91,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'surname' => $data['surname'],
             'username' => $data['username'],
+            'slug' => $this->slug($data['name'], $data['name']),
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
 

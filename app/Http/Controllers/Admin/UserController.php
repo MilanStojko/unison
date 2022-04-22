@@ -21,7 +21,7 @@ class UserController extends Controller
         'bio' => 'nullable|string',
         'username' => 'nullable|string|max:255',
         'avatar' => 'nullable|mimes:mimes:jpeg,jpg,png,gif|max:2048',
-        'cv' => 'nullable|file|mimes:pdf|max:2048',
+        'cv' => 'nullable|file|mimes:pdf,xlx,csv|max:12000',
         'cellphone' => 'nullable',
         'address' => 'nullable',
         'categories' => 'nullable|exists:categories,id',
@@ -30,12 +30,12 @@ class UserController extends Controller
         'email' => 'required|string|email|max:255',
     ];
 
-    protected function slug($title = "", $id = "")
+    protected function slug($name = "", $id = "")
     {
-        $tmp = Str::slug($title);
+        $tmp = Str::slug($name);
         $count = 1;
         while (User::where('slug', $tmp)->where('id', '!=', $id)->first()) {
-            $tmp = Str::slug($title) . "-" . $count;
+            $tmp = Str::slug($name) . "-" . $count;
             $count++;
         }
         return $tmp;
@@ -112,10 +112,18 @@ class UserController extends Controller
 
         $data = $request->all();
 
-        $data["slug"] = ($user->title == $data['name']) ? $user->slug : $this->slug($data['name'], $user->id);
+        $data["slug"] = ($user->name == $data['name']) ? $user->slug : $this->slug($data['name'], $user->id);
+
+        //Gestione richiesta avatar
         if (isset($data['avatar'])) {
             $img_path = Storage::put('uploads', $data['avatar']);
             $data['avatar'] = $img_path;
+        }
+
+        //Gestione richiesta cv
+        if (isset($data['cv'])){
+            $cv_path = Storage::put('usercv', $data['cv']);
+            $data['cv'] = $cv_path;
         }
 
         $data["slug"] = ($user->name == $data['name']) ? $user->slug : $this->slug($data['name'], $user->id);
