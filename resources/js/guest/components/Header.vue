@@ -76,21 +76,9 @@ export default {
                 .getAttribute("content"),
         };
     },
-    computed: {
-        isLoggedIn() {
-            return window.localStorage.getItem("username");
-        },
-    },
     methods: {
         show: function (click) {
             this.click = !click;
-        },
-        login() {
-            window.location.replace("http://127.0.0.1:8000/login");
-        },
-        logout() {
-            window.localStorage.removeItem("username");
-            window.location.replace("http://127.0.0.1:8000/login");
         },
     },
 

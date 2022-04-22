@@ -2101,21 +2101,9 @@ __webpack_require__.r(__webpack_exports__);
       auth_id: document.querySelector("meta[name='user-id']").getAttribute("content")
     };
   },
-  computed: {
-    isLoggedIn: function isLoggedIn() {
-      return window.localStorage.getItem("username");
-    }
-  },
   methods: {
     show: function show(click) {
       this.click = !click;
-    },
-    login: function login() {
-      window.location.replace("http://127.0.0.1:8000/login");
-    },
-    logout: function logout() {
-      window.localStorage.removeItem("username");
-      window.location.replace("http://127.0.0.1:8000/login");
     }
   },
   created: function created() {
