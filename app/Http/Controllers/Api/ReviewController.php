@@ -48,4 +48,12 @@ class ReviewController extends Controller
         $review = Review::where('user_id', $userid)->with('user')->get();
         return response()->json($review);
     }
+
+    public function vote(Request $request)
+    {
+        $userid = $request->get('userid');
+
+        $review = Review::where('user_id', $userid)->get('vote');
+        return response()->json($review);
+    }
 }
