@@ -11,6 +11,11 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+
+
+    private $musician;
+    private $filteredMusician;
+
     public function index()
     {
         $user = User::with('categories', 'availabilities', 'sponsorships', 'reviews')->get();
@@ -23,24 +28,74 @@ class UserController extends Controller
         return response()->json($user);
     }
 
-    public function getCountReview()
+    public function getAvailability(Request $request)
     {
-        $user = User::join("reviews", "user_id", "=", "reviews.user_id")
-            ->select(array('users.*', DB::raw('COUNT(`user_id`) as num_rev')))
-            ->groupBy(DB::raw("CONVERT(users.id, CHAR)"), 'users.id')
-            ->whereRaw("`users`.id = `reviews`.user_id")
-            ->orderBy('users.id', 'desc')->with("availabilities")->get();
-        return response()->json($user);
+        $data = $request->get('name');
+        $rev = $request->get('rev');
+
+        $this->musician = User::whereHas('availabilities', function (Builder $query) use ($data) {
+            $query->where('name', "=", $data);
+        })->with('availabilities', 'categories', 'reviews')->get();
+
+        $this->filteredMusician = clone $this->musician; //serve clonare perchè boh l'ho letto su stackoverflow, non sto capendo più un cazzo
+
+        if (null !== $request->get('vote')) {
+            $numvote = $request->get('vote');
+            $vote = intval($numvote);
+            $this->getAvgVote($vote);
+        }
+
+        $this->musician = $this->filteredMusician;
+
+        if (null !== ($request->get('rev'))) {
+            // dd('dentro');
+            $this->getCountReview($rev);
+            return response()->json($this->musician);
+        }
+        return response()->json($this->musician);
     }
 
-    public function getAvgVote($minvote)
+    public function getAvgVote($vote)
     {
-        $user = User::join("reviews", "user_id", "=", "reviews.user_id")
-            ->select(array('users.*', DB::raw('AVG(`vote`) as avg_vote')))
-            ->groupBy(DB::raw("CONVERT(users.id, CHAR)"), 'users.id')
-            ->havingRaw("avg_vote BETWEEN ? AND ?", [$minvote, 5])
-            ->whereRaw("`users`.id = `reviews`.user_id")
-            ->orderBy('users.id', 'desc')->with("availabilities")->get();
-        return response()->json($user);
+        $filteredartist = [];
+        foreach ($this->filteredMusician as $artist) {
+            $sum = 0;
+            $count = 0;
+            $arrayRev = Review::where("user_id", $artist["id"])->get('vote');
+            foreach ($arrayRev as $rev) {
+                $sum += $rev['vote'];
+                $count++;
+            }
+            if ($count != 0 && $sum / $count >= $vote) {
+                $filteredartist[] = $artist;
+            };
+        }
+        $this->filteredMusician = $filteredartist;
     }
+
+
+
+    // public function getCountReview($rev)
+    // {
+    //     $data = $rev;
+    //     if ($data === true) {
+    //         $filtered = $this->filteredMusician->join("reviews", "user_id", "=", "reviews.user_id")
+    //             ->select(array('users.*', DB::raw('COUNT(`user_id`) as num_rev')))
+    //             ->groupBy(DB::raw("CONVERT(users.id, CHAR)"), 'users.id')
+    //             ->whereRaw("`users`.id = `reviews`.user_id")
+    //             ->orderBy('num_rev', 'desc')->with("availabilities")->get();
+    //     }
+    // }
+
+    // public function getAvgVote($vote)
+    // {
+    //     $porcoddio = $this->filteredMusician->join("reviews", "user_id", "=", "reviews.user_id")
+    //      ->select(array('users.*', DB::raw('AVG(`vote`) as avg_vote')))
+    //      ->groupBy(DB::raw("CONVERT(users.id, CHAR)"), 'users.id')
+    //      ->havingRaw("avg_vote BETWEEN ? AND ?", [$vote, 5])
+    //      ->whereRaw("`users`.id = `reviews`.user_id")
+    //      ->orderBy('avg_vote', 'desc')->with("availabilities", "reviews");
+    // }
+
+
 }

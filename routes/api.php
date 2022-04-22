@@ -32,7 +32,7 @@ Route::namespace('Api')->name('api.')->group(function () {
     //TUTTE LE CATEGORY
     Route::get("/category/index", "CategoryController@index");
     // RESTITUISCE GLI USER CON FILTRO SU AVAILABILITY
-    Route::get("/filtered/getavailability", "FilterController@getAvailability")->name('filter.getAvailability');
+    Route::get("/filtered/getavailability", "UserController@getAvailability")->name('filter.getAvailability');
     // FILTRO NOME -- DA FIXARE CON REQUEST
     Route::get("/filtered/getname", "FilterController@getFullName")->name('filter.getFullName');
     // RECENSIONI DEL SINGOLO USER
