@@ -24,15 +24,15 @@ Route::namespace('Api')->name('api.')->group(function () {
     // SINGOLO USER CON FILTRO SULLO SLUG
     Route::get("/users/show/{slug}", "UserController@show")->name('users.show');
     // SOMMA RECENSIONI IN ORDINE DECRESCENTE
-    Route::get("/users/count", "UserController@getCountReview");
+    //Route::get("/users/count", "UserController@getCountReview");
     // MEDIA RECENSIONI -- DA FIXARE CON REQUEST
-    Route::get("/users/avg/{minvote}", "UserController@getAvgVote");
+    //Route::get("/users/avg/{minvote}", "UserController@getAvgVote");
     // TUTTE LE AVAILABILITY
     Route::get("/availability/index", "AvailabilityController@index");
     //TUTTE LE CATEGORY
     Route::get("/category/index", "CategoryController@index");
     // RESTITUISCE GLI USER CON FILTRO SU AVAILABILITY
-    Route::get("/filtered/getavailability", "FilterController@getAvailability")->name('filter.getAvailability');
+    Route::get("/filtered/getavailability", "UserController@getAvailability")->name('filter.getAvailability');
     // FILTRO NOME -- DA FIXARE CON REQUEST
     Route::get("/filtered/getname", "FilterController@getFullName")->name('filter.getFullName');
     // RECENSIONI DEL SINGOLO USER

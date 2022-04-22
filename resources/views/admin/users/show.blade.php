@@ -48,6 +48,7 @@
                             <li>Email: </li>
                             <li>Categorie: </li>
                             <li>Disponibilità:</li>
+                            <li>Il mio cv:</li>
 
                         </ul>
                     </div>
@@ -91,7 +92,13 @@
 
                                 @endif
                             </li>
-                            
+                            <li>
+                                @if(isset(auth()->user()->cv))
+                                <a href={{asset('storage/'.auth()->user()->cv)}} target="_blank">Il mio cv</a>
+                                @else
+                                {{'-'}}
+                                @endif
+                            </li>                            
                         </ul>
                     </div>
                     
