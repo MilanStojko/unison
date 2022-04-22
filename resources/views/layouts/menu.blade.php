@@ -78,6 +78,12 @@
                                 Recensioni
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link u_menu-info-link {{request()->is('admin/sponsorhips') ? 'menu-active' : ''}}" href="{{route('admin.sponsorships.index')}}">
+                                <i class="bi bi-star-fill"></i>
+                                Premium
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -101,5 +107,14 @@
         
     </script>
 </body>
+
+<style>
+
+    img{
+        object-fit: cover;
+        object-position: center;
+    }
+
+</style>
 
 </html>

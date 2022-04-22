@@ -25,6 +25,7 @@ Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->
     Route::resource('/users', 'UserController');
     Route::resource('/messages', 'MessageController');
     Route::resource('/reviews', 'ReviewController');
+    Route::resource('/sponsorships', 'SponsorshipController');
 });
 
 Route::get('{any?}', function () {

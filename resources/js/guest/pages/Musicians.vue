@@ -197,6 +197,7 @@ export default {
         height: 200px;
         width: 200px;
         border-radius: 50%;
+        object-fit: cover;
     }
 
     .references img{

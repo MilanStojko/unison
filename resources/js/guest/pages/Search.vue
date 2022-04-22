@@ -4,11 +4,10 @@
     <select name="categories" id="categories">
         <option v-for="(category, index) in categories" :value="category.name" :key="index">{{category.name}}</option>
     </select>
-    <!-- <h1>{{$ava}}</h1> -->
-    <div v-for="(musician, index) in musicians" :key="index">
-      <h1>{{ musician.name }}</h1>
-    </div>
-    <h1>{{ ava }}</h1>
+    <ul v-for="(musician, index) in musicians" :key="index">
+      <li>{{ musician.name }}</li>
+    </ul>
+    <h1>Hai cercato per: <span>{{ ava }}</span></h1>
   </div>
 </template>
 
@@ -24,6 +23,7 @@ export default {
     };
   },
   methods: {
+    //Tutte le prestazioni
     getAvailability() {
       axios
         .get(`/api/filtered/getAvailability/${this.$route.params.query}`, {
@@ -40,16 +40,20 @@ export default {
     },
   },
   created() {
+    // Ricezione dato 
     bus.$on("saveValue", (data) => {
       //Dato ricevuto dall'emit in jumbo
       this.ava = data;
       console.log(this.ava);
     });
+
     this.getAvailability();
     // CHIAMATA CATEGORY PER SELECT FILTRO 2
-    axios.get('/api/category/index').then((respAll)=>{
-            this.categories = respAll.data;
-    })
+    // axios.get('/api/category/index').then((respAll)=>{
+    //         this.categories = respAll.data;
+    // })
+
+
   },
 };
 </script>

@@ -8,6 +8,15 @@
         <div class="u_edit-form_header">
             <h3>Modifica il mio profilo</h3>
         </div>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <form action="{{ route('admin.users.update', auth()->user()) }}" method="POST" enctype="multipart/form-data">
             @method('PUT')
             @csrf
@@ -15,7 +24,7 @@
             <div class="form-group">
                 <label for="formGroupExampleInput">Nome</label>
                 <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
-                    placeholder="nome" value="{{ old('name', $user->name) }}">
+                    placeholder="nome" value="{{ old('name', $user->name) }}" >
             </div>
             {{-- COGNOME --}}
             <div class="form-group">
@@ -27,15 +36,14 @@
             {{-- DESC --}}
             <div class="form-group">
                 <label>Bio</label>
-                <textarea name="bio" class="form-control @error('bio') is-invalid @enderror" cols="30" rows="10">
+                <textarea name="bio" class="form-control @error('bio') is-invalid @enderror" cols="10" rows="2" placeholder="Let the music talk">
                 {{ old('bio', $user->bio) }}
             </textarea>
             </div>
             {{-- NICK --}}
             <div class="form-group">
                 <label for="formGroupExampleInput">Username</label>
-                <input type="text" name="username"
-                    class="form-control @error('username') is-invalid @enderror"
+                <input type="text" name="username" class="form-control @error('username') is-invalid @enderror"
                     value="{{ old('username', $user->username) }}">
             </div>
             {{-- AVATAR --}}

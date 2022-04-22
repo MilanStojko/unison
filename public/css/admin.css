@@ -11409,3 +11409,7 @@ li {
   border-bottom-left-radius: 30px;
 }
 
+.plan-card {
+  border: 1px solid red;
+}
+

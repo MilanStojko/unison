@@ -2723,7 +2723,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Search",
@@ -2735,6 +2734,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    //Tutte le prestazioni
     getAvailability: function getAvailability() {
       var _this = this;
 
@@ -2752,16 +2752,16 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this2 = this;
 
+    // Ricezione dato 
     _front__WEBPACK_IMPORTED_MODULE_0__["bus"].$on("saveValue", function (data) {
       //Dato ricevuto dall'emit in jumbo
       _this2.ava = data;
       console.log(_this2.ava);
     });
     this.getAvailability(); // CHIAMATA CATEGORY PER SELECT FILTRO 2
-
-    axios.get('/api/category/index').then(function (respAll) {
-      _this2.categories = respAll.data;
-    });
+    // axios.get('/api/category/index').then((respAll)=>{
+    //         this.categories = respAll.data;
+    // })
   }
 });
 
@@ -7943,7 +7943,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.burger-wrapper[data-v-083b147e] {\n    cursor: pointer;\n}\n#menyAvPaa[data-v-083b147e] {\n    display: none;\n}\n#burger[data-v-083b147e] {\n    position: absolute;\n    cursor: pointer;\n    width: 2rem;\n    height: 1.5rem;\n    right: 1rem;\n    top: 1rem;\n    display: flex;\n    justify-content: space-between;\n    flex-direction: column;\n}\n#burger > div[data-v-083b147e] {\n    height: 4px;\n    background-color: white;\n    transition: 0.5s;\n    z-index: 999;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e] {\n    background-color: #fff;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(1) {\n    transform: translateY(10px) rotate(45deg);\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(2) {\n    opacity: 0;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(3) {\n    transform: translateY(-10px) rotate(-45deg);\n}\n.slide-fade-enter-active[data-v-083b147e] {\n    transition: opacity 1.5s ease-out;\n}\n.slide-fade-leave-active[data-v-083b147e] {\n    transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);\n}\n.slide-fade-enter-from[data-v-083b147e],\n.slide-fade-leave-to[data-v-083b147e] {\n    transform: translateX(20px);\n    opacity: 0;\n}\n.my_li a[data-v-083b147e] {\n    text-decoration: none;\n    color: white;\n}\n.my_li a p[data-v-083b147e] {\n    transition: 1s;\n}\n.my_li a p[data-v-083b147e]:hover {\n    color: white;\n    transform: scale(1.3);\n}\n*[data-v-083b147e] {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n.logo[data-v-083b147e] {\n    font-size: 30px;\n}\nnav[data-v-083b147e] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    background-color: rgb(42, 41, 41);\n    height: 50px;\n    padding: 0px 20px;\n    color: white;\n    position: relative;\n}\n.my_ul[data-v-083b147e] {\n    margin: 0;\n    padding: 0;\n    display: flex;\n    align-items: center;\n}\n.my_ul li[data-v-083b147e] {\n    float: left;\n    padding: 0px 15px;\n    list-style: none;\n}\n.my_a[data-v-083b147e] {\n    text-decoration: none;\n    color: white;\n}\n.my_ul .my_a p[data-v-083b147e] {\n    transition: 1s;\n}\n.my_ul .my_a p[data-v-083b147e]:hover {\n    color: white;\n    transform: scale(1.3);\n}\n.my_ul .my_a:hover .my_button[data-v-083b147e] {\n    color: white;\n    transform: scale(1.1);\n}\n.navbar-toggler-icon[data-v-083b147e],\n.navbar-toggler[data-v-083b147e],\n.nav-item p[data-v-083b147e] {\n    color: white;\n}\n.my_button[data-v-083b147e] {\n    padding: 5px 15px;\n    border: 0;\n    color: white;\n    background: #527a5a;\n    border-radius: 15px;\n}\n.my_ul-icon[data-v-083b147e] {\n    display: none;\n    margin: 0;\n    padding: 0;\n}\n.my_ul-icon li[data-v-083b147e] {\n    list-style: none;\n}\n.listmenu[data-v-083b147e] {\n    position: absolute;\n    right: 0;\n    z-index: 999;\n    padding: 20px;\n    width: 100%;\n    height: calc(100vh - 50px);\n    text-align: center;\n    background: rgb(255, 255, 255, 0.9);\n    display: flex;\n    flex-direction: column;\n}\n.listmenu li[data-v-083b147e] {\n    line-height: 100px;\n    font-weight: bold;\n    font-size: 40px;\n    list-style: none;\n}\n.listmenu .buttonlogin[data-v-083b147e] {\n    margin-top: 50px;\n}\n.my_a_mobile[data-v-083b147e] {\n    text-decoration: none;\n    color: black;\n}\n@media only screen and (max-width: 700px) {\n.my_ul-icon[data-v-083b147e] {\n        display: block;\n}\n.my_ul[data-v-083b147e] {\n        display: none;\n}\n}\n", ""]);
+exports.push([module.i, "\n.burger-wrapper[data-v-083b147e] {\r\n    cursor: pointer;\n}\n#menyAvPaa[data-v-083b147e] {\r\n    display: none;\n}\n#burger[data-v-083b147e] {\r\n    position: absolute;\r\n    cursor: pointer;\r\n    width: 2rem;\r\n    height: 1.5rem;\r\n    right: 1rem;\r\n    top: 1rem;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    flex-direction: column;\n}\n#burger > div[data-v-083b147e] {\r\n    height: 4px;\r\n    background-color: white;\r\n    transition: 0.5s;\r\n    z-index: 999;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e] {\r\n    background-color: #fff;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(1) {\r\n    transform: translateY(10px) rotate(45deg);\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(2) {\r\n    opacity: 0;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(3) {\r\n    transform: translateY(-10px) rotate(-45deg);\n}\n.slide-fade-enter-active[data-v-083b147e] {\r\n    transition: opacity 1.5s ease-out;\n}\n.slide-fade-leave-active[data-v-083b147e] {\r\n    transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);\n}\n.slide-fade-enter-from[data-v-083b147e],\r\n.slide-fade-leave-to[data-v-083b147e] {\r\n    transform: translateX(20px);\r\n    opacity: 0;\n}\n.my_li a[data-v-083b147e] {\r\n    text-decoration: none;\r\n    color: white;\n}\n.my_li a p[data-v-083b147e] {\r\n    transition: 1s;\n}\n.my_li a p[data-v-083b147e]:hover {\r\n    color: white;\r\n    transform: scale(1.3);\n}\n*[data-v-083b147e] {\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\n}\n.logo[data-v-083b147e] {\r\n    font-size: 30px;\n}\nnav[data-v-083b147e] {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    background-color: rgb(42, 41, 41);\r\n    height: 50px;\r\n    padding: 0px 20px;\r\n    color: white;\r\n    position: relative;\n}\n.my_ul[data-v-083b147e] {\r\n    margin: 0;\r\n    padding: 0;\r\n    display: flex;\r\n    align-items: center;\n}\n.my_ul li[data-v-083b147e] {\r\n    float: left;\r\n    padding: 0px 15px;\r\n    list-style: none;\n}\n.my_a[data-v-083b147e] {\r\n    text-decoration: none;\r\n    color: white;\n}\n.my_ul .my_a p[data-v-083b147e] {\r\n    transition: 1s;\n}\n.my_ul .my_a p[data-v-083b147e]:hover {\r\n    color: white;\r\n    transform: scale(1.3);\n}\n.my_ul .my_a:hover .my_button[data-v-083b147e] {\r\n    color: white;\r\n    transform: scale(1.1);\n}\n.navbar-toggler-icon[data-v-083b147e],\r\n.navbar-toggler[data-v-083b147e],\r\n.nav-item p[data-v-083b147e] {\r\n    color: white;\n}\n.my_button[data-v-083b147e] {\r\n    padding: 5px 15px;\r\n    border: 0;\r\n    color: white;\r\n    background: #527a5a;\r\n    border-radius: 15px;\n}\n.my_ul-icon[data-v-083b147e] {\r\n    display: none;\r\n    margin: 0;\r\n    padding: 0;\n}\n.my_ul-icon li[data-v-083b147e] {\r\n    list-style: none;\n}\n.listmenu[data-v-083b147e] {\r\n    position: absolute;\r\n    right: 0;\r\n    z-index: 999;\r\n    padding: 20px;\r\n    width: 100%;\r\n    height: calc(100vh - 50px);\r\n    text-align: center;\r\n    background: rgb(255, 255, 255, 0.9);\r\n    display: flex;\r\n    flex-direction: column;\n}\n.listmenu li[data-v-083b147e] {\r\n    line-height: 100px;\r\n    font-weight: bold;\r\n    font-size: 40px;\r\n    list-style: none;\n}\n.listmenu .buttonlogin[data-v-083b147e] {\r\n    margin-top: 50px;\n}\n.my_a_mobile[data-v-083b147e] {\r\n    text-decoration: none;\r\n    color: black;\n}\n@media only screen and (max-width: 700px) {\n.my_ul-icon[data-v-083b147e] {\r\n        display: block;\n}\n.my_ul[data-v-083b147e] {\r\n        display: none;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -7981,7 +7981,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.background[data-v-18581212]{\n    /* background-image: url(\"../../../images/pexels-picjumbocom-196652.jpg\");\n    background-repeat: no-repeat;\n    background-position: center;\n    background-size: cover; */\n    /* background: #E8EBF8; */\n    /* background: #595766ad; */\n    background: #2a292985;\n}\n.background[data-v-18581212]::-webkit-scrollbar {\n    display: none;\n}\n.background[data-v-18581212] {\n    -ms-overflow-style: none;  /* IE and Edge */\n    scrollbar-width: none;  /* Firefox */\n}\nh1[data-v-18581212], .info h3[data-v-18581212]{\n    text-align: center;\n}\n.info h3[data-v-18581212], .request[data-v-18581212]{\n    color: white;\n}\nh1[data-v-18581212]{\n    font-size: 55px;\n}\n.my_card[data-v-18581212]{\n    margin: 50px auto;\n    max-width: 60%;\n    padding: 10px;\n    /* background: rgba(210, 206, 206, 0.861); */\n    /* background: #ededed; */\n    /* background-image: url('https://i.stack.imgur.com/MkSui.jpg'); */\n    background-image: url('https://icbstexas.com/wp-content/uploads/split-color-background.jpg');\n    background-repeat: no-repeat;\n    background-position: center;\n    background-size: cover;\n    border-radius: 10px;\n    /* border: 1px solid black; */\n    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);\n    transition: 1s;\n}\n.my_card[data-v-18581212]:hover{\n    cursor: pointer;\n    transform: scale(1.03);\n}\n.my_card:hover a[data-v-18581212]{\n    text-decoration: none;\n}\n.request[data-v-18581212]{\n    display: flex;\n}\n.categories li[data-v-18581212], .events li[data-v-18581212], .references li[data-v-18581212]{\n    list-style: none;\n    margin-left: 5px;\n    font-size: 17px;\n}\n.references ul[data-v-18581212]{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.references li[data-v-18581212]{\n    display: inline;\n    font-size: 15px;\n}\n.references[data-v-18581212]{\n    padding: 0 50px;\n    margin-top: 20px;\n}\n.categories li[data-v-18581212]{\n    color: rgba(91, 121, 93);\n}\n.events li[data-v-18581212]{\n    color: rgba(175, 108, 195);\n}\n.categories div[data-v-18581212], .events div[data-v-18581212]{\n    border-radius: 15px;\n    padding: 15px;\n}\n.top[data-v-18581212]{\n    display: flex;\n    flex-wrap: wrap;\n    padding: 15px 0;\n}\n\n/* .container{\n    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n    border-radius: 10px;\n    padding: 20px;\n    margin-bottom: 40px;\n}\n*/\n.info[data-v-18581212]{\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n.info img[data-v-18581212]{\n    height: 200px;\n    width: 200px;\n    border-radius: 50%;\n}\n.references img[data-v-18581212]{\n    width: 25px;\n    height: auto;\n    color: #527a5a;\n}\n.references li[data-v-18581212]{\n    color: black;\n}\n@media only screen and (max-width: 700px) {\n.categories[data-v-18581212], .events[data-v-18581212]{\n        padding: 0;\n}\n.categories div[data-v-18581212], .events div[data-v-18581212]{\n        max-width: 80%;\n}\n.request[data-v-18581212]{\n        padding: 0 25px;\n}\n.my_card[data-v-18581212]{\n        max-width: 90%;\n}\n.references[data-v-18581212]{\n        padding: 0 30px;\n}\n}\n", ""]);
+exports.push([module.i, "\n.background[data-v-18581212]{\n    /* background-image: url(\"../../../images/pexels-picjumbocom-196652.jpg\");\n    background-repeat: no-repeat;\n    background-position: center;\n    background-size: cover; */\n    /* background: #E8EBF8; */\n    /* background: #595766ad; */\n    background: #2a292985;\n}\n.background[data-v-18581212]::-webkit-scrollbar {\n    display: none;\n}\n.background[data-v-18581212] {\n    -ms-overflow-style: none;  /* IE and Edge */\n    scrollbar-width: none;  /* Firefox */\n}\nh1[data-v-18581212], .info h3[data-v-18581212]{\n    text-align: center;\n}\n.info h3[data-v-18581212], .request[data-v-18581212]{\n    color: white;\n}\nh1[data-v-18581212]{\n    font-size: 55px;\n}\n.my_card[data-v-18581212]{\n    margin: 50px auto;\n    max-width: 60%;\n    padding: 10px;\n    /* background: rgba(210, 206, 206, 0.861); */\n    /* background: #ededed; */\n    /* background-image: url('https://i.stack.imgur.com/MkSui.jpg'); */\n    background-image: url('https://icbstexas.com/wp-content/uploads/split-color-background.jpg');\n    background-repeat: no-repeat;\n    background-position: center;\n    background-size: cover;\n    border-radius: 10px;\n    /* border: 1px solid black; */\n    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);\n    transition: 1s;\n}\n.my_card[data-v-18581212]:hover{\n    cursor: pointer;\n    transform: scale(1.03);\n}\n.my_card:hover a[data-v-18581212]{\n    text-decoration: none;\n}\n.request[data-v-18581212]{\n    display: flex;\n}\n.categories li[data-v-18581212], .events li[data-v-18581212], .references li[data-v-18581212]{\n    list-style: none;\n    margin-left: 5px;\n    font-size: 17px;\n}\n.references ul[data-v-18581212]{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.references li[data-v-18581212]{\n    display: inline;\n    font-size: 15px;\n}\n.references[data-v-18581212]{\n    padding: 0 50px;\n    margin-top: 20px;\n}\n.categories li[data-v-18581212]{\n    color: rgba(91, 121, 93);\n}\n.events li[data-v-18581212]{\n    color: rgba(175, 108, 195);\n}\n.categories div[data-v-18581212], .events div[data-v-18581212]{\n    border-radius: 15px;\n    padding: 15px;\n}\n.top[data-v-18581212]{\n    display: flex;\n    flex-wrap: wrap;\n    padding: 15px 0;\n}\n\n/* .container{\n    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n    border-radius: 10px;\n    padding: 20px;\n    margin-bottom: 40px;\n}\n*/\n.info[data-v-18581212]{\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n.info img[data-v-18581212]{\n    height: 200px;\n    width: 200px;\n    border-radius: 50%;\n    -o-object-fit: cover;\n       object-fit: cover;\n}\n.references img[data-v-18581212]{\n    width: 25px;\n    height: auto;\n    color: #527a5a;\n}\n.references li[data-v-18581212]{\n    color: black;\n}\n@media only screen and (max-width: 700px) {\n.categories[data-v-18581212], .events[data-v-18581212]{\n        padding: 0;\n}\n.categories div[data-v-18581212], .events div[data-v-18581212]{\n        max-width: 80%;\n}\n.request[data-v-18581212]{\n        padding: 0 25px;\n}\n.my_card[data-v-18581212]{\n        max-width: 90%;\n}\n.references[data-v-18581212]{\n        padding: 0 30px;\n}\n}\n", ""]);
 
 // exports
 
@@ -41011,7 +41011,7 @@ var render = function () {
                             { staticStyle: { "font-size": "20px" } },
                             [
                               _vm._v(
-                                "\n                                        Recensioni:\n                                        "
+                                "\r\n                                        Recensioni:\r\n                                        "
                               ),
                               _vm._l(5, function (nota) {
                                 return _c("span", { key: "piena" + nota }, [
@@ -41136,12 +41136,15 @@ var render = function () {
       ),
       _vm._v(" "),
       _vm._l(_vm.musicians, function (musician, index) {
-        return _c("div", { key: index }, [
-          _c("h1", [_vm._v(_vm._s(musician.name))]),
+        return _c("ul", { key: index }, [
+          _c("li", [_vm._v(_vm._s(musician.name))]),
         ])
       }),
       _vm._v(" "),
-      _c("h1", [_vm._v(_vm._s(_vm.ava))]),
+      _c("h1", [
+        _vm._v("Hai cercato per: "),
+        _c("span", [_vm._v(_vm._s(_vm.ava))]),
+      ]),
     ],
     2
   )
@@ -57146,7 +57149,7 @@ module.exports = "/images/service-3.svg?eba2a9055d13786db8f54b0f3ba5d556";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/wave.svg?aef79995629b40b24f4277c44b0be010";
+module.exports = "/images/wave.svg?3d8bc604125d77811c1a4e9267f06eba";
 
 /***/ }),
 
@@ -58444,7 +58447,7 @@ router.beforeEach(function (to, from, next) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/francescoabritta/Documents/unison/resources/js/guest/front.js */"./resources/js/guest/front.js");
+module.exports = __webpack_require__(/*! C:\Users\simon\Desktop\unison\resources\js\guest\front.js */"./resources/js/guest/front.js");
 
 
 /***/ })

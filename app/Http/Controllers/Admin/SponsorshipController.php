@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Sponsorship;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class SponsorshipController extends Controller
 {
     /**
@@ -14,7 +15,8 @@ class SponsorshipController extends Controller
      */
     public function index()
     {
-        //
+        // $sponsorships = Sponsorship::where('user_id', Auth::user()->id)->get();
+        return view('admin.sponsorships.index');
     }
 
     /**
@@ -44,7 +46,7 @@ class SponsorshipController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
         //
     }
