@@ -37,6 +37,12 @@ Route::namespace('Api')->name('api.')->group(function () {
     Route::get("/filtered/getname", "FilterController@getFullName")->name('filter.getFullName');
     // RECENSIONI DEL SINGOLO USER
     Route::get("/review/show/{userid}", "ReviewController@index")->name('review.index');
+    // API PER SINGOLO USER
+    Route::get("/review/vote", "ReviewController@vote");
     // MANDA LA RECENSIONE ALL'USER
     Route::post("/review/postReview", "ReviewController@store");
+    // MANDA IL MESSAGGIO ALL'USER
+    Route::post("/message/postMessage", "MessageController@store");
+    // MESSAGGI DEL SINGOLO USER
+    Route::get("/message/show/{userid}", "MessageController@index");
 });

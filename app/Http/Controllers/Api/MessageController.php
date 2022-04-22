@@ -3,22 +3,23 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Review;
+use App\Message;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
-class ReviewController extends Controller
+class MessageController extends Controller
 {
-
     public function store(Request $request)
     {
 
         $data = $request->all();
 
         $validation = Validator::make($data, [
-            'username' => "required|string",
-            'content' => "nullable|text",
-            'vote' => "nullable|integer",
+            'email' => "required|string",
+            'content' => "required|text",
+            'cellphone' => "nullable",
+            'name' => "required|string",
+            'surname' => "required|string",
             'user_id' => "exists:users,id"
         ]);
 
@@ -31,10 +32,12 @@ class ReviewController extends Controller
         //     ], 400);
         // };
 
-        $newReview = new Review();
-        $newReview->username = $data['username'];
-        $newReview->vote = $data['vote'];
+        $newReview = new Message();
+        $newReview->email = $data['email'];
         $newReview->content = $data['content'];
+        $newReview->cellphone = $data['cellphone'];
+        $newReview->name = $data['name'];
+        $newReview->surname = $data['surname'];
         $newReview->user_id = $data['user_id'];
         $newReview->save();
 
@@ -45,15 +48,7 @@ class ReviewController extends Controller
 
     public function index($userid)
     {
-        $review = Review::where('user_id', $userid)->with('user')->get();
-        return response()->json($review);
-    }
-
-    public function vote(Request $request)
-    {
-        $userid = $request->get('userid');
-
-        $review = Review::where('user_id', $userid)->get('vote');
+        $review = Message::where('user_id', $userid)->with('user')->get();
         return response()->json($review);
     }
 }
