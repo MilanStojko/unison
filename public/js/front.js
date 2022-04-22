@@ -2740,6 +2740,59 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Search",
@@ -2776,9 +2829,10 @@ __webpack_require__.r(__webpack_exports__);
       console.log(_this2.ava);
     });
     this.getAvailability(); // CHIAMATA CATEGORY PER SELECT FILTRO 2
-    // axios.get('/api/category/index').then((respAll)=>{
-    //         this.categories = respAll.data;
-    // })
+
+    axios.get('/api/category/index').then(function (respAll) {
+      _this2.categories = respAll.data;
+    });
   }
 });
 
@@ -41307,14 +41361,9 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "select-categories" },
-    [
-      _c("label", { attrs: { for: "category" } }, [
-        _vm._v("Scegli uno strumento:"),
-      ]),
-      _vm._v(" "),
+  return _c("div", { staticClass: "background" }, [
+    _c("div", { staticClass: "select" }, [
+      _vm._v("\n      Cerca:\n      "),
       _c(
         "select",
         { attrs: { name: "categories", id: "categories" } },
@@ -41327,20 +41376,164 @@ var render = function () {
         }),
         0
       ),
-      _vm._v(" "),
-      _vm._l(_vm.musicians, function (musician, index) {
-        return _c("ul", { key: index }, [
-          _c("li", [_vm._v(_vm._s(musician.name))]),
-        ])
-      }),
-      _vm._v(" "),
-      _c("h1", [
-        _vm._v("Hai cercato per: "),
-        _c("span", [_vm._v(_vm._s(_vm.ava))]),
-      ]),
-    ],
-    2
-  )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "container" }, [
+      _c(
+        "div",
+        { staticClass: "container p-4" },
+        [
+          _c("h1", [_vm._v('"Categoria"')]),
+          _vm._v(" "),
+          _vm._l(_vm.musicians, function (musician, indice) {
+            return _c(
+              "div",
+              { key: indice, staticClass: "my_card" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    attrs: {
+                      to: {
+                        name: "user-single",
+                        params: { slug: musician.slug },
+                      },
+                    },
+                  },
+                  [
+                    _c("div", { staticClass: "top" }, [
+                      _c("div", { staticClass: "info col-lg-5 mb-4" }, [
+                        _c("h3", [
+                          _vm._v(
+                            _vm._s(musician.name) +
+                              " " +
+                              _vm._s(musician.surname)
+                          ),
+                        ]),
+                        _vm._v(" "),
+                        musician.avatar != null
+                          ? _c("img", {
+                              attrs: {
+                                src: "/storage/" + musician.avatar,
+                                alt: "",
+                              },
+                            })
+                          : _c("img", {
+                              attrs: {
+                                src: "https://thumbs.dreamstime.com/b/profilo-utente-vettoriale-avatar-predefinito-179376714.jpg",
+                                alt: "",
+                              },
+                            }),
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "request col-lg-7 col-sm-12 mt-4" },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "events mw-50 col-lg-6 col-sm-6 col-xs-6",
+                            },
+                            [
+                              _c("div", [
+                                _c("h5", [_vm._v("Eventi:")]),
+                                _vm._v(" "),
+                                _c(
+                                  "ul",
+                                  _vm._l(
+                                    musician.availabilities,
+                                    function (availability, index) {
+                                      return _c("li", { key: index }, [
+                                        _c("strong", [
+                                          _vm._v(_vm._s(availability.name)),
+                                        ]),
+                                      ])
+                                    }
+                                  ),
+                                  0
+                                ),
+                              ]),
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "categories mw-50 col-lg-6 col-sm-6 col-xs-6",
+                            },
+                            [
+                              _c("div", [
+                                _c("h5", [_vm._v("Strumenti:")]),
+                                _vm._v(" "),
+                                _c(
+                                  "ul",
+                                  _vm._l(
+                                    musician.categories,
+                                    function (category, index) {
+                                      return _c("li", { key: index }, [
+                                        _c("strong", [
+                                          _vm._v(_vm._s(category.name)),
+                                        ]),
+                                      ])
+                                    }
+                                  ),
+                                  0
+                                ),
+                              ]),
+                            ]
+                          ),
+                        ]
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("p", { staticClass: "references" }, [
+                        _c("ul", [
+                          _c("li", [
+                            _c("i", {
+                              staticClass: "fa-solid fa-location-dot",
+                            }),
+                            _vm._v(" " + _vm._s(musician.address)),
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "li",
+                            {
+                              staticStyle: { "font-size": "20px" },
+                              attrs: { id: "reviews" },
+                            },
+                            [
+                              _c("p", [_vm._v("Recensioni:")]),
+                              _vm._v(" "),
+                              _vm._l(5, function (nota) {
+                                return _c("span", { key: "piena" + nota }, [
+                                  _c("img", {
+                                    attrs: {
+                                      src: __webpack_require__(/*! ../../../images/music.svg */ "./resources/images/music.svg"),
+                                    },
+                                  }),
+                                ])
+                              }),
+                            ],
+                            2
+                          ),
+                        ]),
+                      ]),
+                    ]),
+                  ]
+                ),
+              ],
+              1
+            )
+          }),
+        ],
+        2
+      ),
+    ]),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
