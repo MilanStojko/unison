@@ -10,7 +10,7 @@
             @foreach($reviews as $review)
             <div class="u_message">
                 <div class="u_message_text">
-                    <span>{{$review->id}}</span>
+                    <span></span>
                 <h4>{{$review->username}}</h4>
                 </div>
                 <p class="paragraph">{{$review->content}}</p>

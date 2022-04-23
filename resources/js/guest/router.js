@@ -41,16 +41,4 @@ const router = new VueRouter({
     ],
 });
 
-router.beforeEach((to, from, next) => {
-    if (!to.meta.authRequired) {
-        next();
-    } else if (store.getters["user/isAuthenticated"]) {
-        next();
-    } else {
-        next({
-            path: "/open-404"
-        });
-    }
-});
-
 export default router;
