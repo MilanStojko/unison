@@ -3,8 +3,10 @@
     <div class="container">
         <div class="container p-4">
             <h1>I nostri musicisti</h1>
+                                        <span @click=getAvgVote()>Prova</span>
+
             
-            <div class="my_card" v-for="(musician, indice) in musicians" :key="indice">
+            <div class="my_card" v-for="(musician, indiceSingle) in musicians" :key="indiceSingle">
                     <router-link :to="{ name: 'user-single', params: { slug: musician.slug } }">
                         <div class="top">
                             <div class="info col-lg-5 mb-4">
@@ -37,9 +39,13 @@
                                     <li><i class="fa-solid fa-location-dot"></i> {{musician.address}}</li>
                                     <li id="reviews" style="font-size: 20px">
                                         <p>Recensioni:</p>
-                                        <span v-for="nota in 5" :key="'piena'+nota">
-                                            <img src="../../../images/music.svg" />
-                                        </span>
+                                        <div v-if="musician.reviews>1">
+                                            <span v-for="nota in getAvgVote(musician.reviews)" :key="'piena'+nota"> 
+                                                <!-- <img src="../../../images/music.svg" /> -->
+                                                2
+                                            </span>
+                                        </div>
+                                        
                                     </li>
                                 </ul>
                             </p>
@@ -59,6 +65,10 @@ export default {
     data() {
       return {
         musicians: [],
+        reviewVotes: [],
+        avarageVote: "",
+        user: {},
+        id_user: null,
       };
     },
     created(){
@@ -66,9 +76,94 @@ export default {
         .get("/api/users")
         .then((apirisp)=>{
             this.musicians= apirisp.data;
+            // this.id_user= apirisp.data.id;
             console.log(this.musicians);
         })
-    }
+    },
+
+    // methods: {
+    //     ciao: function(){
+    //         this.musicians.forEach(element => {
+    //             console.log(element.reviews);
+    //         });
+    //     }
+    // }
+
+    methods:{
+        // getAverage: function(array){
+        //     let somma=0;
+        //     // this.musicians.forEach(element => {
+        //     //  console.log(element.reviews);
+        //     // });
+        //     for(let i=0; i<array.length; i++){
+        //         somma = somma + array[i].vote;
+        //     };
+        //     return Math.ceil(somma/this.i);
+        // },
+
+        getAvgVote(array){
+            let somma=0;
+            let count=0;
+                    
+            array.forEach(singleRev => {
+                // console.log(singleRev.vote);
+                somma = somma + singleRev.vote;
+                count=count + 1;
+            });
+                // console.log("ciao"+somma);
+
+
+            let boh;
+            if (count!=0) {
+                boh=somma/count;
+            };
+            console.log(boh);
+            return boh;
+        }
+    },
+
+    
+    // methods:{
+    //     // checkUserIdReview: function () {
+    //     //     return (this.reviewData.user_id = this.user.id);
+    //     // },
+    //     GetVote: function () {
+    //         for(let i=0; i<this.musicians.length; i++){
+    //         axios
+    //             .get(`/api/review/vote/`, {
+    //                 params: {
+    //                     userid: i,
+    //                 },
+    //             })
+    //             .then((response) => {
+    //                 this.reviewVotes = response.data;
+    //         console.log(this.reviewVotes);
+    //                 // if (this.reviewVotes.length <= 0) {
+    //                 //     this.avarageVote = 0;
+    //                 // } else {
+    //                     // const votes = this.reviewVotes.map((vote) => {
+    //                     //     return vote.vote;
+    //                     // });
+    //                     // console.log(votes);
+
+    //                     // const average = (arr) =>
+    //                     //     arr.reduce((a, b) => a + b, 0) / arr.length;
+
+    //                     // this.avarageVote = average(votes).toFixed();
+    //                     // console.log("Avarage" + " " + this.avarageVote);
+    //                     // console.log("Musicista id" + " " + this.id_user);
+    //                 // }
+    //             })
+    //             .catch(function (error) {
+    //                 console.log(error.response.data);
+    //             });
+    //         }
+            
+    //     },
+    // },
+    // updated() {
+    //     this.GetVote();
+    // },
 }
 </script>
 
