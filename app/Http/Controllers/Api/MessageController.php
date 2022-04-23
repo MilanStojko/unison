@@ -32,14 +32,14 @@ class MessageController extends Controller
         //     ], 400);
         // };
 
-        $newReview = new Message();
-        $newReview->email = $data['email'];
-        $newReview->content = $data['content'];
-        $newReview->cellphone = $data['cellphone'];
-        $newReview->name = $data['name'];
-        $newReview->surname = $data['surname'];
-        $newReview->user_id = $data['user_id'];
-        $newReview->save();
+        $newMessage = new Message();
+        $newMessage->email = $data['email'];
+        $newMessage->content = $data['content'];
+        $newMessage->cellphone = $data['cellphone'];
+        $newMessage->name = $data['name'];
+        $newMessage->surname = $data['surname'];
+        $newMessage->user_id = $data['user_id'];
+        $newMessage->save();
 
         return response()->json([
             "success" => true
@@ -48,7 +48,7 @@ class MessageController extends Controller
 
     public function index($userid)
     {
-        $review = Message::where('user_id', $userid)->with('user')->get();
-        return response()->json($review);
+        $message = Message::where('user_id', $userid)->with('user')->get();
+        return response()->json($message);
     }
 }
