@@ -10979,3 +10979,58 @@ body {
   color: #2e3333;
 }
 
+.notes {
+  position: relative;
+  display: inline-block;
+}
+
+.notes::before {
+  content: "\F001\F001\F001\F001\F001";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  color: rgba(171, 171, 171, 0.649);
+}
+
+.notes_inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.notes_inner::before {
+  content: "\F001\F001\F001\F001\F001";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  color: #527a5a;
+}
+
+.big-notes {
+  font-size: 30px;
+}
+
+.starFill0 {
+  width: 0%;
+}
+
+.starFill1 {
+  width: 20%;
+}
+
+.starFill2 {
+  width: 40%;
+}
+
+.starFill3 {
+  width: 60%;
+}
+
+.starFill4 {
+  width: 80%;
+}
+
+.starFill5 {
+  width: 100%;
+}
+

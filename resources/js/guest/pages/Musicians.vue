@@ -39,11 +39,22 @@
                                     <li><i class="fa-solid fa-location-dot"></i> {{musician.address}}</li>
                                     <li id="reviews" style="font-size: 20px">
                                         <p>Recensioni:</p>
-                                        <div v-if="musician.reviews>1">
-                                            <span v-for="nota in getAvgVote(musician.reviews)" :key="'piena'+nota"> 
+                                        <div v-if="musician.reviews.length > 0">
                                                 <!-- <img src="../../../images/music.svg" /> -->
-                                                2
-                                            </span>
+                                            <div class="notes big-notes">
+                                            <div
+                                                class="notes_inner"
+                                                :class="starsWidth(musician.reviews)"
+                                            ></div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div v-else>
+                                            <div class="notes big-notes">
+                                            <div
+                                                class="notes_inner starFill0"
+                                            ></div>
+                                            </div>
                                         </div>
                                         
                                     </li>
@@ -78,7 +89,7 @@ export default {
             this.musicians= apirisp.data;
             // this.id_user= apirisp.data.id;
             console.log(this.musicians);
-        })
+        });
     },
 
     // methods: {
@@ -101,25 +112,30 @@ export default {
         //     return Math.ceil(somma/this.i);
         // },
 
+        starsWidth: function (numero) {
+            return "starFill" + this.getAvgVote(numero);
+        },
+
+
         getAvgVote(array){
             let somma=0;
             let count=0;
-                    
+            let boh;       
             array.forEach(singleRev => {
                 // console.log(singleRev.vote);
                 somma = somma + singleRev.vote;
                 count=count + 1;
             });
                 // console.log("ciao"+somma);
-
-
-            let boh;
+            
             if (count!=0) {
                 boh=somma/count;
             };
-            console.log(boh);
-            return boh;
+            
+            console.log(boh)
+            return Math.round(boh);
         }
+        
     },
 
     
@@ -167,7 +183,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
     .background{
         /* background-image: url("../../../images/pexels-picjumbocom-196652.jpg");
@@ -364,5 +380,7 @@ export default {
         flex-direction: column;
     }
 }
+
+
     
 </style>

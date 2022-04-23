@@ -362,7 +362,7 @@ export default {
                         const average = (arr) =>
                             arr.reduce((a, b) => a + b, 0) / arr.length;
 
-                        this.avarageVote = average(votes).toFixed();
+                        this.avarageVote = Math.round(average(votes));
                         console.log("Avarage" + " " + this.avarageVote);
                         console.log("Musicista id" + " " + this.id_user);
                     }
@@ -383,17 +383,21 @@ export default {
         axios
             .get(`/api/users/show/${this.$route.params.slug}`)
             .then((response) => {
-                this.user = response.data;
-                this.id_user = response.data.id;
+                if (response) {
+                    this.user = response.data;
+                    this.id_user = response.data.id;
+                } else {
+                    this.$router.push({ name: "page-404" });
+                }
             })
             .catch((error) => {
                 this.$router.push({ name: "page-404" });
                 console.log(error);
             });
-    },
 
-    updated() {
-        this.GetVote();
+        setTimeout(() => {
+            this.GetVote();
+        }, 500);
     },
 };
 </script>
