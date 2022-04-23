@@ -11411,9 +11411,65 @@ li {
 }
 
 .plan-card {
-  border: 1px solid red;
+  border: 1px solid black;
+  box-shadow: 1px 1px 11px 3px rgba(0, 0, 0, 0.25);
   margin: 50px 0;
   min-height: 450px;
-  z-index: 0;
+  z-index: 1;
+  background-color: white;
+  position: relative;
+  border-radius: 25px;
+  overflow: hidden;
+  transition: 0.4s;
+  transform: scale(1.05);
+}
+
+.plan-card::before {
+  transition: 0.4s;
+  border-radius: 25px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-size: cover;
+  z-index: -1;
+  content: "";
+  opacity: 0.5;
+  background-position: center;
+}
+
+.plan-card:hover {
+  transform: scale(1.08);
+}
+
+.plan-card:hover::before {
+  filter: blur(5px);
+  transform: scale(1.2);
+}
+
+.plan-a .plan-name {
+  color: #4DA3B6;
+  text-shadow: 2px 2px #F44F41;
+}
+
+.plan-a::before {
+  background-image: url(/images/alladin.png?ffeef6adc7d505012aa781b6d4d08d36);
+}
+
+.plan-b .plan-name {
+  -webkit-text-stroke: 1px red;
+}
+
+.plan-b::before {
+  background-image: url(/images/biggie.jpg?7e0ff9433d7bd96b41bebe6bb0647816);
+}
+
+.plan-c .plan-name {
+  font-weight: bold;
+}
+
+.plan-c::before {
+  background-image: url(/images/queen.jpg?d1e678e8cea99053dac328e886dcc18b);
 }
 

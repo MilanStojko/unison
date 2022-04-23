@@ -468,12 +468,65 @@ li {
 
 
 .plan-card{
-    border: 1px solid red;
+    border: 1px solid black;
+    box-shadow: 1px 1px 11px 3px rgba(0,0,0,0.25);
     margin: 50px 0;
     min-height: 450px;
-    z-index: 0;
+    z-index: 1;
+    background-color: white;
+    position: relative;
+    border-radius: 25px;
+    overflow: hidden;
+    transition: 0.4s;
+    transform: scale(1.05);
+    &::before{
+        transition: 0.4s;
+        border-radius: 25px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-size: cover;
+        // filter: blur(2px);
+        z-index: -1;
+        content: '';
+        opacity: 0.5;
+        background-position: center;
+    }
+    &:hover{
+        transform: scale(1.08);
+        &::before{
+            filter: blur(5px);
+            transform: scale(1.2);
+        }
+    }
 }
 
 .plan-a{
-    
+    .plan-name{
+        color: #4DA3B6;
+        text-shadow: 2px 2px #F44F41;
+    }
+    &::before{
+        background-image: url('../images/alladin.png');
+    }
+}
+
+.plan-b{
+    .plan-name{
+        -webkit-text-stroke: 1px red;
+    }
+    &::before{
+        background-image: url('../images/biggie.jpg');
+    }
+}
+
+.plan-c{
+    .plan-name{
+        font-weight: bold;
+    }
+    &::before{
+        background-image: url('../images/queen.jpg');
+    }
 }
