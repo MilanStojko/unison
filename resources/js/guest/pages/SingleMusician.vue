@@ -15,16 +15,19 @@
                             type="text"
                             placeholder="Nome"
                             v-model="messageData.name"
+                            required
                         />
                         <input
                             type="text"
                             placeholder="Cognome"
                             v-model="messageData.surname"
+                            required
                         />
                         <input
                             type="email"
                             placeholder="Email"
                             v-model="messageData.email"
+                            required
                         />
                         <input
                             type="tel"
@@ -36,6 +39,7 @@
                             rows="10"
                             placeholder="Scrivi il tuo messaggio"
                             v-model="messageData.content"
+                            required
                         ></textarea>
                         <div class="cta text-center py-3">
                             <button type="submit" class="px-5">
@@ -63,45 +67,8 @@
                             type="text"
                             placeholder="Username"
                             v-model="reviewData.username"
+                            required
                         />
-                        <div class="votes d-flex">
-                            <input
-                                type="radio"
-                                id="one"
-                                value="1"
-                                v-model="reviewData.vote"
-                            />
-                            <label for="1">1</label>
-                            <input
-                                type="radio"
-                                id="two"
-                                value="2"
-                                v-model="reviewData.vote"
-                            />
-                            <label for="2">2</label>
-                            <input
-                                type="radio"
-                                id="one"
-                                value="3"
-                                v-model="reviewData.vote"
-                            />
-                            <label for="3">3</label>
-                            <input
-                                type="radio"
-                                id="two"
-                                value="4"
-                                v-model="reviewData.vote"
-                            />
-                            <label for="4">4</label>
-                            <input
-                                type="radio"
-                                id="two"
-                                value="5"
-                                v-model="reviewData.vote"
-                            />
-                            <label for="5">5</label>
-                        </div>
-
                         <textarea
                             id="content"
                             cols="30"
@@ -110,7 +77,92 @@
                             v-model="reviewData.content"
                         ></textarea>
                         <!--Emoji Rating-->
-
+                        <div id="full-stars-example">
+                            <p>Valutazione:</p>
+                            <div class="rating-group">
+                                <label
+                                    aria-label="1 star"
+                                    class="rating__label"
+                                    for="rating-1"
+                                    ><i
+                                        class="rating__icon rating__icon--star fa-solid fa-music"
+                                    ></i
+                                ></label>
+                                <input
+                                    class="rating__input"
+                                    name="rating"
+                                    id="rating-1"
+                                    value="1"
+                                    v-model="reviewData.vote"
+                                    type="radio"
+                                />
+                                <label
+                                    aria-label="2 stars"
+                                    class="rating__label"
+                                    for="rating-2"
+                                    ><i
+                                        class="rating__icon rating__icon--star fa-solid fa-music"
+                                    ></i
+                                ></label>
+                                <input
+                                    class="rating__input"
+                                    name="rating"
+                                    id="rating-2"
+                                    value="2"
+                                    v-model="reviewData.vote"
+                                    type="radio"
+                                />
+                                <label
+                                    aria-label="3 stars"
+                                    class="rating__label"
+                                    for="rating-3"
+                                    ><i
+                                        class="rating__icon rating__icon--star fa-solid fa-music"
+                                    ></i
+                                ></label>
+                                <input
+                                    class="rating__input"
+                                    name="rating"
+                                    id="rating-3"
+                                    value="3"
+                                    v-model="reviewData.vote"
+                                    type="radio"
+                                />
+                                <label
+                                    aria-label="4 stars"
+                                    class="rating__label"
+                                    for="rating-4"
+                                    ><i
+                                        class="rating__icon rating__icon--star fa-solid fa-music"
+                                    ></i
+                                ></label>
+                                <input
+                                    class="rating__input"
+                                    name="rating"
+                                    id="rating-4"
+                                    value="4"
+                                    v-model="reviewData.vote"
+                                    type="radio"
+                                    checked
+                                />
+                                <label
+                                    aria-label="5 stars"
+                                    class="rating__label"
+                                    for="rating-5"
+                                    ><i
+                                        class="rating__icon rating__icon--star fa-solid fa-music"
+                                    ></i
+                                ></label>
+                                <input
+                                    class="rating__input"
+                                    name="rating"
+                                    id="rating-5"
+                                    value="5"
+                                    v-model="reviewData.vote"
+                                    type="radio"
+                                />
+                            </div>
+                        </div>
                         <!--Emoji Rating Ends-->
                         <div class="cta text-center py-3">
                             <button type="submit" class="px-5">
@@ -291,7 +343,7 @@ export default {
             reviewData: {
                 username: "",
                 content: "",
-                vote: "",
+                vote: 3,
                 user_id: null,
             },
             messageData: {
@@ -550,14 +602,6 @@ li {
         }
     }
 
-    .music-notes {
-        img {
-            width: 25px;
-            height: auto;
-            color: #527a5a;
-        }
-    }
-
     .review {
         background-color: #ededed;
         padding: 10px;
@@ -706,95 +750,58 @@ li {
     }
 }
 
-// Rating
-.rating {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    overflow: hidden;
-    flex-direction: row-reverse;
-    height: 150px;
-    position: relative;
-}
+// Review Rating
+#full-stars-example {
+    p {
+        margin-bottom: 0px;
+        color: #999;
+    }
+    
+    .rating-group {
+        display: inline-flex;
+    }
 
-.rating-0 {
-    filter: grayscale(100%);
-}
+    .rating__icon {
+        pointer-events: none;
+    }
 
-.rating > input {
-    display: none;
-}
+    .rating__input {
+        position: absolute !important;
+        left: -9999px !important;
+    }
 
-.rating > label {
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    margin-top: auto;
-    background-image: url("../../../images/music.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 76%;
-    transition: 0.3s;
-}
+    .rating__label {
+        cursor: pointer;
+        padding: 0 0.1em;
+        font-size: 2rem;
+    }
 
-.rating > input:checked ~ label,
-.rating > input:checked ~ label ~ label {
-    background-image: url("../../../images/music.svg");
-}
+    .rating__icon--star {
+        color: #527a5a;
+    }
 
-.rating > input:not(:checked) ~ label:hover,
-.rating > input:not(:checked) ~ label:hover ~ label {
-    background-image: url("../../../images/music.svg");
-}
+    .rating__icon--none {
+        color: #eee;
+    }
 
-.emoji-wrapper {
-    width: 100%;
-    text-align: center;
-    height: 100px;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
+    .rating__input:checked ~ .rating__label .rating__icon--star {
+        color: #ccc;
+    }
 
-.emoji-wrapper:before,
-.emoji-wrapper:after {
-    content: "";
-    height: 15px;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    z-index: 1;
-}
+    .rating-group:hover .rating__label .rating__icon--star {
+        color: #527a5a;
+    }
 
-.emoji {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: 0.3s;
-}
+    .rating__input:hover ~ .rating__label .rating__icon--star {
+        color: #ccc;
+    }
 
-.emoji > svg {
-    margin: 15px 0;
-    width: 70px;
-    height: 70px;
-    flex-shrink: 0;
-}
-
-#rating-1:checked ~ .emoji-wrapper > .emoji {
-    transform: translateY(-100px);
-}
-#rating-2:checked ~ .emoji-wrapper > .emoji {
-    transform: translateY(-200px);
-}
-#rating-3:checked ~ .emoji-wrapper > .emoji {
-    transform: translateY(-300px);
-}
-#rating-4:checked ~ .emoji-wrapper > .emoji {
-    transform: translateY(-400px);
-}
-#rating-5:checked ~ .emoji-wrapper > .emoji {
-    transform: translateY(-500px);
+    .rating-group:hover
+        .rating__input--none:not(:hover)
+        + .rating__label
+        .rating__icon--none {
+        color: #ededed;
+    }
 }
 
 .feedback {
@@ -814,57 +821,5 @@ li {
     display: flex;
     justify-content: center;
     padding: 20px 0px;
-}
-
-// Music Note Rating
-
-.notes {
-    position: relative;
-    display: inline-block;
-
-    &::before {
-        content: "\f001 \f001 \f001 \f001 \f001";
-        font-family: "Font Awesome 6 Free";
-        font-weight: 900;
-        color: rgba(171, 171, 171, 0.649);
-    }
-}
-
-.notes_inner {
-    position: absolute;
-    top: 0;
-    left: 0;
-    white-space: nowrap;
-    overflow: hidden;
-
-    &::before {
-        content: "\f001 \f001 \f001 \f001 \f001";
-        font-family: "Font Awesome 6 Free";
-        font-weight: 900;
-        color: #527a5a;
-    }
-}
-
-.big-notes {
-    font-size: 30px;
-}
-
-.starFill0 {
-    width: 0%;
-}
-.starFill1 {
-    width: 20%;
-}
-.starFill2 {
-    width: 40%;
-}
-.starFill3 {
-    width: 60%;
-}
-.starFill4 {
-    width: 80%;
-}
-.starFill5 {
-    width: 100%;
 }
 </style>
