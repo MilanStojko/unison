@@ -11,7 +11,7 @@
             <select name="sponsorship_id" id="sponsorship_id">
                 <option> Seleziona una sponsorizazione</option>
                 @foreach ($sponsorship as $element)
-                    <option value="{{ $element->id }}">{{$element->length}} - {{$element->price}} </option>
+                    <option value="{{ $element->id }}">{{$element->duration}} - {{$element->price}} </option>
                 @endforeach
             </select>
             <label for="amount">

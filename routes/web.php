@@ -31,10 +31,6 @@ Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->
     Route::post('/users/{user:id}/sponsorship/checkout', 'PaymentsController@checkout')->name('paymentcheckout');
 });
 
-// //BRAINTREE
-// Route::get('/payment/process', 'PaymentsController@process')->name('payment.process');
-// Route::post('/payment/process', 'PaymentsController@process')->name('payment.process');
-
 Route::get('{any?}', function () {
     return view('front');
 })->where("any", ".*");

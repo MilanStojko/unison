@@ -63,12 +63,12 @@
                                 Main menu
                             </a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link u_menu-info-link {{request()->is('admin/users/*') ? 'menu-active' : ''}}" href="{{route('admin.users.show', auth()->user())}}">
                                 <i class="bi bi-people"></i>
                                 Il mio profilo
                             </a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <a class="nav-link u_menu-info-link {{request()->is('admin/messages') ? 'menu-active' : ''}}" href="{{route('admin.messages.index')}}">
                                 <i class="bi bi-chat-dots"></i>
