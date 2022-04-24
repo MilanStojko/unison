@@ -2672,6 +2672,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Musicians",
   data: function data() {
@@ -2710,16 +2721,18 @@ __webpack_require__.r(__webpack_exports__);
     //     };
     //     return Math.ceil(somma/this.i);
     // },
+    starsWidth: function starsWidth(numero) {
+      return "starFill" + this.getAvgVote(numero);
+    },
     getAvgVote: function getAvgVote(array) {
       var somma = 0;
       var count = 0;
+      var boh;
       array.forEach(function (singleRev) {
         // console.log(singleRev.vote);
         somma = somma + singleRev.vote;
         count = count + 1;
       }); // console.log("ciao"+somma);
-
-      var boh;
 
       if (count != 0) {
         boh = somma / count;
@@ -2727,7 +2740,7 @@ __webpack_require__.r(__webpack_exports__);
 
       ;
       console.log(boh);
-      return boh;
+      return Math.round(boh);
     }
   } // methods:{
   //     // checkUserIdReview: function () {
@@ -3209,6 +3222,58 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SingleMusician",
   data: function data() {
@@ -3223,7 +3288,7 @@ __webpack_require__.r(__webpack_exports__);
       reviewData: {
         username: "",
         content: "",
-        vote: "",
+        vote: 3,
         user_id: null
       },
       messageData: {
@@ -3295,7 +3360,7 @@ __webpack_require__.r(__webpack_exports__);
             }, 0) / arr.length;
           };
 
-          _this3.avarageVote = average(votes).toFixed();
+          _this3.avarageVote = Math.round(average(votes));
           console.log("Avarage" + " " + _this3.avarageVote);
           console.log("Musicista id" + " " + _this3.id_user);
         }
@@ -3314,8 +3379,14 @@ __webpack_require__.r(__webpack_exports__);
     var _this4 = this;
 
     axios.get("/api/users/show/".concat(this.$route.params.slug)).then(function (response) {
-      _this4.user = response.data;
-      _this4.id_user = response.data.id;
+      if (response) {
+        _this4.user = response.data;
+        _this4.id_user = response.data.id;
+      } else {
+        _this4.$router.push({
+          name: "page-404"
+        });
+      }
     })["catch"](function (error) {
       _this4.$router.push({
         name: "page-404"
@@ -3323,9 +3394,9 @@ __webpack_require__.r(__webpack_exports__);
 
       console.log(error);
     });
-  },
-  updated: function updated() {
-    this.GetVote();
+    setTimeout(function () {
+      _this4.GetVote();
+    }, 500);
   }
 });
 
@@ -7775,6 +7846,25 @@ exports.push([module.i, ".service[data-v-f0afa770] {\n  padding: 100px 0px;\n}\n
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/guest/pages/Musicians.vue?vue&type=style&index=0&id=18581212&lang=scss&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--8-2!./node_modules/sass-loader/dist/cjs.js??ref--8-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/guest/pages/Musicians.vue?vue&type=style&index=0&id=18581212&lang=scss&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".background[data-v-18581212] {\n  /* background-image: url(\"../../../images/pexels-picjumbocom-196652.jpg\");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover; */\n  /* background: #E8EBF8; */\n  /* background: #595766ad; */\n  background: rgba(42, 41, 41, 0.5215686275);\n}\n.background[data-v-18581212]::-webkit-scrollbar {\n  display: none;\n}\n.background[data-v-18581212] {\n  -ms-overflow-style: none;\n  /* IE and Edge */\n  scrollbar-width: none;\n  /* Firefox */\n}\nh1[data-v-18581212], .info h3[data-v-18581212] {\n  text-align: center;\n}\n.info h3[data-v-18581212], .request[data-v-18581212] {\n  color: white;\n  text-transform: capitalize;\n}\nh1[data-v-18581212] {\n  font-size: 55px;\n}\n.my_card[data-v-18581212] {\n  margin: 50px auto;\n  max-width: 60%;\n  padding: 10px;\n  /* background: rgba(210, 206, 206, 0.861); */\n  /* background: #ededed; */\n  /* background-image: url('https://i.stack.imgur.com/MkSui.jpg'); */\n  background-image: url(\"https://icbstexas.com/wp-content/uploads/split-color-background.jpg\");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n  border-radius: 10px;\n  /* border: 1px solid black; */\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);\n  transition: 1s;\n}\n.my_card[data-v-18581212]:hover {\n  cursor: pointer;\n  transform: scale(1.03);\n}\n.my_card:hover a[data-v-18581212] {\n  text-decoration: none;\n}\n.request[data-v-18581212] {\n  display: flex;\n  padding: 5px;\n  border-radius: 10px;\n  background: rgba(28, 28, 28, 0.8);\n  max-height: 200px;\n}\n.request ul[data-v-18581212] {\n  max-height: 150px;\n  overflow: scroll;\n}\n.request ul[data-v-18581212]::-webkit-scrollbar {\n  display: none;\n}\n.request ul[data-v-18581212] {\n  -ms-overflow-style: none;\n  /* IE and Edge */\n  scrollbar-width: none;\n  /* Firefox */\n}\n.categories li[data-v-18581212], .events li[data-v-18581212], .references li[data-v-18581212] {\n  list-style: none;\n  margin-left: 5px;\n  font-size: 17px;\n}\n.references ul[data-v-18581212] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.references li[data-v-18581212] {\n  display: inline;\n  font-size: 15px;\n}\n.references[data-v-18581212] {\n  padding: 0 50px;\n  /* margin-top: 20px; */\n}\n.categories li[data-v-18581212] {\n  color: rgb(91, 121, 93);\n}\n.events li[data-v-18581212] {\n  color: rgb(175, 108, 195);\n}\n.categories div[data-v-18581212], .events div[data-v-18581212] {\n  border-radius: 15px;\n  padding: 15px;\n}\n.top[data-v-18581212] {\n  display: flex;\n  flex-wrap: wrap;\n  padding: 15px 0;\n}\n\n/* .container{\n    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n    border-radius: 10px;\n    padding: 20px;\n    margin-bottom: 40px;\n}\n*/\n.info[data-v-18581212] {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n.info img[data-v-18581212] {\n  height: 200px;\n  width: 200px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.references img[data-v-18581212] {\n  width: 25px;\n  height: auto;\n  color: #527a5a;\n}\n.references li[data-v-18581212] {\n  color: black;\n  text-transform: capitalize;\n}\n.references #reviews[data-v-18581212] {\n  display: flex;\n}\n@media only screen and (max-width: 700px) {\n.categories[data-v-18581212], .events[data-v-18581212] {\n    padding: 0;\n}\n.categories div[data-v-18581212], .events div[data-v-18581212] {\n    max-width: 80%;\n}\n.my_card[data-v-18581212] {\n    max-width: 90%;\n}\n.references[data-v-18581212] {\n    padding: 0 30px;\n}\n}\n@media only screen and (max-width: 1000px) {\n.references p[data-v-18581212] {\n    display: none;\n}\n.references #reviews[data-v-18581212] {\n    margin-top: 10px;\n}\n.references ul[data-v-18581212] {\n    display: flex;\n    flex-direction: column;\n}\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/guest/pages/PageNotFound.vue?vue&type=style&index=0&id=103278be&lang=scss&scoped=true&":
 /*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--8-2!./node_modules/sass-loader/dist/cjs.js??ref--8-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/guest/pages/PageNotFound.vue?vue&type=style&index=0&id=103278be&lang=scss&scoped=true& ***!
@@ -7801,13 +7891,12 @@ exports.push([module.i, ".Page-not-found[data-v-103278be] {\n  height: 100vh;\n 
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var escape = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/url/escape.js */ "./node_modules/css-loader/lib/url/escape.js");
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
 
 
 // module
-exports.push([module.i, "li[data-v-d39608ce] {\n  list-style: none;\n}\n.singleMusician[data-v-d39608ce] {\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n  border-top-right-radius: 10px;\n  border-top-left-radius: 10px;\n}\n.singleMusician-profile[data-v-d39608ce] {\n  display: flex;\n  justify-content: center;\n  align-items: flex-start;\n  flex-wrap: wrap;\n  margin-top: 50px;\n  padding-bottom: 50px;\n}\n.singleMusician-profile_left[data-v-d39608ce] {\n  width: 30%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column;\n  background-color: #ededed;\n  padding: 10px 0px;\n}\n.singleMusician-profile_left h2[data-v-d39608ce] {\n  color: #2a2929;\n  margin-top: 20px;\n  font-weight: bold;\n}\n.singleMusician-profile_left img[data-v-d39608ce] {\n  margin: 20px 0px;\n  width: 80%;\n  height: 300px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 30px;\n}\n.singleMusician-profile_left .address li[data-v-d39608ce] {\n  margin: 15px 0px;\n}\n.singleMusician-profile_left .address a[data-v-d39608ce] {\n  color: #2a2929;\n}\n.singleMusician-profile_left .address a[data-v-d39608ce]:hover {\n  text-decoration: none;\n}\n.singleMusician-profile_left .address i[data-v-d39608ce] {\n  margin-right: 10px;\n}\n.singleMusician-profile_left .social[data-v-d39608ce] {\n  margin: 20px 0px;\n}\n.singleMusician-profile_left .social a[data-v-d39608ce] {\n  color: #2a2929;\n  transition: all 0.2s linear;\n}\n.singleMusician-profile_left .social a[data-v-d39608ce]:first-child:hover {\n  color: #bb366c;\n}\n.singleMusician-profile_left .social a[data-v-d39608ce]:nth-child(2):hover {\n  color: #395693;\n}\n.singleMusician-profile_left .social a[data-v-d39608ce]:nth-child(3):hover {\n  color: #0870a2;\n}\n.singleMusician-profile_left .social i[data-v-d39608ce] {\n  font-size: 30px;\n  margin: 0px 10px;\n}\n.singleMusician-profile_right[data-v-d39608ce] {\n  width: 70%;\n  padding: 10px 20px;\n}\n.singleMusician-profile_right h2[data-v-d39608ce],\n.singleMusician-profile_right h4[data-v-d39608ce] {\n  color: #527a5a;\n  font-weight: bold;\n  font-size: 30px;\n}\n.singleMusician-profile_right .bio[data-v-d39608ce] {\n  margin-bottom: 50px;\n  min-height: 300px;\n}\n.singleMusician-profile_right .bio p[data-v-d39608ce] {\n  word-break: break-all;\n  white-space: pre-wrap;\n}\n.singleMusician-profile_right .categorie-eventi[data-v-d39608ce] {\n  display: flex;\n  align-items: flex-start;\n  flex-wrap: wrap;\n}\n.singleMusician-profile_right .categorie[data-v-d39608ce] {\n  margin-right: 100px;\n}\n.singleMusician-profile_right .cv a[data-v-d39608ce] {\n  font-size: 18px;\n  color: #2a2929;\n}\n.singleMusician-profile_right .cv a[data-v-d39608ce]:hover {\n  color: #527a5a;\n  text-decoration: none;\n}\n.singleMusician-reviews[data-v-d39608ce] {\n  padding: 20px;\n}\n.singleMusician-reviews_heading[data-v-d39608ce] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-bottom: 20px;\n  border-bottom: 1px solid #ededed;\n}\n.singleMusician-reviews_heading h4[data-v-d39608ce] {\n  margin-bottom: 0px;\n  font-weight: bold;\n  color: #5b5b5b;\n  margin-right: 10px;\n}\n.singleMusician-reviews .music-notes img[data-v-d39608ce] {\n  width: 25px;\n  height: auto;\n  color: #527a5a;\n}\n.singleMusician-reviews .review[data-v-d39608ce] {\n  background-color: #ededed;\n  padding: 10px;\n  width: 80%;\n  margin: 30px auto;\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);\n}\n.singleMusician-reviews .review-head[data-v-d39608ce] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.singleMusician-reviews .review-head h5[data-v-d39608ce] {\n  font-weight: bold;\n}\n.singleMusician-reviews .review-body span[data-v-d39608ce] {\n  display: block;\n  padding: 10px 0px;\n  border-bottom: 1px solid #c6c6c6;\n}\n.singleMusician-reviews .review-body p[data-v-d39608ce] {\n  padding: 10px 0px;\n}\n.singleMusician-reviews .review-music_notes img[data-v-d39608ce] {\n  width: 20px;\n  height: auto;\n  color: #527a5a;\n}\n.popup-message[data-v-d39608ce],\n.popup-review[data-v-d39608ce] {\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.6);\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 2000;\n  display: none;\n}\n.popup-message_box[data-v-d39608ce],\n.popup-review_box[data-v-d39608ce] {\n  width: 600px;\n  background-color: #ededed;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  border-top-right-radius: 10px;\n  border-top-left-radius: 10px;\n  -webkit-animation: pop-up-data-v-d39608ce 0.3s linear;\n          animation: pop-up-data-v-d39608ce 0.3s linear;\n}\n.popup-message_box .message-heading[data-v-d39608ce],\n.popup-review_box .message-heading[data-v-d39608ce] {\n  background-color: #2a2929;\n  color: #fff;\n  font-size: 20px;\n  padding: 15px 0px;\n  text-align: center;\n  position: relative;\n}\n.popup-message_box .message-heading h3[data-v-d39608ce],\n.popup-review_box .message-heading h3[data-v-d39608ce] {\n  margin-bottom: 0px;\n}\n.popup-message_box .message-heading .close-popup[data-v-d39608ce],\n.popup-review_box .message-heading .close-popup[data-v-d39608ce] {\n  background-color: rgba(210, 36, 36, 0.438);\n  color: #fff;\n  width: 30px;\n  height: 30px;\n  line-height: 30px;\n  border-radius: 50%;\n  position: absolute;\n  top: -10px;\n  right: -10px;\n  cursor: pointer;\n}\n.popup-message_box .message-heading .close-popup[data-v-d39608ce]:hover,\n.popup-review_box .message-heading .close-popup[data-v-d39608ce]:hover {\n  background-color: rgb(210, 36, 36);\n}\n.popup-message_box .message-body form[data-v-d39608ce],\n.popup-review_box .message-body form[data-v-d39608ce] {\n  display: flex;\n  flex-direction: column;\n  padding: 15px;\n}\n.popup-message_box .message-body form input[data-v-d39608ce],\n.popup-message_box .message-body form textarea[data-v-d39608ce],\n.popup-review_box .message-body form input[data-v-d39608ce],\n.popup-review_box .message-body form textarea[data-v-d39608ce] {\n  margin: 10px 0px;\n  border: none;\n  border-bottom: 1px solid #c6c6c6;\n  background-color: #ededed;\n  outline: none;\n}\n.cta[data-v-d39608ce],\n.make-review[data-v-d39608ce] {\n  text-align: right;\n}\n.cta button[data-v-d39608ce],\n.make-review button[data-v-d39608ce] {\n  background-color: #527a5a;\n  color: #fff;\n  padding: 10px 20px;\n  border: none;\n}\n.cta button[data-v-d39608ce]:hover,\n.make-review button[data-v-d39608ce]:hover {\n  text-decoration: none;\n  background-color: #6aa275;\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n}\n.display-block[data-v-d39608ce] {\n  display: block;\n}\n@-webkit-keyframes pop-up-data-v-d39608ce {\n0% {\n    transform: translate(-50%, -50%) scale(0);\n}\n100% {\n    transform: translate(-50%, -50%) scale(1);\n}\n}\n@keyframes pop-up-data-v-d39608ce {\n0% {\n    transform: translate(-50%, -50%) scale(0);\n}\n100% {\n    transform: translate(-50%, -50%) scale(1);\n}\n}\n.rating[data-v-d39608ce] {\n  display: flex;\n  width: 100%;\n  justify-content: center;\n  overflow: hidden;\n  flex-direction: row-reverse;\n  height: 150px;\n  position: relative;\n}\n.rating-0[data-v-d39608ce] {\n  filter: grayscale(100%);\n}\n.rating > input[data-v-d39608ce] {\n  display: none;\n}\n.rating > label[data-v-d39608ce] {\n  cursor: pointer;\n  width: 40px;\n  height: 40px;\n  margin-top: auto;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../images/music.svg */ "./resources/images/music.svg")) + ");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: 76%;\n  transition: 0.3s;\n}\n.rating > input:checked ~ label[data-v-d39608ce],\n.rating > input:checked ~ label ~ label[data-v-d39608ce] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../../images/music.svg */ "./resources/images/music.svg")) + ");\n}\n.rating > input:not(:checked) ~ label[data-v-d39608ce]:hover,\n.rating > input:not(:checked) ~ label:hover ~ label[data-v-d39608ce] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../../images/music.svg */ "./resources/images/music.svg")) + ");\n}\n.emoji-wrapper[data-v-d39608ce] {\n  width: 100%;\n  text-align: center;\n  height: 100px;\n  overflow: hidden;\n  position: absolute;\n  top: 0;\n  left: 0;\n}\n.emoji-wrapper[data-v-d39608ce]:before,\n.emoji-wrapper[data-v-d39608ce]:after {\n  content: \"\";\n  height: 15px;\n  width: 100%;\n  position: absolute;\n  left: 0;\n  z-index: 1;\n}\n.emoji[data-v-d39608ce] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  transition: 0.3s;\n}\n.emoji > svg[data-v-d39608ce] {\n  margin: 15px 0;\n  width: 70px;\n  height: 70px;\n  flex-shrink: 0;\n}\n#rating-1:checked ~ .emoji-wrapper > .emoji[data-v-d39608ce] {\n  transform: translateY(-100px);\n}\n#rating-2:checked ~ .emoji-wrapper > .emoji[data-v-d39608ce] {\n  transform: translateY(-200px);\n}\n#rating-3:checked ~ .emoji-wrapper > .emoji[data-v-d39608ce] {\n  transform: translateY(-300px);\n}\n#rating-4:checked ~ .emoji-wrapper > .emoji[data-v-d39608ce] {\n  transform: translateY(-400px);\n}\n#rating-5:checked ~ .emoji-wrapper > .emoji[data-v-d39608ce] {\n  transform: translateY(-500px);\n}\n.feedback[data-v-d39608ce] {\n  max-width: 360px;\n  background-color: #ededed;\n  width: 100%;\n  padding: 30px;\n  border-radius: 8px;\n  display: flex;\n  flex-direction: column;\n  flex-wrap: wrap;\n  align-items: center;\n  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);\n}\n.make_review-rating[data-v-d39608ce] {\n  display: flex;\n  justify-content: center;\n  padding: 20px 0px;\n}\n.notes[data-v-d39608ce] {\n  position: relative;\n  display: inline-block;\n}\n.notes[data-v-d39608ce]::before {\n  content: \"\\F001\\F001\\F001\\F001\\F001\";\n  font-family: \"Font Awesome 6 Free\";\n  font-weight: 900;\n  color: rgba(171, 171, 171, 0.649);\n}\n.notes_inner[data-v-d39608ce] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  white-space: nowrap;\n  overflow: hidden;\n}\n.notes_inner[data-v-d39608ce]::before {\n  content: \"\\F001\\F001\\F001\\F001\\F001\";\n  font-family: \"Font Awesome 6 Free\";\n  font-weight: 900;\n  color: #527a5a;\n}\n.big-notes[data-v-d39608ce] {\n  font-size: 30px;\n}\n.starFill0[data-v-d39608ce] {\n  width: 0%;\n}\n.starFill1[data-v-d39608ce] {\n  width: 20%;\n}\n.starFill2[data-v-d39608ce] {\n  width: 40%;\n}\n.starFill3[data-v-d39608ce] {\n  width: 60%;\n}\n.starFill4[data-v-d39608ce] {\n  width: 80%;\n}\n.starFill5[data-v-d39608ce] {\n  width: 100%;\n}", ""]);
+exports.push([module.i, "li[data-v-d39608ce] {\n  list-style: none;\n}\n.singleMusician[data-v-d39608ce] {\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n  border-top-right-radius: 10px;\n  border-top-left-radius: 10px;\n}\n.singleMusician-profile[data-v-d39608ce] {\n  display: flex;\n  justify-content: center;\n  align-items: flex-start;\n  flex-wrap: wrap;\n  margin-top: 50px;\n  padding-bottom: 50px;\n}\n.singleMusician-profile_left[data-v-d39608ce] {\n  width: 30%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column;\n  background-color: #ededed;\n  padding: 10px 0px;\n}\n.singleMusician-profile_left h2[data-v-d39608ce] {\n  color: #2a2929;\n  margin-top: 20px;\n  font-weight: bold;\n}\n.singleMusician-profile_left img[data-v-d39608ce] {\n  margin: 20px 0px;\n  width: 80%;\n  height: 300px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 30px;\n}\n.singleMusician-profile_left .address li[data-v-d39608ce] {\n  margin: 15px 0px;\n}\n.singleMusician-profile_left .address a[data-v-d39608ce] {\n  color: #2a2929;\n}\n.singleMusician-profile_left .address a[data-v-d39608ce]:hover {\n  text-decoration: none;\n}\n.singleMusician-profile_left .address i[data-v-d39608ce] {\n  margin-right: 10px;\n}\n.singleMusician-profile_left .social[data-v-d39608ce] {\n  margin: 20px 0px;\n}\n.singleMusician-profile_left .social a[data-v-d39608ce] {\n  color: #2a2929;\n  transition: all 0.2s linear;\n}\n.singleMusician-profile_left .social a[data-v-d39608ce]:first-child:hover {\n  color: #bb366c;\n}\n.singleMusician-profile_left .social a[data-v-d39608ce]:nth-child(2):hover {\n  color: #395693;\n}\n.singleMusician-profile_left .social a[data-v-d39608ce]:nth-child(3):hover {\n  color: #0870a2;\n}\n.singleMusician-profile_left .social i[data-v-d39608ce] {\n  font-size: 30px;\n  margin: 0px 10px;\n}\n.singleMusician-profile_right[data-v-d39608ce] {\n  width: 70%;\n  padding: 10px 20px;\n}\n.singleMusician-profile_right h2[data-v-d39608ce],\n.singleMusician-profile_right h4[data-v-d39608ce] {\n  color: #527a5a;\n  font-weight: bold;\n  font-size: 30px;\n}\n.singleMusician-profile_right .bio[data-v-d39608ce] {\n  margin-bottom: 50px;\n  min-height: 300px;\n}\n.singleMusician-profile_right .bio p[data-v-d39608ce] {\n  word-break: break-all;\n  white-space: pre-wrap;\n}\n.singleMusician-profile_right .categorie-eventi[data-v-d39608ce] {\n  display: flex;\n  align-items: flex-start;\n  flex-wrap: wrap;\n}\n.singleMusician-profile_right .categorie[data-v-d39608ce] {\n  margin-right: 100px;\n}\n.singleMusician-profile_right .cv a[data-v-d39608ce] {\n  font-size: 18px;\n  color: #2a2929;\n}\n.singleMusician-profile_right .cv a[data-v-d39608ce]:hover {\n  color: #527a5a;\n  text-decoration: none;\n}\n.singleMusician-reviews[data-v-d39608ce] {\n  padding: 20px;\n}\n.singleMusician-reviews_heading[data-v-d39608ce] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-bottom: 20px;\n  border-bottom: 1px solid #ededed;\n}\n.singleMusician-reviews_heading h4[data-v-d39608ce] {\n  margin-bottom: 0px;\n  font-weight: bold;\n  color: #5b5b5b;\n  margin-right: 10px;\n}\n.singleMusician-reviews .review[data-v-d39608ce] {\n  background-color: #ededed;\n  padding: 10px;\n  width: 80%;\n  margin: 30px auto;\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);\n}\n.singleMusician-reviews .review-head[data-v-d39608ce] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.singleMusician-reviews .review-head h5[data-v-d39608ce] {\n  font-weight: bold;\n}\n.singleMusician-reviews .review-body span[data-v-d39608ce] {\n  display: block;\n  padding: 10px 0px;\n  border-bottom: 1px solid #c6c6c6;\n}\n.singleMusician-reviews .review-body p[data-v-d39608ce] {\n  padding: 10px 0px;\n}\n.singleMusician-reviews .review-music_notes img[data-v-d39608ce] {\n  width: 20px;\n  height: auto;\n  color: #527a5a;\n}\n.popup-message[data-v-d39608ce],\n.popup-review[data-v-d39608ce] {\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.6);\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 2000;\n  display: none;\n}\n.popup-message_box[data-v-d39608ce],\n.popup-review_box[data-v-d39608ce] {\n  width: 600px;\n  background-color: #ededed;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  border-top-right-radius: 10px;\n  border-top-left-radius: 10px;\n  -webkit-animation: pop-up-data-v-d39608ce 0.3s linear;\n          animation: pop-up-data-v-d39608ce 0.3s linear;\n}\n.popup-message_box .message-heading[data-v-d39608ce],\n.popup-review_box .message-heading[data-v-d39608ce] {\n  background-color: #2a2929;\n  color: #fff;\n  font-size: 20px;\n  padding: 15px 0px;\n  text-align: center;\n  position: relative;\n}\n.popup-message_box .message-heading h3[data-v-d39608ce],\n.popup-review_box .message-heading h3[data-v-d39608ce] {\n  margin-bottom: 0px;\n}\n.popup-message_box .message-heading .close-popup[data-v-d39608ce],\n.popup-review_box .message-heading .close-popup[data-v-d39608ce] {\n  background-color: rgba(210, 36, 36, 0.438);\n  color: #fff;\n  width: 30px;\n  height: 30px;\n  line-height: 30px;\n  border-radius: 50%;\n  position: absolute;\n  top: -10px;\n  right: -10px;\n  cursor: pointer;\n}\n.popup-message_box .message-heading .close-popup[data-v-d39608ce]:hover,\n.popup-review_box .message-heading .close-popup[data-v-d39608ce]:hover {\n  background-color: rgb(210, 36, 36);\n}\n.popup-message_box .message-body form[data-v-d39608ce],\n.popup-review_box .message-body form[data-v-d39608ce] {\n  display: flex;\n  flex-direction: column;\n  padding: 15px;\n}\n.popup-message_box .message-body form input[data-v-d39608ce],\n.popup-message_box .message-body form textarea[data-v-d39608ce],\n.popup-review_box .message-body form input[data-v-d39608ce],\n.popup-review_box .message-body form textarea[data-v-d39608ce] {\n  margin: 10px 0px;\n  border: none;\n  border-bottom: 1px solid #c6c6c6;\n  background-color: #ededed;\n  outline: none;\n}\n.cta[data-v-d39608ce],\n.make-review[data-v-d39608ce] {\n  text-align: right;\n}\n.cta button[data-v-d39608ce],\n.make-review button[data-v-d39608ce] {\n  background-color: #527a5a;\n  color: #fff;\n  padding: 10px 20px;\n  border: none;\n}\n.cta button[data-v-d39608ce]:hover,\n.make-review button[data-v-d39608ce]:hover {\n  text-decoration: none;\n  background-color: #6aa275;\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n}\n.display-block[data-v-d39608ce] {\n  display: block;\n}\n@-webkit-keyframes pop-up-data-v-d39608ce {\n0% {\n    transform: translate(-50%, -50%) scale(0);\n}\n100% {\n    transform: translate(-50%, -50%) scale(1);\n}\n}\n@keyframes pop-up-data-v-d39608ce {\n0% {\n    transform: translate(-50%, -50%) scale(0);\n}\n100% {\n    transform: translate(-50%, -50%) scale(1);\n}\n}\n#full-stars-example p[data-v-d39608ce] {\n  margin-bottom: 0px;\n  color: #999;\n}\n#full-stars-example .rating-group[data-v-d39608ce] {\n  display: inline-flex;\n}\n#full-stars-example .rating__icon[data-v-d39608ce] {\n  pointer-events: none;\n}\n#full-stars-example .rating__input[data-v-d39608ce] {\n  position: absolute !important;\n  left: -9999px !important;\n}\n#full-stars-example .rating__label[data-v-d39608ce] {\n  cursor: pointer;\n  padding: 0 0.1em;\n  font-size: 2rem;\n}\n#full-stars-example .rating__icon--star[data-v-d39608ce] {\n  color: #527a5a;\n}\n#full-stars-example .rating__icon--none[data-v-d39608ce] {\n  color: #eee;\n}\n#full-stars-example .rating__input:checked ~ .rating__label .rating__icon--star[data-v-d39608ce] {\n  color: #ccc;\n}\n#full-stars-example .rating-group:hover .rating__label .rating__icon--star[data-v-d39608ce] {\n  color: #527a5a;\n}\n#full-stars-example .rating__input:hover ~ .rating__label .rating__icon--star[data-v-d39608ce] {\n  color: #ccc;\n}\n#full-stars-example .rating-group:hover .rating__input--none:not(:hover) + .rating__label .rating__icon--none[data-v-d39608ce] {\n  color: #ededed;\n}\n.feedback[data-v-d39608ce] {\n  max-width: 360px;\n  background-color: #ededed;\n  width: 100%;\n  padding: 30px;\n  border-radius: 8px;\n  display: flex;\n  flex-direction: column;\n  flex-wrap: wrap;\n  align-items: center;\n  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);\n}\n.make_review-rating[data-v-d39608ce] {\n  display: flex;\n  justify-content: center;\n  padding: 20px 0px;\n}", ""]);
 
 // exports
 
@@ -7845,7 +7934,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.burger-wrapper[data-v-083b147e] {\n    cursor: pointer;\n}\n#menyAvPaa[data-v-083b147e] {\n    display: none;\n}\n#burger[data-v-083b147e] {\n    position: absolute;\n    cursor: pointer;\n    width: 2rem;\n    height: 1.5rem;\n    right: 1rem;\n    top: 1rem;\n    display: flex;\n    justify-content: space-between;\n    flex-direction: column;\n}\n#burger > div[data-v-083b147e] {\n    height: 4px;\n    background-color: white;\n    transition: 0.5s;\n    z-index: 999;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e] {\n    background-color: #fff;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(1) {\n    transform: translateY(10px) rotate(45deg);\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(2) {\n    opacity: 0;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(3) {\n    transform: translateY(-10px) rotate(-45deg);\n}\n.slide-fade-enter-active[data-v-083b147e] {\n    transition: opacity 1.5s ease-out;\n}\n.slide-fade-leave-active[data-v-083b147e] {\n    transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);\n}\n.slide-fade-enter-from[data-v-083b147e],\n.slide-fade-leave-to[data-v-083b147e] {\n    transform: translateX(20px);\n    opacity: 0;\n}\n.my_ul .my_li a[data-v-083b147e] {\n    text-decoration: none;\n    color: white;\n}\n.my_ul .my_li a p[data-v-083b147e] {\n    transition: 1s;\n}\n.my_ul .my_li a p[data-v-083b147e]:hover {\n    color: white;\n    transform: scale(1.3);\n}\n*[data-v-083b147e] {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n.logo[data-v-083b147e] {\n    font-size: 30px;\n}\n.logo a[data-v-083b147e]{\n  color: white;\n}\n.logo:hover a[data-v-083b147e]{\n  text-decoration: none;\n}\nnav[data-v-083b147e] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    background-color: rgb(42, 41, 41);\n    height: 50px;\n    padding: 0px 20px;\n    color: white;\n    position: relative;\n}\n.my_ul[data-v-083b147e] {\n    margin: 0;\n    padding: 0;\n    display: flex;\n    align-items: center;\n}\n.my_ul li[data-v-083b147e] {\n    float: left;\n    padding: 0px 15px;\n    list-style: none;\n}\n.my_a[data-v-083b147e] {\n    text-decoration: none;\n    color: white;\n}\n.my_ul .my_a p[data-v-083b147e] {\n    transition: 1s;\n}\n.my_ul .my_a p[data-v-083b147e]:hover {\n    color: white;\n    transform: scale(1.3);\n}\n.my_ul .my_a:hover .my_button[data-v-083b147e] {\n    color: white;\n    transform: scale(1.1);\n}\n.navbar-toggler-icon[data-v-083b147e],\n.navbar-toggler[data-v-083b147e],\n.nav-item p[data-v-083b147e] {\n    color: white;\n}\n.my_button[data-v-083b147e] {\n    padding: 5px 15px;\n    border: 0;\n    color: white;\n    background: #527a5a;\n    border-radius: 15px;\n}\n.my_ul-icon[data-v-083b147e] {\n    display: none;\n    margin: 0;\n    padding: 0;\n}\n.my_ul-icon li[data-v-083b147e] {\n    list-style: none;\n}\n.listmenu[data-v-083b147e] {\n    position: absolute;\n    right: 0;\n    z-index: 999;\n    padding: 20px;\n    width: 100%;\n    height: calc(100vh - 50px);\n    text-align: center;\n    background: rgb(255, 255, 255, 0.9);\n    display: flex;\n    flex-direction: column;\n}\n.listmenu li[data-v-083b147e] {\n    line-height: 100px;\n    font-weight: bold;\n    font-size: 40px;\n    list-style: none;\n}\n.listmenu a[data-v-083b147e]{\n    color: black;\n}\n.listmenu:hover a[data-v-083b147e]{\n    color: black;\n    text-decoration: none;\n}\n.listmenu .buttonlogin[data-v-083b147e] {\n    margin-top: 50px;\n}\n.my_a_mobile[data-v-083b147e] {\n    text-decoration: none;\n    color: black;\n}\n@media only screen and (max-width: 700px) {\n.my_ul-icon[data-v-083b147e] {\n        display: block;\n}\n.my_ul[data-v-083b147e] {\n        display: none;\n}\n}\n@media only screen and (min-width: 700px) {\n.listmenu[data-v-083b147e]{\n      display: none;\n}\n}\n", ""]);
+exports.push([module.i, "\n.burger-wrapper[data-v-083b147e] {\r\n    cursor: pointer;\n}\n#menyAvPaa[data-v-083b147e] {\r\n    display: none;\n}\n#burger[data-v-083b147e] {\r\n    position: absolute;\r\n    cursor: pointer;\r\n    width: 2rem;\r\n    height: 1.5rem;\r\n    right: 1rem;\r\n    top: 1rem;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    flex-direction: column;\n}\n#burger > div[data-v-083b147e] {\r\n    height: 4px;\r\n    background-color: white;\r\n    transition: 0.5s;\r\n    z-index: 999;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e] {\r\n    background-color: #fff;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(1) {\r\n    transform: translateY(10px) rotate(45deg);\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(2) {\r\n    opacity: 0;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(3) {\r\n    transform: translateY(-10px) rotate(-45deg);\n}\n.slide-fade-enter-active[data-v-083b147e] {\r\n    transition: opacity 1.5s ease-out;\n}\n.slide-fade-leave-active[data-v-083b147e] {\r\n    transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);\n}\n.slide-fade-enter-from[data-v-083b147e],\r\n.slide-fade-leave-to[data-v-083b147e] {\r\n    transform: translateX(20px);\r\n    opacity: 0;\n}\n.my_ul .my_li a[data-v-083b147e] {\r\n    text-decoration: none;\r\n    color: white;\n}\n.my_ul .my_li a p[data-v-083b147e] {\r\n    transition: 1s;\n}\n.my_ul .my_li a p[data-v-083b147e]:hover {\r\n    color: white;\r\n    transform: scale(1.3);\n}\n*[data-v-083b147e] {\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\n}\n.logo[data-v-083b147e] {\r\n    font-size: 30px;\n}\n.logo a[data-v-083b147e]{\r\n  color: white;\n}\n.logo:hover a[data-v-083b147e]{\r\n  text-decoration: none;\n}\nnav[data-v-083b147e] {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    background-color: rgb(42, 41, 41);\r\n    height: 50px;\r\n    padding: 0px 20px;\r\n    color: white;\r\n    position: relative;\n}\n.my_ul[data-v-083b147e] {\r\n    margin: 0;\r\n    padding: 0;\r\n    display: flex;\r\n    align-items: center;\n}\n.my_ul li[data-v-083b147e] {\r\n    float: left;\r\n    padding: 0px 15px;\r\n    list-style: none;\n}\n.my_a[data-v-083b147e] {\r\n    text-decoration: none;\r\n    color: white;\n}\n.my_ul .my_a p[data-v-083b147e] {\r\n    transition: 1s;\n}\n.my_ul .my_a p[data-v-083b147e]:hover {\r\n    color: white;\r\n    transform: scale(1.3);\n}\n.my_ul .my_a:hover .my_button[data-v-083b147e] {\r\n    color: white;\r\n    transform: scale(1.1);\n}\n.navbar-toggler-icon[data-v-083b147e],\r\n.navbar-toggler[data-v-083b147e],\r\n.nav-item p[data-v-083b147e] {\r\n    color: white;\n}\n.my_button[data-v-083b147e] {\r\n    padding: 5px 15px;\r\n    border: 0;\r\n    color: white;\r\n    background: #527a5a;\r\n    border-radius: 15px;\n}\n.my_ul-icon[data-v-083b147e] {\r\n    display: none;\r\n    margin: 0;\r\n    padding: 0;\n}\n.my_ul-icon li[data-v-083b147e] {\r\n    list-style: none;\n}\n.listmenu[data-v-083b147e] {\r\n    position: absolute;\r\n    right: 0;\r\n    z-index: 999;\r\n    padding: 20px;\r\n    width: 100%;\r\n    height: calc(100vh - 50px);\r\n    text-align: center;\r\n    background: rgb(255, 255, 255, 0.9);\r\n    display: flex;\r\n    flex-direction: column;\n}\n.listmenu li[data-v-083b147e] {\r\n    line-height: 100px;\r\n    font-weight: bold;\r\n    font-size: 40px;\r\n    list-style: none;\n}\n.listmenu a[data-v-083b147e]{\r\n    color: black;\n}\n.listmenu:hover a[data-v-083b147e]{\r\n    color: black;\r\n    text-decoration: none;\n}\n.listmenu .buttonlogin[data-v-083b147e] {\r\n    margin-top: 50px;\n}\n.my_a_mobile[data-v-083b147e] {\r\n    text-decoration: none;\r\n    color: black;\n}\n@media only screen and (max-width: 700px) {\n.my_ul-icon[data-v-083b147e] {\r\n        display: block;\n}\n.my_ul[data-v-083b147e] {\r\n        display: none;\n}\n}\n@media only screen and (min-width: 700px) {\n.listmenu[data-v-083b147e]{\r\n      display: none;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -7871,25 +7960,6 @@ exports.push([module.i, "\nselect[data-v-b0277c92]{\n    border: 0;\n    padding
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/guest/pages/Musicians.vue?vue&type=style&index=0&id=18581212&scoped=true&lang=css&":
-/*!****************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/guest/pages/Musicians.vue?vue&type=style&index=0&id=18581212&scoped=true&lang=css& ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.background[data-v-18581212]{\n        /* background-image: url(\"../../../images/pexels-picjumbocom-196652.jpg\");\n        background-repeat: no-repeat;\n        background-position: center;\n        background-size: cover; */\n        /* background: #E8EBF8; */\n        /* background: #595766ad; */\n        background: #2a292985;\n}\n.background[data-v-18581212]::-webkit-scrollbar {\n        display: none;\n}\n.background[data-v-18581212] {\n        -ms-overflow-style: none;  /* IE and Edge */\n        scrollbar-width: none;  /* Firefox */\n}\nh1[data-v-18581212], .info h3[data-v-18581212]{\n        text-align: center;\n}\n.info h3[data-v-18581212], .request[data-v-18581212]{\n        color: white;\n        text-transform: capitalize;\n}\nh1[data-v-18581212]{\n        font-size: 55px;\n}\n.my_card[data-v-18581212]{\n        margin: 50px auto;\n        max-width: 60%;\n        padding: 10px;\n        /* background: rgba(210, 206, 206, 0.861); */\n        /* background: #ededed; */\n        /* background-image: url('https://i.stack.imgur.com/MkSui.jpg'); */\n        background-image: url('https://icbstexas.com/wp-content/uploads/split-color-background.jpg');\n        background-repeat: no-repeat;\n        background-position: center;\n        background-size: cover;\n        border-radius: 10px;\n        /* border: 1px solid black; */\n        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);\n        transition: 1s;\n}\n.my_card[data-v-18581212]:hover{\n        cursor: pointer;\n        transform: scale(1.03);\n}\n.my_card:hover a[data-v-18581212]{\n        text-decoration: none;\n}\n.request[data-v-18581212]{\n        display: flex;\n        padding: 5px;\n        border-radius: 10px;\n        background: rgba(28, 28, 28, 0.8);\n        max-height: 200px;\n}\n.request ul[data-v-18581212]{\n        max-height: 150px;\n        overflow: scroll;\n}\n.request ul[data-v-18581212]::-webkit-scrollbar {\n        display: none;\n}\n.request ul[data-v-18581212]{\n        -ms-overflow-style: none;  /* IE and Edge */\n        scrollbar-width: none;  /* Firefox */\n}\n.categories li[data-v-18581212], .events li[data-v-18581212], .references li[data-v-18581212]{\n        list-style: none;\n        margin-left: 5px;\n        font-size: 17px;\n}\n.references ul[data-v-18581212]{\n        display: flex;\n        justify-content: space-between;\n        align-items: center;\n}\n.references li[data-v-18581212]{\n        display: inline;\n        font-size: 15px;\n}\n.references[data-v-18581212]{\n        padding: 0 50px;\n        /* margin-top: 20px; */\n}\n.categories li[data-v-18581212]{\n        color: rgba(91, 121, 93);\n}\n.events li[data-v-18581212]{\n        color: rgba(175, 108, 195);\n}\n.categories div[data-v-18581212], .events div[data-v-18581212]{\n        border-radius: 15px;\n        padding: 15px;\n}\n.top[data-v-18581212]{\n        display: flex;\n        flex-wrap: wrap;\n        padding: 15px 0;\n}\n\n    /* .container{\n        -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n        border-radius: 10px;\n        padding: 20px;\n        margin-bottom: 40px;\n    }\n    */\n.info[data-v-18581212]{\n        display: flex;\n        flex-direction: column;\n        justify-content: center;\n        align-items: center;\n}\n.info img[data-v-18581212]{\n        height: 200px;\n        width: 200px;\n        border-radius: 50%;\n        -o-object-fit: cover;\n           object-fit: cover;\n}\n.references img[data-v-18581212]{\n        width: 25px;\n        height: auto;\n        color: #527a5a;\n}\n.references li[data-v-18581212]{\n        color: black;\n        text-transform: capitalize;\n}\n.references #reviews[data-v-18581212]{\n        display: flex;\n}\n@media only screen and (max-width: 700px) {\n.categories[data-v-18581212], .events[data-v-18581212]{\n            padding: 0;\n}\n.categories div[data-v-18581212], .events div[data-v-18581212]{\n            max-width: 80%;\n}\n.my_card[data-v-18581212]{\n            max-width: 90%;\n}\n.references[data-v-18581212]{\n            padding: 0 30px;\n}\n}\n@media only screen and (max-width: 1000px){\n.references p[data-v-18581212]{\n        display: none;\n}\n.references #reviews[data-v-18581212]{\n        margin-top: 10px;\n}\n.references ul[data-v-18581212]{\n        display: flex;\n        flex-direction: column;\n}\n}\n    \n", ""]);
-
-// exports
-
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/guest/pages/Search.vue?vue&type=style&index=0&id=4e14df48&scoped=true&lang=css&":
 /*!*************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/guest/pages/Search.vue?vue&type=style&index=0&id=4e14df48&scoped=true&lang=css& ***!
@@ -7902,7 +7972,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.select[data-v-4e14df48]{\n  display: flex;\n  justify-content: center;\n  color: black;\n  font-size: 24px;\n  font-weight: bold;\n}\nselect[data-v-4e14df48]{\n  margin-left: 10px;\n  background:transparent;\n  border: 0;\n  cursor: pointer;\n  max-width: 100px;\n  font-size: 18px;\n}\n.background[data-v-4e14df48]{\n        /* background-image: url(\"../../../images/pexels-picjumbocom-196652.jpg\");\n        background-repeat: no-repeat;\n        background-position: center;\n        background-size: cover; */\n        /* background: #E8EBF8; */\n        /* background: #595766ad; */\n        padding: 15px 0;\n        background: #2a292985;\n}\n.background[data-v-4e14df48]::-webkit-scrollbar {\n        display: none;\n}\n.background[data-v-4e14df48] {\n        -ms-overflow-style: none;  /* IE and Edge */\n        scrollbar-width: none;  /* Firefox */\n}\nh1[data-v-4e14df48], .info h3[data-v-4e14df48]{\n        text-align: center;\n}\n.info h3[data-v-4e14df48], .request[data-v-4e14df48]{\n        color: white;\n        text-transform: capitalize;\n}\nh1[data-v-4e14df48]{\n        font-size: 55px;\n}\n.my_card[data-v-4e14df48]{\n        margin: 50px auto;\n        max-width: 60%;\n        padding: 10px;\n        /* background: rgba(210, 206, 206, 0.861); */\n        /* background: #ededed; */\n        /* background-image: url('https://i.stack.imgur.com/MkSui.jpg'); */\n        background-image: url('https://icbstexas.com/wp-content/uploads/split-color-background.jpg');\n        background-repeat: no-repeat;\n        background-position: center;\n        background-size: cover;\n        border-radius: 10px;\n        /* border: 1px solid black; */\n        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);\n        transition: 1s;\n}\n.my_card[data-v-4e14df48]:hover{\n        cursor: pointer;\n        transform: scale(1.03);\n}\n.my_card:hover a[data-v-4e14df48]{\n        text-decoration: none;\n}\n.request[data-v-4e14df48]{\n        display: flex;\n        padding: 5px;\n        border-radius: 10px;\n        background: rgba(28, 28, 28, 0.8);\n        max-height: 200px;\n}\n.request ul[data-v-4e14df48]{\n        max-height: 150px;\n        overflow: scroll;\n}\n.request ul[data-v-4e14df48]::-webkit-scrollbar {\n        display: none;\n}\n.request ul[data-v-4e14df48]{\n        -ms-overflow-style: none;  /* IE and Edge */\n        scrollbar-width: none;  /* Firefox */\n}\n.categories li[data-v-4e14df48], .events li[data-v-4e14df48], .references li[data-v-4e14df48]{\n        list-style: none;\n        margin-left: 5px;\n        font-size: 17px;\n}\n.references ul[data-v-4e14df48]{\n        display: flex;\n        justify-content: space-between;\n        align-items: center;\n}\n.references li[data-v-4e14df48]{\n        display: inline;\n        font-size: 15px;\n}\n.references[data-v-4e14df48]{\n        padding: 0 50px;\n        /* margin-top: 20px; */\n}\n.categories li[data-v-4e14df48]{\n        color: rgba(91, 121, 93);\n}\n.events li[data-v-4e14df48]{\n        color: rgba(175, 108, 195);\n}\n.categories div[data-v-4e14df48], .events div[data-v-4e14df48]{\n        border-radius: 15px;\n        padding: 15px;\n}\n.top[data-v-4e14df48]{\n        display: flex;\n        flex-wrap: wrap;\n        padding: 15px 0;\n}\n\n    /* .container{\n        -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n        border-radius: 10px;\n        padding: 20px;\n        margin-bottom: 40px;\n    }\n    */\n.info[data-v-4e14df48]{\n        display: flex;\n        flex-direction: column;\n        justify-content: center;\n        align-items: center;\n}\n.info img[data-v-4e14df48]{\n        height: 200px;\n        width: 200px;\n        border-radius: 50%;\n}\n.references img[data-v-4e14df48]{\n        width: 25px;\n        height: auto;\n        color: #527a5a;\n}\n.references li[data-v-4e14df48]{\n        color: black;\n        text-transform: capitalize;\n}\n.references #reviews[data-v-4e14df48]{\n        display: flex;\n}\n@media only screen and (max-width: 700px) {\n.categories[data-v-4e14df48], .events[data-v-4e14df48]{\n            padding: 0;\n}\n.categories div[data-v-4e14df48], .events div[data-v-4e14df48]{\n            max-width: 80%;\n}\n.my_card[data-v-4e14df48]{\n            max-width: 90%;\n}\n.references[data-v-4e14df48]{\n            padding: 0 30px;\n}\n}\n@media only screen and (max-width: 1000px){\n.references p[data-v-4e14df48]{\n        display: none;\n}\n.references #reviews[data-v-4e14df48]{\n        margin-top: 10px;\n}\n.references ul[data-v-4e14df48]{\n        display: flex;\n        flex-direction: column;\n}\n}\n", ""]);
+exports.push([module.i, "\n.select[data-v-4e14df48]{\r\n  display: flex;\r\n  justify-content: center;\r\n  color: black;\r\n  font-size: 24px;\r\n  font-weight: bold;\n}\nselect[data-v-4e14df48]{\r\n  margin-left: 10px;\r\n  background:transparent;\r\n  border: 0;\r\n  cursor: pointer;\r\n  max-width: 100px;\r\n  font-size: 18px;\n}\n.background[data-v-4e14df48]{\r\n        /* background-image: url(\"../../../images/pexels-picjumbocom-196652.jpg\");\r\n        background-repeat: no-repeat;\r\n        background-position: center;\r\n        background-size: cover; */\r\n        /* background: #E8EBF8; */\r\n        /* background: #595766ad; */\r\n        padding: 15px 0;\r\n        background: #2a292985;\n}\n.background[data-v-4e14df48]::-webkit-scrollbar {\r\n        display: none;\n}\n.background[data-v-4e14df48] {\r\n        -ms-overflow-style: none;  /* IE and Edge */\r\n        scrollbar-width: none;  /* Firefox */\n}\nh1[data-v-4e14df48], .info h3[data-v-4e14df48]{\r\n        text-align: center;\n}\n.info h3[data-v-4e14df48], .request[data-v-4e14df48]{\r\n        color: white;\r\n        text-transform: capitalize;\n}\nh1[data-v-4e14df48]{\r\n        font-size: 55px;\n}\n.my_card[data-v-4e14df48]{\r\n        margin: 50px auto;\r\n        max-width: 60%;\r\n        padding: 10px;\r\n        /* background: rgba(210, 206, 206, 0.861); */\r\n        /* background: #ededed; */\r\n        /* background-image: url('https://i.stack.imgur.com/MkSui.jpg'); */\r\n        background-image: url('https://icbstexas.com/wp-content/uploads/split-color-background.jpg');\r\n        background-repeat: no-repeat;\r\n        background-position: center;\r\n        background-size: cover;\r\n        border-radius: 10px;\r\n        /* border: 1px solid black; */\r\n        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);\r\n        transition: 1s;\n}\n.my_card[data-v-4e14df48]:hover{\r\n        cursor: pointer;\r\n        transform: scale(1.03);\n}\n.my_card:hover a[data-v-4e14df48]{\r\n        text-decoration: none;\n}\n.request[data-v-4e14df48]{\r\n        display: flex;\r\n        padding: 5px;\r\n        border-radius: 10px;\r\n        background: rgba(28, 28, 28, 0.8);\r\n        max-height: 200px;\n}\n.request ul[data-v-4e14df48]{\r\n        max-height: 150px;\r\n        overflow: scroll;\n}\n.request ul[data-v-4e14df48]::-webkit-scrollbar {\r\n        display: none;\n}\n.request ul[data-v-4e14df48]{\r\n        -ms-overflow-style: none;  /* IE and Edge */\r\n        scrollbar-width: none;  /* Firefox */\n}\n.categories li[data-v-4e14df48], .events li[data-v-4e14df48], .references li[data-v-4e14df48]{\r\n        list-style: none;\r\n        margin-left: 5px;\r\n        font-size: 17px;\n}\n.references ul[data-v-4e14df48]{\r\n        display: flex;\r\n        justify-content: space-between;\r\n        align-items: center;\n}\n.references li[data-v-4e14df48]{\r\n        display: inline;\r\n        font-size: 15px;\n}\n.references[data-v-4e14df48]{\r\n        padding: 0 50px;\r\n        /* margin-top: 20px; */\n}\n.categories li[data-v-4e14df48]{\r\n        color: rgba(91, 121, 93);\n}\n.events li[data-v-4e14df48]{\r\n        color: rgba(175, 108, 195);\n}\n.categories div[data-v-4e14df48], .events div[data-v-4e14df48]{\r\n        border-radius: 15px;\r\n        padding: 15px;\n}\n.top[data-v-4e14df48]{\r\n        display: flex;\r\n        flex-wrap: wrap;\r\n        padding: 15px 0;\n}\r\n\r\n    /* .container{\r\n        -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\r\n        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\r\n        border-radius: 10px;\r\n        padding: 20px;\r\n        margin-bottom: 40px;\r\n    }\r\n    */\n.info[data-v-4e14df48]{\r\n        display: flex;\r\n        flex-direction: column;\r\n        justify-content: center;\r\n        align-items: center;\n}\n.info img[data-v-4e14df48]{\r\n        height: 200px;\r\n        width: 200px;\r\n        border-radius: 50%;\n}\n.references img[data-v-4e14df48]{\r\n        width: 25px;\r\n        height: auto;\r\n        color: #527a5a;\n}\n.references li[data-v-4e14df48]{\r\n        color: black;\r\n        text-transform: capitalize;\n}\n.references #reviews[data-v-4e14df48]{\r\n        display: flex;\n}\n@media only screen and (max-width: 700px) {\n.categories[data-v-4e14df48], .events[data-v-4e14df48]{\r\n            padding: 0;\n}\n.categories div[data-v-4e14df48], .events div[data-v-4e14df48]{\r\n            max-width: 80%;\n}\n.my_card[data-v-4e14df48]{\r\n            max-width: 90%;\n}\n.references[data-v-4e14df48]{\r\n            padding: 0 30px;\n}\n}\n@media only screen and (max-width: 1000px){\n.references p[data-v-4e14df48]{\r\n        display: none;\n}\n.references #reviews[data-v-4e14df48]{\r\n        margin-top: 10px;\n}\n.references ul[data-v-4e14df48]{\r\n        display: flex;\r\n        flex-direction: column;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -39272,6 +39342,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/guest/pages/Musicians.vue?vue&type=style&index=0&id=18581212&lang=scss&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--8-2!./node_modules/sass-loader/dist/cjs.js??ref--8-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/guest/pages/Musicians.vue?vue&type=style&index=0&id=18581212&lang=scss&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--8-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--8-3!../../../../node_modules/vue-loader/lib??vue-loader-options!./Musicians.vue?vue&type=style&index=0&id=18581212&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/guest/pages/Musicians.vue?vue&type=style&index=0&id=18581212&lang=scss&scoped=true&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/guest/pages/PageNotFound.vue?vue&type=style&index=0&id=103278be&lang=scss&scoped=true&":
 /*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--8-2!./node_modules/sass-loader/dist/cjs.js??ref--8-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/guest/pages/PageNotFound.vue?vue&type=style&index=0&id=103278be&lang=scss&scoped=true& ***!
@@ -39415,36 +39515,6 @@ options.transform = transform
 options.insertInto = undefined;
 
 var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/guest/pages/Musicians.vue?vue&type=style&index=0&id=18581212&scoped=true&lang=css&":
-/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/guest/pages/Musicians.vue?vue&type=style&index=0&id=18581212&scoped=true&lang=css& ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--7-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--7-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Musicians.vue?vue&type=style&index=0&id=18581212&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/guest/pages/Musicians.vue?vue&type=style&index=0&id=18581212&scoped=true&lang=css&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -41103,26 +41173,32 @@ var render = function () {
                             [
                               _c("p", [_vm._v("Recensioni:")]),
                               _vm._v(" "),
-                              musician.reviews > 1
-                                ? _c(
-                                    "div",
-                                    _vm._l(
-                                      _vm.getAvgVote(musician.reviews),
-                                      function (nota) {
-                                        return _c(
-                                          "span",
-                                          { key: "piena" + nota },
-                                          [
-                                            _vm._v(
-                                              "\n                                                2\n                                            "
-                                            ),
-                                          ]
-                                        )
-                                      }
+                              musician.reviews.length > 0
+                                ? _c("div", [
+                                    _c(
+                                      "div",
+                                      { staticClass: "notes big-notes" },
+                                      [
+                                        _c("div", {
+                                          staticClass: "notes_inner",
+                                          class: _vm.starsWidth(
+                                            musician.reviews
+                                          ),
+                                        }),
+                                      ]
                                     ),
-                                    0
-                                  )
-                                : _vm._e(),
+                                  ])
+                                : _c("div", [
+                                    _c(
+                                      "div",
+                                      { staticClass: "notes big-notes" },
+                                      [
+                                        _c("div", {
+                                          staticClass: "notes_inner starFill0",
+                                        }),
+                                      ]
+                                    ),
+                                  ]),
                             ]
                           ),
                         ]),
@@ -41457,7 +41533,7 @@ var render = function () {
                       expression: "messageData.name",
                     },
                   ],
-                  attrs: { type: "text", placeholder: "Nome" },
+                  attrs: { type: "text", placeholder: "Nome", required: "" },
                   domProps: { value: _vm.messageData.name },
                   on: {
                     input: function ($event) {
@@ -41478,7 +41554,7 @@ var render = function () {
                       expression: "messageData.surname",
                     },
                   ],
-                  attrs: { type: "text", placeholder: "Cognome" },
+                  attrs: { type: "text", placeholder: "Cognome", required: "" },
                   domProps: { value: _vm.messageData.surname },
                   on: {
                     input: function ($event) {
@@ -41499,7 +41575,7 @@ var render = function () {
                       expression: "messageData.email",
                     },
                   ],
-                  attrs: { type: "email", placeholder: "Email" },
+                  attrs: { type: "email", placeholder: "Email", required: "" },
                   domProps: { value: _vm.messageData.email },
                   on: {
                     input: function ($event) {
@@ -41549,6 +41625,7 @@ var render = function () {
                     cols: "30",
                     rows: "10",
                     placeholder: "Scrivi il tuo messaggio",
+                    required: "",
                   },
                   domProps: { value: _vm.messageData.content },
                   on: {
@@ -41619,6 +41696,7 @@ var render = function () {
                     id: "username",
                     type: "text",
                     placeholder: "Username",
+                    required: "",
                   },
                   domProps: { value: _vm.reviewData.username },
                   on: {
@@ -41630,108 +41708,6 @@ var render = function () {
                     },
                   },
                 }),
-                _vm._v(" "),
-                _c("div", { staticClass: "votes d-flex" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.reviewData.vote,
-                        expression: "reviewData.vote",
-                      },
-                    ],
-                    attrs: { type: "radio", id: "one", value: "1" },
-                    domProps: { checked: _vm._q(_vm.reviewData.vote, "1") },
-                    on: {
-                      change: function ($event) {
-                        return _vm.$set(_vm.reviewData, "vote", "1")
-                      },
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "1" } }, [_vm._v("1")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.reviewData.vote,
-                        expression: "reviewData.vote",
-                      },
-                    ],
-                    attrs: { type: "radio", id: "two", value: "2" },
-                    domProps: { checked: _vm._q(_vm.reviewData.vote, "2") },
-                    on: {
-                      change: function ($event) {
-                        return _vm.$set(_vm.reviewData, "vote", "2")
-                      },
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "2" } }, [_vm._v("2")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.reviewData.vote,
-                        expression: "reviewData.vote",
-                      },
-                    ],
-                    attrs: { type: "radio", id: "one", value: "3" },
-                    domProps: { checked: _vm._q(_vm.reviewData.vote, "3") },
-                    on: {
-                      change: function ($event) {
-                        return _vm.$set(_vm.reviewData, "vote", "3")
-                      },
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "3" } }, [_vm._v("3")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.reviewData.vote,
-                        expression: "reviewData.vote",
-                      },
-                    ],
-                    attrs: { type: "radio", id: "two", value: "4" },
-                    domProps: { checked: _vm._q(_vm.reviewData.vote, "4") },
-                    on: {
-                      change: function ($event) {
-                        return _vm.$set(_vm.reviewData, "vote", "4")
-                      },
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "4" } }, [_vm._v("4")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.reviewData.vote,
-                        expression: "reviewData.vote",
-                      },
-                    ],
-                    attrs: { type: "radio", id: "two", value: "5" },
-                    domProps: { checked: _vm._q(_vm.reviewData.vote, "5") },
-                    on: {
-                      change: function ($event) {
-                        return _vm.$set(_vm.reviewData, "vote", "5")
-                      },
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "5" } }, [_vm._v("5")]),
-                ]),
                 _vm._v(" "),
                 _c("textarea", {
                   directives: [
@@ -41759,7 +41735,144 @@ var render = function () {
                   },
                 }),
                 _vm._v(" "),
-                _vm._m(1),
+                _c("div", { attrs: { id: "full-stars-example" } }, [
+                  _c("p", [_vm._v("Valutazione:")]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "rating-group" }, [
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.reviewData.vote,
+                          expression: "reviewData.vote",
+                        },
+                      ],
+                      staticClass: "rating__input",
+                      attrs: {
+                        name: "rating",
+                        id: "rating-1",
+                        value: "1",
+                        type: "radio",
+                      },
+                      domProps: { checked: _vm._q(_vm.reviewData.vote, "1") },
+                      on: {
+                        change: function ($event) {
+                          return _vm.$set(_vm.reviewData, "vote", "1")
+                        },
+                      },
+                    }),
+                    _vm._v(" "),
+                    _vm._m(2),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.reviewData.vote,
+                          expression: "reviewData.vote",
+                        },
+                      ],
+                      staticClass: "rating__input",
+                      attrs: {
+                        name: "rating",
+                        id: "rating-2",
+                        value: "2",
+                        type: "radio",
+                      },
+                      domProps: { checked: _vm._q(_vm.reviewData.vote, "2") },
+                      on: {
+                        change: function ($event) {
+                          return _vm.$set(_vm.reviewData, "vote", "2")
+                        },
+                      },
+                    }),
+                    _vm._v(" "),
+                    _vm._m(3),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.reviewData.vote,
+                          expression: "reviewData.vote",
+                        },
+                      ],
+                      staticClass: "rating__input",
+                      attrs: {
+                        name: "rating",
+                        id: "rating-3",
+                        value: "3",
+                        type: "radio",
+                      },
+                      domProps: { checked: _vm._q(_vm.reviewData.vote, "3") },
+                      on: {
+                        change: function ($event) {
+                          return _vm.$set(_vm.reviewData, "vote", "3")
+                        },
+                      },
+                    }),
+                    _vm._v(" "),
+                    _vm._m(4),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.reviewData.vote,
+                          expression: "reviewData.vote",
+                        },
+                      ],
+                      staticClass: "rating__input",
+                      attrs: {
+                        name: "rating",
+                        id: "rating-4",
+                        value: "4",
+                        type: "radio",
+                        checked: "",
+                      },
+                      domProps: { checked: _vm._q(_vm.reviewData.vote, "4") },
+                      on: {
+                        change: function ($event) {
+                          return _vm.$set(_vm.reviewData, "vote", "4")
+                        },
+                      },
+                    }),
+                    _vm._v(" "),
+                    _vm._m(5),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.reviewData.vote,
+                          expression: "reviewData.vote",
+                        },
+                      ],
+                      staticClass: "rating__input",
+                      attrs: {
+                        name: "rating",
+                        id: "rating-5",
+                        value: "5",
+                        type: "radio",
+                      },
+                      domProps: { checked: _vm._q(_vm.reviewData.vote, "5") },
+                      on: {
+                        change: function ($event) {
+                          return _vm.$set(_vm.reviewData, "vote", "5")
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _vm._m(6),
               ]
             ),
           ]),
@@ -41821,7 +41934,7 @@ var render = function () {
             ]),
           ]),
           _vm._v(" "),
-          _vm._m(2),
+          _vm._m(7),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "singleMusician-profile_right" }, [
@@ -42007,6 +42120,91 @@ var staticRenderFns = [
         _c("i", { staticClass: "fa-solid fa-paper-plane" }),
       ]),
     ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      {
+        staticClass: "rating__label",
+        attrs: { "aria-label": "1 star", for: "rating-1" },
+      },
+      [
+        _c("i", {
+          staticClass: "rating__icon rating__icon--star fa-solid fa-music",
+        }),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      {
+        staticClass: "rating__label",
+        attrs: { "aria-label": "2 stars", for: "rating-2" },
+      },
+      [
+        _c("i", {
+          staticClass: "rating__icon rating__icon--star fa-solid fa-music",
+        }),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      {
+        staticClass: "rating__label",
+        attrs: { "aria-label": "3 stars", for: "rating-3" },
+      },
+      [
+        _c("i", {
+          staticClass: "rating__icon rating__icon--star fa-solid fa-music",
+        }),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      {
+        staticClass: "rating__label",
+        attrs: { "aria-label": "4 stars", for: "rating-4" },
+      },
+      [
+        _c("i", {
+          staticClass: "rating__icon rating__icon--star fa-solid fa-music",
+        }),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      {
+        staticClass: "rating__label",
+        attrs: { "aria-label": "5 stars", for: "rating-5" },
+      },
+      [
+        _c("i", {
+          staticClass: "rating__icon rating__icon--star fa-solid fa-music",
+        }),
+      ]
+    )
   },
   function () {
     var _vm = this
@@ -57592,7 +57790,7 @@ module.exports = "/images/service-3.svg?eba2a9055d13786db8f54b0f3ba5d556";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/wave.svg?aef79995629b40b24f4277c44b0be010";
+module.exports = "/images/wave.svg?3d8bc604125d77811c1a4e9267f06eba";
 
 /***/ }),
 
@@ -58499,7 +58697,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Musicians_vue_vue_type_template_id_18581212_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Musicians.vue?vue&type=template&id=18581212&scoped=true& */ "./resources/js/guest/pages/Musicians.vue?vue&type=template&id=18581212&scoped=true&");
 /* harmony import */ var _Musicians_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Musicians.vue?vue&type=script&lang=js& */ "./resources/js/guest/pages/Musicians.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _Musicians_vue_vue_type_style_index_0_id_18581212_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Musicians.vue?vue&type=style&index=0&id=18581212&scoped=true&lang=css& */ "./resources/js/guest/pages/Musicians.vue?vue&type=style&index=0&id=18581212&scoped=true&lang=css&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Musicians_vue_vue_type_style_index_0_id_18581212_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Musicians.vue?vue&type=style&index=0&id=18581212&lang=scss&scoped=true& */ "./resources/js/guest/pages/Musicians.vue?vue&type=style&index=0&id=18581212&lang=scss&scoped=true&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -58541,18 +58739,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/guest/pages/Musicians.vue?vue&type=style&index=0&id=18581212&scoped=true&lang=css&":
-/*!*********************************************************************************************************!*\
-  !*** ./resources/js/guest/pages/Musicians.vue?vue&type=style&index=0&id=18581212&scoped=true&lang=css& ***!
-  \*********************************************************************************************************/
+/***/ "./resources/js/guest/pages/Musicians.vue?vue&type=style&index=0&id=18581212&lang=scss&scoped=true&":
+/*!**********************************************************************************************************!*\
+  !*** ./resources/js/guest/pages/Musicians.vue?vue&type=style&index=0&id=18581212&lang=scss&scoped=true& ***!
+  \**********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Musicians_vue_vue_type_style_index_0_id_18581212_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--7-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--7-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Musicians.vue?vue&type=style&index=0&id=18581212&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/guest/pages/Musicians.vue?vue&type=style&index=0&id=18581212&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Musicians_vue_vue_type_style_index_0_id_18581212_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Musicians_vue_vue_type_style_index_0_id_18581212_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Musicians_vue_vue_type_style_index_0_id_18581212_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Musicians_vue_vue_type_style_index_0_id_18581212_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Musicians_vue_vue_type_style_index_0_id_18581212_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--8-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--8-3!../../../../node_modules/vue-loader/lib??vue-loader-options!./Musicians.vue?vue&type=style&index=0&id=18581212&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/guest/pages/Musicians.vue?vue&type=style&index=0&id=18581212&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Musicians_vue_vue_type_style_index_0_id_18581212_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Musicians_vue_vue_type_style_index_0_id_18581212_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Musicians_vue_vue_type_style_index_0_id_18581212_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Musicians_vue_vue_type_style_index_0_id_18581212_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),
@@ -58897,7 +59095,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/francescoabritta/Documents/unison/resources/js/guest/front.js */"./resources/js/guest/front.js");
+module.exports = __webpack_require__(/*! C:\Users\simon\Desktop\unison\resources\js\guest\front.js */"./resources/js/guest/front.js");
 
 
 /***/ })

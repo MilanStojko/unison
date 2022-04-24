@@ -17,6 +17,8 @@ class CreateSponsorshipUserTable extends Migration
             $table->id();
             $table->foreignId('sponsorship_id')->constrained()->onDelete("cascade");
             $table->foreignId('user_id')->constrained()->onDelete("cascade");
+            $table->dateTime('start_date');
+            $table->dateTime('expiration');
             $table->timestamps();
         });
     }

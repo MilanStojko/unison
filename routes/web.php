@@ -26,7 +26,14 @@ Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->
     Route::resource('/messages', 'MessageController');
     Route::resource('/reviews', 'ReviewController');
     Route::resource('/sponsorships', 'SponsorshipController');
+    //PAGAMENTO
+    Route::get('/users/{user:id}/sponsorship', 'PaymentsController@process')->name('payment');
+    Route::post('/users/{user:id}/sponsorship/checkout', 'PaymentsController@checkout')->name('paymentcheckout');
 });
+
+// //BRAINTREE
+// Route::get('/payment/process', 'PaymentsController@process')->name('payment.process');
+// Route::post('/payment/process', 'PaymentsController@process')->name('payment.process');
 
 Route::get('{any?}', function () {
     return view('front');
