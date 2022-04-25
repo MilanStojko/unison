@@ -79,13 +79,13 @@ export default {
     //Tutte le prestazioni
     getAvailability() {
       axios
-        .get(`/api/filtered/getAvailability/${this.$route.params.query}`, {
+        .get(`/api/filtered/getavailability/?name=canto`, {
           paramas: {
-            query: this.ava,
+            name: this.ava,
           },
         })
         .then((response) => {
-          this.musicians = response.data.results;
+          this.musicians = response.data;
         })
         .catch(function (error) {
           console.log(error.response.data);
