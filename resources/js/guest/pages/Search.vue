@@ -33,10 +33,11 @@
                     </select>
                     <button @click="changeAvailability()">Cerca</button>
                  </div>
-                <h2>Filtra per:</h2>
-                <button @click="changeOrderReviews()"><i class="fa-solid fa-music"></i> Recensioni</button>
-                <div class="d-flex">
-                    <!--Emoji Rating-->
+                 <div class="filters">  
+                     <h3>Ordina per:</h3>
+                    <button @click="changeOrderReviews()"><i class="fa-solid fa-arrow-up"></i> Recensioni</button>
+                    <div class="d-flex clacFileter">
+                         <!--Emoji Rating-->
                         <div class="full-stars-example">
                             <div class="rating-group">
                                 <label
@@ -123,9 +124,10 @@
                             </div>
                         </div>
                         <!--Emoji Rating Ends-->
-                        <button @click="changeOrderVotes()">Calcola</button>
+                        <button @click="changeOrderVotes()">Voto</button>
                 </div>
-                
+                 </div>
+ 
             </div>
             
             
@@ -232,12 +234,11 @@ export default {
         .then((response) => {
           this.musicians = response.data;
           console.log(this.musicians)
-          console.log('ciao')
         })
         .catch(function (error) {
           console.log(error.response.data);
         });
-        this.$router.push({ query: { name: this.valore } });
+        this.$router.push({ path: "search", query: { name: this.valore } });
     },
 
     starsWidth: function (numero) {
@@ -497,10 +498,13 @@ select{
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 5px 0px;
+        flex-wrap: wrap;
+        padding: 10px 0px;
 
-        h2 {
-            margin-right: 20px;
+        h3 {
+            margin-right: 10px;
+            margin-bottom: 0px;
+            color: #5b5b5b;
         }
 
         button {
@@ -519,10 +523,34 @@ select{
         }
     }
 
+    .filters {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .clacFileter {
+        background-color: rgb(221, 221, 221);
+        padding-left: 5px;
+
+        button {
+            margin-right: 0px;
+        }
+    }
+
     .rating__label {
         cursor: pointer;
         padding: 0 0.1em;
         font-size: 1.5rem;
+    }
+
+    .change-avaliability {
+        margin-right: 20px;
+        border-right: 1px solid rgb(188, 188, 188);
+        
+        select {
+            min-width: 400px
+        }
     }
 
 
