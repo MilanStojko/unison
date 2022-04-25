@@ -17,7 +17,7 @@
                 <h1 class="plan-price">24 ore</h1>
                 <p>a</p>
                 <h3 class="plan-time">2,99 €</h3>
-                {{-- <a href="{{route('admin/users/'.auth()->user()->id.'/paytree')}}">Acquista</a> --}}
+                <a href="{{route('admin.payment', auth()->user())}}">Acquista</a>
             </div>
         </div>
         <div class="col-lg-3 col-12 text-center d-flex justify-content-between flex-column py-3 plan-b plan-card">
@@ -26,6 +26,7 @@
                 <h1 class="plan-price">72 ore</h1>
                 <p>a</p>
                 <h3 class="plan-time">5,99 €</h3>
+                <a href="{{route('admin.payment', auth()->user())}}">Acquista</a>
             </div>
         </div>
         <div class="col-lg-3 col-12 text-center d-flex justify-content-between flex-column py-3 plan-c plan-card">
@@ -34,6 +35,7 @@
                 <h1 class="plan-price">144 ore</h1>
                 <p>a</p>
                 <h3 class="plan-time">9,99 €</h3>
+                <a href="{{route('admin.payment', auth()->user())}}">Acquista</a>
             </div>
         </div>
     </div>
