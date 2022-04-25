@@ -1975,48 +1975,86 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Footer",
   data: function data() {
     return {
-      linkfooter1: [{
-        name: "linklinklink"
+      Contattaci: [{
+        name: "FAQ"
       }, {
-        name: "linklinklink"
+        name: "Assistenza clienti"
       }, {
-        name: "linklinklink"
+        name: "Newsletter"
       }, {
-        name: "linklinklink"
-      }, {
-        name: "linklinklink"
-      }, {
-        name: "linklinklink"
-      }, {
-        name: "linklinklink"
+        name: "Area personale"
       }],
-      linkfooter2: [{
-        name: "linklinklink"
+      Note: [{
+        name: "Privacy"
       }, {
-        name: "linklinklink"
+        name: "Cookies"
       }, {
-        name: "linklinklink"
+        name: "Avvertenza legale"
       }, {
-        name: "linklinklink"
-      }, {
-        name: "linklinklink"
+        name: "Informativa"
       }],
-      linkfooter3: [{
-        name: "linklinklink"
+      Conosciamoci: [{
+        name: "Chi siamo"
       }, {
-        name: "linklinklink"
+        name: "Lavora con noi"
       }, {
-        name: "linklinklink"
-      }, {
-        name: "linklinklink"
-      }, {
-        name: "linklinklink"
-      }, {
-        name: "linklinklink"
+        name: "UNISON"
       }]
     };
   }
@@ -7925,7 +7963,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\nfooter[data-v-4a9fdc62]{\n    padding: 60px;\n    background: black;\n    color: white;\n}\n.top[data-v-4a9fdc62]{\n    display: flex;\n}\n.link[data-v-4a9fdc62]{\n    display: flex;\n}\nul[data-v-4a9fdc62]{\n    list-style: none;\n}\na[data-v-4a9fdc62]{\n    color: rgb(81, 81, 81);\n    text-decoration: none;\n}\na[data-v-4a9fdc62]:hover{\n    color: white;\n}\n.bottom[data-v-4a9fdc62]{\n    margin-top: 50px;\n    font-size: 14px;\n    text-align: center;\n}\n@media only screen and (max-width: 1000px){\n.top[data-v-4a9fdc62]{\n        display: block;\n}\n.lorem[data-v-4a9fdc62]{\n        margin-bottom: 40px;\n}\n}\n", ""]);
+exports.push([module.i, "\n.pre[data-v-4a9fdc62]{\n    background: rgb(59, 104, 151);\n    padding: 30px;\n    color: white;\n}\n.profiles[data-v-4a9fdc62]{\n    display: flex;\n    justify-content: space-between;\n    flex-wrap: wrap;\n}\n.card[data-v-4a9fdc62]{\n    border: 0;\n    background: transparent;\n    padding: 0px;\n    margin: 40px 0;\n}\n.card h4[data-v-4a9fdc62]{\n    text-align: center;\n}\n.social[data-v-4a9fdc62]{\n    margin-top: 15px;\n    display: flex;\n    justify-content: center;\n}\n.social a[data-v-4a9fdc62]{\n    padding: 0 15px;\n}\n.bottom[data-v-4a9fdc62]{\n    background: black;\n    padding: 60px 30px;\n}\n.squares[data-v-4a9fdc62]{\n    display: flex;\n    justify-content: space-between;\n    flex-wrap: wrap;\n    /* row-gap: 20px; */\n}\n.square[data-v-4a9fdc62]{\n    padding: 20px;\n    color: white;\n}\n.square li[data-v-4a9fdc62]{\n    list-style: none;\n    margin-left: 10px;\n}\n.pre img[data-v-4a9fdc62]{\n    width: 30px;\n}\n.bottom img[data-v-4a9fdc62]{\n    width: 80%;\n}\n.pre a[data-v-4a9fdc62]{\n    color: black;\n}\na[data-v-4a9fdc62]{\n    text-decoration: none;\n    color: white;\n    opacity: 0.5;\n}\na[data-v-4a9fdc62]:hover{\n    opacity: 1;\n}\n", ""]);
 
 // exports
 
@@ -40196,69 +40234,235 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("footer", [
-    _c("div", { staticClass: "top" }, [
-      _c("div", { staticClass: "lorem col-lg-4 col-sm-12" }, [
-        _vm._v(
-          "\n            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi quae quo quis, fugiat earum quasi cumque in delectus, nulla voluptatem, aperiam inventore numquam porro natus dolores? Nostrum quibusdam neque repellat eaque recusandae, odit iste distinctio magni assumenda culpa quos vel natus, numquam laborum. Soluta quo quibusdam quidem, suscipit ea neque!\n        "
-        ),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-lg-2" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "link col-lg-6 col-sm-12" }, [
-        _c(
-          "ul",
-          { staticClass: "col-4" },
-          [
-            _c("h2", [_vm._v("LINK")]),
-            _vm._v(" "),
-            _vm._l(_vm.linkfooter1, function (link, index) {
-              return _c("li", { key: index }, [
-                _c("a", { attrs: { href: "" } }, [_vm._v(_vm._s(link.name))]),
-              ])
-            }),
-          ],
-          2
-        ),
-        _vm._v(" "),
-        _c(
-          "ul",
-          { staticClass: "col-4" },
-          [
-            _c("h2", [_vm._v("LINK")]),
-            _vm._v(" "),
-            _vm._l(_vm.linkfooter2, function (link, index) {
-              return _c("li", { key: index }, [
-                _c("a", { attrs: { href: "" } }, [_vm._v(_vm._s(link.name))]),
-              ])
-            }),
-          ],
-          2
-        ),
-        _vm._v(" "),
-        _c(
-          "ul",
-          { staticClass: "col-4" },
-          [
-            _c("h2", [_vm._v("LINK")]),
-            _vm._v(" "),
-            _vm._l(_vm.linkfooter3, function (link, index) {
-              return _c("li", { key: index }, [
-                _c("a", { attrs: { href: "" } }, [_vm._v(_vm._s(link.name))]),
-              ])
-            }),
-          ],
-          2
-        ),
-      ]),
-    ]),
+    _vm._m(0),
     _vm._v(" "),
     _c("div", { staticClass: "bottom" }, [
-      _vm._v("\n        Sede a Battipaglia, made by Group 6 Boolean.\n    "),
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "squares" }, [
+          _c("div", { staticClass: "square col-lg-3 col-md-6 col-sm-12" }, [
+            _c("h4", [_vm._v("Contattaci")]),
+            _vm._v(" "),
+            _c(
+              "ul",
+              _vm._l(_vm.Contattaci, function (voce, indice) {
+                return _c("li", { key: indice + "contattaci" }, [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _vm._v(_vm._s(voce.name)),
+                  ]),
+                ])
+              }),
+              0
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "square col-lg-3 col-md-6 col-sm-12" }, [
+            _c("h4", [_vm._v("Note Legali")]),
+            _vm._v(" "),
+            _c(
+              "ul",
+              _vm._l(_vm.Note, function (voce, indice) {
+                return _c("li", { key: indice + "note" }, [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _vm._v(_vm._s(voce.name)),
+                  ]),
+                ])
+              }),
+              0
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "square col-lg-3 col-md-6 col-sm-12" }, [
+            _c("h4", [_vm._v("Conosciamoci Meglio")]),
+            _vm._v(" "),
+            _c(
+              "ul",
+              _vm._l(_vm.Conosciamoci, function (voce, indice) {
+                return _c("li", { key: indice + "conosciamoci" }, [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _vm._v(_vm._s(voce.name)),
+                  ]),
+                ])
+              }),
+              0
+            ),
+          ]),
+          _vm._v(" "),
+          _vm._m(1),
+        ]),
+      ]),
     ]),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "pre" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "profiles" }, [
+          _c("div", { staticClass: "card col-lg-3 col-md-6 col-sm-6" }, [
+            _c("h4", [_vm._v("Francesco Abritta")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "social" }, [
+              _c(
+                "a",
+                { attrs: { href: "https://github.com/francesco-abritta" } },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../images/github.svg */ "./resources/images/github.svg"),
+                      alt: "",
+                    },
+                  }),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  attrs: {
+                    href: "https://linkedin.com/in/francesco-abritta-040988197",
+                  },
+                },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../images/linkedin.svg */ "./resources/images/linkedin.svg"),
+                      alt: "",
+                    },
+                  }),
+                ]
+              ),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card col-lg-3 col-md-6 col-sm-6" }, [
+            _c("h4", [_vm._v("Milan Stojkovic")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "social" }, [
+              _c("a", { attrs: { href: "https://github.com/MilanStojko" } }, [
+                _c("img", {
+                  attrs: {
+                    src: __webpack_require__(/*! ../../../images/github.svg */ "./resources/images/github.svg"),
+                    alt: "",
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  attrs: {
+                    href: "https://linkedin.com/in/milan-stojkovicjobs",
+                  },
+                },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../images/linkedin.svg */ "./resources/images/linkedin.svg"),
+                      alt: "",
+                    },
+                  }),
+                ]
+              ),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card col-lg-3 col-md-6 col-sm-6" }, [
+            _c("h4", [_vm._v("Hamza Bouzid")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "social" }, [
+              _c("a", { attrs: { href: "https://github.com/Hamza-bouzid" } }, [
+                _c("img", {
+                  attrs: {
+                    src: __webpack_require__(/*! ../../../images/github.svg */ "./resources/images/github.svg"),
+                    alt: "",
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c(
+                "a",
+                { attrs: { href: "https://linkedin.com/in/hamza-bouzid" } },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../images/linkedin.svg */ "./resources/images/linkedin.svg"),
+                      alt: "",
+                    },
+                  }),
+                ]
+              ),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card col-lg-3 col-md-6 col-sm-6" }, [
+            _c("h4", [_vm._v("Simone Massaro")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "social" }, [
+              _c("a", { attrs: { href: "https://github.com/SimoMassaro52" } }, [
+                _c("img", {
+                  attrs: {
+                    src: __webpack_require__(/*! ../../../images/github.svg */ "./resources/images/github.svg"),
+                    alt: "",
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  attrs: {
+                    href: "https://linkedin.com/in/simone-massaro-95ba2a140",
+                  },
+                },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../images/linkedin.svg */ "./resources/images/linkedin.svg"),
+                      alt: "",
+                    },
+                  }),
+                ]
+              ),
+            ]),
+          ]),
+        ]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "square col-lg-3 col-md-6 col-sm-12" }, [
+      _c("ul", [
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [
+            _c("img", {
+              attrs: {
+                src: __webpack_require__(/*! ../../../images/googleplay.png */ "./resources/images/googleplay.png"),
+                alt: "Scarica dal Play Store",
+              },
+            }),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [
+            _c("img", {
+              attrs: {
+                src: __webpack_require__(/*! ../../../images/app-store.png */ "./resources/images/app-store.png"),
+                alt: "Scarica dall'App Store",
+              },
+            }),
+          ]),
+        ]),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 
@@ -57661,6 +57865,17 @@ module.exports = "/images/band.svg?b92bd976389daeafaa6600d4eaf6a1a6";
 
 /***/ }),
 
+/***/ "./resources/images/github.svg":
+/*!*************************************!*\
+  !*** ./resources/images/github.svg ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/github.svg?544edda74777448803c2d7fc364f5335";
+
+/***/ }),
+
 /***/ "./resources/images/googleplay.png":
 /*!*****************************************!*\
   !*** ./resources/images/googleplay.png ***!
@@ -57735,6 +57950,17 @@ module.exports = "/images/jumbo-5.jpg?a824cc782cf6d96efff839f40b405d97";
 /***/ (function(module, exports) {
 
 module.exports = "/images/jumbo-6.jpg?f74a0b86e1e713f36c3e961f3462cdf1";
+
+/***/ }),
+
+/***/ "./resources/images/linkedin.svg":
+/*!***************************************!*\
+  !*** ./resources/images/linkedin.svg ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/linkedin.svg?34c3c12aa78fb79f214fcd87e00017d9";
 
 /***/ }),
 
