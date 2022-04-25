@@ -11003,7 +11003,7 @@ li {
   font-weight: bold;
   letter-spacing: 3px;
   font-size: 30px;
-  color: #f4821f;
+  color: #537a5a;
   padding: 10px;
 }
 
@@ -11021,8 +11021,8 @@ li {
 
 .u_navbar .logout:hover {
   text-decoration: none;
-  border-bottom: 2px solid #bd5db7;
-  color: #bd5db7;
+  border-bottom: 2px solid #537a5a;
+  color: #537a5a;
 }
 
 .u_navbar .logout i {
@@ -11073,7 +11073,7 @@ li {
 
 .u_menu a:hover {
   background-color: #0b0d0d;
-  border-left: 2px solid #bd5db7;
+  border-left: 2px solid #537a5a;
 }
 
 .u_menu i {
@@ -11082,7 +11082,7 @@ li {
 
 .u_menu .menu-active {
   background-color: #0b0d0d;
-  border-left: 2px solid #bd5db7;
+  border-left: 2px solid #537a5a;
 }
 
 .show {
@@ -11097,7 +11097,7 @@ li {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  border: 4px solid #bd5db7;
+  border: 4px solid #537a5a;
 }
 
 .u_btn_log {
@@ -11121,8 +11121,8 @@ li {
 .u_edit-user a:hover {
   text-decoration: none;
   color: #fff;
-  background-color: #bd5db7;
-  border: 1px solid #bd5db7;
+  background-color: #537a5a;
+  border: 1px solid #537a5a;
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
 }
 
@@ -11273,7 +11273,7 @@ li {
 }
 
 .category_spec-label {
-  color: #bd5db7 !important;
+  color: #537a5a !important;
   border-bottom: 1px solid #dcdcdc;
 }
 
@@ -11281,7 +11281,7 @@ li {
   font-weight: bold;
   letter-spacing: 3px;
   font-size: 30px;
-  color: #bd5db7;
+  color: #537a5a;
   padding-left: 10px;
 }
 
@@ -11306,7 +11306,7 @@ li {
 }
 
 .app-link a:hover {
-  color: #bd5db7 !important;
+  color: #537a5a !important;
 }
 
 .app-link i {
@@ -11314,11 +11314,11 @@ li {
 }
 
 .app-active {
-  border-bottom: 2px solid #bd5db7;
+  border-bottom: 2px solid #537a5a;
 }
 
 .app-active a {
-  color: #bd5db7 !important;
+  color: #537a5a !important;
 }
 
 .u_log-navbar {
@@ -11383,7 +11383,7 @@ li {
 }
 
 .u_messages a {
-  color: #bd5db7;
+  color: #537a5a;
   text-decoration: underline;
 }
 
@@ -11421,6 +11421,10 @@ li {
   border-bottom-left-radius: 30px;
 }
 
+.info {
+  font-size: 20px;
+}
+
 .plan-card {
   border: 1px solid black;
   box-shadow: 1px 1px 11px 3px rgba(0, 0, 0, 0.25);
@@ -11434,6 +11438,17 @@ li {
   transition: 0.4s;
   transform: scale(1.05);
   cursor: pointer;
+}
+
+.plan-card .u_btn_plan {
+  background-color: transparent;
+  width: 50%;
+  transition: 0.2s;
+}
+
+.plan-card .u_btn_plan a {
+  color: transparent;
+  text-decoration: none;
 }
 
 .plan-card::before {
@@ -11461,13 +11476,26 @@ li {
 }
 
 .plan-card:hover .plan-name {
-  transform: translate(0, 75px) scale(1.5);
+  transform: translate(0, 40px) scale(1.5);
   transition: 0.6s;
 }
 
 .plan-card:hover .plan-text {
-  transform: translate(0, -75px) scale(1.3);
+  transform: translate(0, -25px) scale(1.5);
   transition: 0.6s;
+}
+
+.plan-card:hover .u_btn_plan {
+  background-color: black;
+  transform: translate(0, 5px);
+}
+
+.plan-card:hover .u_btn_plan a {
+  color: white;
+}
+
+.plan-card:hover .u_btn_plan:hover {
+  transform: scale(1.1);
 }
 
 .plan-a .plan-name {
@@ -11499,5 +11527,10 @@ li {
 
 .plan-c::before {
   background-image: url(/images/queen.jpg?d1e678e8cea99053dac328e886dcc18b);
+}
+
+.clef {
+  color: #bd5db7;
+  font-size: 200px;
 }
 

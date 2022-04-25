@@ -30,7 +30,7 @@
 
 <body>  
     <nav class="u_navbar">
-        <a class="logo" href="http://127.0.0.1:8000/">Unison</a>
+        <a class="logo" href="http://127.0.0.1:8000/">Home page</a>
                 <div>
                     <a class="logout" href="{{ route('logout') }}" onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
@@ -52,7 +52,7 @@
                         @if(isset($user->avatar) || isset(auth()->user()->avatar))
                             <img src="{{asset('storage/'.auth()->user()->avatar)}}" alt="">
                          @else   
-                            <img src="{{URL::asset('/images/jumbo-2.png')}}">
+                            <img src="https://thumbs.dreamstime.com/b/profilo-utente-vettoriale-avatar-predefinito-179376714.jpg">
                          @endif
                         <h4>{{auth()->user()->name}} {{auth()->user()->surname}}</h4>
                     </div>
@@ -60,7 +60,7 @@
                         <li class="nav-item">
                             <a class="nav-link u_menu-info-link {{request()->is('admin') ? 'menu-active' : ''}}" href="{{route('admin.home')}}">
                                 <i class="bi bi-house-door"></i>
-                                Main menu
+                                Il mio profilo
                             </a>
                         </li>
                         {{-- <li class="nav-item">
@@ -82,7 +82,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link u_menu-info-link {{request()->is('admin/sponsorhips') ? 'menu-active' : ''}}" href="{{route('admin.sponsorships.index')}}">
+                            <a class="nav-link u_menu-info-link {{request()->is('admin/sponsorships') ? 'menu-active' : ''}}" href="{{route('admin.sponsorships.index')}}">
                                 <i class="bi bi-star-fill"></i>
                                 Premium
                             </a>
@@ -91,7 +91,7 @@
                 </div>
             </nav>
 
-
+            
             <main class="u_main">
                 @yield('content')
             </main>

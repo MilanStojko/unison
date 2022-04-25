@@ -20,7 +20,7 @@
                     @if(isset($user->avatar))
                         <img src="{{asset("storage/{$user->avatar}")}}" alt="">
                     @else   
-                        <img src="{{URL::asset('/images/jumbo-2.png')}}">
+                        <img src="https://thumbs.dreamstime.com/b/profilo-utente-vettoriale-avatar-predefinito-179376714.jpg">
                     @endif
                 </div>
 

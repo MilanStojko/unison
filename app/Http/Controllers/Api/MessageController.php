@@ -17,7 +17,7 @@ class MessageController extends Controller
         $validation = Validator::make($data, [
             'email' => "required|string",
             'content' => "required|text",
-            'cellphone' => "nullable",
+            'cellphone' => "nullable|numeric|digits:10",
             'name' => "required|string",
             'surname' => "required|string",
             'user_id' => "exists:users,id"
