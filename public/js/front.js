@@ -2155,10 +2155,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Header",
   data: function data() {
@@ -2664,9 +2660,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
 //
 //
 //
@@ -7901,12 +7894,13 @@ exports.push([module.i, ".service[data-v-f0afa770] {\n  padding: 100px 0px;\n}\n
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+var escape = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/url/escape.js */ "./node_modules/css-loader/lib/url/escape.js");
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
 
 
 // module
-exports.push([module.i, ".background[data-v-18581212] {\n  /* background-image: url(\"../../../images/pexels-picjumbocom-196652.jpg\");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover; */\n  /* background: #E8EBF8; */\n  /* background: #595766ad; */\n  background: rgba(42, 41, 41, 0.5215686275);\n}\n.background[data-v-18581212]::-webkit-scrollbar {\n  display: none;\n}\n.background[data-v-18581212] {\n  -ms-overflow-style: none;\n  /* IE and Edge */\n  scrollbar-width: none;\n  /* Firefox */\n}\nh1[data-v-18581212], .info h3[data-v-18581212] {\n  text-align: center;\n}\n.info h3[data-v-18581212], .request[data-v-18581212] {\n  color: white;\n  text-transform: capitalize;\n}\nh1[data-v-18581212] {\n  font-size: 55px;\n}\n.my_card[data-v-18581212] {\n  margin: 50px auto;\n  max-width: 60%;\n  padding: 10px;\n  /* background: rgba(210, 206, 206, 0.861); */\n  /* background: #ededed; */\n  /* background-image: url('https://i.stack.imgur.com/MkSui.jpg'); */\n  background-image: url(\"https://icbstexas.com/wp-content/uploads/split-color-background.jpg\");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n  border-radius: 10px;\n  /* border: 1px solid black; */\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);\n  transition: 1s;\n}\n.my_card[data-v-18581212]:hover {\n  cursor: pointer;\n  transform: scale(1.03);\n}\n.my_card:hover a[data-v-18581212] {\n  text-decoration: none;\n}\n.request[data-v-18581212] {\n  display: flex;\n  padding: 5px;\n  border-radius: 10px;\n  background: rgba(28, 28, 28, 0.8);\n  max-height: 200px;\n}\n.request ul[data-v-18581212] {\n  max-height: 150px;\n  overflow: scroll;\n}\n.request ul[data-v-18581212]::-webkit-scrollbar {\n  display: none;\n}\n.request ul[data-v-18581212] {\n  -ms-overflow-style: none;\n  /* IE and Edge */\n  scrollbar-width: none;\n  /* Firefox */\n}\n.categories li[data-v-18581212], .events li[data-v-18581212], .references li[data-v-18581212] {\n  list-style: none;\n  margin-left: 5px;\n  font-size: 17px;\n}\n.references ul[data-v-18581212] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.references li[data-v-18581212] {\n  display: inline;\n  font-size: 15px;\n}\n.references[data-v-18581212] {\n  padding: 0 50px;\n  /* margin-top: 20px; */\n}\n.categories li[data-v-18581212] {\n  color: rgb(91, 121, 93);\n}\n.events li[data-v-18581212] {\n  color: rgb(175, 108, 195);\n}\n.categories div[data-v-18581212], .events div[data-v-18581212] {\n  border-radius: 15px;\n  padding: 15px;\n}\n.top[data-v-18581212] {\n  display: flex;\n  flex-wrap: wrap;\n  padding: 15px 0;\n}\n\n/* .container{\n    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n    border-radius: 10px;\n    padding: 20px;\n    margin-bottom: 40px;\n}\n*/\n.info[data-v-18581212] {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n.info img[data-v-18581212] {\n  height: 200px;\n  width: 200px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.references img[data-v-18581212] {\n  width: 25px;\n  height: auto;\n  color: #527a5a;\n}\n.references li[data-v-18581212] {\n  color: black;\n  text-transform: capitalize;\n}\n.references #reviews[data-v-18581212] {\n  display: flex;\n}\n@media only screen and (max-width: 700px) {\n.categories[data-v-18581212], .events[data-v-18581212] {\n    padding: 0;\n}\n.categories div[data-v-18581212], .events div[data-v-18581212] {\n    max-width: 80%;\n}\n.my_card[data-v-18581212] {\n    max-width: 90%;\n}\n.references[data-v-18581212] {\n    padding: 0 30px;\n}\n}\n@media only screen and (max-width: 1000px) {\n.references p[data-v-18581212] {\n    display: none;\n}\n.references #reviews[data-v-18581212] {\n    margin-top: 10px;\n}\n.references ul[data-v-18581212] {\n    display: flex;\n    flex-direction: column;\n}\n}", ""]);
+exports.push([module.i, ".background[data-v-18581212] {\n  /* background-image: url(\"../../../images/pexels-picjumbocom-196652.jpg\");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover; */\n  /* background: #E8EBF8; */\n  /* background: #595766ad; */\n  background: rgba(0, 0, 0, 0.658);\n}\n.background[data-v-18581212]::-webkit-scrollbar {\n  display: none;\n}\n.background[data-v-18581212] {\n  -ms-overflow-style: none;\n  /* IE and Edge */\n  scrollbar-width: none;\n  /* Firefox */\n}\nh1[data-v-18581212], .info h3[data-v-18581212] {\n  text-align: center;\n}\n.info h3[data-v-18581212], .request[data-v-18581212] {\n  color: white;\n  text-transform: capitalize;\n}\nh1[data-v-18581212] {\n  font-size: 55px;\n  color: black;\n}\n.my_card[data-v-18581212] {\n  margin: 50px auto;\n  max-width: 60%;\n  padding: 10px;\n  /* background: rgba(210, 206, 206, 0.861); */\n  /* background: #ededed; */\n  /* background-image: url('https://i.stack.imgur.com/MkSui.jpg'); */\n  background-image: url(" + escape(__webpack_require__(/*! ../../../images/card.jpeg */ "./resources/images/card.jpeg")) + ");\n  background-repeat: no-repeat;\n  background-size: cover;\n  border-radius: 10px;\n  /* border: 1px solid black; */\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);\n  transition: 1s;\n}\n.my_card[data-v-18581212]:hover {\n  cursor: pointer;\n  transform: scale(1.02);\n  background-image: url(" + escape(__webpack_require__(/*! ../../../images/rotate.jpeg */ "./resources/images/rotate.jpeg")) + ");\n  background-position: bottom;\n}\n.my_card:hover a[data-v-18581212] {\n  text-decoration: none;\n}\n.my_card:hover h3[data-v-18581212] {\n  color: black;\n}\n.my_card:hover .references *[data-v-18581212] {\n  color: white;\n}\n.my_card:hover .request[data-v-18581212] {\n  background: rgba(28, 28, 28, 0.9);\n}\n.request[data-v-18581212] {\n  display: flex;\n  padding: 5px;\n  border-radius: 10px;\n  background: rgba(28, 28, 28, 0.8);\n  max-height: 200px;\n}\n.request ul[data-v-18581212] {\n  max-height: 150px;\n  overflow: scroll;\n}\n.request ul[data-v-18581212]::-webkit-scrollbar {\n  display: none;\n}\n.request ul[data-v-18581212] {\n  -ms-overflow-style: none;\n  /* IE and Edge */\n  scrollbar-width: none;\n  /* Firefox */\n}\n.categories li[data-v-18581212], .events li[data-v-18581212], .references li[data-v-18581212] {\n  list-style: none;\n  margin-left: 5px;\n  font-size: 17px;\n}\n.references ul[data-v-18581212] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.references li[data-v-18581212] {\n  display: inline;\n  font-size: 15px;\n}\n.references[data-v-18581212] {\n  padding: 0 50px;\n  /* margin-top: 20px; */\n}\n.categories li[data-v-18581212] {\n  color: rgb(91, 121, 93);\n}\n.events li[data-v-18581212] {\n  color: rgb(175, 108, 195);\n}\n.categories div[data-v-18581212], .events div[data-v-18581212] {\n  border-radius: 15px;\n  padding: 15px;\n}\n.top[data-v-18581212] {\n  display: flex;\n  flex-wrap: wrap;\n  padding: 15px 0;\n}\n\n/* .container{\n    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n    border-radius: 10px;\n    padding: 20px;\n    margin-bottom: 40px;\n}\n*/\n.info[data-v-18581212] {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n.info img[data-v-18581212] {\n  height: 200px;\n  width: 200px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.references img[data-v-18581212] {\n  width: 25px;\n  height: auto;\n  color: #527a5a;\n}\n.references li[data-v-18581212] {\n  color: black;\n  text-transform: capitalize;\n}\n.references #reviews[data-v-18581212] {\n  display: flex;\n}\n@media only screen and (max-width: 700px) {\n.categories[data-v-18581212], .events[data-v-18581212] {\n    padding: 0;\n}\n.categories div[data-v-18581212], .events div[data-v-18581212] {\n    max-width: 80%;\n}\n.my_card[data-v-18581212] {\n    max-width: 90%;\n}\n.references[data-v-18581212] {\n    padding: 0 30px;\n}\n}\n@media only screen and (max-width: 1000px) {\n.references p[data-v-18581212] {\n    display: none;\n}\n.references #reviews[data-v-18581212] {\n    margin-top: 10px;\n}\n.references ul[data-v-18581212] {\n    display: flex;\n    flex-direction: column;\n}\n}", ""]);
 
 // exports
 
@@ -7963,7 +7957,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.pre[data-v-4a9fdc62]{\n    background: rgb(59, 104, 151);\n    padding: 30px;\n    color: white;\n}\n.profiles[data-v-4a9fdc62]{\n    display: flex;\n    justify-content: space-between;\n    flex-wrap: wrap;\n}\n.card[data-v-4a9fdc62]{\n    border: 0;\n    background: transparent;\n    padding: 0px;\n    margin: 40px 0;\n}\n.card h4[data-v-4a9fdc62]{\n    text-align: center;\n}\n.social[data-v-4a9fdc62]{\n    margin-top: 15px;\n    display: flex;\n    justify-content: center;\n}\n.social a[data-v-4a9fdc62]{\n    padding: 0 15px;\n}\n.bottom[data-v-4a9fdc62]{\n    background: black;\n    padding: 60px 30px;\n}\n.squares[data-v-4a9fdc62]{\n    display: flex;\n    justify-content: space-between;\n    flex-wrap: wrap;\n    /* row-gap: 20px; */\n}\n.square[data-v-4a9fdc62]{\n    padding: 20px;\n    color: white;\n}\n.square li[data-v-4a9fdc62]{\n    list-style: none;\n    margin-left: 10px;\n}\n.pre img[data-v-4a9fdc62]{\n    width: 30px;\n}\n.bottom img[data-v-4a9fdc62]{\n    width: 80%;\n}\n.pre a[data-v-4a9fdc62]{\n    color: black;\n}\na[data-v-4a9fdc62]{\n    text-decoration: none;\n    color: white;\n    opacity: 0.5;\n}\na[data-v-4a9fdc62]:hover{\n    opacity: 1;\n}\n", ""]);
+exports.push([module.i, "\n.pre[data-v-4a9fdc62]{\n    background: rgb(100, 150, 200);\n    padding: 30px;\n    color: white;\n}\n.profiles[data-v-4a9fdc62]{\n    display: flex;\n    justify-content: space-between;\n    flex-wrap: wrap;\n}\n.card[data-v-4a9fdc62]{\n    border: 0;\n    background: transparent;\n    padding: 0px;\n    margin: 40px 0;\n}\n.card h4[data-v-4a9fdc62]{\n    text-align: center;\n}\n.social[data-v-4a9fdc62]{\n    margin-top: 15px;\n    display: flex;\n    justify-content: center;\n}\n.social a[data-v-4a9fdc62]{\n    padding: 0 15px;\n}\n.bottom[data-v-4a9fdc62]{\n    background: black;\n    padding: 60px 30px;\n}\n.squares[data-v-4a9fdc62]{\n    display: flex;\n    justify-content: space-between;\n    flex-wrap: wrap;\n    /* row-gap: 20px; */\n}\n.square[data-v-4a9fdc62]{\n    padding: 20px;\n    color: white;\n}\n.square li[data-v-4a9fdc62]{\n    list-style: none;\n    margin-left: 10px;\n}\n.pre img[data-v-4a9fdc62]{\n    width: 30px;\n}\n.bottom img[data-v-4a9fdc62]{\n    width: 80%;\n}\n.pre a[data-v-4a9fdc62]{\n    color: black;\n}\na[data-v-4a9fdc62]{\n    text-decoration: none;\n    color: white;\n    opacity: 0.5;\n}\na[data-v-4a9fdc62]:hover{\n    opacity: 1;\n}\n", ""]);
 
 // exports
 
@@ -7977,12 +7971,13 @@ exports.push([module.i, "\n.pre[data-v-4a9fdc62]{\n    background: rgb(59, 104, 
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+var escape = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/url/escape.js */ "./node_modules/css-loader/lib/url/escape.js");
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
 
 
 // module
-exports.push([module.i, "\n.burger-wrapper[data-v-083b147e] {\n    cursor: pointer;\n}\n#menyAvPaa[data-v-083b147e] {\n    display: none;\n}\n#burger[data-v-083b147e] {\n    position: absolute;\n    cursor: pointer;\n    width: 2rem;\n    height: 1.5rem;\n    right: 1rem;\n    top: 1rem;\n    display: flex;\n    justify-content: space-between;\n    flex-direction: column;\n}\n#burger > div[data-v-083b147e] {\n    height: 4px;\n    background-color: white;\n    transition: 0.5s;\n    z-index: 999;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e] {\n    background-color: #fff;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(1) {\n    transform: translateY(10px) rotate(45deg);\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(2) {\n    opacity: 0;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(3) {\n    transform: translateY(-10px) rotate(-45deg);\n}\n.slide-fade-enter-active[data-v-083b147e] {\n    transition: opacity 1.5s ease-out;\n}\n.slide-fade-leave-active[data-v-083b147e] {\n    transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);\n}\n.slide-fade-enter-from[data-v-083b147e],\n.slide-fade-leave-to[data-v-083b147e] {\n    transform: translateX(20px);\n    opacity: 0;\n}\n.my_ul .my_li a[data-v-083b147e] {\n    text-decoration: none;\n    color: white;\n}\n.my_ul .my_li a p[data-v-083b147e] {\n    transition: 1s;\n}\n.my_ul .my_li a p[data-v-083b147e]:hover {\n    color: white;\n    transform: scale(1.3);\n}\n*[data-v-083b147e] {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n.logo[data-v-083b147e] {\n    font-size: 30px;\n}\n.logo a[data-v-083b147e]{\n  color: white;\n}\n.logo:hover a[data-v-083b147e]{\n  text-decoration: none;\n}\nnav[data-v-083b147e] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    background-color: rgb(42, 41, 41);\n    height: 50px;\n    padding: 0px 20px;\n    color: white;\n    position: relative;\n}\n.my_ul[data-v-083b147e] {\n    margin: 0;\n    padding: 0;\n    display: flex;\n    align-items: center;\n}\n.my_ul li[data-v-083b147e] {\n    float: left;\n    padding: 0px 15px;\n    list-style: none;\n}\n.my_a[data-v-083b147e] {\n    text-decoration: none;\n    color: white;\n}\n.my_ul .my_a p[data-v-083b147e] {\n    transition: 1s;\n}\n.my_ul .my_a p[data-v-083b147e]:hover {\n    color: white;\n    transform: scale(1.3);\n}\n.my_ul .my_a:hover .my_button[data-v-083b147e] {\n    color: white;\n    transform: scale(1.1);\n}\n.navbar-toggler-icon[data-v-083b147e],\n.navbar-toggler[data-v-083b147e],\n.nav-item p[data-v-083b147e] {\n    color: white;\n}\n.my_button[data-v-083b147e] {\n    padding: 5px 15px;\n    border: 0;\n    color: white;\n    background: #527a5a;\n    border-radius: 15px;\n}\n.my_ul-icon[data-v-083b147e] {\n    display: none;\n    margin: 0;\n    padding: 0;\n}\n.my_ul-icon li[data-v-083b147e] {\n    list-style: none;\n}\n.listmenu[data-v-083b147e] {\n    position: absolute;\n    right: 0;\n    z-index: 999;\n    padding: 20px;\n    width: 100%;\n    height: calc(100vh - 50px);\n    text-align: center;\n    background: rgb(255, 255, 255, 0.9);\n    display: flex;\n    flex-direction: column;\n}\n.listmenu li[data-v-083b147e] {\n    line-height: 100px;\n    font-weight: bold;\n    font-size: 40px;\n    list-style: none;\n}\n.listmenu a[data-v-083b147e]{\n    color: black;\n}\n.listmenu:hover a[data-v-083b147e]{\n    color: black;\n    text-decoration: none;\n}\n.listmenu .buttonlogin[data-v-083b147e] {\n    margin-top: 50px;\n}\n.my_a_mobile[data-v-083b147e] {\n    text-decoration: none;\n    color: black;\n}\n@media only screen and (max-width: 700px) {\n.my_ul-icon[data-v-083b147e] {\n        display: block;\n}\n.my_ul[data-v-083b147e] {\n        display: none;\n}\n}\n@media only screen and (min-width: 700px) {\n.listmenu[data-v-083b147e]{\n      display: none;\n}\n}\n", ""]);
+exports.push([module.i, "\n.burger-wrapper[data-v-083b147e] {\n    cursor: pointer;\n}\n#menyAvPaa[data-v-083b147e] {\n    display: none;\n}\n#burger[data-v-083b147e] {\n    position: absolute;\n    cursor: pointer;\n    width: 2rem;\n    height: 1.5rem;\n    right: 1rem;\n    top: 1rem;\n    display: flex;\n    justify-content: space-between;\n    flex-direction: column;\n}\n#burger > div[data-v-083b147e] {\n    height: 4px;\n    background-color: white;\n    transition: 0.5s;\n    z-index: 999;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e] {\n    background-color: #fff;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(1) {\n    transform: translateY(10px) rotate(45deg);\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(2) {\n    opacity: 0;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(3) {\n    transform: translateY(-10px) rotate(-45deg);\n}\n.slide-fade-enter-active[data-v-083b147e] {\n    transition: opacity 1.5s ease-out;\n}\n.slide-fade-leave-active[data-v-083b147e] {\n    transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);\n}\n.slide-fade-enter-from[data-v-083b147e],\n.slide-fade-leave-to[data-v-083b147e] {\n    transform: translateX(20px);\n    opacity: 0;\n}\n.my_ul .my_li a[data-v-083b147e] {\n    text-decoration: none;\n    color: white;\n}\n.my_ul .my_li a p[data-v-083b147e] {\n    transition: 1s;\n}\n.my_ul .my_li a p[data-v-083b147e]:hover {\n    color: white;\n    transform: scale(1.3);\n}\n*[data-v-083b147e] {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n.logo[data-v-083b147e] {\n    font-size: 30px;\n}\n.logo a[data-v-083b147e]{\n  color: white;\n}\n.logo:hover a[data-v-083b147e]{\n  text-decoration: none;\n}\nnav[data-v-083b147e] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    background-color: rgb(42, 41, 41);\n    background-image: url(" + escape(__webpack_require__(/*! ../../../images/waveHeader.svg */ "./resources/images/waveHeader.svg")) + ");\n    background-repeat: no-repeat;\n    background-position: center;\n    background-size: cover;\n    height: 52px;\n    padding: 0px 20px;\n    color: white;\n    position: relative;\n}\n.logo img[data-v-083b147e]{\n    height: 48px;\n}\n.my_ul[data-v-083b147e] {\n    margin: 0;\n    padding: 0;\n    display: flex;\n    align-items: center;\n}\n.my_ul li[data-v-083b147e] {\n    float: left;\n    padding: 0px 15px;\n    list-style: none;\n}\n.my_a[data-v-083b147e] {\n    text-decoration: none;\n    color: white;\n}\n.my_ul .my_a p[data-v-083b147e] {\n    transition: 1s;\n}\n.my_ul .my_a p[data-v-083b147e]:hover {\n    color: white;\n    transform: scale(1.3);\n}\n.my_ul .my_a:hover .my_button[data-v-083b147e] {\n    color: white;\n    transform: scale(1.1);\n}\n.navbar-toggler-icon[data-v-083b147e],\n.navbar-toggler[data-v-083b147e],\n.nav-item p[data-v-083b147e] {\n    color: white;\n}\n.my_button[data-v-083b147e] {\n    padding: 5px 15px;\n    border: 0;\n    color: white;\n    background: #527a5a;\n    border-radius: 15px;\n}\n.my_ul-icon[data-v-083b147e] {\n    display: none;\n    margin: 0;\n    padding: 0;\n}\n.my_ul-icon li[data-v-083b147e] {\n    list-style: none;\n}\n.listmenu[data-v-083b147e] {\n    position: absolute;\n    right: 0;\n    z-index: 999;\n    padding: 20px;\n    width: 100%;\n    height: calc(100vh - 50px);\n    text-align: center;\n    background: rgb(255, 255, 255, 0.9);\n    display: flex;\n    flex-direction: column;\n}\n.listmenu li[data-v-083b147e] {\n    line-height: 100px;\n    font-weight: bold;\n    font-size: 40px;\n    list-style: none;\n}\n.listmenu a[data-v-083b147e]{\n    color: black;\n}\n.listmenu:hover a[data-v-083b147e]{\n    color: black;\n    text-decoration: none;\n}\n.listmenu .buttonlogin[data-v-083b147e] {\n    margin-top: 50px;\n}\n.my_a_mobile[data-v-083b147e] {\n    text-decoration: none;\n    color: black;\n}\n@media only screen and (max-width: 700px) {\n.my_ul-icon[data-v-083b147e] {\n        display: block;\n}\n.my_ul[data-v-083b147e] {\n        display: none;\n}\n}\n@media only screen and (min-width: 700px) {\n.listmenu[data-v-083b147e]{\n      display: none;\n}\n}\n", ""]);
 
 // exports
 
@@ -40493,7 +40488,9 @@ var render = function () {
           { staticClass: "logo" },
           [
             _c("router-link", { attrs: { to: { name: "home" } } }, [
-              _vm._v("UNISON"),
+              _c("img", {
+                attrs: { src: __webpack_require__(/*! ../../../images/Logo.png */ "./resources/images/Logo.png"), alt: "" },
+              }),
             ]),
           ],
           1
@@ -40522,12 +40519,8 @@ var render = function () {
             1
           ),
           _vm._v(" "),
-          _vm._m(0),
-          _vm._v(" "),
-          _vm._m(1),
-          _vm._v(" "),
           _c("li", [
-            _vm.auth_id ? _c("span", [_vm._m(2)]) : _c("span", [_vm._m(3)]),
+            _vm.auth_id ? _c("span", [_vm._m(0)]) : _c("span", [_vm._m(1)]),
           ]),
         ]),
         _vm._v(" "),
@@ -40542,7 +40535,7 @@ var render = function () {
               },
             }),
             _vm._v(" "),
-            _vm._m(4),
+            _vm._m(2),
           ]),
         ]),
       ]),
@@ -40639,26 +40632,6 @@ var render = function () {
   )
 }
 var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("a", { staticClass: "my_a", attrs: { href: "" } }, [
-        _c("p", [_vm._v("Eventi")]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("a", { staticClass: "my_a", attrs: { href: "" } }, [
-        _c("p", [_vm._v("Categorie")]),
-      ]),
-    ])
-  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
@@ -41240,18 +41213,6 @@ var render = function () {
         { staticClass: "container p-4" },
         [
           _c("h1", [_vm._v("I nostri musicisti")]),
-          _vm._v(" "),
-          _c(
-            "span",
-            {
-              on: {
-                click: function ($event) {
-                  return _vm.getAvgVote()
-                },
-              },
-            },
-            [_vm._v("Prova")]
-          ),
           _vm._v(" "),
           _vm._l(_vm.musicians, function (musician, indiceSingle) {
             return _c(
@@ -57843,6 +57804,17 @@ module.exports = "/images/Composer-rafiki.svg?494ef01ffb74263147758704d9fc7326";
 
 /***/ }),
 
+/***/ "./resources/images/Logo.png":
+/*!***********************************!*\
+  !*** ./resources/images/Logo.png ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Logo.png?fff567b5795c2ea9c37338a29f618b4e";
+
+/***/ }),
+
 /***/ "./resources/images/app-store.png":
 /*!****************************************!*\
   !*** ./resources/images/app-store.png ***!
@@ -57862,6 +57834,17 @@ module.exports = "/images/app-store.png?0e328d4b51ee0641d890c8fa6780d8f3";
 /***/ (function(module, exports) {
 
 module.exports = "/images/band.svg?b92bd976389daeafaa6600d4eaf6a1a6";
+
+/***/ }),
+
+/***/ "./resources/images/card.jpeg":
+/*!************************************!*\
+  !*** ./resources/images/card.jpeg ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/card.jpeg?eaab38197510af157ae630342c7b37a0";
 
 /***/ }),
 
@@ -57975,6 +57958,17 @@ module.exports = "/images/music.svg?45010543bc7f7781ee5fface1e9cbd52";
 
 /***/ }),
 
+/***/ "./resources/images/rotate.jpeg":
+/*!**************************************!*\
+  !*** ./resources/images/rotate.jpeg ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/rotate.jpeg?edda66f03e6616034b8cb66dc1dee5b8";
+
+/***/ }),
+
 /***/ "./resources/images/service-1.svg":
 /*!****************************************!*\
   !*** ./resources/images/service-1.svg ***!
@@ -58016,6 +58010,17 @@ module.exports = "/images/service-3.svg?eba2a9055d13786db8f54b0f3ba5d556";
 /***/ (function(module, exports) {
 
 module.exports = "/images/wave.svg?aef79995629b40b24f4277c44b0be010";
+
+/***/ }),
+
+/***/ "./resources/images/waveHeader.svg":
+/*!*****************************************!*\
+  !*** ./resources/images/waveHeader.svg ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/waveHeader.svg?6a6e63cc741051ec94de1d37c67ede9f";
 
 /***/ }),
 

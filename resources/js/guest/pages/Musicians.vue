@@ -3,9 +3,6 @@
     <div class="container">
         <div class="container p-4">
             <h1>I nostri musicisti</h1>
-                                        <span @click=getAvgVote()>Prova</span>
-
-            
             <div class="my_card" v-for="(musician, indiceSingle) in musicians" :key="indiceSingle">
                     <router-link :to="{ name: 'user-single', params: { slug: musician.slug } }">
                         <div class="top">
@@ -192,7 +189,7 @@ export default {
         background-size: cover; */
         /* background: #E8EBF8; */
         /* background: #595766ad; */
-        background: #2a292985;
+        background: rgba(0, 0, 0, 0.658);
     }
 
     .background::-webkit-scrollbar {
@@ -215,6 +212,7 @@ export default {
 
     h1{
         font-size: 55px;
+        color: black;
     }
 
     .my_card{
@@ -224,9 +222,9 @@ export default {
         /* background: rgba(210, 206, 206, 0.861); */
         /* background: #ededed; */
         /* background-image: url('https://i.stack.imgur.com/MkSui.jpg'); */
-        background-image: url('https://icbstexas.com/wp-content/uploads/split-color-background.jpg');
+        background-image: url('../../../images/card.jpeg');
         background-repeat: no-repeat;
-        background-position: center;
+        // background-position: center;
         background-size: cover;
         border-radius: 10px;
         /* border: 1px solid black; */
@@ -237,11 +235,27 @@ export default {
 
     .my_card:hover{
         cursor: pointer;
-        transform: scale(1.03);
+        transform: scale(1.02);
+        background-image: url('../../../images/rotate.jpeg');
+        background-position: bottom;
     }
 
     .my_card:hover a{
         text-decoration: none;
+    }
+
+    .my_card:hover h3{
+        color: black;
+    }
+
+
+
+    .my_card:hover .references *{
+        color: white;
+    }
+
+    .my_card:hover .request{
+        background: rgba(28, 28, 28, 0.9);
     }
 
     .request{
