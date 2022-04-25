@@ -9,17 +9,26 @@
                         typesetting industry. Lorem Ipsum has been the
                         industry's standard
                     </p>
-                    
                 </div>
                 <!-- SEARCH BAR -->
                 <div class="col-lg-6 col-md-12 jumbo-form">
                     <!-- <input type="text" placeholder="Cerca Musicista" /> -->
-                    <select name="availabilities" id="availabilities" @change="saveValue($event)" v-model="valore">
-                        <option v-for="(availability, index) in availabilities" :value="availability.name" :key="index">{{availability.name}}</option>
+                    <select
+                        name="availabilities"
+                        id="availabilities"
+                        v-model="valore"
+                    >
+                        <option
+                            v-for="(availability, index) in availabilities"
+                            :value="availability.name"
+                            :key="index"
+                        >
+                            {{ availability.name }}
+                        </option>
                     </select>
-                    <button @click.prevent="sendSelected()"><router-link class="my_search" :to="{name: 'search'}">Cerca</router-link></button>
+                    <button @click="sendSelected()">Cerca</button>
                 </div>
-            <!-- <div class="d-flex justify-content-center w-100 mt-1">
+                <!-- <div class="d-flex justify-content-center w-100 mt-1">
                 <Filtra/>
             </div> -->
             </div>
@@ -41,36 +50,37 @@
 
 <script>
 import Filtra from "./Filtra.vue";
-import {bus} from '../../front'
+import { bus } from "../../front";
 export default {
     name: "Jumbo",
-    components:{
-        Filtra
+    components: {
+        Filtra,
     },
-   data(){
-        return{
-            availabilities:[],
-            prestazione: '',
-            valore: ''
-        }
+    data() {
+        return {
+            availabilities: [],
+            prestazione: "",
+            valore: "",
+        };
     },
     //Api con tutte le prestazioni
-    created(){
-        axios.get('/api/availability/index').then((respAll)=>{
+    created() {
+        axios.get("/api/availability/index").then((respAll) => {
             this.availabilities = respAll.data;
-        })
+        });
     },
-    methods:{
+    methods: {
         //Assegnazione del valore selezionato dall'utente
-        saveValue(selected){
+        saveValue(selected) {
             this.prestazione = selected.target.value;
         },
         //Trasmissione del valore tramite emit bus a Search.vue
-        sendSelected(){
+        sendSelected() {
+            this.$router.push({ path: "search", query: { name: this.valore } });
             // this.$emit('saveValue')
-            bus.$emit('saveValue', this.prestazione);
-        }
-    }
+            bus.$emit("saveValue", this.prestazione);
+        },
+    },
 };
 </script>
 
@@ -150,12 +160,12 @@ export default {
             border: none;
             border-radius: 0px 20px 20px 0px;
             transition: all 0.2s linear;
-            
+
             &:hover {
                 background-color: #3d5e43;
             }
 
-            .my_search{
+            .my_search {
                 color: white;
                 text-decoration: none;
             }

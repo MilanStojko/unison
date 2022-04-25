@@ -7,15 +7,19 @@
     <h1>{{ ava }}</h1>
   </div> -->
   <div class="background">
-    <div class="select">
+    <!-- <div class="select">
       Cerca:
-      <select name="categories" id="categories">
-        <option v-for="(category, index) in categories" :value="category.name" :key="index">{{category.name}}</option>
+      <select v-model="selectedAvailability" @change="getAvailability" name="categories" id="categories">
+        <option  v-for="(category, index) in categories" :value="category.name" :key="index">{{category.name}}</option>
       </select>
-    </div>
+    </div> -->
     <div class="container">
         <div class="container p-4">
-            <h1>"Categoria"</h1>
+            <div class="search-filters">
+                <h2>Filtra per:</h2>
+                <button @click="filterReviews()"><i class="fa-solid fa-memo-circle-check"></i> Recensioni</button>
+                <button><i class="fa-solid fa-music"></i> Media Voti</button>
+            </div>
             
             <div class="my_card" v-for="(musician, indice) in musicians" :key="indice">
                     <router-link :to="{ name: 'user-single', params: { slug: musician.slug } }">
@@ -49,10 +53,28 @@
                                 <ul>
                                     <li><i class="fa-solid fa-location-dot"></i> {{musician.address}}</li>
                                     <li id="reviews" style="font-size: 20px">
-                                        <p>Recensioni:</p>
-                                        <span v-for="nota in 5" :key="'piena'+nota">
-                                            <img src="../../../images/music.svg" />
-                                        </span>
+                                        <div class="text">
+                                            <p>Recensioni: <span>({{musician.reviews.length}})</span></p>
+                                            
+                                        </div>
+                                        <div v-if="musician.reviews.length > 0">
+                                                <!-- <img src="../../../images/music.svg" /> -->
+                                            <div class="notes big-notes">
+                                            <div
+                                                class="notes_inner"
+                                                :class="starsWidth(musician.reviews)"
+                                            ></div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div v-else>
+                                            <div class="notes big-notes">
+                                            <div
+                                                class="notes_inner starFill0"
+                                            ></div>
+                                            </div>
+                                        </div>
+                                        
                                     </li>
                                 </ul>
                             </p>
@@ -73,24 +95,50 @@ export default {
       categories:[],
       musicians: [],
       ava: "",
+      selectedAvailability: "",
     };
   },
   methods: {
     //Tutte le prestazioni
     getAvailability() {
       axios
-        .get(`/api/filtered/getavailability/?name=canto`, {
-          paramas: {
-            name: this.ava,
-          },
-        })
+        .get(`/api/filtered/getavailability${this.$route.fullPath}`)
         .then((response) => {
           this.musicians = response.data;
+          console.log(this.musicians)
         })
         .catch(function (error) {
           console.log(error.response.data);
         });
     },
+
+    starsWidth: function (numero) {
+        return "starFill" + this.getAvgVote(numero);
+    },
+
+
+    getAvgVote(array){
+        let somma=0;
+        let count=0;
+        let boh;       
+        array.forEach(singleRev => {
+            // console.log(singleRev.vote);
+            somma = somma + singleRev.vote;
+            count=count + 1;
+        });
+            // console.log("ciao"+somma);
+        
+        if (count!=0) {
+            boh=somma/count;
+        };
+        
+        console.log(boh)
+        return Math.round(boh);
+    },
+
+    filterReviews: function() {
+        console.log(this.musicians)
+    }
   },
   created() {
     // Ricezione dato 
@@ -101,7 +149,7 @@ export default {
     });
 
     this.getAvailability();
-    // CHIAMATA CATEGORY PER SELECT FILTRO 2
+    // CHIAMATA Availability PER SELECT FILTRO 2
     axios.get('/api/category/index').then((respAll)=>{
             this.categories = respAll.data;
     })
@@ -111,7 +159,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 .select{
   display: flex;
@@ -139,7 +187,7 @@ select{
         /* background: #E8EBF8; */
         /* background: #595766ad; */
         padding: 15px 0;
-        background: #2a292985;
+        background: #fff;
     }
 
     .background::-webkit-scrollbar {
@@ -289,6 +337,35 @@ select{
 
     .references #reviews{
         display: flex;
+    }
+
+
+//Search Filters
+    .search-filters {
+        background-color: #ededed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px 0px;
+
+        h2 {
+            margin-right: 20px;
+        }
+
+        button {
+            background-color: #ccc;
+            border: none;
+            padding: 5px 10px;
+            margin: 0px 10px;
+
+            &:hover {
+                text-decoration: none;
+                background-color: #6aa275;
+                -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
+                box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
+                color: #fff;
+            }
+        }
     }
 
 
