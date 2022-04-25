@@ -79,13 +79,9 @@ export default {
     //Tutte le prestazioni
     getAvailability() {
       axios
-        .get(`/api/filtered/getAvailability/${this.$route.params.query}`, {
-          paramas: {
-            query: this.ava,
-          },
-        })
+        .get(`/api/filtered/getavailability`)
         .then((response) => {
-          this.musicians = response.data.results;
+          this.musicians = response.data;
         })
         .catch(function (error) {
           console.log(error.response.data);

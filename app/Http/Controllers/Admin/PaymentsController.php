@@ -8,8 +8,9 @@ use DateInterval;
 use DateTime;
 use Illuminate\Support\Facades\Auth;
 use App\User;
-use Braintree\Configuration;
 use App\Sponsorship;
+use Carbon\Carbon;
+
 
 
 class PaymentsController extends Controller
@@ -67,10 +68,24 @@ class PaymentsController extends Controller
 
         
         $nuovaSponsorship = new Sponsorship();
+        $start = Carbon::now();
 
-        $sponsorshipLength = Sponsorship::where('id', $data['sponsorship_id'])->pluck('length')->first(); // pluck restituisce il solo valore e non anche la chiave! la first va usata perché è [value]
-        $start = new DateTime();
-        $expiration = $start->add(new DateInterval('PT'.$sponsorshipLength.'H'));  //aggiunte ore della sponsorship
+
+        $loggedUser = User::where('id', $user['id'])->with('sponsorships')->first();
+
+
+        foreach ($loggedUser->sponsorships as $element) {
+
+            $date_format = DateTime::createFromFormat('Y-m-d H:i:s', $element->pivot->expiration);
+
+            if($date_format > $start){
+                $start = $date_format;
+            }
+        }
+        
+        $sponsorshipDuration = intval(Sponsorship::where('iD', $data['sponsorship_id'])->pluck('duration')->first()); // pluck restituisce il solo valore e non anche la chiave! la first va usata perché è [value]
+        $expiration = clone $start;
+        $expiration->add(new DateInterval('PT'.$sponsorshipDuration.'H'));
 
         $user->sponsorships()->attach($data['sponsorship_id'], array('start_date'=>$start,'expiration'=>$expiration));
 
