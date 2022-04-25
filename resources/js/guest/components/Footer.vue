@@ -1,33 +1,85 @@
 <template>
     <footer>
-        <div class="top">
-            <div class="lorem col-lg-4 col-sm-12">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi quae quo quis, fugiat earum quasi cumque in delectus, nulla voluptatem, aperiam inventore numquam porro natus dolores? Nostrum quibusdam neque repellat eaque recusandae, odit iste distinctio magni assumenda culpa quos vel natus, numquam laborum. Soluta quo quibusdam quidem, suscipit ea neque!
-            </div>
-            <div class="col-lg-2"></div>
-            <div class="link col-lg-6 col-sm-12">
-                <ul class="col-4">
-                    <h2>LINK</h2>
-                    <li v-for="(link, index) in linkfooter1" :key="index">
-                        <a href="">{{link.name}}</a>
-                    </li>
-                </ul>
-                <ul class="col-4">
-                    <h2>LINK</h2>
-                    <li v-for="(link, index) in linkfooter2" :key="index">
-                        <a href="">{{link.name}}</a>
-                    </li>
-                </ul>
-                <ul class="col-4">
-                    <h2>LINK</h2>
-                    <li v-for="(link, index) in linkfooter3" :key="index">
-                        <a href="">{{link.name}}</a>
-                    </li>
-                </ul>
+        <div class="pre">
+            <div class="container">
+                <div class="profiles">
+                    <div class="card col-lg-3 col-md-6 col-sm-6">
+                        <h4>Francesco Abritta</h4>
+                        <div class="social">
+                            <a href="https://github.com/francesco-abritta">
+                                <img src="../../../images/github.svg" alt="">
+                            </a>
+                            <a href="https://linkedin.com/in/francesco-abritta-040988197">
+                                <img src="../../../images/linkedin.svg" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card col-lg-3 col-md-6 col-sm-6">
+                        <h4>Milan Stojkovic</h4>
+                        <div class="social">
+                            <a href="https://github.com/MilanStojko">
+                                <img src="../../../images/github.svg" alt="">
+                            </a>
+                            <a href="https://linkedin.com/in/milan-stojkovicjobs">
+                                <img src="../../../images/linkedin.svg" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card col-lg-3 col-md-6 col-sm-6">
+                        <h4>Hamza Bouzid</h4>
+                        <div class="social">
+                            <a href="https://github.com/Hamza-bouzid">
+                                <img src="../../../images/github.svg" alt="">
+                            </a>
+                            <a href="https://linkedin.com/in/hamza-bouzid">
+                                <img src="../../../images/linkedin.svg" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card col-lg-3 col-md-6 col-sm-6">
+                        <h4>Simone Massaro</h4>
+                        <div class="social">
+                            <a href="https://github.com/SimoMassaro52">
+                                <img src="../../../images/github.svg" alt="">
+                            </a>
+                            <a href="https://linkedin.com/in/simone-massaro-95ba2a140">
+                                <img src="../../../images/linkedin.svg" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="bottom">
-            Sede a Battipaglia, made by Group 6 Boolean.
+            <div class="container">
+                <div class="squares">
+                    <div class="square col-lg-3 col-md-6 col-sm-12">
+                        <h4>Contattaci</h4>
+                        <ul>
+                            <li v-for="(voce, indice) in Contattaci" :key="indice+'contattaci'"> <a href="#">{{voce.name}}</a> </li>
+                        </ul>
+                    </div>
+                    <div class="square col-lg-3 col-md-6 col-sm-12">
+                        <h4>Note Legali</h4>
+                        <ul>
+                            <li v-for="(voce, indice) in Note" :key="indice+'note'"> <a href="#">{{voce.name}}</a> </li>
+                        </ul>
+                    </div>
+                    <div class="square col-lg-3 col-md-6 col-sm-12">
+                        <h4>Conosciamoci Meglio</h4>
+                        <ul>
+                            <li v-for="(voce, indice) in Conosciamoci" :key="indice+'conosciamoci'"> <a href="#">{{voce.name}}</a> </li>
+                        </ul>
+                    </div>
+                    <div class="square col-lg-3 col-md-6 col-sm-12">
+                        <ul>
+                            <li> <a href="#"><img src="../../../images/googleplay.png" alt="Scarica dal Play Store"/></a> </li>
+                            <li> <a href="#"><img src="../../../images/app-store.png" alt="Scarica dall'App Store"/></a> </li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
         </div>
     </footer>
 </template>
@@ -38,64 +90,43 @@ export default {
 
     data() {
         return {
-            linkfooter1: [
+            Contattaci: [
                 {
-                    name: "linklinklink",
+                    name: "FAQ",
                 },
                 {
-                    name: "linklinklink",
+                    name: "Assistenza clienti",
                 },
                 {
-                    name: "linklinklink",
+                    name: "Newsletter",
                 },
                 {
-                    name: "linklinklink",
-                },
-                {
-                    name: "linklinklink",
-                },
-                {
-                    name: "linklinklink",
-                },
-                {
-                    name: "linklinklink",
+                    name: "Area personale",
                 },
             ],
-            linkfooter2: [
+            Note: [
                 {
-                    name: "linklinklink",
+                    name: "Privacy",
                 },
                 {
-                    name: "linklinklink",
+                    name: "Cookies",
                 },
                 {
-                    name: "linklinklink",
+                    name: "Avvertenza legale",
                 },
                 {
-                    name: "linklinklink",
-                },
-                {
-                    name: "linklinklink",
+                    name: "Informativa",
                 },
             ],
-            linkfooter3: [
+            Conosciamoci: [
                 {
-                    name: "linklinklink",
+                    name: "Chi siamo",
                 },
                 {
-                    name: "linklinklink",
+                    name: "Lavora con noi",
                 },
                 {
-                    name: "linklinklink",
-                },
-                {
-                    name: "linklinklink",
-                },
-                {
-                    name: "linklinklink",
-                },
-                {
-                    name: "linklinklink",
+                    name: "UNISON",
                 },
             ],
         };
@@ -104,46 +135,81 @@ export default {
 </script>
 
 <style scoped>
-    footer{
-        padding: 60px;
-        background: black;
+
+    .pre{
+        background: rgb(59, 104, 151);
+        padding: 30px;
         color: white;
     }
 
-    .top{
+    .profiles{
         display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    
+    .card{
+        border: 0;
+        background: transparent;
+        padding: 0px;
+        margin: 40px 0;
     }
 
-    .link{
-        display: flex;
-    }
-
-    ul{
-        list-style: none;
-    }
-
-    a{
-        color: rgb(81, 81, 81);
-        text-decoration: none;
-    }
-
-    a:hover{
-        color: white;
-    }
-
-    .bottom{
-        margin-top: 50px;
-        font-size: 14px;
+    .card h4{
         text-align: center;
     }
 
-    @media only screen and (max-width: 1000px){
-        .top{
-            display: block;
-        }
+    .social{
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+    }
 
-        .lorem{
-            margin-bottom: 40px;
-        }
+    .social a{
+        padding: 0 15px;
+    }
+
+    .bottom{
+        background: black;
+        padding: 60px 30px;
+    }
+
+    .squares{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        /* row-gap: 20px; */
+    }
+
+    .square{
+        padding: 20px;
+        color: white;
+    }
+
+    .square li{
+        list-style: none;
+        margin-left: 10px;
+    }
+
+    .pre img{
+        width: 30px;
+    }
+
+    .bottom img{
+        width: 80%;
+    }
+
+    .pre a{
+        color: black;
+    }
+
+    a{
+        text-decoration: none;
+        color: white;
+        opacity: 0.5;
+    }
+
+    a:hover{
+        opacity: 1;
     }
 </style>

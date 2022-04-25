@@ -1975,48 +1975,86 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Footer",
   data: function data() {
     return {
-      linkfooter1: [{
-        name: "linklinklink"
+      Contattaci: [{
+        name: "FAQ"
       }, {
-        name: "linklinklink"
+        name: "Assistenza clienti"
       }, {
-        name: "linklinklink"
+        name: "Newsletter"
       }, {
-        name: "linklinklink"
-      }, {
-        name: "linklinklink"
-      }, {
-        name: "linklinklink"
-      }, {
-        name: "linklinklink"
+        name: "Area personale"
       }],
-      linkfooter2: [{
-        name: "linklinklink"
+      Note: [{
+        name: "Privacy"
       }, {
-        name: "linklinklink"
+        name: "Cookies"
       }, {
-        name: "linklinklink"
+        name: "Avvertenza legale"
       }, {
-        name: "linklinklink"
-      }, {
-        name: "linklinklink"
+        name: "Informativa"
       }],
-      linkfooter3: [{
-        name: "linklinklink"
+      Conosciamoci: [{
+        name: "Chi siamo"
       }, {
-        name: "linklinklink"
+        name: "Lavora con noi"
       }, {
-        name: "linklinklink"
-      }, {
-        name: "linklinklink"
-      }, {
-        name: "linklinklink"
-      }, {
-        name: "linklinklink"
+        name: "UNISON"
       }]
     };
   }
@@ -2456,6 +2494,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2466,15 +2512,15 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       availabilities: [],
-      prestazione: '',
-      valore: ''
+      prestazione: "",
+      valore: ""
     };
   },
   //Api con tutte le prestazioni
   created: function created() {
     var _this = this;
 
-    axios.get('/api/availability/index').then(function (respAll) {
+    axios.get("/api/availability/index").then(function (respAll) {
       _this.availabilities = respAll.data;
     });
   },
@@ -2485,8 +2531,14 @@ __webpack_require__.r(__webpack_exports__);
     },
     //Trasmissione del valore tramite emit bus a Search.vue
     sendSelected: function sendSelected() {
-      // this.$emit('saveValue')
-      _front__WEBPACK_IMPORTED_MODULE_1__["bus"].$emit('saveValue', this.prestazione);
+      this.$router.push({
+        path: "search",
+        query: {
+          name: this.valore
+        }
+      }); // this.$emit('saveValue')
+
+      _front__WEBPACK_IMPORTED_MODULE_1__["bus"].$emit("saveValue", this.prestazione);
     }
   }
 });
@@ -2908,12 +2960,8 @@ __webpack_require__.r(__webpack_exports__);
     getAvailability: function getAvailability() {
       var _this = this;
 
-      axios.get("/api/filtered/getAvailability/".concat(this.$route.params.query), {
-        paramas: {
-          query: this.ava
-        }
-      }).then(function (response) {
-        _this.musicians = response.data.results;
+      axios.get("/api/filtered/getavailability").then(function (response) {
+        _this.musicians = response.data;
       })["catch"](function (error) {
         console.log(error.response.data);
       });
@@ -7915,7 +7963,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\nfooter[data-v-4a9fdc62]{\n    padding: 60px;\n    background: black;\n    color: white;\n}\n.top[data-v-4a9fdc62]{\n    display: flex;\n}\n.link[data-v-4a9fdc62]{\n    display: flex;\n}\nul[data-v-4a9fdc62]{\n    list-style: none;\n}\na[data-v-4a9fdc62]{\n    color: rgb(81, 81, 81);\n    text-decoration: none;\n}\na[data-v-4a9fdc62]:hover{\n    color: white;\n}\n.bottom[data-v-4a9fdc62]{\n    margin-top: 50px;\n    font-size: 14px;\n    text-align: center;\n}\n@media only screen and (max-width: 1000px){\n.top[data-v-4a9fdc62]{\n        display: block;\n}\n.lorem[data-v-4a9fdc62]{\n        margin-bottom: 40px;\n}\n}\n", ""]);
+exports.push([module.i, "\n.pre[data-v-4a9fdc62]{\n    background: rgb(59, 104, 151);\n    padding: 30px;\n    color: white;\n}\n.profiles[data-v-4a9fdc62]{\n    display: flex;\n    justify-content: space-between;\n    flex-wrap: wrap;\n}\n.card[data-v-4a9fdc62]{\n    border: 0;\n    background: transparent;\n    padding: 0px;\n    margin: 40px 0;\n}\n.card h4[data-v-4a9fdc62]{\n    text-align: center;\n}\n.social[data-v-4a9fdc62]{\n    margin-top: 15px;\n    display: flex;\n    justify-content: center;\n}\n.social a[data-v-4a9fdc62]{\n    padding: 0 15px;\n}\n.bottom[data-v-4a9fdc62]{\n    background: black;\n    padding: 60px 30px;\n}\n.squares[data-v-4a9fdc62]{\n    display: flex;\n    justify-content: space-between;\n    flex-wrap: wrap;\n    /* row-gap: 20px; */\n}\n.square[data-v-4a9fdc62]{\n    padding: 20px;\n    color: white;\n}\n.square li[data-v-4a9fdc62]{\n    list-style: none;\n    margin-left: 10px;\n}\n.pre img[data-v-4a9fdc62]{\n    width: 30px;\n}\n.bottom img[data-v-4a9fdc62]{\n    width: 80%;\n}\n.pre a[data-v-4a9fdc62]{\n    color: black;\n}\na[data-v-4a9fdc62]{\n    text-decoration: none;\n    color: white;\n    opacity: 0.5;\n}\na[data-v-4a9fdc62]:hover{\n    opacity: 1;\n}\n", ""]);
 
 // exports
 
@@ -7934,7 +7982,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.burger-wrapper[data-v-083b147e] {\r\n    cursor: pointer;\n}\n#menyAvPaa[data-v-083b147e] {\r\n    display: none;\n}\n#burger[data-v-083b147e] {\r\n    position: absolute;\r\n    cursor: pointer;\r\n    width: 2rem;\r\n    height: 1.5rem;\r\n    right: 1rem;\r\n    top: 1rem;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    flex-direction: column;\n}\n#burger > div[data-v-083b147e] {\r\n    height: 4px;\r\n    background-color: white;\r\n    transition: 0.5s;\r\n    z-index: 999;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e] {\r\n    background-color: #fff;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(1) {\r\n    transform: translateY(10px) rotate(45deg);\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(2) {\r\n    opacity: 0;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(3) {\r\n    transform: translateY(-10px) rotate(-45deg);\n}\n.slide-fade-enter-active[data-v-083b147e] {\r\n    transition: opacity 1.5s ease-out;\n}\n.slide-fade-leave-active[data-v-083b147e] {\r\n    transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);\n}\n.slide-fade-enter-from[data-v-083b147e],\r\n.slide-fade-leave-to[data-v-083b147e] {\r\n    transform: translateX(20px);\r\n    opacity: 0;\n}\n.my_ul .my_li a[data-v-083b147e] {\r\n    text-decoration: none;\r\n    color: white;\n}\n.my_ul .my_li a p[data-v-083b147e] {\r\n    transition: 1s;\n}\n.my_ul .my_li a p[data-v-083b147e]:hover {\r\n    color: white;\r\n    transform: scale(1.3);\n}\n*[data-v-083b147e] {\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\n}\n.logo[data-v-083b147e] {\r\n    font-size: 30px;\n}\n.logo a[data-v-083b147e]{\r\n  color: white;\n}\n.logo:hover a[data-v-083b147e]{\r\n  text-decoration: none;\n}\nnav[data-v-083b147e] {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    background-color: rgb(42, 41, 41);\r\n    height: 50px;\r\n    padding: 0px 20px;\r\n    color: white;\r\n    position: relative;\n}\n.my_ul[data-v-083b147e] {\r\n    margin: 0;\r\n    padding: 0;\r\n    display: flex;\r\n    align-items: center;\n}\n.my_ul li[data-v-083b147e] {\r\n    float: left;\r\n    padding: 0px 15px;\r\n    list-style: none;\n}\n.my_a[data-v-083b147e] {\r\n    text-decoration: none;\r\n    color: white;\n}\n.my_ul .my_a p[data-v-083b147e] {\r\n    transition: 1s;\n}\n.my_ul .my_a p[data-v-083b147e]:hover {\r\n    color: white;\r\n    transform: scale(1.3);\n}\n.my_ul .my_a:hover .my_button[data-v-083b147e] {\r\n    color: white;\r\n    transform: scale(1.1);\n}\n.navbar-toggler-icon[data-v-083b147e],\r\n.navbar-toggler[data-v-083b147e],\r\n.nav-item p[data-v-083b147e] {\r\n    color: white;\n}\n.my_button[data-v-083b147e] {\r\n    padding: 5px 15px;\r\n    border: 0;\r\n    color: white;\r\n    background: #527a5a;\r\n    border-radius: 15px;\n}\n.my_ul-icon[data-v-083b147e] {\r\n    display: none;\r\n    margin: 0;\r\n    padding: 0;\n}\n.my_ul-icon li[data-v-083b147e] {\r\n    list-style: none;\n}\n.listmenu[data-v-083b147e] {\r\n    position: absolute;\r\n    right: 0;\r\n    z-index: 999;\r\n    padding: 20px;\r\n    width: 100%;\r\n    height: calc(100vh - 50px);\r\n    text-align: center;\r\n    background: rgb(255, 255, 255, 0.9);\r\n    display: flex;\r\n    flex-direction: column;\n}\n.listmenu li[data-v-083b147e] {\r\n    line-height: 100px;\r\n    font-weight: bold;\r\n    font-size: 40px;\r\n    list-style: none;\n}\n.listmenu a[data-v-083b147e]{\r\n    color: black;\n}\n.listmenu:hover a[data-v-083b147e]{\r\n    color: black;\r\n    text-decoration: none;\n}\n.listmenu .buttonlogin[data-v-083b147e] {\r\n    margin-top: 50px;\n}\n.my_a_mobile[data-v-083b147e] {\r\n    text-decoration: none;\r\n    color: black;\n}\n@media only screen and (max-width: 700px) {\n.my_ul-icon[data-v-083b147e] {\r\n        display: block;\n}\n.my_ul[data-v-083b147e] {\r\n        display: none;\n}\n}\n@media only screen and (min-width: 700px) {\n.listmenu[data-v-083b147e]{\r\n      display: none;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.burger-wrapper[data-v-083b147e] {\n    cursor: pointer;\n}\n#menyAvPaa[data-v-083b147e] {\n    display: none;\n}\n#burger[data-v-083b147e] {\n    position: absolute;\n    cursor: pointer;\n    width: 2rem;\n    height: 1.5rem;\n    right: 1rem;\n    top: 1rem;\n    display: flex;\n    justify-content: space-between;\n    flex-direction: column;\n}\n#burger > div[data-v-083b147e] {\n    height: 4px;\n    background-color: white;\n    transition: 0.5s;\n    z-index: 999;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e] {\n    background-color: #fff;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(1) {\n    transform: translateY(10px) rotate(45deg);\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(2) {\n    opacity: 0;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(3) {\n    transform: translateY(-10px) rotate(-45deg);\n}\n.slide-fade-enter-active[data-v-083b147e] {\n    transition: opacity 1.5s ease-out;\n}\n.slide-fade-leave-active[data-v-083b147e] {\n    transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);\n}\n.slide-fade-enter-from[data-v-083b147e],\n.slide-fade-leave-to[data-v-083b147e] {\n    transform: translateX(20px);\n    opacity: 0;\n}\n.my_ul .my_li a[data-v-083b147e] {\n    text-decoration: none;\n    color: white;\n}\n.my_ul .my_li a p[data-v-083b147e] {\n    transition: 1s;\n}\n.my_ul .my_li a p[data-v-083b147e]:hover {\n    color: white;\n    transform: scale(1.3);\n}\n*[data-v-083b147e] {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n.logo[data-v-083b147e] {\n    font-size: 30px;\n}\n.logo a[data-v-083b147e]{\n  color: white;\n}\n.logo:hover a[data-v-083b147e]{\n  text-decoration: none;\n}\nnav[data-v-083b147e] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    background-color: rgb(42, 41, 41);\n    height: 50px;\n    padding: 0px 20px;\n    color: white;\n    position: relative;\n}\n.my_ul[data-v-083b147e] {\n    margin: 0;\n    padding: 0;\n    display: flex;\n    align-items: center;\n}\n.my_ul li[data-v-083b147e] {\n    float: left;\n    padding: 0px 15px;\n    list-style: none;\n}\n.my_a[data-v-083b147e] {\n    text-decoration: none;\n    color: white;\n}\n.my_ul .my_a p[data-v-083b147e] {\n    transition: 1s;\n}\n.my_ul .my_a p[data-v-083b147e]:hover {\n    color: white;\n    transform: scale(1.3);\n}\n.my_ul .my_a:hover .my_button[data-v-083b147e] {\n    color: white;\n    transform: scale(1.1);\n}\n.navbar-toggler-icon[data-v-083b147e],\n.navbar-toggler[data-v-083b147e],\n.nav-item p[data-v-083b147e] {\n    color: white;\n}\n.my_button[data-v-083b147e] {\n    padding: 5px 15px;\n    border: 0;\n    color: white;\n    background: #527a5a;\n    border-radius: 15px;\n}\n.my_ul-icon[data-v-083b147e] {\n    display: none;\n    margin: 0;\n    padding: 0;\n}\n.my_ul-icon li[data-v-083b147e] {\n    list-style: none;\n}\n.listmenu[data-v-083b147e] {\n    position: absolute;\n    right: 0;\n    z-index: 999;\n    padding: 20px;\n    width: 100%;\n    height: calc(100vh - 50px);\n    text-align: center;\n    background: rgb(255, 255, 255, 0.9);\n    display: flex;\n    flex-direction: column;\n}\n.listmenu li[data-v-083b147e] {\n    line-height: 100px;\n    font-weight: bold;\n    font-size: 40px;\n    list-style: none;\n}\n.listmenu a[data-v-083b147e]{\n    color: black;\n}\n.listmenu:hover a[data-v-083b147e]{\n    color: black;\n    text-decoration: none;\n}\n.listmenu .buttonlogin[data-v-083b147e] {\n    margin-top: 50px;\n}\n.my_a_mobile[data-v-083b147e] {\n    text-decoration: none;\n    color: black;\n}\n@media only screen and (max-width: 700px) {\n.my_ul-icon[data-v-083b147e] {\n        display: block;\n}\n.my_ul[data-v-083b147e] {\n        display: none;\n}\n}\n@media only screen and (min-width: 700px) {\n.listmenu[data-v-083b147e]{\n      display: none;\n}\n}\n", ""]);
 
 // exports
 
@@ -7972,7 +8020,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.select[data-v-4e14df48]{\r\n  display: flex;\r\n  justify-content: center;\r\n  color: black;\r\n  font-size: 24px;\r\n  font-weight: bold;\n}\nselect[data-v-4e14df48]{\r\n  margin-left: 10px;\r\n  background:transparent;\r\n  border: 0;\r\n  cursor: pointer;\r\n  max-width: 100px;\r\n  font-size: 18px;\n}\n.background[data-v-4e14df48]{\r\n        /* background-image: url(\"../../../images/pexels-picjumbocom-196652.jpg\");\r\n        background-repeat: no-repeat;\r\n        background-position: center;\r\n        background-size: cover; */\r\n        /* background: #E8EBF8; */\r\n        /* background: #595766ad; */\r\n        padding: 15px 0;\r\n        background: #2a292985;\n}\n.background[data-v-4e14df48]::-webkit-scrollbar {\r\n        display: none;\n}\n.background[data-v-4e14df48] {\r\n        -ms-overflow-style: none;  /* IE and Edge */\r\n        scrollbar-width: none;  /* Firefox */\n}\nh1[data-v-4e14df48], .info h3[data-v-4e14df48]{\r\n        text-align: center;\n}\n.info h3[data-v-4e14df48], .request[data-v-4e14df48]{\r\n        color: white;\r\n        text-transform: capitalize;\n}\nh1[data-v-4e14df48]{\r\n        font-size: 55px;\n}\n.my_card[data-v-4e14df48]{\r\n        margin: 50px auto;\r\n        max-width: 60%;\r\n        padding: 10px;\r\n        /* background: rgba(210, 206, 206, 0.861); */\r\n        /* background: #ededed; */\r\n        /* background-image: url('https://i.stack.imgur.com/MkSui.jpg'); */\r\n        background-image: url('https://icbstexas.com/wp-content/uploads/split-color-background.jpg');\r\n        background-repeat: no-repeat;\r\n        background-position: center;\r\n        background-size: cover;\r\n        border-radius: 10px;\r\n        /* border: 1px solid black; */\r\n        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);\r\n        transition: 1s;\n}\n.my_card[data-v-4e14df48]:hover{\r\n        cursor: pointer;\r\n        transform: scale(1.03);\n}\n.my_card:hover a[data-v-4e14df48]{\r\n        text-decoration: none;\n}\n.request[data-v-4e14df48]{\r\n        display: flex;\r\n        padding: 5px;\r\n        border-radius: 10px;\r\n        background: rgba(28, 28, 28, 0.8);\r\n        max-height: 200px;\n}\n.request ul[data-v-4e14df48]{\r\n        max-height: 150px;\r\n        overflow: scroll;\n}\n.request ul[data-v-4e14df48]::-webkit-scrollbar {\r\n        display: none;\n}\n.request ul[data-v-4e14df48]{\r\n        -ms-overflow-style: none;  /* IE and Edge */\r\n        scrollbar-width: none;  /* Firefox */\n}\n.categories li[data-v-4e14df48], .events li[data-v-4e14df48], .references li[data-v-4e14df48]{\r\n        list-style: none;\r\n        margin-left: 5px;\r\n        font-size: 17px;\n}\n.references ul[data-v-4e14df48]{\r\n        display: flex;\r\n        justify-content: space-between;\r\n        align-items: center;\n}\n.references li[data-v-4e14df48]{\r\n        display: inline;\r\n        font-size: 15px;\n}\n.references[data-v-4e14df48]{\r\n        padding: 0 50px;\r\n        /* margin-top: 20px; */\n}\n.categories li[data-v-4e14df48]{\r\n        color: rgba(91, 121, 93);\n}\n.events li[data-v-4e14df48]{\r\n        color: rgba(175, 108, 195);\n}\n.categories div[data-v-4e14df48], .events div[data-v-4e14df48]{\r\n        border-radius: 15px;\r\n        padding: 15px;\n}\n.top[data-v-4e14df48]{\r\n        display: flex;\r\n        flex-wrap: wrap;\r\n        padding: 15px 0;\n}\r\n\r\n    /* .container{\r\n        -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\r\n        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\r\n        border-radius: 10px;\r\n        padding: 20px;\r\n        margin-bottom: 40px;\r\n    }\r\n    */\n.info[data-v-4e14df48]{\r\n        display: flex;\r\n        flex-direction: column;\r\n        justify-content: center;\r\n        align-items: center;\n}\n.info img[data-v-4e14df48]{\r\n        height: 200px;\r\n        width: 200px;\r\n        border-radius: 50%;\n}\n.references img[data-v-4e14df48]{\r\n        width: 25px;\r\n        height: auto;\r\n        color: #527a5a;\n}\n.references li[data-v-4e14df48]{\r\n        color: black;\r\n        text-transform: capitalize;\n}\n.references #reviews[data-v-4e14df48]{\r\n        display: flex;\n}\n@media only screen and (max-width: 700px) {\n.categories[data-v-4e14df48], .events[data-v-4e14df48]{\r\n            padding: 0;\n}\n.categories div[data-v-4e14df48], .events div[data-v-4e14df48]{\r\n            max-width: 80%;\n}\n.my_card[data-v-4e14df48]{\r\n            max-width: 90%;\n}\n.references[data-v-4e14df48]{\r\n            padding: 0 30px;\n}\n}\n@media only screen and (max-width: 1000px){\n.references p[data-v-4e14df48]{\r\n        display: none;\n}\n.references #reviews[data-v-4e14df48]{\r\n        margin-top: 10px;\n}\n.references ul[data-v-4e14df48]{\r\n        display: flex;\r\n        flex-direction: column;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.select[data-v-4e14df48]{\n  display: flex;\n  justify-content: center;\n  color: black;\n  font-size: 24px;\n  font-weight: bold;\n}\nselect[data-v-4e14df48]{\n  margin-left: 10px;\n  background:transparent;\n  border: 0;\n  cursor: pointer;\n  max-width: 100px;\n  font-size: 18px;\n}\n.background[data-v-4e14df48]{\n        /* background-image: url(\"../../../images/pexels-picjumbocom-196652.jpg\");\n        background-repeat: no-repeat;\n        background-position: center;\n        background-size: cover; */\n        /* background: #E8EBF8; */\n        /* background: #595766ad; */\n        padding: 15px 0;\n        background: #2a292985;\n}\n.background[data-v-4e14df48]::-webkit-scrollbar {\n        display: none;\n}\n.background[data-v-4e14df48] {\n        -ms-overflow-style: none;  /* IE and Edge */\n        scrollbar-width: none;  /* Firefox */\n}\nh1[data-v-4e14df48], .info h3[data-v-4e14df48]{\n        text-align: center;\n}\n.info h3[data-v-4e14df48], .request[data-v-4e14df48]{\n        color: white;\n        text-transform: capitalize;\n}\nh1[data-v-4e14df48]{\n        font-size: 55px;\n}\n.my_card[data-v-4e14df48]{\n        margin: 50px auto;\n        max-width: 60%;\n        padding: 10px;\n        /* background: rgba(210, 206, 206, 0.861); */\n        /* background: #ededed; */\n        /* background-image: url('https://i.stack.imgur.com/MkSui.jpg'); */\n        background-image: url('https://icbstexas.com/wp-content/uploads/split-color-background.jpg');\n        background-repeat: no-repeat;\n        background-position: center;\n        background-size: cover;\n        border-radius: 10px;\n        /* border: 1px solid black; */\n        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);\n        transition: 1s;\n}\n.my_card[data-v-4e14df48]:hover{\n        cursor: pointer;\n        transform: scale(1.03);\n}\n.my_card:hover a[data-v-4e14df48]{\n        text-decoration: none;\n}\n.request[data-v-4e14df48]{\n        display: flex;\n        padding: 5px;\n        border-radius: 10px;\n        background: rgba(28, 28, 28, 0.8);\n        max-height: 200px;\n}\n.request ul[data-v-4e14df48]{\n        max-height: 150px;\n        overflow: scroll;\n}\n.request ul[data-v-4e14df48]::-webkit-scrollbar {\n        display: none;\n}\n.request ul[data-v-4e14df48]{\n        -ms-overflow-style: none;  /* IE and Edge */\n        scrollbar-width: none;  /* Firefox */\n}\n.categories li[data-v-4e14df48], .events li[data-v-4e14df48], .references li[data-v-4e14df48]{\n        list-style: none;\n        margin-left: 5px;\n        font-size: 17px;\n}\n.references ul[data-v-4e14df48]{\n        display: flex;\n        justify-content: space-between;\n        align-items: center;\n}\n.references li[data-v-4e14df48]{\n        display: inline;\n        font-size: 15px;\n}\n.references[data-v-4e14df48]{\n        padding: 0 50px;\n        /* margin-top: 20px; */\n}\n.categories li[data-v-4e14df48]{\n        color: rgba(91, 121, 93);\n}\n.events li[data-v-4e14df48]{\n        color: rgba(175, 108, 195);\n}\n.categories div[data-v-4e14df48], .events div[data-v-4e14df48]{\n        border-radius: 15px;\n        padding: 15px;\n}\n.top[data-v-4e14df48]{\n        display: flex;\n        flex-wrap: wrap;\n        padding: 15px 0;\n}\n\n    /* .container{\n        -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n        border-radius: 10px;\n        padding: 20px;\n        margin-bottom: 40px;\n    }\n    */\n.info[data-v-4e14df48]{\n        display: flex;\n        flex-direction: column;\n        justify-content: center;\n        align-items: center;\n}\n.info img[data-v-4e14df48]{\n        height: 200px;\n        width: 200px;\n        border-radius: 50%;\n}\n.references img[data-v-4e14df48]{\n        width: 25px;\n        height: auto;\n        color: #527a5a;\n}\n.references li[data-v-4e14df48]{\n        color: black;\n        text-transform: capitalize;\n}\n.references #reviews[data-v-4e14df48]{\n        display: flex;\n}\n@media only screen and (max-width: 700px) {\n.categories[data-v-4e14df48], .events[data-v-4e14df48]{\n            padding: 0;\n}\n.categories div[data-v-4e14df48], .events div[data-v-4e14df48]{\n            max-width: 80%;\n}\n.my_card[data-v-4e14df48]{\n            max-width: 90%;\n}\n.references[data-v-4e14df48]{\n            padding: 0 30px;\n}\n}\n@media only screen and (max-width: 1000px){\n.references p[data-v-4e14df48]{\n        display: none;\n}\n.references #reviews[data-v-4e14df48]{\n        margin-top: 10px;\n}\n.references ul[data-v-4e14df48]{\n        display: flex;\n        flex-direction: column;\n}\n}\n", ""]);
 
 // exports
 
@@ -40186,69 +40234,235 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("footer", [
-    _c("div", { staticClass: "top" }, [
-      _c("div", { staticClass: "lorem col-lg-4 col-sm-12" }, [
-        _vm._v(
-          "\n            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi quae quo quis, fugiat earum quasi cumque in delectus, nulla voluptatem, aperiam inventore numquam porro natus dolores? Nostrum quibusdam neque repellat eaque recusandae, odit iste distinctio magni assumenda culpa quos vel natus, numquam laborum. Soluta quo quibusdam quidem, suscipit ea neque!\n        "
-        ),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-lg-2" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "link col-lg-6 col-sm-12" }, [
-        _c(
-          "ul",
-          { staticClass: "col-4" },
-          [
-            _c("h2", [_vm._v("LINK")]),
-            _vm._v(" "),
-            _vm._l(_vm.linkfooter1, function (link, index) {
-              return _c("li", { key: index }, [
-                _c("a", { attrs: { href: "" } }, [_vm._v(_vm._s(link.name))]),
-              ])
-            }),
-          ],
-          2
-        ),
-        _vm._v(" "),
-        _c(
-          "ul",
-          { staticClass: "col-4" },
-          [
-            _c("h2", [_vm._v("LINK")]),
-            _vm._v(" "),
-            _vm._l(_vm.linkfooter2, function (link, index) {
-              return _c("li", { key: index }, [
-                _c("a", { attrs: { href: "" } }, [_vm._v(_vm._s(link.name))]),
-              ])
-            }),
-          ],
-          2
-        ),
-        _vm._v(" "),
-        _c(
-          "ul",
-          { staticClass: "col-4" },
-          [
-            _c("h2", [_vm._v("LINK")]),
-            _vm._v(" "),
-            _vm._l(_vm.linkfooter3, function (link, index) {
-              return _c("li", { key: index }, [
-                _c("a", { attrs: { href: "" } }, [_vm._v(_vm._s(link.name))]),
-              ])
-            }),
-          ],
-          2
-        ),
-      ]),
-    ]),
+    _vm._m(0),
     _vm._v(" "),
     _c("div", { staticClass: "bottom" }, [
-      _vm._v("\n        Sede a Battipaglia, made by Group 6 Boolean.\n    "),
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "squares" }, [
+          _c("div", { staticClass: "square col-lg-3 col-md-6 col-sm-12" }, [
+            _c("h4", [_vm._v("Contattaci")]),
+            _vm._v(" "),
+            _c(
+              "ul",
+              _vm._l(_vm.Contattaci, function (voce, indice) {
+                return _c("li", { key: indice + "contattaci" }, [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _vm._v(_vm._s(voce.name)),
+                  ]),
+                ])
+              }),
+              0
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "square col-lg-3 col-md-6 col-sm-12" }, [
+            _c("h4", [_vm._v("Note Legali")]),
+            _vm._v(" "),
+            _c(
+              "ul",
+              _vm._l(_vm.Note, function (voce, indice) {
+                return _c("li", { key: indice + "note" }, [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _vm._v(_vm._s(voce.name)),
+                  ]),
+                ])
+              }),
+              0
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "square col-lg-3 col-md-6 col-sm-12" }, [
+            _c("h4", [_vm._v("Conosciamoci Meglio")]),
+            _vm._v(" "),
+            _c(
+              "ul",
+              _vm._l(_vm.Conosciamoci, function (voce, indice) {
+                return _c("li", { key: indice + "conosciamoci" }, [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _vm._v(_vm._s(voce.name)),
+                  ]),
+                ])
+              }),
+              0
+            ),
+          ]),
+          _vm._v(" "),
+          _vm._m(1),
+        ]),
+      ]),
     ]),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "pre" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "profiles" }, [
+          _c("div", { staticClass: "card col-lg-3 col-md-6 col-sm-6" }, [
+            _c("h4", [_vm._v("Francesco Abritta")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "social" }, [
+              _c(
+                "a",
+                { attrs: { href: "https://github.com/francesco-abritta" } },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../images/github.svg */ "./resources/images/github.svg"),
+                      alt: "",
+                    },
+                  }),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  attrs: {
+                    href: "https://linkedin.com/in/francesco-abritta-040988197",
+                  },
+                },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../images/linkedin.svg */ "./resources/images/linkedin.svg"),
+                      alt: "",
+                    },
+                  }),
+                ]
+              ),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card col-lg-3 col-md-6 col-sm-6" }, [
+            _c("h4", [_vm._v("Milan Stojkovic")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "social" }, [
+              _c("a", { attrs: { href: "https://github.com/MilanStojko" } }, [
+                _c("img", {
+                  attrs: {
+                    src: __webpack_require__(/*! ../../../images/github.svg */ "./resources/images/github.svg"),
+                    alt: "",
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  attrs: {
+                    href: "https://linkedin.com/in/milan-stojkovicjobs",
+                  },
+                },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../images/linkedin.svg */ "./resources/images/linkedin.svg"),
+                      alt: "",
+                    },
+                  }),
+                ]
+              ),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card col-lg-3 col-md-6 col-sm-6" }, [
+            _c("h4", [_vm._v("Hamza Bouzid")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "social" }, [
+              _c("a", { attrs: { href: "https://github.com/Hamza-bouzid" } }, [
+                _c("img", {
+                  attrs: {
+                    src: __webpack_require__(/*! ../../../images/github.svg */ "./resources/images/github.svg"),
+                    alt: "",
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c(
+                "a",
+                { attrs: { href: "https://linkedin.com/in/hamza-bouzid" } },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../images/linkedin.svg */ "./resources/images/linkedin.svg"),
+                      alt: "",
+                    },
+                  }),
+                ]
+              ),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card col-lg-3 col-md-6 col-sm-6" }, [
+            _c("h4", [_vm._v("Simone Massaro")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "social" }, [
+              _c("a", { attrs: { href: "https://github.com/SimoMassaro52" } }, [
+                _c("img", {
+                  attrs: {
+                    src: __webpack_require__(/*! ../../../images/github.svg */ "./resources/images/github.svg"),
+                    alt: "",
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  attrs: {
+                    href: "https://linkedin.com/in/simone-massaro-95ba2a140",
+                  },
+                },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../images/linkedin.svg */ "./resources/images/linkedin.svg"),
+                      alt: "",
+                    },
+                  }),
+                ]
+              ),
+            ]),
+          ]),
+        ]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "square col-lg-3 col-md-6 col-sm-12" }, [
+      _c("ul", [
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [
+            _c("img", {
+              attrs: {
+                src: __webpack_require__(/*! ../../../images/googleplay.png */ "./resources/images/googleplay.png"),
+                alt: "Scarica dal Play Store",
+              },
+            }),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [
+            _c("img", {
+              attrs: {
+                src: __webpack_require__(/*! ../../../images/app-store.png */ "./resources/images/app-store.png"),
+                alt: "Scarica dall'App Store",
+              },
+            }),
+          ]),
+        ]),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 
@@ -40783,55 +40997,44 @@ var render = function () {
               ],
               attrs: { name: "availabilities", id: "availabilities" },
               on: {
-                change: [
-                  function ($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function (o) {
-                        return o.selected
-                      })
-                      .map(function (o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.valore = $event.target.multiple
-                      ? $$selectedVal
-                      : $$selectedVal[0]
-                  },
-                  function ($event) {
-                    return _vm.saveValue($event)
-                  },
-                ],
+                change: function ($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function (o) {
+                      return o.selected
+                    })
+                    .map(function (o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.valore = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
               },
             },
             _vm._l(_vm.availabilities, function (availability, index) {
               return _c(
                 "option",
                 { key: index, domProps: { value: availability.name } },
-                [_vm._v(_vm._s(availability.name))]
+                [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(availability.name) +
+                      "\n          "
+                  ),
+                ]
               )
             }),
             0
           ),
           _vm._v(" "),
-          _c(
-            "button",
-            {
-              on: {
-                click: function ($event) {
-                  $event.preventDefault()
-                  return _vm.sendSelected()
-                },
+          _c("button", {
+            on: {
+              click: function ($event) {
+                return _vm.sendSelected()
               },
             },
-            [
-              _c(
-                "router-link",
-                { staticClass: "my_search", attrs: { to: { name: "search" } } },
-                [_vm._v("Cerca")]
-              ),
-            ],
-            1
-          ),
+          }),
         ]),
       ]),
       _vm._v(" "),
@@ -40847,7 +41050,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "col-lg-6 col-sm-12 jumbo-text" }, [
       _c("p", [
         _vm._v(
-          "\n                    Lorem Ipsum is simply dummy text of the printing and\n                    typesetting industry. Lorem Ipsum has been the\n                    industry's standard\n                "
+          "\n          Lorem Ipsum is simply dummy text of the printing and typesetting\n          industry. Lorem Ipsum has been the industry's standard\n        "
         ),
       ]),
     ])
@@ -57662,6 +57865,17 @@ module.exports = "/images/band.svg?b92bd976389daeafaa6600d4eaf6a1a6";
 
 /***/ }),
 
+/***/ "./resources/images/github.svg":
+/*!*************************************!*\
+  !*** ./resources/images/github.svg ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/github.svg?544edda74777448803c2d7fc364f5335";
+
+/***/ }),
+
 /***/ "./resources/images/googleplay.png":
 /*!*****************************************!*\
   !*** ./resources/images/googleplay.png ***!
@@ -57739,6 +57953,17 @@ module.exports = "/images/jumbo-6.jpg?f74a0b86e1e713f36c3e961f3462cdf1";
 
 /***/ }),
 
+/***/ "./resources/images/linkedin.svg":
+/*!***************************************!*\
+  !*** ./resources/images/linkedin.svg ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/linkedin.svg?34c3c12aa78fb79f214fcd87e00017d9";
+
+/***/ }),
+
 /***/ "./resources/images/music.svg":
 /*!************************************!*\
   !*** ./resources/images/music.svg ***!
@@ -57790,7 +58015,7 @@ module.exports = "/images/service-3.svg?eba2a9055d13786db8f54b0f3ba5d556";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/wave.svg?3d8bc604125d77811c1a4e9267f06eba";
+module.exports = "/images/wave.svg?aef79995629b40b24f4277c44b0be010";
 
 /***/ }),
 
@@ -59095,7 +59320,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\simon\Desktop\unison\resources\js\guest\front.js */"./resources/js/guest/front.js");
+module.exports = __webpack_require__(/*! /Users/francescoabritta/Documents/unison/resources/js/guest/front.js */"./resources/js/guest/front.js");
 
 
 /***/ })
