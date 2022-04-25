@@ -19,7 +19,7 @@ const router = new VueRouter({
         },
         {
             path: "/search",
-            name: "search",
+            name: "search/:name/:vote",
             query: "name",
             component: Search,
         },
