@@ -77,7 +77,7 @@
                             v-model="reviewData.content"
                         ></textarea>
                         <!--Emoji Rating-->
-                        <div id="full-stars-example">
+                        <div class="full-stars-example">
                             <p>Valutazione:</p>
                             <div class="rating-group">
                                 <label
@@ -374,6 +374,8 @@ export default {
                 .post(`/api/review/postReview/`, this.reviewData)
                 .then((response) => {
                     this.popupReview = false;
+                    this.reviewData.username = "";
+                    this.reviewData.content = "";
                     console.log(response);
                 })
                 .catch((error) => {
@@ -386,8 +388,11 @@ export default {
                 .post(`/api/message/postMessage/`, this.messageData)
                 .then((response) => {
                     this.popupMessage = false;
-                    console.log(response);
-                    console.log("messagio Inviato");
+                    this.messageData.name = "";
+                    this.messageData.surname = "";
+                    this.messageData.cellphone = "";
+                    this.messageData.email = "";
+                    this.messageData.content = "";
                 })
                 .catch((error) => {
                     console.log(error.response.data);
@@ -747,60 +752,6 @@ li {
 
     100% {
         transform: translate(-50%, -50%) scale(1);
-    }
-}
-
-// Review Rating
-#full-stars-example {
-    p {
-        margin-bottom: 0px;
-        color: #999;
-    }
-    
-    .rating-group {
-        display: inline-flex;
-    }
-
-    .rating__icon {
-        pointer-events: none;
-    }
-
-    .rating__input {
-        position: absolute !important;
-        left: -9999px !important;
-    }
-
-    .rating__label {
-        cursor: pointer;
-        padding: 0 0.1em;
-        font-size: 2rem;
-    }
-
-    .rating__icon--star {
-        color: #527a5a;
-    }
-
-    .rating__icon--none {
-        color: #eee;
-    }
-
-    .rating__input:checked ~ .rating__label .rating__icon--star {
-        color: #ccc;
-    }
-
-    .rating-group:hover .rating__label .rating__icon--star {
-        color: #527a5a;
-    }
-
-    .rating__input:hover ~ .rating__label .rating__icon--star {
-        color: #ccc;
-    }
-
-    .rating-group:hover
-        .rating__input--none:not(:hover)
-        + .rating__label
-        .rating__icon--none {
-        color: #ededed;
     }
 }
 

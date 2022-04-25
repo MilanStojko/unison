@@ -76,10 +76,6 @@ export default {
     data() {
       return {
         musicians: [],
-        reviewVotes: [],
-        avarageVote: "",
-        user: {},
-        id_user: null,
       };
     },
     created(){

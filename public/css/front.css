@@ -11053,3 +11053,52 @@ body {
   margin-bottom: 0px;
 }
 
+.full-stars-example p {
+  margin-bottom: 0px;
+  color: #999;
+}
+
+.full-stars-example .rating-group {
+  display: inline-flex;
+}
+
+.full-stars-example .rating__icon {
+  pointer-events: none;
+}
+
+.full-stars-example .rating__input {
+  position: absolute !important;
+  left: -9999px !important;
+}
+
+.full-stars-example .rating__label {
+  cursor: pointer;
+  padding: 0 0.1em;
+  font-size: 2rem;
+  margin-bottom: 0px;
+}
+
+.full-stars-example .rating__icon--star {
+  color: #527a5a;
+}
+
+.full-stars-example .rating__icon--none {
+  color: #eee;
+}
+
+.full-stars-example .rating__input:checked ~ .rating__label .rating__icon--star {
+  color: #ccc;
+}
+
+.full-stars-example .rating-group:hover .rating__label .rating__icon--star {
+  color: #527a5a;
+}
+
+.full-stars-example .rating__input:hover ~ .rating__label .rating__icon--star {
+  color: #ccc;
+}
+
+.full-stars-example .rating-group:hover .rating__input--none:not(:hover) + .rating__label .rating__icon--none {
+  color: #ededed;
+}
+

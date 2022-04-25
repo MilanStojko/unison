@@ -17,9 +17,100 @@
         <div class="container p-4">
             <div class="search-filters">
                 <h2>Filtra per:</h2>
-                <button @click="filterReviews()"><i class="fa-solid fa-memo-circle-check"></i> Recensioni</button>
-                <button><i class="fa-solid fa-music"></i> Media Voti</button>
+                <button @click="changeOrderReviews()"><i class="fa-solid fa-music"></i> Recensioni</button>
+                <div class="d-flex">
+                    <!--Emoji Rating-->
+                        <div class="full-stars-example">
+                            <div class="rating-group">
+                                <label
+                                    aria-label="1 star"
+                                    class="rating__label"
+                                    for="rating-1"
+                                    ><i
+                                        class="rating__icon rating__icon--star fa-solid fa-music"
+                                    ></i
+                                ></label>
+                                <input
+                                    class="rating__input"
+                                    name="rating"
+                                    id="rating-1"
+                                    value="1"
+                                    v-model="selectVote"
+                                    type="radio"
+                                />
+                                <label
+                                    aria-label="2 stars"
+                                    class="rating__label"
+                                    for="rating-2"
+                                    ><i
+                                        class="rating__icon rating__icon--star fa-solid fa-music"
+                                    ></i
+                                ></label>
+                                <input
+                                    class="rating__input"
+                                    name="rating"
+                                    id="rating-2"
+                                    value="2"
+                                    v-model="selectVote"
+                                    type="radio"
+                                />
+                                <label
+                                    aria-label="3 stars"
+                                    class="rating__label"
+                                    for="rating-3"
+                                    ><i
+                                        class="rating__icon rating__icon--star fa-solid fa-music"
+                                    ></i
+                                ></label>
+                                <input
+                                    class="rating__input"
+                                    name="rating"
+                                    id="rating-3"
+                                    value="3"
+                                    v-model="selectVote"
+                                    type="radio"
+                                />
+                                <label
+                                    aria-label="4 stars"
+                                    class="rating__label"
+                                    for="rating-4"
+                                    ><i
+                                        class="rating__icon rating__icon--star fa-solid fa-music"
+                                    ></i
+                                ></label>
+                                <input
+                                    class="rating__input"
+                                    name="rating"
+                                    id="rating-4"
+                                    value="4"
+                                    v-model="selectVote"
+                                    type="radio"
+                                    checked
+                                />
+                                <label
+                                    aria-label="5 stars"
+                                    class="rating__label"
+                                    for="rating-5"
+                                    ><i
+                                        class="rating__icon rating__icon--star fa-solid fa-music"
+                                    ></i
+                                ></label>
+                                <input
+                                    class="rating__input"
+                                    name="rating"
+                                    id="rating-5"
+                                    value="5"
+                                    v-model="selectVote"
+                                    type="radio"
+                                />
+                            </div>
+                        </div>
+                        <!--Emoji Rating Ends-->
+                        <button @click="changeOrderVotes()">Calcola</button>
+                </div>
+                
             </div>
+            
             
             <div class="my_card" v-for="(musician, indice) in musicians" :key="indice">
                     <router-link :to="{ name: 'user-single', params: { slug: musician.slug } }">
@@ -94,8 +185,8 @@ export default {
     return {
       categories:[],
       musicians: [],
+      selectVote: null,
       ava: "",
-      selectedAvailability: "",
     };
   },
   methods: {
@@ -132,12 +223,31 @@ export default {
             boh=somma/count;
         };
         
-        console.log(boh)
         return Math.round(boh);
     },
 
-    filterReviews: function() {
-        console.log(this.musicians)
+    changeOrderReviews: function() {
+        return this.musicians.sort(function(a, b){
+            return b.reviews.length - a.reviews.length;
+        });
+
+    },
+///api/filtered/getavailability/search?name=canto&vote=3
+    changeOrderVotes: function() {
+        axios
+        .get(`/api/filtered/getavailability${this.$route.fullPath}`, {
+            params: {
+                vote: this.selectVote
+            }
+        })
+        .then((response) => {
+          this.musicians = response.data;
+          console.log(this.musicians)
+        })
+        .catch(function (error) {
+          console.log(error.response.data);
+        });
+        //this.$router.push({ name: "search", query: { name: this.ava, vote: this.selectVote} });
     }
   },
   created() {
@@ -366,6 +476,12 @@ select{
                 color: #fff;
             }
         }
+    }
+
+    .rating__label {
+        cursor: pointer;
+        padding: 0 0.1em;
+        font-size: 1.5rem;
     }
 
 

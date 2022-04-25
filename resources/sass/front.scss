@@ -90,3 +90,58 @@ body {
         }
     }
 }
+
+// Review Rating
+.full-stars-example {
+    p {
+        margin-bottom: 0px;
+        color: #999;
+    }
+
+    .rating-group {
+        display: inline-flex;
+    }
+
+    .rating__icon {
+        pointer-events: none;
+    }
+
+    .rating__input {
+        position: absolute !important;
+        left: -9999px !important;
+    }
+
+    .rating__label {
+        cursor: pointer;
+        padding: 0 0.1em;
+        font-size: 2rem;
+        margin-bottom: 0px;
+    }
+
+    .rating__icon--star {
+        color: #527a5a;
+    }
+
+    .rating__icon--none {
+        color: #eee;
+    }
+
+    .rating__input:checked ~ .rating__label .rating__icon--star {
+        color: #ccc;
+    }
+
+    .rating-group:hover .rating__label .rating__icon--star {
+        color: #527a5a;
+    }
+
+    .rating__input:hover ~ .rating__label .rating__icon--star {
+        color: #ccc;
+    }
+
+    .rating-group:hover
+        .rating__input--none:not(:hover)
+        + .rating__label
+        .rating__icon--none {
+        color: #ededed;
+    }
+}
