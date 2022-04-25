@@ -14,13 +14,15 @@ class MessageSeeder extends Seeder
     public function run(Faker $faker)
     {
         $emails = ['ykkb16@oduyzrp.com', 'dcq13pj@24hinbox.com', 'happycpl33@goldinbox.net', 'keat1905@superhostformula.com', 'crisgo01@hasevo.com', 'clydite@eetieg.com', 'rgtoy@uhpanel.com'];
-        foreach ($emails as $email) {
+        $strangers = ['Caio', 'Angioletto', 'Abighele', 'Jeredahia', 'Abenizio', 'Aronne', 'Pissio', 'Tulio', 'Edo', 'Antea', 'Algisio'];
+
+        for ($i = 0; $i < 20; $i++) {
             $fake_email = new Message();
-            $fake_email->email = $email;
-            $fake_email->content = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam porttitor gravida enim, eget semper odio consequat in. Vestibulum efficitur blandit mi at accumsan. Curabitur nibh elit, finibus rhoncus dui vitae, egestas iaculis mi. Donec aliquam elementum turpis, vel egestas dui. Praesent nec enim eleifend, iaculis urna vel, dictum ipsum. Proin sit amet dictum ipsum, nec dapibus enim. Nulla facilisi. Praesent id tortor ex. Nulla eget purus eget dolor condimentum vestibulum. Mauris vestibulum dapibus augue, sit amet iaculis leo scelerisque sed. Integer at ex felis. Suspendisse ipsum nibh, suscipit mattis diam sit amet, consectetur consectetur ligula. Mauris sit amet ligula semper, vestibulum neque eu, blandit lorem. Integer ornare elit et nisi sollicitudin volutpat. Phasellus tempus finibus efficitur.';
-            $fake_email->user_id = 1;
-            $fake_email->name = "wewe";
-            $fake_email->surname = "ciao";
+            $fake_email->email = $emails[rand(0, count($emails) - 1)];
+            $fake_email->content = $faker->text();
+            $fake_email->user_id = rand(1, 10);
+            $fake_email->name = $strangers[rand(0, count($strangers) - 1)];
+            $fake_email->surname = $strangers[rand(0, count($strangers) - 1)];
             $fake_email->save();
         }
     }

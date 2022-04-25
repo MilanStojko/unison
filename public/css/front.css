@@ -11007,7 +11007,7 @@ body {
 }
 
 .big-notes {
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .starFill0 {
@@ -11032,5 +11032,24 @@ body {
 
 .starFill5 {
   width: 100%;
+}
+
+#reviews {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#reviews .text {
+  margin-right: 10px;
+}
+
+#reviews .text span {
+  font-size: 16px;
+  color: #5e5e5e;
+}
+
+#reviews .text p {
+  margin-bottom: 0px;
 }
 

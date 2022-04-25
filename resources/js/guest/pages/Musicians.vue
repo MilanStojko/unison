@@ -2,10 +2,7 @@
 <div class="background">
     <div class="container">
         <div class="container p-4">
-            <h1>I nostri musicisti</h1>
-                                        <span @click=getAvgVote()>Prova</span>
-
-            
+            <h1>I nostri musicisti</h1> 
             <div class="my_card" v-for="(musician, indiceSingle) in musicians" :key="indiceSingle">
                     <router-link :to="{ name: 'user-single', params: { slug: musician.slug } }">
                         <div class="top">
@@ -38,7 +35,10 @@
                                 <ul>
                                     <li><i class="fa-solid fa-location-dot"></i> {{musician.address}}</li>
                                     <li id="reviews" style="font-size: 20px">
-                                        <p>Recensioni:</p>
+                                        <div class="text">
+                                            <p>Recensioni: <span>({{musician.reviews.length}})</span></p>
+  
+                                        </div>
                                         <div v-if="musician.reviews.length > 0">
                                                 <!-- <img src="../../../images/music.svg" /> -->
                                             <div class="notes big-notes">
@@ -192,7 +192,7 @@ export default {
         background-size: cover; */
         /* background: #E8EBF8; */
         /* background: #595766ad; */
-        background: #2a292985;
+        background: #fff;
     }
 
     .background::-webkit-scrollbar {
@@ -344,7 +344,6 @@ export default {
     .references #reviews{
         display: flex;
     }
-
 
 
     @media only screen and (max-width: 700px) {

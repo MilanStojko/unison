@@ -25,6 +25,9 @@ class UserController extends Controller
     public function show($slug)
     {
         $user = User::where('slug', $slug)->with('categories', 'availabilities', 'sponsorships', 'reviews')->first();
+        if( empty($user) ) {
+            return response()->json(["message" => "Post Not Found"], 404);
+          }
         return response()->json($user);
     }
 
