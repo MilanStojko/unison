@@ -144,6 +144,15 @@ li {
 }
 
 // Buttons
+.u_btn_log{
+    color: #bd5db7;
+    border: 1px solid #bd5db7;
+    transition: 0.3s;
+    &:hover{
+        color: #fff;
+        background-color: #bd5db7;
+    }
+}
 
 .u_edit-user {
     a {
@@ -355,7 +364,7 @@ li {
     border-bottom: 2px solid $back-primary;
 
     a {
-        color: #f4821f !important;
+        color: $back-primary !important;
     }
 }
 

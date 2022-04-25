@@ -26,7 +26,7 @@
         <nav class="navbar navbar-expand-md navbar-dark shadow-sm p-0 u_log-navbar">
             <div class="container">
                 <a class="app-logo" href="{{ url('/') }}">
-                    {{ config('app.name', 'Unison') }}
+                    &#119073; My Unison
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false"

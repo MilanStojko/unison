@@ -75,6 +75,7 @@
                             rows="10"
                             placeholder="Scrivi la tua recensione"
                             v-model="reviewData.content"
+                            required
                         ></textarea>
                         <!--Emoji Rating-->
                         <div id="full-stars-example">
@@ -374,6 +375,7 @@ export default {
                 .post(`/api/review/postReview/`, this.reviewData)
                 .then((response) => {
                     this.popupReview = false;
+                    window.location.reload();
                     console.log(response);
                 })
                 .catch((error) => {
