@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Unison</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/admin.js') }}" defer></script>
@@ -16,6 +16,11 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+    <link href="http://fonts.cdnfonts.com/css/crystal-palace" rel="stylesheet">
+    <link href="http://fonts.cdnfonts.com/css/adobe-garamond-pro-2" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
@@ -23,9 +28,7 @@
 
 </head>
 
-<body>
-
-        
+<body>  
     <nav class="u_navbar">
         <a class="logo" href="http://127.0.0.1:8000/">Unison</a>
                 <div>
@@ -60,12 +63,12 @@
                                 Main menu
                             </a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link u_menu-info-link {{request()->is('admin/users/*') ? 'menu-active' : ''}}" href="{{route('admin.users.show', auth()->user())}}">
                                 <i class="bi bi-people"></i>
                                 Il mio profilo
                             </a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <a class="nav-link u_menu-info-link {{request()->is('admin/messages') ? 'menu-active' : ''}}" href="{{route('admin.messages.index')}}">
                                 <i class="bi bi-chat-dots"></i>

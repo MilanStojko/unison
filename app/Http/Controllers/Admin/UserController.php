@@ -80,7 +80,7 @@ class UserController extends Controller
     public function show()
     {
         $user = Auth::user();
-        return view('admin.users.show', compact('user'));
+        return view('admin.home', compact('user'));
     }
 
     /**
@@ -133,7 +133,7 @@ class UserController extends Controller
         $user->sponsorships()->sync(isset($data['sponsorships']) ? $data['sponsorships'] : []);
         $user->availabilities()->sync(isset($data['availabilities']) ? $data['availabilities'] : []);
 
-        return redirect()->route('admin.users.show', $user->id);
+        return redirect()->route('admin.home', $user->id);
     }
 
     /**

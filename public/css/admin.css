@@ -11422,6 +11422,7 @@ li {
   overflow: hidden;
   transition: 0.4s;
   transform: scale(1.05);
+  cursor: pointer;
 }
 
 .plan-card::before {
@@ -11435,22 +11436,33 @@ li {
   background-size: cover;
   z-index: -1;
   content: "";
-  opacity: 0.5;
+  opacity: 0.8;
   background-position: center;
 }
 
 .plan-card:hover {
-  transform: scale(1.08);
+  transform: scale(1.1);
 }
 
 .plan-card:hover::before {
   filter: blur(5px);
-  transform: scale(1.2);
+  transform: scale(1.3);
+}
+
+.plan-card:hover .plan-name {
+  transform: translate(0, 75px) scale(1.5);
+  transition: 0.6s;
+}
+
+.plan-card:hover .plan-text {
+  transform: translate(0, -75px) scale(1.3);
+  transition: 0.6s;
 }
 
 .plan-a .plan-name {
-  color: #4DA3B6;
-  text-shadow: 2px 2px #F44F41;
+  color: #F44F41;
+  text-shadow: 2px 2px #4DA3B6;
+  font-family: "Crystal", sans-serif;
 }
 
 .plan-a::before {
@@ -11458,7 +11470,9 @@ li {
 }
 
 .plan-b .plan-name {
-  -webkit-text-stroke: 1px red;
+  color: red;
+  font-family: "Libre Baskerville", serif;
+  letter-spacing: -2px;
 }
 
 .plan-b::before {
@@ -11466,7 +11480,10 @@ li {
 }
 
 .plan-c .plan-name {
+  -webkit-text-stroke: 0.5px black;
   font-weight: bold;
+  color: #c1a801;
+  font-family: "Adobe Garamond Pro", sans-serif;
 }
 
 .plan-c::before {

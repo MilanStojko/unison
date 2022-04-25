@@ -28,7 +28,9 @@ class User extends Authenticatable
     }
 
     public function sponsorships(){
-        return $this->belongsToMany('App\Sponsorship');
+        return $this->belongsToMany('App\Sponsorship')
+        //Riferimento alla tabella pivot
+        ->withPivot('start_date','expiration');
     }
 
     public function messages(){
@@ -38,6 +40,8 @@ class User extends Authenticatable
     public function reviews(){
         return $this->hasMany('App\Review');
     }
+
+
 
     /**
      * The attributes that should be hidden for arrays.

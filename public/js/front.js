@@ -2456,6 +2456,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2466,15 +2474,15 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       availabilities: [],
-      prestazione: '',
-      valore: ''
+      prestazione: "",
+      valore: ""
     };
   },
   //Api con tutte le prestazioni
   created: function created() {
     var _this = this;
 
-    axios.get('/api/availability/index').then(function (respAll) {
+    axios.get("/api/availability/index").then(function (respAll) {
       _this.availabilities = respAll.data;
     });
   },
@@ -2485,8 +2493,14 @@ __webpack_require__.r(__webpack_exports__);
     },
     //Trasmissione del valore tramite emit bus a Search.vue
     sendSelected: function sendSelected() {
-      // this.$emit('saveValue')
-      _front__WEBPACK_IMPORTED_MODULE_1__["bus"].$emit('saveValue', this.prestazione);
+      this.$router.push({
+        path: "search",
+        query: {
+          name: this.valore
+        }
+      }); // this.$emit('saveValue')
+
+      _front__WEBPACK_IMPORTED_MODULE_1__["bus"].$emit("saveValue", this.prestazione);
     }
   }
 });
@@ -2908,12 +2922,8 @@ __webpack_require__.r(__webpack_exports__);
     getAvailability: function getAvailability() {
       var _this = this;
 
-      axios.get("/api/filtered/getAvailability/".concat(this.$route.params.query), {
-        paramas: {
-          query: this.ava
-        }
-      }).then(function (response) {
-        _this.musicians = response.data.results;
+      axios.get("/api/filtered/getavailability").then(function (response) {
+        _this.musicians = response.data;
       })["catch"](function (error) {
         console.log(error.response.data);
       });
@@ -40783,55 +40793,44 @@ var render = function () {
               ],
               attrs: { name: "availabilities", id: "availabilities" },
               on: {
-                change: [
-                  function ($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function (o) {
-                        return o.selected
-                      })
-                      .map(function (o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.valore = $event.target.multiple
-                      ? $$selectedVal
-                      : $$selectedVal[0]
-                  },
-                  function ($event) {
-                    return _vm.saveValue($event)
-                  },
-                ],
+                change: function ($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function (o) {
+                      return o.selected
+                    })
+                    .map(function (o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.valore = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
               },
             },
             _vm._l(_vm.availabilities, function (availability, index) {
               return _c(
                 "option",
                 { key: index, domProps: { value: availability.name } },
-                [_vm._v(_vm._s(availability.name))]
+                [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(availability.name) +
+                      "\n          "
+                  ),
+                ]
               )
             }),
             0
           ),
           _vm._v(" "),
-          _c(
-            "button",
-            {
-              on: {
-                click: function ($event) {
-                  $event.preventDefault()
-                  return _vm.sendSelected()
-                },
+          _c("button", {
+            on: {
+              click: function ($event) {
+                return _vm.sendSelected()
               },
             },
-            [
-              _c(
-                "router-link",
-                { staticClass: "my_search", attrs: { to: { name: "search" } } },
-                [_vm._v("Cerca")]
-              ),
-            ],
-            1
-          ),
+          }),
         ]),
       ]),
       _vm._v(" "),
@@ -40847,7 +40846,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "col-lg-6 col-sm-12 jumbo-text" }, [
       _c("p", [
         _vm._v(
-          "\n                    Lorem Ipsum is simply dummy text of the printing and\n                    typesetting industry. Lorem Ipsum has been the\n                    industry's standard\n                "
+          "\n          Lorem Ipsum is simply dummy text of the printing and typesetting\n          industry. Lorem Ipsum has been the industry's standard\n        "
         ),
       ]),
     ])
