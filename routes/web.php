@@ -27,8 +27,8 @@ Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->
     Route::resource('/reviews', 'ReviewController');
     Route::resource('/sponsorships', 'SponsorshipController');
     //PAGAMENTO
-    Route::get('/users/{user:id}/sponsorship', 'PaymentsController@process')->name('payment');
-    Route::post('/users/{user:id}/sponsorship/checkout', 'PaymentsController@checkout')->name('paymentcheckout');
+    Route::get('/users/{user:id}/paytree', 'PaymentsController@process')->name('payment');
+    Route::post('/users/{user:id}/paytree/checkout', 'PaymentsController@checkout')->name('paymentcheckout');
 });
 
 Route::get('{any?}', function () {
