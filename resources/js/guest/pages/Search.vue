@@ -370,9 +370,9 @@ select{
         /* background: rgba(210, 206, 206, 0.861); */
         /* background: #ededed; */
         /* background-image: url('https://i.stack.imgur.com/MkSui.jpg'); */
-        background-image: url('https://icbstexas.com/wp-content/uploads/split-color-background.jpg');
+        background-image: url('../../../images/card.jpeg');
         background-repeat: no-repeat;
-        background-position: center;
+        // background-position: center;
         background-size: cover;
         border-radius: 10px;
         /* border: 1px solid black; */
@@ -384,10 +384,28 @@ select{
     .my_card:hover{
         cursor: pointer;
         transform: scale(1.03);
+        background-image: url('../../../images/rotate.jpeg');
+        background-position: bottom;
     }
 
     .my_card:hover a{
         text-decoration: none;
+    }
+
+    .my_card:hover h3{
+        color: black;
+    }
+
+    .my_card:hover .references *{
+        color: white;
+    }
+
+    .my_card:hover span{
+        color: white !important;
+    }
+
+    .my_card:hover .request{
+        background: rgba(28, 28, 28, 0.9);
     }
 
     .request{

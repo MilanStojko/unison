@@ -3,7 +3,7 @@
         <nav>
             <div class="logo">
                 <router-link :to="{ name: 'home' }">
-                    <img src="../../../images/Logo.png" alt="">
+                    <img @click="disappear(click)" src="../../../images/Logo.png" alt="">
                 </router-link>
             </div>
             <ul class="my_ul">
@@ -32,37 +32,22 @@
             </ul>
             <ul class="my_ul-icon">
                 <li>
-                    <input
-                        @click="show(click)"
-                        type="checkbox"
-                        id="menyAvPaa"
-                    />
-                    <label id="burger" for="menyAvPaa">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </label>
+                    <span v-show="click==0" @click="show(click)"><i class="fa-solid fa-bars"></i></span>
+                    <span v-show="click==1" @click="show(click)"><i class="fa-solid fa-xmark"></i></span>
                 </li>
             </ul>
         </nav>
-        <Transition name="slide-fade">
         <div class="listmenu" v-show="click==1">
             <ul>
                 <li class="my_li">
                     <router-link :to="{ name: 'list-musicians' }"
-                        ><p>Vai ai musicisti</p></router-link
+                        ><p @click="disappear(click)">Vai ai musicisti</p></router-link
                     >
                 </li>
                 <li class="my_li">
                     <router-link :to="{ name: 'search' }"
-                        ><p>Cerca</p></router-link
+                        ><p @click="disappear(click)">Cerca</p></router-link
                     >
-                </li>
-                <li>
-                    <a class="my_a" href=""><p>Eventi</p></a>
-                </li>
-                <li>
-                    <a class="my_a" href=""><p>Categorie</p></a>
                 </li>
                 <li>
                     <span v-if="auth_id">
@@ -78,7 +63,6 @@
                 </li>
             </ul>
         </div>
-        </Transition>
     </div>
 </template>
 
@@ -98,6 +82,12 @@ export default {
         show: function (click) {
             this.click = !click;
         },
+
+        disappear: function(click){
+            if(this.click==1){
+                this.click=!click;
+            }
+        }
     },
 
     created() {
@@ -107,57 +97,13 @@ export default {
 </script>
 
 <style scoped>
-.burger-wrapper {
+
+.fa-bars, .fa-xmark{
+    font-size: 30px;
+}
+
+.fa-bars:hover, .fa-xmark:hover{
     cursor: pointer;
-}
-#menyAvPaa {
-    display: none;
-}
-#burger {
-    position: absolute;
-    cursor: pointer;
-    width: 2rem;
-    height: 1.5rem;
-    right: 1rem;
-    top: 1rem;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-}
-
-#burger > div {
-    height: 4px;
-    background-color: white;
-    transition: 0.5s;
-    z-index: 999;
-}
-
-#menyAvPaa:checked ~ #burger > div {
-    background-color: #fff;
-}
-
-#menyAvPaa:checked ~ #burger > div:nth-child(1) {
-    transform: translateY(10px) rotate(45deg);
-}
-#menyAvPaa:checked ~ #burger > div:nth-child(2) {
-    opacity: 0;
-}
-#menyAvPaa:checked ~ #burger > div:nth-child(3) {
-    transform: translateY(-10px) rotate(-45deg);
-}
-
-.slide-fade-enter-active {
-    transition: opacity 1.5s ease-out;
-}
-
-.slide-fade-leave-active {
-    transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
-}
-
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-    transform: translateX(20px);
-    opacity: 0;
 }
 
 .my_ul .my_li a {
@@ -182,6 +128,9 @@ export default {
 
 .logo {
     font-size: 30px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
 .logo a{
@@ -201,14 +150,14 @@ nav {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: 52px;
+    height: 50px;
     padding: 0px 20px;
     color: white;
     position: relative;
 }
 
 .logo img{
-    height: 48px;
+    height: 41px;
 }
 
 .my_ul {

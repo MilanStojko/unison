@@ -2159,22 +2159,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Header",
   data: function data() {
@@ -2186,6 +2170,11 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     show: function show(click) {
       this.click = !click;
+    },
+    disappear: function disappear(click) {
+      if (this.click == 1) {
+        this.click = !click;
+      }
     }
   },
   created: function created() {
@@ -8132,7 +8121,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".background[data-v-18581212] {\n  /* background-image: url(\"../../../images/pexels-picjumbocom-196652.jpg\");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover; */\n  /* background: #E8EBF8; */\n  /* background: #595766ad; */\n  background: rgba(0, 0, 0, 0.658);\n}\n.background[data-v-18581212]::-webkit-scrollbar {\n  display: none;\n}\n.background[data-v-18581212] {\n  -ms-overflow-style: none;\n  /* IE and Edge */\n  scrollbar-width: none;\n  /* Firefox */\n}\nh1[data-v-18581212], .info h3[data-v-18581212] {\n  text-align: center;\n}\n.info h3[data-v-18581212], .request[data-v-18581212] {\n  color: white;\n  text-transform: capitalize;\n}\nh1[data-v-18581212] {\n  font-size: 55px;\n  color: black;\n}\n.my_card[data-v-18581212] {\n  margin: 50px auto;\n  max-width: 60%;\n  padding: 10px;\n  /* background: rgba(210, 206, 206, 0.861); */\n  /* background: #ededed; */\n  /* background-image: url('https://i.stack.imgur.com/MkSui.jpg'); */\n  background-image: url(" + escape(__webpack_require__(/*! ../../../images/card.jpeg */ "./resources/images/card.jpeg")) + ");\n  background-repeat: no-repeat;\n  background-size: cover;\n  border-radius: 10px;\n  /* border: 1px solid black; */\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);\n  transition: 1s;\n}\n.my_card[data-v-18581212]:hover {\n  cursor: pointer;\n  transform: scale(1.02);\n  background-image: url(" + escape(__webpack_require__(/*! ../../../images/rotate.jpeg */ "./resources/images/rotate.jpeg")) + ");\n  background-position: bottom;\n}\n.my_card:hover a[data-v-18581212] {\n  text-decoration: none;\n}\n.my_card:hover h3[data-v-18581212] {\n  color: black;\n}\n.my_card:hover .references *[data-v-18581212] {\n  color: white;\n}\n.my_card:hover .request[data-v-18581212] {\n  background: rgba(28, 28, 28, 0.9);\n}\n.request[data-v-18581212] {\n  display: flex;\n  padding: 5px;\n  border-radius: 10px;\n  background: rgba(28, 28, 28, 0.8);\n  max-height: 200px;\n}\n.request ul[data-v-18581212] {\n  max-height: 150px;\n  overflow: scroll;\n}\n.request ul[data-v-18581212]::-webkit-scrollbar {\n  display: none;\n}\n.request ul[data-v-18581212] {\n  -ms-overflow-style: none;\n  /* IE and Edge */\n  scrollbar-width: none;\n  /* Firefox */\n}\n.categories li[data-v-18581212], .events li[data-v-18581212], .references li[data-v-18581212] {\n  list-style: none;\n  margin-left: 5px;\n  font-size: 17px;\n}\n.references ul[data-v-18581212] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.references li[data-v-18581212] {\n  display: inline;\n  font-size: 15px;\n}\n.references[data-v-18581212] {\n  padding: 0 50px;\n  /* margin-top: 20px; */\n}\n.categories li[data-v-18581212] {\n  color: rgb(91, 121, 93);\n}\n.events li[data-v-18581212] {\n  color: rgb(175, 108, 195);\n}\n.categories div[data-v-18581212], .events div[data-v-18581212] {\n  border-radius: 15px;\n  padding: 15px;\n}\n.top[data-v-18581212] {\n  display: flex;\n  flex-wrap: wrap;\n  padding: 15px 0;\n}\n\n/* .container{\n    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n    border-radius: 10px;\n    padding: 20px;\n    margin-bottom: 40px;\n}\n*/\n.info[data-v-18581212] {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n.info img[data-v-18581212] {\n  height: 200px;\n  width: 200px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.references img[data-v-18581212] {\n  width: 25px;\n  height: auto;\n  color: #527a5a;\n}\n.references li[data-v-18581212] {\n  color: black;\n  text-transform: capitalize;\n}\n.references #reviews[data-v-18581212] {\n  display: flex;\n}\n@media only screen and (max-width: 700px) {\n.categories[data-v-18581212], .events[data-v-18581212] {\n    padding: 0;\n}\n.categories div[data-v-18581212], .events div[data-v-18581212] {\n    max-width: 80%;\n}\n.my_card[data-v-18581212] {\n    max-width: 90%;\n}\n.references[data-v-18581212] {\n    padding: 0 30px;\n}\n}\n@media only screen and (max-width: 1000px) {\n.references p[data-v-18581212] {\n    display: none;\n}\n.references #reviews[data-v-18581212] {\n    margin-top: 10px;\n}\n.references ul[data-v-18581212] {\n    display: flex;\n    flex-direction: column;\n}\n}", ""]);
+exports.push([module.i, ".background[data-v-18581212] {\n  /* background-image: url(\"../../../images/pexels-picjumbocom-196652.jpg\");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover; */\n  /* background: #E8EBF8; */\n  /* background: #595766ad; */\n  background: rgba(43, 43, 43, 0.361);\n}\n.background[data-v-18581212]::-webkit-scrollbar {\n  display: none;\n}\n.background[data-v-18581212] {\n  -ms-overflow-style: none;\n  /* IE and Edge */\n  scrollbar-width: none;\n  /* Firefox */\n}\nh1[data-v-18581212], .info h3[data-v-18581212] {\n  text-align: center;\n}\n.info h3[data-v-18581212], .request[data-v-18581212] {\n  color: white;\n  text-transform: capitalize;\n}\nh1[data-v-18581212] {\n  font-size: 55px;\n  color: black;\n}\n.my_card[data-v-18581212] {\n  margin: 50px auto;\n  max-width: 60%;\n  padding: 10px;\n  /* background: rgba(210, 206, 206, 0.861); */\n  /* background: #ededed; */\n  /* background-image: url('https://i.stack.imgur.com/MkSui.jpg'); */\n  background-image: url(" + escape(__webpack_require__(/*! ../../../images/card.jpeg */ "./resources/images/card.jpeg")) + ");\n  background-repeat: no-repeat;\n  background-size: cover;\n  border-radius: 10px;\n  /* border: 1px solid black; */\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);\n  transition: 1s;\n}\n.my_card[data-v-18581212]:hover {\n  cursor: pointer;\n  transform: scale(1.02);\n  background-image: url(" + escape(__webpack_require__(/*! ../../../images/rotate.jpeg */ "./resources/images/rotate.jpeg")) + ");\n  background-position: bottom;\n}\n.my_card:hover a[data-v-18581212] {\n  text-decoration: none;\n}\n.my_card:hover h3[data-v-18581212] {\n  color: black;\n}\n.my_card:hover .references *[data-v-18581212] {\n  color: white;\n}\n.my_card:hover .request[data-v-18581212] {\n  background: rgba(28, 28, 28, 0.9);\n}\n.request[data-v-18581212] {\n  display: flex;\n  padding: 5px;\n  border-radius: 10px;\n  background: rgba(28, 28, 28, 0.8);\n  max-height: 200px;\n}\n.request ul[data-v-18581212] {\n  max-height: 150px;\n  overflow: scroll;\n}\n.request ul[data-v-18581212]::-webkit-scrollbar {\n  display: none;\n}\n.request ul[data-v-18581212] {\n  -ms-overflow-style: none;\n  /* IE and Edge */\n  scrollbar-width: none;\n  /* Firefox */\n}\n.categories li[data-v-18581212], .events li[data-v-18581212], .references li[data-v-18581212] {\n  list-style: none;\n  margin-left: 5px;\n  font-size: 17px;\n}\n.references ul[data-v-18581212] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.references li[data-v-18581212] {\n  display: inline;\n  font-size: 15px;\n}\n.references[data-v-18581212] {\n  padding: 0 50px;\n  /* margin-top: 20px; */\n}\n.categories li[data-v-18581212] {\n  color: rgb(91, 121, 93);\n}\n.events li[data-v-18581212] {\n  color: rgb(175, 108, 195);\n}\n.categories div[data-v-18581212], .events div[data-v-18581212] {\n  border-radius: 15px;\n  padding: 15px;\n}\n.top[data-v-18581212] {\n  display: flex;\n  flex-wrap: wrap;\n  padding: 15px 0;\n}\n\n/* .container{\n    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n    border-radius: 10px;\n    padding: 20px;\n    margin-bottom: 40px;\n}\n*/\n.info[data-v-18581212] {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n.info img[data-v-18581212] {\n  height: 200px;\n  width: 200px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.references img[data-v-18581212] {\n  width: 25px;\n  height: auto;\n  color: #527a5a;\n}\n.references li[data-v-18581212] {\n  color: black;\n  text-transform: capitalize;\n}\n.references #reviews[data-v-18581212] {\n  display: flex;\n}\n@media only screen and (max-width: 700px) {\n.categories[data-v-18581212], .events[data-v-18581212] {\n    padding: 0;\n}\n.categories div[data-v-18581212], .events div[data-v-18581212] {\n    max-width: 80%;\n}\n.my_card[data-v-18581212] {\n    max-width: 90%;\n}\n.references[data-v-18581212] {\n    padding: 0 30px;\n}\n}\n@media only screen and (max-width: 1000px) {\n.references p[data-v-18581212] {\n    display: none;\n}\n.references #reviews[data-v-18581212] {\n    margin-top: 10px;\n}\n.references ul[data-v-18581212] {\n    display: flex;\n    flex-direction: column;\n}\n}", ""]);
 
 // exports
 
@@ -8165,12 +8154,13 @@ exports.push([module.i, ".Page-not-found[data-v-103278be] {\n  height: 100vh;\n 
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+var escape = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/url/escape.js */ "./node_modules/css-loader/lib/url/escape.js");
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
 
 
 // module
-exports.push([module.i, ".select[data-v-4e14df48] {\n  display: flex;\n  justify-content: center;\n  color: black;\n  font-size: 24px;\n  font-weight: bold;\n}\nselect[data-v-4e14df48] {\n  margin-left: 10px;\n  background: transparent;\n  border: 0;\n  cursor: pointer;\n  max-width: 100px;\n  font-size: 18px;\n}\n.background[data-v-4e14df48] {\n  /* background-image: url(\"../../../images/pexels-picjumbocom-196652.jpg\");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover; */\n  /* background: #E8EBF8; */\n  /* background: #595766ad; */\n  padding: 15px 0;\n  background: #fff;\n}\n.background[data-v-4e14df48]::-webkit-scrollbar {\n  display: none;\n}\n.background[data-v-4e14df48] {\n  -ms-overflow-style: none;\n  /* IE and Edge */\n  scrollbar-width: none;\n  /* Firefox */\n}\nh1[data-v-4e14df48], .info h3[data-v-4e14df48] {\n  text-align: center;\n}\n.info h3[data-v-4e14df48], .request[data-v-4e14df48] {\n  color: white;\n  text-transform: capitalize;\n}\nh1[data-v-4e14df48] {\n  font-size: 55px;\n}\n.my_card[data-v-4e14df48] {\n  margin: 50px auto;\n  max-width: 60%;\n  padding: 10px;\n  /* background: rgba(210, 206, 206, 0.861); */\n  /* background: #ededed; */\n  /* background-image: url('https://i.stack.imgur.com/MkSui.jpg'); */\n  background-image: url(\"https://icbstexas.com/wp-content/uploads/split-color-background.jpg\");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n  border-radius: 10px;\n  /* border: 1px solid black; */\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);\n  transition: 1s;\n}\n.my_card[data-v-4e14df48]:hover {\n  cursor: pointer;\n  transform: scale(1.03);\n}\n.my_card:hover a[data-v-4e14df48] {\n  text-decoration: none;\n}\n.request[data-v-4e14df48] {\n  display: flex;\n  padding: 5px;\n  border-radius: 10px;\n  background: rgba(28, 28, 28, 0.8);\n  max-height: 200px;\n}\n.request ul[data-v-4e14df48] {\n  max-height: 150px;\n  overflow: scroll;\n}\n.request ul[data-v-4e14df48]::-webkit-scrollbar {\n  display: none;\n}\n.request ul[data-v-4e14df48] {\n  -ms-overflow-style: none;\n  /* IE and Edge */\n  scrollbar-width: none;\n  /* Firefox */\n}\n.categories li[data-v-4e14df48], .events li[data-v-4e14df48], .references li[data-v-4e14df48] {\n  list-style: none;\n  margin-left: 5px;\n  font-size: 17px;\n}\n.references ul[data-v-4e14df48] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.references li[data-v-4e14df48] {\n  display: inline;\n  font-size: 15px;\n}\n.references[data-v-4e14df48] {\n  padding: 0 50px;\n  /* margin-top: 20px; */\n}\n.categories li[data-v-4e14df48] {\n  color: rgb(91, 121, 93);\n}\n.events li[data-v-4e14df48] {\n  color: rgb(175, 108, 195);\n}\n.categories div[data-v-4e14df48], .events div[data-v-4e14df48] {\n  border-radius: 15px;\n  padding: 15px;\n}\n.top[data-v-4e14df48] {\n  display: flex;\n  flex-wrap: wrap;\n  padding: 15px 0;\n}\n\n/* .container{\n    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n    border-radius: 10px;\n    padding: 20px;\n    margin-bottom: 40px;\n}\n*/\n.info[data-v-4e14df48] {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n.info img[data-v-4e14df48] {\n  height: 200px;\n  width: 200px;\n  border-radius: 50%;\n}\n.references img[data-v-4e14df48] {\n  width: 25px;\n  height: auto;\n  color: #527a5a;\n}\n.references li[data-v-4e14df48] {\n  color: black;\n  text-transform: capitalize;\n}\n.references #reviews[data-v-4e14df48] {\n  display: flex;\n}\n.search-filters[data-v-4e14df48] {\n  background-color: #ededed;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 5px 0px;\n}\n.search-filters h2[data-v-4e14df48] {\n  margin-right: 20px;\n}\n.search-filters button[data-v-4e14df48] {\n  background-color: #ccc;\n  border: none;\n  padding: 5px 10px;\n  margin: 0px 10px;\n}\n.search-filters button[data-v-4e14df48]:hover {\n  text-decoration: none;\n  background-color: #6aa275;\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n  color: #fff;\n}\n.rating__label[data-v-4e14df48] {\n  cursor: pointer;\n  padding: 0 0.1em;\n  font-size: 1.5rem;\n}\n@media only screen and (max-width: 700px) {\n.categories[data-v-4e14df48], .events[data-v-4e14df48] {\n    padding: 0;\n}\n.categories div[data-v-4e14df48], .events div[data-v-4e14df48] {\n    max-width: 80%;\n}\n.my_card[data-v-4e14df48] {\n    max-width: 90%;\n}\n.references[data-v-4e14df48] {\n    padding: 0 30px;\n}\n}\n@media only screen and (max-width: 1000px) {\n.references p[data-v-4e14df48] {\n    display: none;\n}\n.references #reviews[data-v-4e14df48] {\n    margin-top: 10px;\n}\n.references ul[data-v-4e14df48] {\n    display: flex;\n    flex-direction: column;\n}\n}", ""]);
+exports.push([module.i, ".select[data-v-4e14df48] {\n  display: flex;\n  justify-content: center;\n  color: black;\n  font-size: 24px;\n  font-weight: bold;\n}\nselect[data-v-4e14df48] {\n  margin-left: 10px;\n  background: transparent;\n  border: 0;\n  cursor: pointer;\n  max-width: 100px;\n  font-size: 18px;\n}\n.background[data-v-4e14df48] {\n  /* background-image: url(\"../../../images/pexels-picjumbocom-196652.jpg\");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover; */\n  /* background: #E8EBF8; */\n  /* background: #595766ad; */\n  padding: 15px 0;\n  background: #fff;\n}\n.background[data-v-4e14df48]::-webkit-scrollbar {\n  display: none;\n}\n.background[data-v-4e14df48] {\n  -ms-overflow-style: none;\n  /* IE and Edge */\n  scrollbar-width: none;\n  /* Firefox */\n}\nh1[data-v-4e14df48], .info h3[data-v-4e14df48] {\n  text-align: center;\n}\n.info h3[data-v-4e14df48], .request[data-v-4e14df48] {\n  color: white;\n  text-transform: capitalize;\n}\nh1[data-v-4e14df48] {\n  font-size: 55px;\n}\n.my_card[data-v-4e14df48] {\n  margin: 50px auto;\n  max-width: 60%;\n  padding: 10px;\n  /* background: rgba(210, 206, 206, 0.861); */\n  /* background: #ededed; */\n  /* background-image: url('https://i.stack.imgur.com/MkSui.jpg'); */\n  background-image: url(" + escape(__webpack_require__(/*! ../../../images/card.jpeg */ "./resources/images/card.jpeg")) + ");\n  background-repeat: no-repeat;\n  background-size: cover;\n  border-radius: 10px;\n  /* border: 1px solid black; */\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);\n  transition: 1s;\n}\n.my_card[data-v-4e14df48]:hover {\n  cursor: pointer;\n  transform: scale(1.03);\n  background-image: url(" + escape(__webpack_require__(/*! ../../../images/rotate.jpeg */ "./resources/images/rotate.jpeg")) + ");\n  background-position: bottom;\n}\n.my_card:hover a[data-v-4e14df48] {\n  text-decoration: none;\n}\n.my_card:hover h3[data-v-4e14df48] {\n  color: black;\n}\n.my_card:hover .references *[data-v-4e14df48] {\n  color: white;\n}\n.my_card:hover span[data-v-4e14df48] {\n  color: white !important;\n}\n.my_card:hover .request[data-v-4e14df48] {\n  background: rgba(28, 28, 28, 0.9);\n}\n.request[data-v-4e14df48] {\n  display: flex;\n  padding: 5px;\n  border-radius: 10px;\n  background: rgba(28, 28, 28, 0.8);\n  max-height: 200px;\n}\n.request ul[data-v-4e14df48] {\n  max-height: 150px;\n  overflow: scroll;\n}\n.request ul[data-v-4e14df48]::-webkit-scrollbar {\n  display: none;\n}\n.request ul[data-v-4e14df48] {\n  -ms-overflow-style: none;\n  /* IE and Edge */\n  scrollbar-width: none;\n  /* Firefox */\n}\n.categories li[data-v-4e14df48], .events li[data-v-4e14df48], .references li[data-v-4e14df48] {\n  list-style: none;\n  margin-left: 5px;\n  font-size: 17px;\n}\n.references ul[data-v-4e14df48] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.references li[data-v-4e14df48] {\n  display: inline;\n  font-size: 15px;\n}\n.references[data-v-4e14df48] {\n  padding: 0 50px;\n  /* margin-top: 20px; */\n}\n.categories li[data-v-4e14df48] {\n  color: rgb(91, 121, 93);\n}\n.events li[data-v-4e14df48] {\n  color: rgb(175, 108, 195);\n}\n.categories div[data-v-4e14df48], .events div[data-v-4e14df48] {\n  border-radius: 15px;\n  padding: 15px;\n}\n.top[data-v-4e14df48] {\n  display: flex;\n  flex-wrap: wrap;\n  padding: 15px 0;\n}\n\n/* .container{\n    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n    border-radius: 10px;\n    padding: 20px;\n    margin-bottom: 40px;\n}\n*/\n.info[data-v-4e14df48] {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n.info img[data-v-4e14df48] {\n  height: 200px;\n  width: 200px;\n  border-radius: 50%;\n}\n.references img[data-v-4e14df48] {\n  width: 25px;\n  height: auto;\n  color: #527a5a;\n}\n.references li[data-v-4e14df48] {\n  color: black;\n  text-transform: capitalize;\n}\n.references #reviews[data-v-4e14df48] {\n  display: flex;\n}\n.search-filters[data-v-4e14df48] {\n  background-color: #ededed;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 5px 0px;\n}\n.search-filters h2[data-v-4e14df48] {\n  margin-right: 20px;\n}\n.search-filters button[data-v-4e14df48] {\n  background-color: #ccc;\n  border: none;\n  padding: 5px 10px;\n  margin: 0px 10px;\n}\n.search-filters button[data-v-4e14df48]:hover {\n  text-decoration: none;\n  background-color: #6aa275;\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n  color: #fff;\n}\n.rating__label[data-v-4e14df48] {\n  cursor: pointer;\n  padding: 0 0.1em;\n  font-size: 1.5rem;\n}\n@media only screen and (max-width: 700px) {\n.categories[data-v-4e14df48], .events[data-v-4e14df48] {\n    padding: 0;\n}\n.categories div[data-v-4e14df48], .events div[data-v-4e14df48] {\n    max-width: 80%;\n}\n.my_card[data-v-4e14df48] {\n    max-width: 90%;\n}\n.references[data-v-4e14df48] {\n    padding: 0 30px;\n}\n}\n@media only screen and (max-width: 1000px) {\n.references p[data-v-4e14df48] {\n    display: none;\n}\n.references #reviews[data-v-4e14df48] {\n    margin-top: 10px;\n}\n.references ul[data-v-4e14df48] {\n    display: flex;\n    flex-direction: column;\n}\n}", ""]);
 
 // exports
 
@@ -8247,7 +8237,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.burger-wrapper[data-v-083b147e] {\r\n    cursor: pointer;\n}\n#menyAvPaa[data-v-083b147e] {\r\n    display: none;\n}\n#burger[data-v-083b147e] {\r\n    position: absolute;\r\n    cursor: pointer;\r\n    width: 2rem;\r\n    height: 1.5rem;\r\n    right: 1rem;\r\n    top: 1rem;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    flex-direction: column;\n}\n#burger > div[data-v-083b147e] {\r\n    height: 4px;\r\n    background-color: white;\r\n    transition: 0.5s;\r\n    z-index: 999;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e] {\r\n    background-color: #fff;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(1) {\r\n    transform: translateY(10px) rotate(45deg);\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(2) {\r\n    opacity: 0;\n}\n#menyAvPaa:checked ~ #burger > div[data-v-083b147e]:nth-child(3) {\r\n    transform: translateY(-10px) rotate(-45deg);\n}\n.slide-fade-enter-active[data-v-083b147e] {\r\n    transition: opacity 1.5s ease-out;\n}\n.slide-fade-leave-active[data-v-083b147e] {\r\n    transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);\n}\n.slide-fade-enter-from[data-v-083b147e],\r\n.slide-fade-leave-to[data-v-083b147e] {\r\n    transform: translateX(20px);\r\n    opacity: 0;\n}\n.my_ul .my_li a[data-v-083b147e] {\r\n    text-decoration: none;\r\n    color: white;\n}\n.my_ul .my_li a p[data-v-083b147e] {\r\n    transition: 1s;\n}\n.my_ul .my_li a p[data-v-083b147e]:hover {\r\n    color: white;\r\n    transform: scale(1.3);\n}\n*[data-v-083b147e] {\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\n}\n.logo[data-v-083b147e] {\r\n    font-size: 30px;\n}\n.logo a[data-v-083b147e]{\r\n  color: white;\n}\n.logo:hover a[data-v-083b147e]{\r\n  text-decoration: none;\n}\nnav[data-v-083b147e] {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    background-color: rgb(42, 41, 41);\r\n    background-image: url(" + escape(__webpack_require__(/*! ../../../images/waveHeader.svg */ "./resources/images/waveHeader.svg")) + ");\r\n    background-repeat: no-repeat;\r\n    background-position: center;\r\n    background-size: cover;\r\n    height: 52px;\r\n    padding: 0px 20px;\r\n    color: white;\r\n    position: relative;\n}\n.logo img[data-v-083b147e]{\r\n    height: 48px;\n}\n.my_ul[data-v-083b147e] {\r\n    margin: 0;\r\n    padding: 0;\r\n    display: flex;\r\n    align-items: center;\n}\n.my_ul li[data-v-083b147e] {\r\n    float: left;\r\n    padding: 0px 15px;\r\n    list-style: none;\n}\n.my_a[data-v-083b147e] {\r\n    text-decoration: none;\r\n    color: white;\n}\n.my_ul .my_a p[data-v-083b147e] {\r\n    transition: 1s;\n}\n.my_ul .my_a p[data-v-083b147e]:hover {\r\n    color: white;\r\n    transform: scale(1.3);\n}\n.my_ul .my_a:hover .my_button[data-v-083b147e] {\r\n    color: white;\r\n    transform: scale(1.1);\n}\n.navbar-toggler-icon[data-v-083b147e],\r\n.navbar-toggler[data-v-083b147e],\r\n.nav-item p[data-v-083b147e] {\r\n    color: white;\n}\n.my_button[data-v-083b147e] {\r\n    padding: 5px 15px;\r\n    border: 0;\r\n    color: white;\r\n    background: #527a5a;\r\n    border-radius: 15px;\n}\n.my_ul-icon[data-v-083b147e] {\r\n    display: none;\r\n    margin: 0;\r\n    padding: 0;\n}\n.my_ul-icon li[data-v-083b147e] {\r\n    list-style: none;\n}\n.listmenu[data-v-083b147e] {\r\n    position: absolute;\r\n    right: 0;\r\n    z-index: 999;\r\n    padding: 20px;\r\n    width: 100%;\r\n    height: calc(100vh - 50px);\r\n    text-align: center;\r\n    background: rgb(255, 255, 255, 0.9);\r\n    display: flex;\r\n    flex-direction: column;\n}\n.listmenu li[data-v-083b147e] {\r\n    line-height: 100px;\r\n    font-weight: bold;\r\n    font-size: 40px;\r\n    list-style: none;\n}\n.listmenu a[data-v-083b147e]{\r\n    color: black;\n}\n.listmenu:hover a[data-v-083b147e]{\r\n    color: black;\r\n    text-decoration: none;\n}\n.listmenu .buttonlogin[data-v-083b147e] {\r\n    margin-top: 50px;\n}\n.my_a_mobile[data-v-083b147e] {\r\n    text-decoration: none;\r\n    color: black;\n}\n@media only screen and (max-width: 700px) {\n.my_ul-icon[data-v-083b147e] {\r\n        display: block;\n}\n.my_ul[data-v-083b147e] {\r\n        display: none;\n}\n}\n@media only screen and (min-width: 700px) {\n.listmenu[data-v-083b147e]{\r\n      display: none;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.fa-bars[data-v-083b147e], .fa-xmark[data-v-083b147e]{\n    font-size: 30px;\n}\n.fa-bars[data-v-083b147e]:hover, .fa-xmark[data-v-083b147e]:hover{\n    cursor: pointer;\n}\n.my_ul .my_li a[data-v-083b147e] {\n    text-decoration: none;\n    color: white;\n}\n.my_ul .my_li a p[data-v-083b147e] {\n    transition: 1s;\n}\n.my_ul .my_li a p[data-v-083b147e]:hover {\n    color: white;\n    transform: scale(1.3);\n}\n*[data-v-083b147e] {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n.logo[data-v-083b147e] {\n    font-size: 30px;\n    height: 50px;\n    border-radius: 50%;\n    overflow: hidden;\n}\n.logo a[data-v-083b147e]{\n  color: white;\n}\n.logo:hover a[data-v-083b147e]{\n  text-decoration: none;\n}\nnav[data-v-083b147e] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    background-color: rgb(42, 41, 41);\n    background-image: url(" + escape(__webpack_require__(/*! ../../../images/waveHeader.svg */ "./resources/images/waveHeader.svg")) + ");\n    background-repeat: no-repeat;\n    background-position: center;\n    background-size: cover;\n    height: 50px;\n    padding: 0px 20px;\n    color: white;\n    position: relative;\n}\n.logo img[data-v-083b147e]{\n    height: 41px;\n}\n.my_ul[data-v-083b147e] {\n    margin: 0;\n    padding: 0;\n    display: flex;\n    align-items: center;\n}\n.my_ul li[data-v-083b147e] {\n    float: left;\n    padding: 0px 15px;\n    list-style: none;\n}\n.my_a[data-v-083b147e] {\n    text-decoration: none;\n    color: white;\n}\n.my_ul .my_a p[data-v-083b147e] {\n    transition: 1s;\n}\n.my_ul .my_a p[data-v-083b147e]:hover {\n    color: white;\n    transform: scale(1.3);\n}\n.my_ul .my_a:hover .my_button[data-v-083b147e] {\n    color: white;\n    transform: scale(1.1);\n}\n.navbar-toggler-icon[data-v-083b147e],\n.navbar-toggler[data-v-083b147e],\n.nav-item p[data-v-083b147e] {\n    color: white;\n}\n.my_button[data-v-083b147e] {\n    padding: 5px 15px;\n    border: 0;\n    color: white;\n    background: #527a5a;\n    border-radius: 15px;\n}\n.my_ul-icon[data-v-083b147e] {\n    display: none;\n    margin: 0;\n    padding: 0;\n}\n.my_ul-icon li[data-v-083b147e] {\n    list-style: none;\n}\n.listmenu[data-v-083b147e] {\n    position: absolute;\n    right: 0;\n    z-index: 999;\n    padding: 20px;\n    width: 100%;\n    height: calc(100vh - 50px);\n    text-align: center;\n    background: rgb(255, 255, 255, 0.9);\n    display: flex;\n    flex-direction: column;\n}\n.listmenu li[data-v-083b147e] {\n    line-height: 100px;\n    font-weight: bold;\n    font-size: 40px;\n    list-style: none;\n}\n.listmenu a[data-v-083b147e]{\n    color: black;\n}\n.listmenu:hover a[data-v-083b147e]{\n    color: black;\n    text-decoration: none;\n}\n.listmenu .buttonlogin[data-v-083b147e] {\n    margin-top: 50px;\n}\n.my_a_mobile[data-v-083b147e] {\n    text-decoration: none;\n    color: black;\n}\n@media only screen and (max-width: 700px) {\n.my_ul-icon[data-v-083b147e] {\n        display: block;\n}\n.my_ul[data-v-083b147e] {\n        display: none;\n}\n}\n@media only screen and (min-width: 700px) {\n.listmenu[data-v-083b147e]{\n      display: none;\n}\n}\n", ""]);
 
 // exports
 
@@ -40784,30 +40774,130 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("nav", [
+  return _c("div", [
+    _c("nav", [
+      _c(
+        "div",
+        { staticClass: "logo" },
+        [
+          _c("router-link", { attrs: { to: { name: "home" } } }, [
+            _c("img", {
+              attrs: { src: __webpack_require__(/*! ../../../images/Logo.png */ "./resources/images/Logo.png"), alt: "" },
+              on: {
+                click: function ($event) {
+                  return _vm.disappear(_vm.click)
+                },
+              },
+            }),
+          ]),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("ul", { staticClass: "my_ul" }, [
         _c(
-          "div",
-          { staticClass: "logo" },
+          "li",
+          { staticClass: "my_li" },
           [
-            _c("router-link", { attrs: { to: { name: "home" } } }, [
-              _c("img", {
-                attrs: { src: __webpack_require__(/*! ../../../images/Logo.png */ "./resources/images/Logo.png"), alt: "" },
-              }),
+            _c("router-link", { attrs: { to: { name: "list-musicians" } } }, [
+              _c("p", [_vm._v("Vai ai musicisti")]),
             ]),
           ],
           1
         ),
         _vm._v(" "),
-        _c("ul", { staticClass: "my_ul" }, [
+        _c(
+          "li",
+          { staticClass: "my_li" },
+          [
+            _c("router-link", { attrs: { to: { name: "search" } } }, [
+              _c("p", [_vm._v("Cerca")]),
+            ]),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("li", [
+          _vm.auth_id ? _c("span", [_vm._m(0)]) : _c("span", [_vm._m(1)]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "my_ul-icon" }, [
+        _c("li", [
+          _c(
+            "span",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.click == 0,
+                  expression: "click==0",
+                },
+              ],
+              on: {
+                click: function ($event) {
+                  return _vm.show(_vm.click)
+                },
+              },
+            },
+            [_c("i", { staticClass: "fa-solid fa-bars" })]
+          ),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.click == 1,
+                  expression: "click==1",
+                },
+              ],
+              on: {
+                click: function ($event) {
+                  return _vm.show(_vm.click)
+                },
+              },
+            },
+            [_c("i", { staticClass: "fa-solid fa-xmark" })]
+          ),
+        ]),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.click == 1,
+            expression: "click==1",
+          },
+        ],
+        staticClass: "listmenu",
+      },
+      [
+        _c("ul", [
           _c(
             "li",
             { staticClass: "my_li" },
             [
               _c("router-link", { attrs: { to: { name: "list-musicians" } } }, [
-                _c("p", [_vm._v("Vai ai musicisti")]),
+                _c(
+                  "p",
+                  {
+                    on: {
+                      click: function ($event) {
+                        return _vm.disappear(_vm.click)
+                      },
+                    },
+                  },
+                  [_vm._v("Vai ai musicisti")]
+                ),
               ]),
             ],
             1
@@ -40818,123 +40908,29 @@ var render = function () {
             { staticClass: "my_li" },
             [
               _c("router-link", { attrs: { to: { name: "search" } } }, [
-                _c("p", [_vm._v("Cerca")]),
+                _c(
+                  "p",
+                  {
+                    on: {
+                      click: function ($event) {
+                        return _vm.disappear(_vm.click)
+                      },
+                    },
+                  },
+                  [_vm._v("Cerca")]
+                ),
               ]),
             ],
             1
           ),
           _vm._v(" "),
           _c("li", [
-            _vm.auth_id ? _c("span", [_vm._m(0)]) : _c("span", [_vm._m(1)]),
+            _vm.auth_id ? _c("span", [_vm._m(2)]) : _c("span", [_vm._m(3)]),
           ]),
         ]),
-        _vm._v(" "),
-        _c("ul", { staticClass: "my_ul-icon" }, [
-          _c("li", [
-            _c("input", {
-              attrs: { type: "checkbox", id: "menyAvPaa" },
-              on: {
-                click: function ($event) {
-                  return _vm.show(_vm.click)
-                },
-              },
-            }),
-            _vm._v(" "),
-            _vm._m(2),
-          ]),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("Transition", { attrs: { name: "slide-fade" } }, [
-        _c(
-          "div",
-          {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: _vm.click == 1,
-                expression: "click==1",
-              },
-            ],
-            staticClass: "listmenu",
-          },
-          [
-            _c("ul", [
-              _c(
-                "li",
-                { staticClass: "my_li" },
-                [
-                  _c(
-                    "router-link",
-                    { attrs: { to: { name: "list-musicians" } } },
-                    [_c("p", [_vm._v("Vai ai musicisti")])]
-                  ),
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                { staticClass: "my_li" },
-                [
-                  _c("router-link", { attrs: { to: { name: "search" } } }, [
-                    _c("p", [_vm._v("Cerca")]),
-                  ]),
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("li", [
-                _c("a", { staticClass: "my_a", attrs: { href: "" } }, [
-                  _c("p", [_vm._v("Eventi")]),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("a", { staticClass: "my_a", attrs: { href: "" } }, [
-                  _c("p", [_vm._v("Categorie")]),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _vm.auth_id
-                  ? _c("span", [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "my_a login",
-                          attrs: { href: "http://127.0.0.1:8000/login" },
-                        },
-                        [
-                          _c("p", { staticClass: "my_button" }, [
-                            _vm._v("Il Mio Profilo"),
-                          ]),
-                        ]
-                      ),
-                    ])
-                  : _c("span", [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "my_a login",
-                          attrs: { href: "http://127.0.0.1:8000/login" },
-                        },
-                        [
-                          _c("p", { staticClass: "my_button" }, [
-                            _vm._v("Sei un musicista?"),
-                          ]),
-                        ]
-                      ),
-                    ]),
-              ]),
-            ]),
-          ]
-        ),
-      ]),
-    ],
-    1
-  )
+      ]
+    ),
+  ])
 }
 var staticRenderFns = [
   function () {
@@ -40967,13 +40963,27 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("label", { attrs: { id: "burger", for: "menyAvPaa" } }, [
-      _c("div"),
-      _vm._v(" "),
-      _c("div"),
-      _vm._v(" "),
-      _c("div"),
-    ])
+    return _c(
+      "a",
+      {
+        staticClass: "my_a login",
+        attrs: { href: "http://127.0.0.1:8000/login" },
+      },
+      [_c("p", { staticClass: "my_button" }, [_vm._v("Il Mio Profilo")])]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "my_a login",
+        attrs: { href: "http://127.0.0.1:8000/login" },
+      },
+      [_c("p", { staticClass: "my_button" }, [_vm._v("Sei un musicista?")])]
+    )
   },
 ]
 render._withStripped = true
@@ -58520,7 +58530,7 @@ module.exports = "/images/card.jpeg?eaab38197510af157ae630342c7b37a0";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/github.svg?51a0c2d527d3a198d10766ad05ca472b";
+module.exports = "/images/github.svg?544edda74777448803c2d7fc364f5335";
 
 /***/ }),
 
@@ -58608,7 +58618,7 @@ module.exports = "/images/jumbo-6.jpg?f74a0b86e1e713f36c3e961f3462cdf1";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/linkedin.svg?0847cd97a934382c8c34a040c6ef2891";
+module.exports = "/images/linkedin.svg?34c3c12aa78fb79f214fcd87e00017d9";
 
 /***/ }),
 
@@ -58663,7 +58673,7 @@ module.exports = "/images/service-3.svg?eba2a9055d13786db8f54b0f3ba5d556";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/wave.svg?3d8bc604125d77811c1a4e9267f06eba";
+module.exports = "/images/wave.svg?aef79995629b40b24f4277c44b0be010";
 
 /***/ }),
 
@@ -59922,15 +59932,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************************************!*\
   !*** ./resources/js/guest/pages/SingleMusician.vue ***!
   \*****************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SingleMusician_vue_vue_type_template_id_d39608ce_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SingleMusician.vue?vue&type=template&id=d39608ce&scoped=true& */ "./resources/js/guest/pages/SingleMusician.vue?vue&type=template&id=d39608ce&scoped=true&");
 /* harmony import */ var _SingleMusician_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SingleMusician.vue?vue&type=script&lang=js& */ "./resources/js/guest/pages/SingleMusician.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _SingleMusician_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _SingleMusician_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _SingleMusician_vue_vue_type_style_index_0_id_d39608ce_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SingleMusician.vue?vue&type=style&index=0&id=d39608ce&lang=scss&scoped=true& */ "./resources/js/guest/pages/SingleMusician.vue?vue&type=style&index=0&id=d39608ce&lang=scss&scoped=true&");
+/* empty/unused harmony star reexport *//* harmony import */ var _SingleMusician_vue_vue_type_style_index_0_id_d39608ce_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SingleMusician.vue?vue&type=style&index=0&id=d39608ce&lang=scss&scoped=true& */ "./resources/js/guest/pages/SingleMusician.vue?vue&type=style&index=0&id=d39608ce&lang=scss&scoped=true&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -59962,7 +59971,7 @@ component.options.__file = "resources/js/guest/pages/SingleMusician.vue"
 /*!******************************************************************************!*\
   !*** ./resources/js/guest/pages/SingleMusician.vue?vue&type=script&lang=js& ***!
   \******************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -60067,7 +60076,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\hamza\Desktop\Boolean\unison\resources\js\guest\front.js */"./resources/js/guest/front.js");
+module.exports = __webpack_require__(/*! /Users/francescoabritta/Documents/unison/resources/js/guest/front.js */"./resources/js/guest/front.js");
 
 
 /***/ })

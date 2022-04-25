@@ -188,7 +188,7 @@ export default {
         background-size: cover; */
         /* background: #E8EBF8; */
         /* background: #595766ad; */
-        background: rgba(0, 0, 0, 0.658);
+        background: rgba(43, 43, 43, 0.361);    
     }
 
     .background::-webkit-scrollbar {
