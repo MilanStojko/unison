@@ -3096,17 +3096,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Search",
   data: function data() {
     return {
-      categories: [],
+      get: "",
+      newMusicians: [],
       musicians: [],
       selectVote: null,
       availabilities: [],
       valore: "",
-      check: 'Seleziona una specializzazione'
+      check: "Seleziona una specializzazione"
     };
   },
   methods: {
@@ -3120,6 +3123,8 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         console.log(error.response.data);
       });
+      this.getSponsorized();
+      console.log(this.musicians);
     },
     changeAvailability: function changeAvailability() {
       var _this2 = this;
@@ -3130,15 +3135,17 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         _this2.musicians = response.data;
-        console.log(_this2.musicians);
-        console.log('ciao');
+
+        _this2.getSponsorized();
+
+        _this2.$router.push({
+          path: "search",
+          query: {
+            name: _this2.valore
+          }
+        });
       })["catch"](function (error) {
         console.log(error.response.data);
-      });
-      this.$router.push({
-        query: {
-          name: this.valore
-        }
       });
     },
     starsWidth: function starsWidth(numero) {
@@ -3158,7 +3165,6 @@ __webpack_require__.r(__webpack_exports__);
         boh = somma / count;
       }
 
-      ;
       return Math.round(boh);
     },
     changeOrderReviews: function changeOrderReviews() {
@@ -3179,25 +3185,50 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         console.log(error.response.data);
       }); //this.$router.push({ name: "search", query: { name: this.ava, vote: this.selectVote} });
+    },
+    getSponsorized: function getSponsorized() {
+      var musicianSponsorized = [];
+      var musicianNotSponsorized = [];
+      var today = new Date();
+      this.musicians.forEach(function (element) {
+        var sponsors = element.sponsorships.length;
+        var found = true;
+        console.log(element);
+        element.sponsorships.forEach(function (plan) {
+          if (Date.parse(plan.pivot.expiration) >= Date.parse(today)) {
+            found = false;
+            musicianSponsorized.push(element);
+          } else {
+            sponsors--;
+          }
+        });
+
+        if (sponsors == 0) {
+          musicianNotSponsorized.push(element);
+        }
+      });
+      this.musicians = musicianSponsorized.concat(musicianNotSponsorized);
+    },
+    checkSponsorized: function checkSponsorized(musician) {
+      var _this4 = this;
+
+      var today = new Date();
+      this.get = false;
+      musician.sponsorships.forEach(function (element) {
+        if (Date.parse(element.pivot.expiration) >= Date.parse(today)) {
+          _this4.get = true;
+        }
+      });
+      return this.get;
     }
   },
   created: function created() {
-    var _this4 = this;
+    var _this5 = this;
 
-    // Ricezione dato 
-    _front__WEBPACK_IMPORTED_MODULE_0__["bus"].$on("saveValue", function (data) {
-      //Dato ricevuto dall'emit in jumbo
-      _this4.ava = data;
-      console.log(_this4.ava);
-    });
-    this.getAvailability(); // // CHIAMATA Availability PER SELECT FILTRO 2
-    // axios.get('/api/category/index').then((respAll)=>{
-    //         this.categories = respAll.data;
-    // })
-    //Api con tutte le prestazioni
+    this.getAvailability(); //Api con tutte le prestazioni
 
     axios.get("/api/availability/index").then(function (respAll) {
-      _this4.availabilities = respAll.data;
+      _this5.availabilities = respAll.data;
     });
   }
 });
@@ -8170,7 +8201,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".select[data-v-4e14df48] {\n  display: flex;\n  justify-content: center;\n  color: black;\n  font-size: 24px;\n  font-weight: bold;\n}\nselect[data-v-4e14df48] {\n  margin-left: 10px;\n  background: transparent;\n  border: 0;\n  cursor: pointer;\n  max-width: 100px;\n  font-size: 18px;\n}\n.background[data-v-4e14df48] {\n  /* background-image: url(\"../../../images/pexels-picjumbocom-196652.jpg\");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover; */\n  /* background: #E8EBF8; */\n  /* background: #595766ad; */\n  padding: 15px 0;\n  background: #fff;\n}\n.background[data-v-4e14df48]::-webkit-scrollbar {\n  display: none;\n}\n.background[data-v-4e14df48] {\n  -ms-overflow-style: none;\n  /* IE and Edge */\n  scrollbar-width: none;\n  /* Firefox */\n}\nh1[data-v-4e14df48], .info h3[data-v-4e14df48] {\n  text-align: center;\n}\n.info h3[data-v-4e14df48], .request[data-v-4e14df48] {\n  color: white;\n  text-transform: capitalize;\n}\nh1[data-v-4e14df48] {\n  font-size: 55px;\n}\n.my_card[data-v-4e14df48] {\n  margin: 50px auto;\n  max-width: 60%;\n  padding: 10px;\n  /* background: rgba(210, 206, 206, 0.861); */\n  /* background: #ededed; */\n  /* background-image: url('https://i.stack.imgur.com/MkSui.jpg'); */\n  background-image: url(\"https://icbstexas.com/wp-content/uploads/split-color-background.jpg\");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n  border-radius: 10px;\n  /* border: 1px solid black; */\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);\n  transition: 1s;\n}\n.my_card[data-v-4e14df48]:hover {\n  cursor: pointer;\n  transform: scale(1.03);\n}\n.my_card:hover a[data-v-4e14df48] {\n  text-decoration: none;\n}\n.request[data-v-4e14df48] {\n  display: flex;\n  padding: 5px;\n  border-radius: 10px;\n  background: rgba(28, 28, 28, 0.8);\n  max-height: 200px;\n}\n.request ul[data-v-4e14df48] {\n  max-height: 150px;\n  overflow: scroll;\n}\n.request ul[data-v-4e14df48]::-webkit-scrollbar {\n  display: none;\n}\n.request ul[data-v-4e14df48] {\n  -ms-overflow-style: none;\n  /* IE and Edge */\n  scrollbar-width: none;\n  /* Firefox */\n}\n.categories li[data-v-4e14df48], .events li[data-v-4e14df48], .references li[data-v-4e14df48] {\n  list-style: none;\n  margin-left: 5px;\n  font-size: 17px;\n}\n.references ul[data-v-4e14df48] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.references li[data-v-4e14df48] {\n  display: inline;\n  font-size: 15px;\n}\n.references[data-v-4e14df48] {\n  padding: 0 50px;\n  /* margin-top: 20px; */\n}\n.categories li[data-v-4e14df48] {\n  color: rgb(91, 121, 93);\n}\n.events li[data-v-4e14df48] {\n  color: rgb(175, 108, 195);\n}\n.categories div[data-v-4e14df48], .events div[data-v-4e14df48] {\n  border-radius: 15px;\n  padding: 15px;\n}\n.top[data-v-4e14df48] {\n  display: flex;\n  flex-wrap: wrap;\n  padding: 15px 0;\n}\n\n/* .container{\n    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n    border-radius: 10px;\n    padding: 20px;\n    margin-bottom: 40px;\n}\n*/\n.info[data-v-4e14df48] {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n.info img[data-v-4e14df48] {\n  height: 200px;\n  width: 200px;\n  border-radius: 50%;\n}\n.references img[data-v-4e14df48] {\n  width: 25px;\n  height: auto;\n  color: #527a5a;\n}\n.references li[data-v-4e14df48] {\n  color: black;\n  text-transform: capitalize;\n}\n.references #reviews[data-v-4e14df48] {\n  display: flex;\n}\n.search-filters[data-v-4e14df48] {\n  background-color: #ededed;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 5px 0px;\n}\n.search-filters h2[data-v-4e14df48] {\n  margin-right: 20px;\n}\n.search-filters button[data-v-4e14df48] {\n  background-color: #ccc;\n  border: none;\n  padding: 5px 10px;\n  margin: 0px 10px;\n}\n.search-filters button[data-v-4e14df48]:hover {\n  text-decoration: none;\n  background-color: #6aa275;\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n  color: #fff;\n}\n.rating__label[data-v-4e14df48] {\n  cursor: pointer;\n  padding: 0 0.1em;\n  font-size: 1.5rem;\n}\n@media only screen and (max-width: 700px) {\n.categories[data-v-4e14df48], .events[data-v-4e14df48] {\n    padding: 0;\n}\n.categories div[data-v-4e14df48], .events div[data-v-4e14df48] {\n    max-width: 80%;\n}\n.my_card[data-v-4e14df48] {\n    max-width: 90%;\n}\n.references[data-v-4e14df48] {\n    padding: 0 30px;\n}\n}\n@media only screen and (max-width: 1000px) {\n.references p[data-v-4e14df48] {\n    display: none;\n}\n.references #reviews[data-v-4e14df48] {\n    margin-top: 10px;\n}\n.references ul[data-v-4e14df48] {\n    display: flex;\n    flex-direction: column;\n}\n}", ""]);
+exports.push([module.i, ".select[data-v-4e14df48] {\n  display: flex;\n  justify-content: center;\n  color: black;\n  font-size: 24px;\n  font-weight: bold;\n}\nselect[data-v-4e14df48] {\n  margin-left: 10px;\n  background: transparent;\n  border: 0;\n  cursor: pointer;\n  max-width: 100px;\n  font-size: 18px;\n}\n.background[data-v-4e14df48] {\n  /* background-image: url(\"../../../images/pexels-picjumbocom-196652.jpg\");\n        background-repeat: no-repeat;\n        background-position: center;\n        background-size: cover; */\n  /* background: #E8EBF8; */\n  /* background: #595766ad; */\n  padding: 15px 0;\n  background: #fff;\n}\n.background[data-v-4e14df48]::-webkit-scrollbar {\n  display: none;\n}\n.background[data-v-4e14df48] {\n  -ms-overflow-style: none;\n  /* IE and Edge */\n  scrollbar-width: none;\n  /* Firefox */\n}\nh1[data-v-4e14df48],\n.info h3[data-v-4e14df48] {\n  text-align: center;\n}\n.info h3[data-v-4e14df48],\n.request[data-v-4e14df48] {\n  color: white;\n  text-transform: capitalize;\n}\nh1[data-v-4e14df48] {\n  font-size: 55px;\n}\n.my_card[data-v-4e14df48] {\n  margin: 50px auto;\n  max-width: 60%;\n  padding: 10px;\n  /* background: rgba(210, 206, 206, 0.861); */\n  /* background: #ededed; */\n  /* background-image: url('https://i.stack.imgur.com/MkSui.jpg'); */\n  background-image: url(\"https://icbstexas.com/wp-content/uploads/split-color-background.jpg\");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n  border-radius: 10px;\n  /* border: 1px solid black; */\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);\n  transition: 1s;\n}\n.my_card[data-v-4e14df48]:hover {\n  cursor: pointer;\n  transform: scale(1.03);\n}\n.my_card:hover a[data-v-4e14df48] {\n  text-decoration: none;\n}\n.request[data-v-4e14df48] {\n  display: flex;\n  padding: 5px;\n  border-radius: 10px;\n  background: rgba(28, 28, 28, 0.8);\n  max-height: 200px;\n}\n.request ul[data-v-4e14df48] {\n  max-height: 150px;\n  overflow: scroll;\n}\n.request ul[data-v-4e14df48]::-webkit-scrollbar {\n  display: none;\n}\n.request ul[data-v-4e14df48] {\n  -ms-overflow-style: none;\n  /* IE and Edge */\n  scrollbar-width: none;\n  /* Firefox */\n}\n.categories li[data-v-4e14df48],\n.events li[data-v-4e14df48],\n.references li[data-v-4e14df48] {\n  list-style: none;\n  margin-left: 5px;\n  font-size: 17px;\n}\n.references ul[data-v-4e14df48] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.references li[data-v-4e14df48] {\n  display: inline;\n  font-size: 15px;\n}\n.references[data-v-4e14df48] {\n  padding: 0 50px;\n  /* margin-top: 20px; */\n}\n.categories li[data-v-4e14df48] {\n  color: rgb(91, 121, 93);\n}\n.events li[data-v-4e14df48] {\n  color: rgb(175, 108, 195);\n}\n.categories div[data-v-4e14df48],\n.events div[data-v-4e14df48] {\n  border-radius: 15px;\n  padding: 15px;\n}\n.top[data-v-4e14df48] {\n  display: flex;\n  flex-wrap: wrap;\n  padding: 15px 0;\n}\n\n/* .container{\n        -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n        border-radius: 10px;\n        padding: 20px;\n        margin-bottom: 40px;\n    }\n    */\n.info[data-v-4e14df48] {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n.info img[data-v-4e14df48] {\n  height: 200px;\n  width: 200px;\n  border-radius: 50%;\n}\n.references img[data-v-4e14df48] {\n  width: 25px;\n  height: auto;\n  color: #527a5a;\n}\n.references li[data-v-4e14df48] {\n  color: black;\n  text-transform: capitalize;\n}\n.references #reviews[data-v-4e14df48] {\n  display: flex;\n}\n.search-filters[data-v-4e14df48] {\n  background-color: #ededed;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-wrap: wrap;\n  padding: 10px 0px;\n}\n.search-filters h3[data-v-4e14df48] {\n  margin-right: 10px;\n  margin-bottom: 0px;\n  color: #5b5b5b;\n}\n.search-filters button[data-v-4e14df48] {\n  background-color: #ccc;\n  border: none;\n  padding: 5px 10px;\n  margin: 0px 10px;\n}\n.search-filters button[data-v-4e14df48]:hover {\n  text-decoration: none;\n  background-color: #6aa275;\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n  color: #fff;\n}\n.filters[data-v-4e14df48] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.clacFileter[data-v-4e14df48] {\n  background-color: rgb(221, 221, 221);\n  padding-left: 5px;\n}\n.clacFileter button[data-v-4e14df48] {\n  margin-right: 0px;\n}\n.rating__label[data-v-4e14df48] {\n  cursor: pointer;\n  padding: 0 0.1em;\n  font-size: 1.5rem;\n}\n.change-avaliability[data-v-4e14df48] {\n  margin-right: 20px;\n  border-right: 1px solid rgb(188, 188, 188);\n}\n.change-avaliability select[data-v-4e14df48] {\n  min-width: 400px;\n}\n@media only screen and (max-width: 700px) {\n.categories[data-v-4e14df48],\n.events[data-v-4e14df48] {\n    padding: 0;\n}\n.categories div[data-v-4e14df48],\n.events div[data-v-4e14df48] {\n    max-width: 80%;\n}\n.my_card[data-v-4e14df48] {\n    max-width: 90%;\n}\n.references[data-v-4e14df48] {\n    padding: 0 30px;\n}\n}\n@media only screen and (max-width: 1000px) {\n.references p[data-v-4e14df48] {\n    display: none;\n}\n.references #reviews[data-v-4e14df48] {\n    margin-top: 10px;\n}\n.references ul[data-v-4e14df48] {\n    display: flex;\n    flex-direction: column;\n}\n}", ""]);
 
 // exports
 
@@ -41862,170 +41893,172 @@ var render = function () {
               ),
             ]),
             _vm._v(" "),
-            _c("h2", [_vm._v("Filtra per:")]),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                on: {
-                  click: function ($event) {
-                    return _vm.changeOrderReviews()
-                  },
-                },
-              },
-              [
-                _c("i", { staticClass: "fa-solid fa-music" }),
-                _vm._v(" Recensioni"),
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "d-flex" }, [
-              _c("div", { staticClass: "full-stars-example" }, [
-                _c("div", { staticClass: "rating-group" }, [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.selectVote,
-                        expression: "selectVote",
-                      },
-                    ],
-                    staticClass: "rating__input",
-                    attrs: {
-                      name: "rating",
-                      id: "rating-1",
-                      value: "1",
-                      type: "radio",
-                    },
-                    domProps: { checked: _vm._q(_vm.selectVote, "1") },
-                    on: {
-                      change: function ($event) {
-                        _vm.selectVote = "1"
-                      },
-                    },
-                  }),
-                  _vm._v(" "),
-                  _vm._m(1),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.selectVote,
-                        expression: "selectVote",
-                      },
-                    ],
-                    staticClass: "rating__input",
-                    attrs: {
-                      name: "rating",
-                      id: "rating-2",
-                      value: "2",
-                      type: "radio",
-                    },
-                    domProps: { checked: _vm._q(_vm.selectVote, "2") },
-                    on: {
-                      change: function ($event) {
-                        _vm.selectVote = "2"
-                      },
-                    },
-                  }),
-                  _vm._v(" "),
-                  _vm._m(2),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.selectVote,
-                        expression: "selectVote",
-                      },
-                    ],
-                    staticClass: "rating__input",
-                    attrs: {
-                      name: "rating",
-                      id: "rating-3",
-                      value: "3",
-                      type: "radio",
-                    },
-                    domProps: { checked: _vm._q(_vm.selectVote, "3") },
-                    on: {
-                      change: function ($event) {
-                        _vm.selectVote = "3"
-                      },
-                    },
-                  }),
-                  _vm._v(" "),
-                  _vm._m(3),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.selectVote,
-                        expression: "selectVote",
-                      },
-                    ],
-                    staticClass: "rating__input",
-                    attrs: {
-                      name: "rating",
-                      id: "rating-4",
-                      value: "4",
-                      type: "radio",
-                      checked: "",
-                    },
-                    domProps: { checked: _vm._q(_vm.selectVote, "4") },
-                    on: {
-                      change: function ($event) {
-                        _vm.selectVote = "4"
-                      },
-                    },
-                  }),
-                  _vm._v(" "),
-                  _vm._m(4),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.selectVote,
-                        expression: "selectVote",
-                      },
-                    ],
-                    staticClass: "rating__input",
-                    attrs: {
-                      name: "rating",
-                      id: "rating-5",
-                      value: "5",
-                      type: "radio",
-                    },
-                    domProps: { checked: _vm._q(_vm.selectVote, "5") },
-                    on: {
-                      change: function ($event) {
-                        _vm.selectVote = "5"
-                      },
-                    },
-                  }),
-                ]),
-              ]),
+            _c("div", { staticClass: "filters" }, [
+              _c("h3", [_vm._v("Ordina per:")]),
               _vm._v(" "),
               _c(
                 "button",
                 {
                   on: {
                     click: function ($event) {
-                      return _vm.changeOrderVotes()
+                      return _vm.changeOrderReviews()
                     },
                   },
                 },
-                [_vm._v("Calcola")]
+                [
+                  _c("i", { staticClass: "fa-solid fa-arrow-up" }),
+                  _vm._v(" Recensioni"),
+                ]
               ),
+              _vm._v(" "),
+              _c("div", { staticClass: "d-flex clacFileter" }, [
+                _c("div", { staticClass: "full-stars-example" }, [
+                  _c("div", { staticClass: "rating-group" }, [
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.selectVote,
+                          expression: "selectVote",
+                        },
+                      ],
+                      staticClass: "rating__input",
+                      attrs: {
+                        name: "rating",
+                        id: "rating-1",
+                        value: "1",
+                        type: "radio",
+                      },
+                      domProps: { checked: _vm._q(_vm.selectVote, "1") },
+                      on: {
+                        change: function ($event) {
+                          _vm.selectVote = "1"
+                        },
+                      },
+                    }),
+                    _vm._v(" "),
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.selectVote,
+                          expression: "selectVote",
+                        },
+                      ],
+                      staticClass: "rating__input",
+                      attrs: {
+                        name: "rating",
+                        id: "rating-2",
+                        value: "2",
+                        type: "radio",
+                      },
+                      domProps: { checked: _vm._q(_vm.selectVote, "2") },
+                      on: {
+                        change: function ($event) {
+                          _vm.selectVote = "2"
+                        },
+                      },
+                    }),
+                    _vm._v(" "),
+                    _vm._m(2),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.selectVote,
+                          expression: "selectVote",
+                        },
+                      ],
+                      staticClass: "rating__input",
+                      attrs: {
+                        name: "rating",
+                        id: "rating-3",
+                        value: "3",
+                        type: "radio",
+                      },
+                      domProps: { checked: _vm._q(_vm.selectVote, "3") },
+                      on: {
+                        change: function ($event) {
+                          _vm.selectVote = "3"
+                        },
+                      },
+                    }),
+                    _vm._v(" "),
+                    _vm._m(3),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.selectVote,
+                          expression: "selectVote",
+                        },
+                      ],
+                      staticClass: "rating__input",
+                      attrs: {
+                        name: "rating",
+                        id: "rating-4",
+                        value: "4",
+                        type: "radio",
+                        checked: "",
+                      },
+                      domProps: { checked: _vm._q(_vm.selectVote, "4") },
+                      on: {
+                        change: function ($event) {
+                          _vm.selectVote = "4"
+                        },
+                      },
+                    }),
+                    _vm._v(" "),
+                    _vm._m(4),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.selectVote,
+                          expression: "selectVote",
+                        },
+                      ],
+                      staticClass: "rating__input",
+                      attrs: {
+                        name: "rating",
+                        id: "rating-5",
+                        value: "5",
+                        type: "radio",
+                      },
+                      domProps: { checked: _vm._q(_vm.selectVote, "5") },
+                      on: {
+                        change: function ($event) {
+                          _vm.selectVote = "5"
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    on: {
+                      click: function ($event) {
+                        return _vm.changeOrderVotes()
+                      },
+                    },
+                  },
+                  [_vm._v("Voto")]
+                ),
+              ]),
             ]),
           ]),
           _vm._v(" "),
@@ -59922,15 +59955,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************************************!*\
   !*** ./resources/js/guest/pages/SingleMusician.vue ***!
   \*****************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SingleMusician_vue_vue_type_template_id_d39608ce_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SingleMusician.vue?vue&type=template&id=d39608ce&scoped=true& */ "./resources/js/guest/pages/SingleMusician.vue?vue&type=template&id=d39608ce&scoped=true&");
 /* harmony import */ var _SingleMusician_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SingleMusician.vue?vue&type=script&lang=js& */ "./resources/js/guest/pages/SingleMusician.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _SingleMusician_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _SingleMusician_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _SingleMusician_vue_vue_type_style_index_0_id_d39608ce_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SingleMusician.vue?vue&type=style&index=0&id=d39608ce&lang=scss&scoped=true& */ "./resources/js/guest/pages/SingleMusician.vue?vue&type=style&index=0&id=d39608ce&lang=scss&scoped=true&");
+/* empty/unused harmony star reexport *//* harmony import */ var _SingleMusician_vue_vue_type_style_index_0_id_d39608ce_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SingleMusician.vue?vue&type=style&index=0&id=d39608ce&lang=scss&scoped=true& */ "./resources/js/guest/pages/SingleMusician.vue?vue&type=style&index=0&id=d39608ce&lang=scss&scoped=true&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -59962,7 +59994,7 @@ component.options.__file = "resources/js/guest/pages/SingleMusician.vue"
 /*!******************************************************************************!*\
   !*** ./resources/js/guest/pages/SingleMusician.vue?vue&type=script&lang=js& ***!
   \******************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -60067,7 +60099,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\hamza\Desktop\Boolean\unison\resources\js\guest\front.js */"./resources/js/guest/front.js");
+module.exports = __webpack_require__(/*! C:\Users\milan\Documents\Boolean\unison\resources\js\guest\front.js */"./resources/js/guest/front.js");
 
 
 /***/ })
