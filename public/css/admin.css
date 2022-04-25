@@ -11021,8 +11021,8 @@ li {
 
 .u_navbar .logout:hover {
   text-decoration: none;
-  border-bottom: 2px solid #f4821f;
-  color: #f4821f;
+  border-bottom: 2px solid #bd5db7;
+  color: #bd5db7;
 }
 
 .u_navbar .logout i {
@@ -11073,7 +11073,7 @@ li {
 
 .u_menu a:hover {
   background-color: #0b0d0d;
-  border-left: 2px solid #f4821f;
+  border-left: 2px solid #bd5db7;
 }
 
 .u_menu i {
@@ -11082,7 +11082,7 @@ li {
 
 .u_menu .menu-active {
   background-color: #0b0d0d;
-  border-left: 2px solid #f4821f;
+  border-left: 2px solid #bd5db7;
 }
 
 .show {
@@ -11097,7 +11097,18 @@ li {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  border: 4px solid #f4821f;
+  border: 4px solid #bd5db7;
+}
+
+.u_btn_log {
+  color: #bd5db7;
+  border: 1px solid #bd5db7;
+  transition: 0.3s;
+}
+
+.u_btn_log:hover {
+  color: #fff;
+  background-color: #bd5db7;
 }
 
 .u_edit-user a {
@@ -11110,8 +11121,8 @@ li {
 .u_edit-user a:hover {
   text-decoration: none;
   color: #fff;
-  background-color: #f4821f;
-  border: 1px solid #f4821f;
+  background-color: #bd5db7;
+  border: 1px solid #bd5db7;
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
 }
 
@@ -11262,7 +11273,7 @@ li {
 }
 
 .category_spec-label {
-  color: #f4821f !important;
+  color: #bd5db7 !important;
   border-bottom: 1px solid #dcdcdc;
 }
 
@@ -11270,7 +11281,7 @@ li {
   font-weight: bold;
   letter-spacing: 3px;
   font-size: 30px;
-  color: #f4821f;
+  color: #bd5db7;
   padding-left: 10px;
 }
 
@@ -11295,7 +11306,7 @@ li {
 }
 
 .app-link a:hover {
-  color: #f4821f !important;
+  color: #bd5db7 !important;
 }
 
 .app-link i {
@@ -11303,11 +11314,11 @@ li {
 }
 
 .app-active {
-  border-bottom: 2px solid #f4821f;
+  border-bottom: 2px solid #bd5db7;
 }
 
 .app-active a {
-  color: #f4821f !important;
+  color: #bd5db7 !important;
 }
 
 .u_log-navbar {
@@ -11372,7 +11383,7 @@ li {
 }
 
 .u_messages a {
-  color: #f4821f;
+  color: #bd5db7;
   text-decoration: underline;
 }
 

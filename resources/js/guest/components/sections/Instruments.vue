@@ -137,11 +137,12 @@ export default {
         }
 
         a {
-            color: #000;
+            color: #527a5a;
             width: 100%;
             padding: 10px 20px;
             border: 2px solid #527a5a;
             border-radius: 20px;
+            transition: 0.3s;
 
             &:hover {
                 text-decoration: none;

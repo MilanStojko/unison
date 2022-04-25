@@ -25,6 +25,9 @@ class UserController extends Controller
     public function show($slug)
     {
         $user = User::where('slug', $slug)->with('categories', 'availabilities', 'sponsorships', 'reviews')->first();
+        if (empty($user)) {
+            return response()->json(["message" => "Post Not Found"], 404);
+        }
         return response()->json($user);
     }
 
@@ -35,7 +38,7 @@ class UserController extends Controller
 
         $this->musician = User::whereHas('availabilities', function (Builder $query) use ($data) {
             $query->where('name', "=", $data);
-        })->with('availabilities', 'categories', 'reviews')->get();
+        })->with('availabilities', 'categories', 'reviews', 'sponsorships')->get();
 
         $this->filteredMusician = clone $this->musician; //serve clonare perchè boh l'ho letto su stackoverflow, non sto capendo più un cazzo
 

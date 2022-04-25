@@ -25,7 +25,7 @@
                     </span>
                     <span v-else>
                         <a class="my_a login" href="http://127.0.0.1:8000/login"
-                            ><p class="my_button">Login</p></a
+                            ><p class="my_button">Sei un musicista?</p></a
                         >
                     </span>
                 </li>
@@ -72,7 +72,7 @@
                     </span>
                     <span v-else>
                         <a class="my_a login" href="http://127.0.0.1:8000/login"
-                            ><p class="my_button">Login</p></a
+                            ><p class="my_button">Sei un musicista?</p></a
                         >
                     </span>
                 </li>

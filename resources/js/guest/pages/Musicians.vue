@@ -35,7 +35,10 @@
                                 <ul>
                                     <li><i class="fa-solid fa-location-dot"></i> {{musician.address}}</li>
                                     <li id="reviews" style="font-size: 20px">
-                                        <p>Recensioni:</p>
+                                        <div class="text">
+                                            <p>Recensioni: <span>({{musician.reviews.length}})</span></p>
+  
+                                        </div>
                                         <div v-if="musician.reviews.length > 0">
                                                 <!-- <img src="../../../images/music.svg" /> -->
                                             <div class="notes big-notes">
@@ -358,7 +361,6 @@ export default {
     .references #reviews{
         display: flex;
     }
-
 
 
     @media only screen and (max-width: 700px) {

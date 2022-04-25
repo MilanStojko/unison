@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DateInterval;
+use Illuminate\Validation\Rule;
 use DateTime;
 use Illuminate\Support\Facades\Auth;
 use App\User;
@@ -15,7 +16,8 @@ use Carbon\Carbon;
 
 class PaymentsController extends Controller
 {
-    public function process(User $user){
+    public function process(User $user)
+    {
 
         $gateway = new \Braintree\Gateway([
             'environment' => config('services.braintree.environment'),
@@ -36,6 +38,17 @@ class PaymentsController extends Controller
 
     public function checkout(Request $request, User $user)
     {
+
+        $request->validate([
+            'sponsorship_id' => 'required|integer|exists:sponsorships,id',
+            'amount' => [
+                'required',
+                Rule::exists('sponsorships', 'price')
+                    ->where('id', $request->sponsorship_id)
+            ]
+        ]);
+
+
         $gateway = new \Braintree\Gateway([
             'environment' => config('services.braintree.environment'),
             'merchantId' => config('services.braintree.merchantId'),
@@ -45,28 +58,24 @@ class PaymentsController extends Controller
 
         $amount = $request->amount;
         $nonce = $request->payment_method_nonce;
-/*         $userInfo = Auth::user();
- */ 
+        /*         $userInfo = Auth::user();
+ */
         $result = $gateway->transaction()->sale([
             'amount' => $amount,
             'paymentMethodNonce' => $nonce,
             'customer' => [
                 'firstName' => $user['name'],
                 'lastName' => $user['surname'],
-/*                 'email' => $user['email'], */
+                /*                 'email' => $user['email'], */
             ],
             'options' => [
                 'submitForSettlement' => true
             ]
         ]);
 
-        $request->validate( [
-            'sponsorship_id' => 'required|integer|exists:sponsorships,id',
-        ]);
-
         $data = $request->all();
 
-        
+
         $nuovaSponsorship = new Sponsorship();
         $start = Carbon::now();
 
@@ -78,16 +87,16 @@ class PaymentsController extends Controller
 
             $date_format = DateTime::createFromFormat('Y-m-d H:i:s', $element->pivot->expiration);
 
-            if($date_format > $start){
+            if ($date_format > $start) {
                 $start = $date_format;
             }
         }
-        
+
         $sponsorshipDuration = intval(Sponsorship::where('iD', $data['sponsorship_id'])->pluck('duration')->first()); // pluck restituisce il solo valore e non anche la chiave! la first va usata perché è [value]
         $expiration = clone $start;
-        $expiration->add(new DateInterval('PT'.$sponsorshipDuration.'H'));
+        $expiration->add(new DateInterval('PT' . $sponsorshipDuration . 'H'));
 
-        $user->sponsorships()->attach($data['sponsorship_id'], array('start_date'=>$start,'expiration'=>$expiration));
+        $user->sponsorships()->attach($data['sponsorship_id'], array('start_date' => $start, 'expiration' => $expiration));
 
         if ($result->success) {
             $transaction = $result->transaction;
@@ -105,9 +114,5 @@ class PaymentsController extends Controller
             // header("Location: index.php");
             return back()->withErrors('An error occurred with the message: ' . $result->message);
         }
-
-
     }
-
-
 }

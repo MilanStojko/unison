@@ -22,7 +22,7 @@ class UserController extends Controller
         'username' => 'required|string|max:255',
         'avatar' => 'nullable|mimes:mimes:jpeg,jpg,png,gif|max:9096',
         'cv' => 'nullable|file|mimes:pdf,xlx,csv|max:12000',
-        'cellphone' => 'nullable',
+        'cellphone' => 'nullable|numeric|digits:10',
         'address' => 'nullable',
         'categories' => 'nullable|exists:categories,id',
         'availabilities' => 'nullable|exists:availabilities,id',
