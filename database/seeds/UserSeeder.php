@@ -10,11 +10,17 @@ use Illuminate\Support\Str;
 
 class UserSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+    protected function slug($name = "", $id = "")
+    {
+        $tmp = Str::slug($name);
+        $count = 1;
+        while (User::where('slug', $tmp)->where('id', '!=', $id)->first()) {
+            $tmp = Str::slug($name) . "-" . $count;
+            $count++;
+        }
+        return $tmp;
+    }
+    //'slug' => $this->slug($data['name']),
     public function run(Faker $faker)
     {
         // array per avere degli user un minimo sensati, pur sempre memando un poco :)
@@ -34,6 +40,7 @@ class UserSeeder extends Seeder
             $user->surname = $surnames[rand(0, count($surnames) - 1)];
             $user->username = array_shift($usernames);
             $user->email = array_shift($emails);
+            $user->slug = $this->slug($user->name, $user->id);
             $user->address = array_shift($adresses);
             $user->password = Hash::make(Str::of($user->name) . Str::of($user->name));
             $user->save();

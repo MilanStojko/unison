@@ -2,7 +2,9 @@
     <div>
         <nav>
             <div class="logo">
-                <router-link :to="{ name: 'home' }"> &#119070; UNISON</router-link>
+                <router-link :to="{ name: 'home' }">
+                    <img src="../../../images/Logo.png" alt="">
+                </router-link>
             </div>
             <ul class="my_ul">
                 <li class="my_li">
@@ -14,12 +16,6 @@
                     <router-link :to="{ name: 'search' }"
                         ><p>Cerca</p></router-link
                     >
-                </li>
-                <li>
-                    <a class="my_a" href=""><p>Eventi</p></a>
-                </li>
-                <li>
-                    <a class="my_a" href=""><p>Categorie</p></a>
                 </li>
                 <li>
                     <span v-if="auth_id">
@@ -201,10 +197,18 @@ nav {
     justify-content: space-between;
     align-items: center;
     background-color: rgb(42, 41, 41);
-    height: 50px;
+    background-image: url('../../../images/waveHeader.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 52px;
     padding: 0px 20px;
     color: white;
     position: relative;
+}
+
+.logo img{
+    height: 48px;
 }
 
 .my_ul {

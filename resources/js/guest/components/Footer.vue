@@ -137,7 +137,7 @@ export default {
 <style scoped>
 
     .pre{
-        background: rgb(59, 104, 151);
+        background: rgb(100, 150, 200);
         padding: 30px;
         color: white;
     }
