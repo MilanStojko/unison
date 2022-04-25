@@ -33,10 +33,11 @@
                     </select>
                     <button @click="changeAvailability()">Cerca</button>
                  </div>
-                <h2>Filtra per:</h2>
-                <button @click="changeOrderReviews()"><i class="fa-solid fa-music"></i> Recensioni</button>
-                <div class="d-flex">
-                    <!--Emoji Rating-->
+                 <div class="filters">  
+                     <h3>Ordina per:</h3>
+                    <button @click="changeOrderReviews()"><i class="fa-solid fa-arrow-up"></i> Recensioni</button>
+                    <div class="d-flex clacFileter">
+                         <!--Emoji Rating-->
                         <div class="full-stars-example">
                             <div class="rating-group">
                                 <label
@@ -123,9 +124,10 @@
                             </div>
                         </div>
                         <!--Emoji Rating Ends-->
-                        <button @click="changeOrderVotes()">Calcola</button>
+                        <button @click="changeOrderVotes()">Voto</button>
                 </div>
-                
+                 </div>
+ 
             </div>
             
             
@@ -200,12 +202,13 @@ export default {
   name: "Search",
   data() {
     return {
-      categories:[],
+      get: "",
+      newMusicians: [],
       musicians: [],
       selectVote: null,
       availabilities: [],
       valore: "",
-      check: 'Seleziona una specializzazione'
+      check: "Seleziona una specializzazione",
     };
   },
   methods: {
@@ -215,104 +218,126 @@ export default {
         .get(`/api/filtered/getavailability${this.$route.fullPath}`)
         .then((response) => {
           this.musicians = response.data;
-          console.log(this.musicians)
+          console.log(this.musicians);
         })
         .catch(function (error) {
           console.log(error.response.data);
         });
+      this.getSponsorized();
+      console.log(this.musicians);
     },
-    
+
     changeAvailability() {
-        axios
+      axios
         .get(`/api/filtered/getavailability/search`, {
-            params: {
-                name: this.valore
-            }
+          params: {
+            name: this.valore,
+          },
         })
         .then((response) => {
           this.musicians = response.data;
-          console.log(this.musicians)
-          console.log('ciao')
+          this.getSponsorized();
+          this.$router.push({ path: "search", query: { name: this.valore } });
         })
         .catch(function (error) {
           console.log(error.response.data);
         });
-        this.$router.push({ query: { name: this.valore } });
     },
 
     starsWidth: function (numero) {
-        return "starFill" + this.getAvgVote(numero);
+      return "starFill" + this.getAvgVote(numero);
     },
 
+    getAvgVote(array) {
+      let somma = 0;
+      let count = 0;
+      let boh;
+      array.forEach((singleRev) => {
+        // console.log(singleRev.vote);
+        somma = somma + singleRev.vote;
+        count = count + 1;
+      });
+      // console.log("ciao"+somma);
 
-    getAvgVote(array){
-        let somma=0;
-        let count=0;
-        let boh;       
-        array.forEach(singleRev => {
-            // console.log(singleRev.vote);
-            somma = somma + singleRev.vote;
-            count=count + 1;
-        });
-            // console.log("ciao"+somma);
-        
-        if (count!=0) {
-            boh=somma/count;
-        };
-        
-        return Math.round(boh);
+      if (count != 0) {
+        boh = somma / count;
+      }
+
+      return Math.round(boh);
     },
 
-    changeOrderReviews: function() {
-        return this.musicians.sort(function(a, b){
-            return b.reviews.length - a.reviews.length;
-        });
-
+    changeOrderReviews: function () {
+      return this.musicians.sort(function (a, b) {
+        return b.reviews.length - a.reviews.length;
+      });
     },
-    changeOrderVotes: function() {
-        axios
+    changeOrderVotes: function () {
+      axios
         .get(`/api/filtered/getavailability${this.$route.fullPath}`, {
-            params: {
-                vote: this.selectVote
-            }
+          params: {
+            vote: this.selectVote,
+          },
         })
         .then((response) => {
           this.musicians = response.data;
-          console.log(this.musicians)
+          console.log(this.musicians);
         })
         .catch(function (error) {
           console.log(error.response.data);
         });
-        //this.$router.push({ name: "search", query: { name: this.ava, vote: this.selectVote} });
-    }
+      //this.$router.push({ name: "search", query: { name: this.ava, vote: this.selectVote} });
+    },
+    getSponsorized() {
+      let musicianSponsorized = [];
+      let musicianNotSponsorized = [];
+
+      const today = new Date();
+
+      this.musicians.forEach((element) => {
+        let sponsors = element.sponsorships.length;
+        let found = true;
+        console.log(element);
+        element.sponsorships.forEach((plan) => {
+          if (Date.parse(plan.pivot.expiration) >= Date.parse(today)) {
+            found = false;
+            musicianSponsorized.push(element);
+          } else {
+            sponsors--;
+          }
+        });
+        if (sponsors == 0) {
+          musicianNotSponsorized.push(element);
+        }
+      });
+      this.musicians = musicianSponsorized.concat(musicianNotSponsorized);
+    },
+
+    checkSponsorized(musician) {
+      const today = new Date();
+
+      this.get = false;
+
+      musician.sponsorships.forEach((element) => {
+        if (Date.parse(element.pivot.expiration) >= Date.parse(today)) {
+          this.get = true;
+        }
+      });
+      return this.get;
+    },
   },
   created() {
-    // Ricezione dato 
-    bus.$on("saveValue", (data) => {
-      //Dato ricevuto dall'emit in jumbo
-      this.ava = data;
-      console.log(this.ava);
-    });
-
     this.getAvailability();
-    // // CHIAMATA Availability PER SELECT FILTRO 2
-    // axios.get('/api/category/index').then((respAll)=>{
-    //         this.categories = respAll.data;
-    // })
 
     //Api con tutte le prestazioni
     axios.get("/api/availability/index").then((respAll) => {
-         this.availabilities = respAll.data;
+      this.availabilities = respAll.data;
     });
-
-
   },
 };
 </script>
 
 <style lang="scss" scoped>
-
-.select{
+.select {
   display: flex;
   justify-content: center;
   color: black;
@@ -320,48 +345,49 @@ export default {
   font-weight: bold;
 }
 
-select{
+select {
   margin-left: 10px;
-  background:transparent;
+  background: transparent;
   border: 0;
   cursor: pointer;
   max-width: 100px;
   font-size: 18px;
 }
 
-
-.background{
-        /* background-image: url("../../../images/pexels-picjumbocom-196652.jpg");
+.background {
+  /* background-image: url("../../../images/pexels-picjumbocom-196652.jpg");
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover; */
-        /* background: #E8EBF8; */
-        /* background: #595766ad; */
-        padding: 15px 0;
-        background: #fff;
-    }
+  /* background: #E8EBF8; */
+  /* background: #595766ad; */
+  padding: 15px 0;
+  background: #fff;
+}
 
-    .background::-webkit-scrollbar {
-        display: none;
-    }
+.background::-webkit-scrollbar {
+  display: none;
+}
 
-    .background {
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
-    }
+.background {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
 
-    h1, .info h3{
-        text-align: center;
-    }
+h1,
+.info h3 {
+  text-align: center;
+}
 
-    .info h3, .request{
-        color: white;
-        text-transform: capitalize;
-    }
+.info h3,
+.request {
+  color: white;
+  text-transform: capitalize;
+}
 
-    h1{
-        font-size: 55px;
-    }
+h1 {
+  font-size: 55px;
+}
 
     .my_card{
         margin: 50px auto;
@@ -388,9 +414,9 @@ select{
         background-position: bottom;
     }
 
-    .my_card:hover a{
-        text-decoration: none;
-    }
+.my_card:hover a {
+  text-decoration: none;
+}
 
     .my_card:hover h3{
         color: black;
@@ -416,62 +442,65 @@ select{
         max-height: 200px;
     }
 
-    .request ul{
-        max-height: 150px;
-        overflow: scroll;
-    }
+.request ul {
+  max-height: 150px;
+  overflow: scroll;
+}
 
-    .request ul::-webkit-scrollbar {
-        display: none;
-    }
+.request ul::-webkit-scrollbar {
+  display: none;
+}
 
-    .request ul{
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
-    }
+.request ul {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
 
-    .categories li, .events li, .references li{
-        list-style: none;
-        margin-left: 5px;
-        font-size: 17px;
-    }
+.categories li,
+.events li,
+.references li {
+  list-style: none;
+  margin-left: 5px;
+  font-size: 17px;
+}
 
-    .references ul{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+.references ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-    .references li{
-        display: inline;
-        font-size: 15px;
-    }
+.references li {
+  display: inline;
+  font-size: 15px;
+}
 
-    .references{
-        padding: 0 50px;
-        /* margin-top: 20px; */
-    }
+.references {
+  padding: 0 50px;
+  /* margin-top: 20px; */
+}
 
-    .categories li{
-        color: rgba(91, 121, 93);
-    }
+.categories li {
+  color: rgba(91, 121, 93);
+}
 
-    .events li{
-        color: rgba(175, 108, 195);
-    }
+.events li {
+  color: rgba(175, 108, 195);
+}
 
-    .categories div, .events div{
-        border-radius: 15px;
-        padding: 15px;
-    }
-    
-    .top{
-        display: flex;
-        flex-wrap: wrap;
-        padding: 15px 0;
-    }
+.categories div,
+.events div {
+  border-radius: 15px;
+  padding: 15px;
+}
 
-    /* .container{
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 15px 0;
+}
+
+/* .container{
         -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
         box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
         border-radius: 10px;
@@ -480,102 +509,127 @@ select{
     }
     */
 
-    .info{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-    .info img{
-        height: 200px;
-        width: 200px;
-        border-radius: 50%;
-    }
+.info img {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+}
 
-    .references img{
-        width: 25px;
-        height: auto;
-        color: #527a5a;
-    }
+.references img {
+  width: 25px;
+  height: auto;
+  color: #527a5a;
+}
 
-    .references li{
-        color: black;
-        text-transform: capitalize;
-    }
+.references li {
+  color: black;
+  text-transform: capitalize;
+}
 
-    .references #reviews{
-        display: flex;
-    }
-
+.references #reviews {
+  display: flex;
+}
 
 //Search Filters
-    .search-filters {
-        background-color: #ededed;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 5px 0px;
+.search-filters {
+  background-color: #ededed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px 0px;
 
-        h2 {
-            margin-right: 20px;
-        }
+  h3 {
+    margin-right: 10px;
+    margin-bottom: 0px;
+    color: #5b5b5b;
+  }
 
-        button {
-            background-color: #ccc;
-            border: none;
-            padding: 5px 10px;
-            margin: 0px 10px;
+  button {
+    background-color: #ccc;
+    border: none;
+    padding: 5px 10px;
+    margin: 0px 10px;
 
-            &:hover {
-                text-decoration: none;
-                background-color: #6aa275;
-                -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
-                box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
-                color: #fff;
-            }
-        }
+    &:hover {
+      text-decoration: none;
+      background-color: #6aa275;
+      -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
+      box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
+      color: #fff;
     }
+  }
+}
 
-    .rating__label {
-        cursor: pointer;
-        padding: 0 0.1em;
-        font-size: 1.5rem;
-    }
+.filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.clacFileter {
+  background-color: rgb(221, 221, 221);
+  padding-left: 5px;
 
+  button {
+    margin-right: 0px;
+  }
+}
 
-    @media only screen and (max-width: 700px) {
-        .categories, .events{
-            padding: 0;
-        }
+.rating__label {
+  cursor: pointer;
+  padding: 0 0.1em;
+  font-size: 1.5rem;
+}
 
-        .categories div, .events div{
-            max-width: 80%;
-        }
+.change-avaliability {
+  margin-right: 20px;
+  border-right: 1px solid rgb(188, 188, 188);
 
-        .my_card{
-            max-width: 90%;
-        }
+  select {
+    min-width: 400px;
+  }
+}
 
-        .references{
-            padding: 0 30px;
-        }
-    }
+@media only screen and (max-width: 700px) {
+  .categories,
+  .events {
+    padding: 0;
+  }
 
+  .categories div,
+  .events div {
+    max-width: 80%;
+  }
 
-@media only screen and (max-width: 1000px){
-    .references p{
-        display: none;
-    }
+  .my_card {
+    max-width: 90%;
+  }
 
-    .references #reviews{
-        margin-top: 10px;
-    }
+  .references {
+    padding: 0 30px;
+  }
+}
 
-    .references ul{
-        display: flex;
-        flex-direction: column;
-    }
+@media only screen and (max-width: 1000px) {
+  .references p {
+    display: none;
+  }
+
+  .references #reviews {
+    margin-top: 10px;
+  }
+
+  .references ul {
+    display: flex;
+    flex-direction: column;
+  }
 }
 </style>
