@@ -1,5 +1,6 @@
 <template>
     <section class="service">
+        <Gradient />
         <div class="service-heading">
             <h2>Come Funziona Unison</h2>
         </div>
@@ -56,14 +57,19 @@
 </template>
 
 <script>
+import Gradient from "../Gradient.vue";
 export default {
     name: "Service",
+    components:{
+        Gradient
+    }
+
 };
 </script>
 
 <style lang="scss" scoped>
 .service {
-    padding: 100px 0px;
+    padding: 0px 0px 100px 0px;
     &-heading {
         margin-bottom: 50px;
         h2 {

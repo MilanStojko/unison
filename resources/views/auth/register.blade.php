@@ -5,7 +5,11 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 
-                    <div class="card-header u_register-header">{{ __('Registrati') }}</div>
+                    <div class="card-header u_register-header d-flex justify-content-around">
+                        <span>&#x1D192;</span> 
+                        <span>Register</span> 
+                        <span>&#x1D193;</span>
+                    </div>
 
                     <div class="u_register">
                         <form method="POST" action="{{ route('register') }}">
@@ -124,7 +128,7 @@
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn u_btn_log">
                                         {{ __('Register') }}
                                     </button>
                                 </div>

@@ -16,6 +16,23 @@
     <div class="container">
         <div class="container p-4">
             <div class="search-filters">
+                <div class="change-avaliability">
+                    <select
+                        name="availabilities"
+                        id="availabilities"
+                        v-model="valore"
+                    >
+                        <option value="" disabled selected>Seleziona la prestazione che ti interessa</option>
+                        <option
+                            v-for="(availability, index) in availabilities"
+                            :value="availability.name"
+                            :key="index"
+                        >
+                            {{ availability.name }}
+                        </option>
+                    </select>
+                    <button @click="changeAvailability()">Cerca</button>
+                 </div>
                 <h2>Filtra per:</h2>
                 <button @click="changeOrderReviews()"><i class="fa-solid fa-music"></i> Recensioni</button>
                 <div class="d-flex">
@@ -186,7 +203,9 @@ export default {
       categories:[],
       musicians: [],
       selectVote: null,
-      ava: "",
+      availabilities: [],
+      valore: "",
+      check: 'Seleziona una specializzazione'
     };
   },
   methods: {
@@ -201,6 +220,24 @@ export default {
         .catch(function (error) {
           console.log(error.response.data);
         });
+    },
+    
+    changeAvailability() {
+        axios
+        .get(`/api/filtered/getavailability/search`, {
+            params: {
+                name: this.valore
+            }
+        })
+        .then((response) => {
+          this.musicians = response.data;
+          console.log(this.musicians)
+          console.log('ciao')
+        })
+        .catch(function (error) {
+          console.log(error.response.data);
+        });
+        this.$router.push({ query: { name: this.valore } });
     },
 
     starsWidth: function (numero) {
@@ -232,7 +269,6 @@ export default {
         });
 
     },
-///api/filtered/getavailability/search?name=canto&vote=3
     changeOrderVotes: function() {
         axios
         .get(`/api/filtered/getavailability${this.$route.fullPath}`, {
@@ -259,10 +295,15 @@ export default {
     });
 
     this.getAvailability();
-    // CHIAMATA Availability PER SELECT FILTRO 2
-    axios.get('/api/category/index').then((respAll)=>{
-            this.categories = respAll.data;
-    })
+    // // CHIAMATA Availability PER SELECT FILTRO 2
+    // axios.get('/api/category/index').then((respAll)=>{
+    //         this.categories = respAll.data;
+    // })
+
+    //Api con tutte le prestazioni
+    axios.get("/api/availability/index").then((respAll) => {
+         this.availabilities = respAll.data;
+    });
 
 
   },

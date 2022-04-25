@@ -18,6 +18,7 @@
                         id="availabilities"
                         v-model="valore"
                     >
+                        <option value="" disabled selected>Seleziona la prestazione che ti interessa</option>
                         <option
                             v-for="(availability, index) in availabilities"
                             :value="availability.name"
@@ -61,6 +62,7 @@ export default {
             availabilities: [],
             prestazione: "",
             valore: "",
+            check: 'Seleziona una specializzazione'
         };
     },
     //Api con tutte le prestazioni
