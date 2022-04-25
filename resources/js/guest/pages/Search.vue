@@ -132,10 +132,11 @@
             
             
             <div class="my_card" v-for="(musician, indice) in musicians" :key="indice">
+                <span v-if="checkSponsorized(musician)"><i class="fa-solid fa-star"></i></span>
                     <router-link :to="{ name: 'user-single', params: { slug: musician.slug } }">
                         <div class="top">
                             <div class="info col-lg-5 mb-4">
-                                <h3>{{musician.name}} {{musician.surname}}</h3>
+                                <h3>{{musician.name}} {{musician.surname}} </h3>
                                 <img v-if="musician.avatar!=null" :src="`/storage/${musician.avatar}`" alt="">
                                 <img v-else src="https://thumbs.dreamstime.com/b/profilo-utente-vettoriale-avatar-predefinito-179376714.jpg" alt="">
                             </div>
@@ -218,12 +219,12 @@ export default {
         .get(`/api/filtered/getavailability${this.$route.fullPath}`)
         .then((response) => {
           this.musicians = response.data;
+          this.getSponsorized();
           console.log(this.musicians);
         })
         .catch(function (error) {
           console.log(error.response.data);
         });
-      this.getSponsorized();
       console.log(this.musicians);
     },
 
@@ -389,7 +390,15 @@ h1 {
   font-size: 55px;
 }
 
+.fa-star{
+    font-size: 30px;
+    color: white;
+    position: absolute;
+    right: 10px;
+}
+
     .my_card{
+        position: relative;
         margin: 50px auto;
         max-width: 60%;
         padding: 10px;
@@ -416,6 +425,10 @@ h1 {
 
 .my_card:hover a {
   text-decoration: none;
+}
+
+.my_card:hover .fa-star {
+    color: #2C3D4F;
 }
 
     .my_card:hover h3{
