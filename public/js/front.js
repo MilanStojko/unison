@@ -3117,12 +3117,75 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Search",
   data: function data() {
     return {
       get: "",
+      startMusicians: [],
       newMusicians: [],
       musicians: [],
       selectVote: null,
@@ -3132,37 +3195,48 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    //Tutte le prestazioni
-    getAvailability: function getAvailability() {
+    getMusicians: function getMusicians() {
       var _this = this;
 
+      axios.get("/api/users").then(function (apirisp) {
+        _this.startMusicians = apirisp.data;
+
+        _this.getSponsorizedStart(); // console.log(this.musicians);
+
+      });
+    },
+    //Tutte le prestazioni
+    getAvailability: function getAvailability() {
+      var _this2 = this;
+
       axios.get("/api/filtered/getavailability".concat(this.$route.fullPath)).then(function (response) {
-        _this.musicians = response.data;
+        _this2.musicians = response.data;
 
-        _this.getSponsorized();
+        _this2.getSponsorized();
 
-        console.log(_this.musicians);
+        console.log(_this2.musicians);
       })["catch"](function (error) {
         console.log(error.response.data);
       });
       console.log(this.musicians);
     },
     changeAvailability: function changeAvailability() {
-      var _this2 = this;
+      var _this3 = this;
 
       axios.get("/api/filtered/getavailability/search", {
         params: {
           name: this.valore
         }
       }).then(function (response) {
-        _this2.musicians = response.data;
+        _this3.startMusicians = [];
+        _this3.musicians = response.data;
 
-        _this2.getSponsorized();
+        _this3.getSponsorized();
 
-        _this2.$router.push({
+        _this3.$router.push({
           path: "search",
           query: {
-            name: _this2.valore
+            name: _this3.valore
           }
         });
       })["catch"](function (error) {
@@ -3194,18 +3268,41 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     changeOrderVotes: function changeOrderVotes() {
-      var _this3 = this;
+      var _this4 = this;
 
       axios.get("/api/filtered/getavailability".concat(this.$route.fullPath), {
         params: {
           vote: this.selectVote
         }
       }).then(function (response) {
-        _this3.musicians = response.data;
-        console.log(_this3.musicians);
+        _this4.musicians = response.data;
+        console.log(_this4.musicians);
       })["catch"](function (error) {
         console.log(error.response.data);
       }); //this.$router.push({ name: "search", query: { name: this.ava, vote: this.selectVote} });
+    },
+    getSponsorizedStart: function getSponsorizedStart() {
+      var musicianSponsorized = [];
+      var musicianNotSponsorized = [];
+      var today = new Date();
+      this.startMusicians.forEach(function (element) {
+        var sponsors = element.sponsorships.length;
+        var found = true;
+        console.log(element);
+        element.sponsorships.forEach(function (plan) {
+          if (Date.parse(plan.pivot.expiration) >= Date.parse(today)) {
+            found = false;
+            musicianSponsorized.push(element);
+          } else {
+            sponsors--;
+          }
+        });
+
+        if (sponsors == 0) {
+          musicianNotSponsorized.push(element);
+        }
+      });
+      this.startMusicians = musicianSponsorized.concat(musicianNotSponsorized);
     },
     getSponsorized: function getSponsorized() {
       var musicianSponsorized = [];
@@ -3231,25 +3328,26 @@ __webpack_require__.r(__webpack_exports__);
       this.musicians = musicianSponsorized.concat(musicianNotSponsorized);
     },
     checkSponsorized: function checkSponsorized(musician) {
-      var _this4 = this;
+      var _this5 = this;
 
       var today = new Date();
       this.get = false;
       musician.sponsorships.forEach(function (element) {
         if (Date.parse(element.pivot.expiration) >= Date.parse(today)) {
-          _this4.get = true;
+          _this5.get = true;
         }
       });
       return this.get;
     }
   },
   created: function created() {
-    var _this5 = this;
+    var _this6 = this;
 
+    this.getMusicians();
     this.getAvailability(); //Api con tutte le prestazioni
 
     axios.get("/api/availability/index").then(function (respAll) {
-      _this5.availabilities = respAll.data;
+      _this6.availabilities = respAll.data;
     });
   }
 });
@@ -40882,19 +40980,8 @@ var render = function () {
             "li",
             { staticClass: "my_li" },
             [
-              _c("router-link", { attrs: { to: { name: "list-musicians" } } }, [
-                _c("p", [_vm._v("Vai ai musicisti")]),
-              ]),
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "li",
-            { staticClass: "my_li" },
-            [
               _c("router-link", { attrs: { to: { name: "search" } } }, [
-                _c("p", [_vm._v("Cerca")]),
+                _c("p", [_vm._v("Cerca i musicisti")]),
               ]),
             ],
             1
@@ -42142,6 +42229,183 @@ var render = function () {
               ]),
             ]),
           ]),
+          _vm._v(" "),
+          _vm._l(_vm.startMusicians, function (musician, indice) {
+            return _c(
+              "div",
+              { key: indice, staticClass: "my_card" },
+              [
+                _vm.checkSponsorized(musician)
+                  ? _c("span", [_c("i", { staticClass: "fa-solid fa-star" })])
+                  : _vm._e(),
+                _vm._v(" "),
+                _c(
+                  "router-link",
+                  {
+                    attrs: {
+                      to: {
+                        name: "user-single",
+                        params: { slug: musician.slug },
+                      },
+                    },
+                  },
+                  [
+                    _c("div", { staticClass: "top" }, [
+                      _c("div", { staticClass: "info col-lg-5 mb-4" }, [
+                        _c("h3", [
+                          _vm._v(
+                            _vm._s(musician.name) +
+                              " " +
+                              _vm._s(musician.surname) +
+                              " "
+                          ),
+                        ]),
+                        _vm._v(" "),
+                        musician.avatar != null
+                          ? _c("img", {
+                              attrs: {
+                                src: "/storage/" + musician.avatar,
+                                alt: "",
+                              },
+                            })
+                          : _c("img", {
+                              attrs: {
+                                src: "https://thumbs.dreamstime.com/b/profilo-utente-vettoriale-avatar-predefinito-179376714.jpg",
+                                alt: "",
+                              },
+                            }),
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "request col-lg-7 col-sm-12 mt-4" },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "events mw-50 col-lg-6 col-sm-6 col-xs-6",
+                            },
+                            [
+                              _c("div", [
+                                _c("h5", [_vm._v("Eventi:")]),
+                                _vm._v(" "),
+                                _c(
+                                  "ul",
+                                  _vm._l(
+                                    musician.availabilities,
+                                    function (availability, index) {
+                                      return _c("li", { key: index }, [
+                                        _c("strong", [
+                                          _vm._v(_vm._s(availability.name)),
+                                        ]),
+                                      ])
+                                    }
+                                  ),
+                                  0
+                                ),
+                              ]),
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "categories mw-50 col-lg-6 col-sm-6 col-xs-6",
+                            },
+                            [
+                              _c("div", [
+                                _c("h5", [_vm._v("Strumenti:")]),
+                                _vm._v(" "),
+                                _c(
+                                  "ul",
+                                  _vm._l(
+                                    musician.categories,
+                                    function (category, index) {
+                                      return _c("li", { key: index }, [
+                                        _c("strong", [
+                                          _vm._v(_vm._s(category.name)),
+                                        ]),
+                                      ])
+                                    }
+                                  ),
+                                  0
+                                ),
+                              ]),
+                            ]
+                          ),
+                        ]
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("p", { staticClass: "references" }, [
+                        _c("ul", [
+                          _c("li", [
+                            _c("i", {
+                              staticClass: "fa-solid fa-location-dot",
+                            }),
+                            _vm._v(" " + _vm._s(musician.address)),
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "li",
+                            {
+                              staticStyle: { "font-size": "20px" },
+                              attrs: { id: "reviews" },
+                            },
+                            [
+                              _c("div", { staticClass: "text" }, [
+                                _c("p", [
+                                  _vm._v("Recensioni: "),
+                                  _c("span", [
+                                    _vm._v(
+                                      "(" +
+                                        _vm._s(musician.reviews.length) +
+                                        ")"
+                                    ),
+                                  ]),
+                                ]),
+                              ]),
+                              _vm._v(" "),
+                              musician.reviews.length > 0
+                                ? _c("div", [
+                                    _c(
+                                      "div",
+                                      { staticClass: "notes big-notes" },
+                                      [
+                                        _c("div", {
+                                          staticClass: "notes_inner",
+                                          class: _vm.starsWidth(
+                                            musician.reviews
+                                          ),
+                                        }),
+                                      ]
+                                    ),
+                                  ])
+                                : _c("div", [
+                                    _c(
+                                      "div",
+                                      { staticClass: "notes big-notes" },
+                                      [
+                                        _c("div", {
+                                          staticClass: "notes_inner starFill0",
+                                        }),
+                                      ]
+                                    ),
+                                  ]),
+                            ]
+                          ),
+                        ]),
+                      ]),
+                    ]),
+                  ]
+                ),
+              ],
+              1
+            )
+          }),
           _vm._v(" "),
           _vm._l(_vm.musicians, function (musician, indice) {
             return _c(
