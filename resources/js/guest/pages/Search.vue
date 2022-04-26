@@ -131,7 +131,7 @@
             </div>
             
             
-            <div class="my_card" v-for="(musician, indice) in musicians" :key="indice">
+            <div class="my_card" v-for="musician in musicians" :key="musician.id">
                 <span v-if="checkSponsorized(musician)"><i class="fa-solid fa-star"></i></span>
                     <router-link :to="{ name: 'user-single', params: { slug: musician.slug } }">
                         <div class="top">
