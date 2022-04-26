@@ -18,7 +18,7 @@
                 <p>a</p>
                 <h3 class="plan-time">2,99 €</h3>
             </div>
-            <button class="btn u_btn_plan"><a href="{{route('admin.payment', auth()->user())}}">Acquista</a></button>
+            <a class="btn u_btn_plan" href="{{route('admin.payment', auth()->user())}}">Acquista</a>
         </div>
         <div class="col-lg-3 col-12 text-center d-flex justify-content-between flex-column align-items-center py-3 plan-b plan-card">
             <h2 class="plan-name">NOTORIUS.</h2>
@@ -27,7 +27,7 @@
                 <p>a</p>
                 <h3 class="plan-time">5,99 €</h3>
             </div>
-            <button class="btn u_btn_plan"><a href="{{route('admin.payment', auth()->user())}}">Acquista</a></button>
+            <a class="btn u_btn_plan" href="{{route('admin.payment', auth()->user())}}">Acquista</a>
         </div>
         <div class="col-lg-3 col-12 text-center d-flex justify-content-between flex-column align-items-center py-3 plan-c plan-card">
             <h2 class="plan-name">CHAMPION</h2>
@@ -36,7 +36,7 @@
                 <p>a</p>
                 <h3 class="plan-time">9,99 €</h3>
             </div>
-            <button class="btn u_btn_plan"><a href="{{route('admin.payment', auth()->user())}}">Acquista</a></button>
+            <a class="btn u_btn_plan" href="{{route('admin.payment', auth()->user())}}">Acquista</a>
         </div>
     </div>
 </div>
