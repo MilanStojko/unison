@@ -33,10 +33,11 @@
             <ul class="my_ul-icon">
                 <li>
                     <span v-show="click==0" @click="show(click)"><i class="fa-solid fa-bars"></i></span>
-                    <span v-show="click==1" @click="show(click)"><i class="fa-solid fa-xmark"></i></span>
+                    <span v-show="click==1" @click="show(click)"><i style="font-size: 40px" class="fa-solid fa-xmark"></i></span>
                 </li>
             </ul>
         </nav>
+        <Transition name="slide-fade">
         <div class="listmenu" v-show="click==1">
             <ul>
                 <li class="my_li">
@@ -63,6 +64,7 @@
                 </li>
             </ul>
         </div>
+        </Transition>
     </div>
 </template>
 
@@ -97,6 +99,18 @@ export default {
 </script>
 
 <style scoped>
+
+.slide-fade-enter-active {
+    transition: opacity 1.5s ease-out;
+}
+.slide-fade-leave-active {
+    transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+    transform: translateX(20px);
+    opacity: 0;
+}
 
 .fa-bars, .fa-xmark{
     font-size: 30px;

@@ -229,7 +229,7 @@ export default {
         /* border: 1px solid black; */
         -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);
         box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);
-        transition: 1s;
+        transition: 0.5s;
     }
 
     .my_card:hover{
