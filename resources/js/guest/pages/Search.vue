@@ -391,8 +391,8 @@ h1 {
 }
 
 .fa-star{
-    font-size: 30px;
-    color: white;
+    font-size: 35px;
+    color: yellow;
     position: absolute;
     right: 10px;
 }
@@ -428,7 +428,7 @@ h1 {
 }
 
 .my_card:hover .fa-star {
-    color: #2C3D4F;
+    color: #527A5A;
 }
 
     .my_card:hover h3{

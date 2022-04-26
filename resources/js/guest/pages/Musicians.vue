@@ -239,6 +239,7 @@ h1 {
 }
 
 .my_card {
+    position: relative;
   margin: 50px auto;
   max-width: 60%;
   padding: 10px;
@@ -277,6 +278,17 @@ h1 {
 
 .my_card:hover .request {
   background: rgba(28, 28, 28, 0.9);
+}
+
+.my_card:hover .fa-star {
+    color: #527A5A;
+}
+
+.fa-star{
+    font-size: 35px;
+    color: yellow;
+    position: absolute;
+    right: 10px;
 }
 
 .request {

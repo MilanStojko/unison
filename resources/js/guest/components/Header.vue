@@ -143,7 +143,7 @@ export default {
 .logo {
     font-size: 30px;
     height: 50px;
-    border-radius: 50%;
+    border-radius: 25%;
     overflow: hidden;
 }
 
