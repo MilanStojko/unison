@@ -3593,12 +3593,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SingleMusician",
   data: function data() {
     return {
       popupMessage: false,
       popupReview: false,
+      popupMessageSend: false,
       reviewVotes: [],
       avarageVote: "",
       user: {},
@@ -3643,7 +3651,7 @@ __webpack_require__.r(__webpack_exports__);
         console.log(response);
       })["catch"](function (error) {
         console.log(error.response.data);
-      });
+      }); //this.showPopoUpSend();
     },
     sendMessage: function sendMessage() {
       var _this2 = this;
@@ -3656,6 +3664,8 @@ __webpack_require__.r(__webpack_exports__);
         _this2.messageData.cellphone = "";
         _this2.messageData.email = "";
         _this2.messageData.content = "";
+
+        _this2.showPopoUpSend();
       })["catch"](function (error) {
         console.log(error.response.data);
       });
@@ -3698,29 +3708,37 @@ __webpack_require__.r(__webpack_exports__);
     },
     checkUserIdMessage: function checkUserIdMessage() {
       return this.messageData.user_id = this.user.id;
+    },
+    showPopoUpSend: function showPopoUpSend() {
+      var _this4 = this;
+
+      this.popupMessageSend = true;
+      setTimeout(function () {
+        _this4.popupMessageSend = false;
+      }, 3000);
     }
   },
   created: function created() {
-    var _this4 = this;
+    var _this5 = this;
 
     axios.get("/api/users/show/".concat(this.$route.params.slug)).then(function (response) {
       if (response) {
-        _this4.user = response.data;
-        _this4.id_user = response.data.id;
+        _this5.user = response.data;
+        _this5.id_user = response.data.id;
       } else {
-        _this4.$router.push({
+        _this5.$router.push({
           name: "page-404"
         });
       }
     })["catch"](function (error) {
-      _this4.$router.push({
+      _this5.$router.push({
         name: "page-404"
       });
 
       console.log(error);
     });
     setTimeout(function () {
-      _this4.GetVote();
+      _this5.GetVote();
     }, 500);
   }
 });
@@ -8242,7 +8260,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "li[data-v-d39608ce] {\n  list-style: none;\n}\n.singleMusician[data-v-d39608ce] {\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n  border-top-right-radius: 10px;\n  border-top-left-radius: 10px;\n}\n.singleMusician-profile[data-v-d39608ce] {\n  display: flex;\n  justify-content: center;\n  align-items: flex-start;\n  flex-wrap: wrap;\n  margin-top: 50px;\n  padding-bottom: 50px;\n}\n.singleMusician-profile_left[data-v-d39608ce] {\n  width: 30%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column;\n  background-color: #ededed;\n  padding: 10px 0px;\n}\n.singleMusician-profile_left h2[data-v-d39608ce] {\n  color: #2a2929;\n  margin-top: 20px;\n  font-weight: bold;\n}\n.singleMusician-profile_left img[data-v-d39608ce] {\n  margin: 20px 0px;\n  width: 80%;\n  height: 300px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 30px;\n}\n.singleMusician-profile_left .address li[data-v-d39608ce] {\n  margin: 15px 0px;\n}\n.singleMusician-profile_left .address a[data-v-d39608ce] {\n  color: #2a2929;\n}\n.singleMusician-profile_left .address a[data-v-d39608ce]:hover {\n  text-decoration: none;\n}\n.singleMusician-profile_left .address i[data-v-d39608ce] {\n  margin-right: 10px;\n}\n.singleMusician-profile_left .social[data-v-d39608ce] {\n  margin: 20px 0px;\n}\n.singleMusician-profile_left .social a[data-v-d39608ce] {\n  color: #2a2929;\n  transition: all 0.2s linear;\n}\n.singleMusician-profile_left .social a[data-v-d39608ce]:first-child:hover {\n  color: #bb366c;\n}\n.singleMusician-profile_left .social a[data-v-d39608ce]:nth-child(2):hover {\n  color: #395693;\n}\n.singleMusician-profile_left .social a[data-v-d39608ce]:nth-child(3):hover {\n  color: #0870a2;\n}\n.singleMusician-profile_left .social i[data-v-d39608ce] {\n  font-size: 30px;\n  margin: 0px 10px;\n}\n.singleMusician-profile_right[data-v-d39608ce] {\n  width: 70%;\n  padding: 10px 20px;\n}\n.singleMusician-profile_right h2[data-v-d39608ce],\n.singleMusician-profile_right h4[data-v-d39608ce] {\n  color: #527a5a;\n  font-weight: bold;\n  font-size: 30px;\n}\n.singleMusician-profile_right .bio[data-v-d39608ce] {\n  margin-bottom: 50px;\n  min-height: 300px;\n}\n.singleMusician-profile_right .bio p[data-v-d39608ce] {\n  word-break: break-all;\n  white-space: pre-wrap;\n}\n.singleMusician-profile_right .categorie-eventi[data-v-d39608ce] {\n  display: flex;\n  align-items: flex-start;\n  flex-wrap: wrap;\n}\n.singleMusician-profile_right .categorie[data-v-d39608ce] {\n  margin-right: 100px;\n}\n.singleMusician-profile_right .cv a[data-v-d39608ce] {\n  font-size: 18px;\n  color: #2a2929;\n}\n.singleMusician-profile_right .cv a[data-v-d39608ce]:hover {\n  color: #527a5a;\n  text-decoration: none;\n}\n.singleMusician-reviews[data-v-d39608ce] {\n  padding: 20px;\n}\n.singleMusician-reviews_heading[data-v-d39608ce] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-bottom: 20px;\n  border-bottom: 1px solid #ededed;\n}\n.singleMusician-reviews_heading h4[data-v-d39608ce] {\n  margin-bottom: 0px;\n  font-weight: bold;\n  color: #5b5b5b;\n  margin-right: 10px;\n}\n.singleMusician-reviews .review[data-v-d39608ce] {\n  background-color: #ededed;\n  padding: 10px;\n  width: 80%;\n  margin: 30px auto;\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);\n}\n.singleMusician-reviews .review-head[data-v-d39608ce] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.singleMusician-reviews .review-head h5[data-v-d39608ce] {\n  font-weight: bold;\n}\n.singleMusician-reviews .review-body span[data-v-d39608ce] {\n  display: block;\n  padding: 10px 0px;\n  border-bottom: 1px solid #c6c6c6;\n}\n.singleMusician-reviews .review-body p[data-v-d39608ce] {\n  padding: 10px 0px;\n}\n.singleMusician-reviews .review-music_notes img[data-v-d39608ce] {\n  width: 20px;\n  height: auto;\n  color: #527a5a;\n}\n.popup-message[data-v-d39608ce],\n.popup-review[data-v-d39608ce] {\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.6);\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 2000;\n  display: none;\n}\n.popup-message_box[data-v-d39608ce],\n.popup-review_box[data-v-d39608ce] {\n  width: 600px;\n  background-color: #ededed;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  border-top-right-radius: 10px;\n  border-top-left-radius: 10px;\n  -webkit-animation: pop-up-data-v-d39608ce 0.3s linear;\n          animation: pop-up-data-v-d39608ce 0.3s linear;\n}\n.popup-message_box .message-heading[data-v-d39608ce],\n.popup-review_box .message-heading[data-v-d39608ce] {\n  background-color: #2a2929;\n  color: #fff;\n  font-size: 20px;\n  padding: 15px 0px;\n  text-align: center;\n  position: relative;\n}\n.popup-message_box .message-heading h3[data-v-d39608ce],\n.popup-review_box .message-heading h3[data-v-d39608ce] {\n  margin-bottom: 0px;\n}\n.popup-message_box .message-heading .close-popup[data-v-d39608ce],\n.popup-review_box .message-heading .close-popup[data-v-d39608ce] {\n  background-color: rgba(210, 36, 36, 0.438);\n  color: #fff;\n  width: 30px;\n  height: 30px;\n  line-height: 30px;\n  border-radius: 50%;\n  position: absolute;\n  top: -10px;\n  right: -10px;\n  cursor: pointer;\n}\n.popup-message_box .message-heading .close-popup[data-v-d39608ce]:hover,\n.popup-review_box .message-heading .close-popup[data-v-d39608ce]:hover {\n  background-color: rgb(210, 36, 36);\n}\n.popup-message_box .message-body form[data-v-d39608ce],\n.popup-review_box .message-body form[data-v-d39608ce] {\n  display: flex;\n  flex-direction: column;\n  padding: 15px;\n}\n.popup-message_box .message-body form input[data-v-d39608ce],\n.popup-message_box .message-body form textarea[data-v-d39608ce],\n.popup-review_box .message-body form input[data-v-d39608ce],\n.popup-review_box .message-body form textarea[data-v-d39608ce] {\n  margin: 10px 0px;\n  border: none;\n  border-bottom: 1px solid #c6c6c6;\n  background-color: #ededed;\n  outline: none;\n}\n.cta[data-v-d39608ce],\n.make-review[data-v-d39608ce] {\n  text-align: right;\n}\n.cta button[data-v-d39608ce],\n.make-review button[data-v-d39608ce] {\n  background-color: #527a5a;\n  color: #fff;\n  padding: 10px 20px;\n  border: none;\n}\n.cta button[data-v-d39608ce]:hover,\n.make-review button[data-v-d39608ce]:hover {\n  text-decoration: none;\n  background-color: #6aa275;\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n}\n.display-block[data-v-d39608ce] {\n  display: block;\n}\n@-webkit-keyframes pop-up-data-v-d39608ce {\n0% {\n    transform: translate(-50%, -50%) scale(0);\n}\n100% {\n    transform: translate(-50%, -50%) scale(1);\n}\n}\n@keyframes pop-up-data-v-d39608ce {\n0% {\n    transform: translate(-50%, -50%) scale(0);\n}\n100% {\n    transform: translate(-50%, -50%) scale(1);\n}\n}\n.feedback[data-v-d39608ce] {\n  max-width: 360px;\n  background-color: #ededed;\n  width: 100%;\n  padding: 30px;\n  border-radius: 8px;\n  display: flex;\n  flex-direction: column;\n  flex-wrap: wrap;\n  align-items: center;\n  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);\n}\n.make_review-rating[data-v-d39608ce] {\n  display: flex;\n  justify-content: center;\n  padding: 20px 0px;\n}", ""]);
+exports.push([module.i, "li[data-v-d39608ce] {\n  list-style: none;\n}\n.singleMusician[data-v-d39608ce] {\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n  border-top-right-radius: 10px;\n  border-top-left-radius: 10px;\n}\n.singleMusician-profile[data-v-d39608ce] {\n  display: flex;\n  justify-content: center;\n  align-items: flex-start;\n  flex-wrap: wrap;\n  margin-top: 50px;\n  padding-bottom: 50px;\n}\n.singleMusician-profile_left[data-v-d39608ce] {\n  width: 30%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column;\n  background-color: #ededed;\n  padding: 10px 0px;\n}\n.singleMusician-profile_left h2[data-v-d39608ce] {\n  color: #2a2929;\n  margin-top: 20px;\n  font-weight: bold;\n}\n.singleMusician-profile_left img[data-v-d39608ce] {\n  margin: 20px 0px;\n  width: 80%;\n  height: 300px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 30px;\n}\n.singleMusician-profile_left .address li[data-v-d39608ce] {\n  margin: 15px 0px;\n}\n.singleMusician-profile_left .address a[data-v-d39608ce] {\n  color: #2a2929;\n}\n.singleMusician-profile_left .address a[data-v-d39608ce]:hover {\n  text-decoration: none;\n}\n.singleMusician-profile_left .address i[data-v-d39608ce] {\n  margin-right: 10px;\n}\n.singleMusician-profile_left .social[data-v-d39608ce] {\n  margin: 20px 0px;\n}\n.singleMusician-profile_left .social a[data-v-d39608ce] {\n  color: #2a2929;\n  transition: all 0.2s linear;\n}\n.singleMusician-profile_left .social a[data-v-d39608ce]:first-child:hover {\n  color: #bb366c;\n}\n.singleMusician-profile_left .social a[data-v-d39608ce]:nth-child(2):hover {\n  color: #395693;\n}\n.singleMusician-profile_left .social a[data-v-d39608ce]:nth-child(3):hover {\n  color: #0870a2;\n}\n.singleMusician-profile_left .social i[data-v-d39608ce] {\n  font-size: 30px;\n  margin: 0px 10px;\n}\n.singleMusician-profile_right[data-v-d39608ce] {\n  width: 70%;\n  padding: 10px 20px;\n}\n.singleMusician-profile_right h2[data-v-d39608ce],\n.singleMusician-profile_right h4[data-v-d39608ce] {\n  color: #527a5a;\n  font-weight: bold;\n  font-size: 30px;\n}\n.singleMusician-profile_right .bio[data-v-d39608ce] {\n  margin-bottom: 50px;\n  min-height: 300px;\n}\n.singleMusician-profile_right .bio p[data-v-d39608ce] {\n  word-break: break-all;\n  white-space: pre-wrap;\n}\n.singleMusician-profile_right .categorie-eventi[data-v-d39608ce] {\n  display: flex;\n  align-items: flex-start;\n  flex-wrap: wrap;\n}\n.singleMusician-profile_right .categorie[data-v-d39608ce] {\n  margin-right: 100px;\n}\n.singleMusician-profile_right .cv a[data-v-d39608ce] {\n  font-size: 18px;\n  color: #2a2929;\n}\n.singleMusician-profile_right .cv a[data-v-d39608ce]:hover {\n  color: #527a5a;\n  text-decoration: none;\n}\n.singleMusician-reviews[data-v-d39608ce] {\n  padding: 20px;\n}\n.singleMusician-reviews_heading[data-v-d39608ce] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-bottom: 20px;\n  border-bottom: 1px solid #ededed;\n}\n.singleMusician-reviews_heading h4[data-v-d39608ce] {\n  margin-bottom: 0px;\n  font-weight: bold;\n  color: #5b5b5b;\n  margin-right: 10px;\n}\n.singleMusician-reviews .review[data-v-d39608ce] {\n  background-color: #ededed;\n  padding: 10px;\n  width: 80%;\n  margin: 30px auto;\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);\n}\n.singleMusician-reviews .review-head[data-v-d39608ce] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.singleMusician-reviews .review-head h5[data-v-d39608ce] {\n  font-weight: bold;\n}\n.singleMusician-reviews .review-body span[data-v-d39608ce] {\n  display: block;\n  padding: 10px 0px;\n  border-bottom: 1px solid #c6c6c6;\n}\n.singleMusician-reviews .review-body p[data-v-d39608ce] {\n  padding: 10px 0px;\n}\n.singleMusician-reviews .review-music_notes img[data-v-d39608ce] {\n  width: 20px;\n  height: auto;\n  color: #527a5a;\n}\n.popup-message[data-v-d39608ce],\n.popup-review[data-v-d39608ce] {\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.6);\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 2000;\n  display: none;\n}\n.popup-message_box[data-v-d39608ce],\n.popup-review_box[data-v-d39608ce] {\n  width: 600px;\n  background-color: #ededed;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  border-top-right-radius: 10px;\n  border-top-left-radius: 10px;\n  -webkit-animation: pop-up-data-v-d39608ce 0.3s linear;\n          animation: pop-up-data-v-d39608ce 0.3s linear;\n}\n.popup-message_box .message-heading[data-v-d39608ce],\n.popup-review_box .message-heading[data-v-d39608ce] {\n  background-color: #2a2929;\n  color: #fff;\n  font-size: 20px;\n  padding: 15px 0px;\n  text-align: center;\n  position: relative;\n}\n.popup-message_box .message-heading h3[data-v-d39608ce],\n.popup-review_box .message-heading h3[data-v-d39608ce] {\n  margin-bottom: 0px;\n}\n.popup-message_box .message-heading .close-popup[data-v-d39608ce],\n.popup-review_box .message-heading .close-popup[data-v-d39608ce] {\n  background-color: rgba(210, 36, 36, 0.438);\n  color: #fff;\n  width: 30px;\n  height: 30px;\n  line-height: 30px;\n  border-radius: 50%;\n  position: absolute;\n  top: -10px;\n  right: -10px;\n  cursor: pointer;\n}\n.popup-message_box .message-heading .close-popup[data-v-d39608ce]:hover,\n.popup-review_box .message-heading .close-popup[data-v-d39608ce]:hover {\n  background-color: rgb(210, 36, 36);\n}\n.popup-message_box .message-body form[data-v-d39608ce],\n.popup-review_box .message-body form[data-v-d39608ce] {\n  display: flex;\n  flex-direction: column;\n  padding: 15px;\n}\n.popup-message_box .message-body form input[data-v-d39608ce],\n.popup-message_box .message-body form textarea[data-v-d39608ce],\n.popup-review_box .message-body form input[data-v-d39608ce],\n.popup-review_box .message-body form textarea[data-v-d39608ce] {\n  margin: 10px 0px;\n  border: none;\n  border-bottom: 1px solid #c6c6c6;\n  background-color: #ededed;\n  outline: none;\n}\n.cta[data-v-d39608ce],\n.make-review[data-v-d39608ce] {\n  text-align: right;\n}\n.cta button[data-v-d39608ce],\n.make-review button[data-v-d39608ce] {\n  background-color: #527a5a;\n  color: #fff;\n  padding: 10px 20px;\n  border: none;\n}\n.cta button[data-v-d39608ce]:hover,\n.make-review button[data-v-d39608ce]:hover {\n  text-decoration: none;\n  background-color: #6aa275;\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n}\n.PopUp-send[data-v-d39608ce] {\n  position: absolute;\n  top: 0;\n  left: 50%;\n  transform: translateX(-50%);\n  background-color: #6aa275;\n  color: #fff;\n  z-index: 2000;\n  width: 300px;\n  height: 150px;\n  font-size: 20px;\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);\n  -webkit-animation: show-up-data-v-d39608ce 0.4s linear;\n          animation: show-up-data-v-d39608ce 0.4s linear;\n  display: none;\n}\n.PopUp-send p[data-v-d39608ce] {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  text-align: center;\n  transform: translate(-50%, -50%);\n  width: 100%;\n}\n.display-block[data-v-d39608ce] {\n  display: block;\n}\n@-webkit-keyframes pop-up-data-v-d39608ce {\n0% {\n    transform: translate(-50%, -50%) scale(0);\n}\n100% {\n    transform: translate(-50%, -50%) scale(1);\n}\n}\n@keyframes pop-up-data-v-d39608ce {\n0% {\n    transform: translate(-50%, -50%) scale(0);\n}\n100% {\n    transform: translate(-50%, -50%) scale(1);\n}\n}\n@-webkit-keyframes show-up-data-v-d39608ce {\n0% {\n    transform: translate(-50%, -150px);\n}\n100% {\n    transform: translate(-50%, 0px);\n}\n}\n@keyframes show-up-data-v-d39608ce {\n0% {\n    transform: translate(-50%, -150px);\n}\n100% {\n    transform: translate(-50%, 0px);\n}\n}\n.feedback[data-v-d39608ce] {\n  max-width: 360px;\n  background-color: #ededed;\n  width: 100%;\n  padding: 30px;\n  border-radius: 8px;\n  display: flex;\n  flex-direction: column;\n  flex-wrap: wrap;\n  align-items: center;\n  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);\n}\n.make_review-rating[data-v-d39608ce] {\n  display: flex;\n  justify-content: center;\n  padding: 20px 0px;\n}", ""]);
 
 // exports
 
@@ -42483,7 +42501,12 @@ var render = function () {
                       expression: "messageData.surname",
                     },
                   ],
-                  attrs: { type: "text", placeholder: "Cognome", required: "" },
+                  attrs: {
+                    type: "text",
+                    inputmode: "tel",
+                    placeholder: "Cognome",
+                    required: "",
+                  },
                   domProps: { value: _vm.messageData.surname },
                   on: {
                     input: function ($event) {
@@ -42525,7 +42548,12 @@ var render = function () {
                       expression: "messageData.cellphone",
                     },
                   ],
-                  attrs: { type: "tel", placeholder: "Cellulare" },
+                  attrs: {
+                    type: "number",
+                    min: "0",
+                    step: "1",
+                    placeholder: "Cellulare",
+                  },
                   domProps: { value: _vm.messageData.cellphone },
                   on: {
                     input: function ($event) {
@@ -42808,6 +42836,15 @@ var render = function () {
           ]),
         ]),
       ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "PopUp-send",
+        class: { "display-block": _vm.popupMessageSend },
+      },
+      [_c("p", [_vm._v("Messaggio inviato")])]
     ),
     _vm._v(" "),
     _c("div", { staticClass: "singleMusician" }, [
@@ -60139,7 +60176,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     component: _pages_Home__WEBPACK_IMPORTED_MODULE_2__["default"]
   }, {
     path: "/search",
-    name: "search/:name/:vote",
+    name: "search",
     query: "name",
     component: _pages_Search__WEBPACK_IMPORTED_MODULE_3__["default"]
   }, {

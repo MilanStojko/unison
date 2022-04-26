@@ -19,6 +19,7 @@
                         />
                         <input
                             type="text"
+                            inputmode="tel"
                             placeholder="Cognome"
                             v-model="messageData.surname"
                             required
@@ -30,7 +31,9 @@
                             required
                         />
                         <input
-                            type="tel"
+                            type="number"
+                            min="0"
+                            step="1"
                             placeholder="Cellulare"
                             v-model="messageData.cellphone"
                         />
@@ -173,6 +176,10 @@
                     </form>
                 </div>
             </div>
+        </div>
+        <!-- Pop up Message/Review Send -->
+        <div class="PopUp-send" :class="{ 'display-block': popupMessageSend }">
+            <p>Messaggio inviato</p>
         </div>
         <!-- Single Musician -->
         <div class="singleMusician">
@@ -334,6 +341,7 @@ export default {
         return {
             popupMessage: false,
             popupReview: false,
+            popupMessageSend: false,
             reviewVotes: [],
             avarageVote: "",
             user: {},
@@ -383,6 +391,7 @@ export default {
                 .catch((error) => {
                     console.log(error.response.data);
                 });
+            //this.showPopoUpSend();
         },
         sendMessage: function () {
             this.checkUserIdMessage();
@@ -395,6 +404,7 @@ export default {
                     this.messageData.cellphone = "";
                     this.messageData.email = "";
                     this.messageData.content = "";
+                    this.showPopoUpSend();
                 })
                 .catch((error) => {
                     console.log(error.response.data);
@@ -436,6 +446,12 @@ export default {
         },
         checkUserIdMessage: function () {
             return (this.messageData.user_id = this.user.id);
+        },
+        showPopoUpSend: function () {
+            this.popupMessageSend = true;
+            setTimeout(() => {
+                this.popupMessageSend = false;
+            }, 3000);
         },
     },
     created() {
@@ -742,6 +758,33 @@ li {
     }
 }
 
+//Pop Up Message/Review Send
+.PopUp-send {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #6aa275;
+    color: #fff;
+    z-index: 2000;
+    width: 300px;
+    height: 150px;
+    font-size: 20px;
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
+    animation: show-up 0.4s linear;
+    display: none;
+
+    p {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        text-align: center;
+        transform: translate(-50%, -50%);
+        width: 100%;
+    }
+}
+
 .display-block {
     display: block;
 }
@@ -754,6 +797,15 @@ li {
 
     100% {
         transform: translate(-50%, -50%) scale(1);
+    }
+}
+@keyframes show-up {
+    0% {
+        transform: translate(-50%, -150px);
+    }
+
+    100% {
+        transform: translate(-50%, 0px);
     }
 }
 
