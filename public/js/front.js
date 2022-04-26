@@ -2751,6 +2751,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Musicians",
   data: function data() {
@@ -2762,7 +2763,9 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     axios.get("/api/users").then(function (apirisp) {
-      _this.musicians = apirisp.data; // this.id_user= apirisp.data.id;
+      _this.musicians = apirisp.data;
+
+      _this.getSponsorized();
 
       console.log(_this.musicians);
     });
@@ -2775,16 +2778,41 @@ __webpack_require__.r(__webpack_exports__);
   //     }
   // }
   methods: {
-    // getAverage: function(array){
-    //     let somma=0;
-    //     // this.musicians.forEach(element => {
-    //     //  console.log(element.reviews);
-    //     // });
-    //     for(let i=0; i<array.length; i++){
-    //         somma = somma + array[i].vote;
-    //     };
-    //     return Math.ceil(somma/this.i);
-    // },
+    getSponsorized: function getSponsorized() {
+      var musicianSponsorized = [];
+      var musicianNotSponsorized = [];
+      var today = new Date();
+      this.musicians.forEach(function (element) {
+        var sponsors = element.sponsorships.length;
+        var found = true;
+        console.log(element);
+        element.sponsorships.forEach(function (plan) {
+          if (Date.parse(plan.pivot.expiration) >= Date.parse(today)) {
+            found = false;
+            musicianSponsorized.push(element);
+          } else {
+            sponsors--;
+          }
+        });
+
+        if (sponsors == 0) {
+          musicianNotSponsorized.push(element);
+        }
+      });
+      this.musicians = musicianSponsorized.concat(musicianNotSponsorized);
+    },
+    checkSponsorized: function checkSponsorized(musician) {
+      var _this2 = this;
+
+      var today = new Date();
+      this.get = false;
+      musician.sponsorships.forEach(function (element) {
+        if (Date.parse(element.pivot.expiration) >= Date.parse(today)) {
+          _this2.get = true;
+        }
+      });
+      return this.get;
+    },
     starsWidth: function starsWidth(numero) {
       return "starFill" + this.getAvgVote(numero);
     },
@@ -2802,7 +2830,6 @@ __webpack_require__.r(__webpack_exports__);
         boh = somma / count;
       }
 
-      ;
       console.log(boh);
       return Math.round(boh);
     }
@@ -8157,7 +8184,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".background[data-v-18581212] {\n  /* background-image: url(\"../../../images/pexels-picjumbocom-196652.jpg\");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover; */\n  /* background: #E8EBF8; */\n  /* background: #595766ad; */\n  background: rgba(43, 43, 43, 0.361);\n}\n.background[data-v-18581212]::-webkit-scrollbar {\n  display: none;\n}\n.background[data-v-18581212] {\n  -ms-overflow-style: none;\n  /* IE and Edge */\n  scrollbar-width: none;\n  /* Firefox */\n}\nh1[data-v-18581212], .info h3[data-v-18581212] {\n  text-align: center;\n}\n.info h3[data-v-18581212], .request[data-v-18581212] {\n  color: white;\n  text-transform: capitalize;\n}\nh1[data-v-18581212] {\n  font-size: 55px;\n  color: black;\n}\n.my_card[data-v-18581212] {\n  margin: 50px auto;\n  max-width: 60%;\n  padding: 10px;\n  /* background: rgba(210, 206, 206, 0.861); */\n  /* background: #ededed; */\n  /* background-image: url('https://i.stack.imgur.com/MkSui.jpg'); */\n  background-image: url(" + escape(__webpack_require__(/*! ../../../images/card.jpeg */ "./resources/images/card.jpeg")) + ");\n  background-repeat: no-repeat;\n  background-size: cover;\n  border-radius: 10px;\n  /* border: 1px solid black; */\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);\n  transition: 0.5s;\n}\n.my_card[data-v-18581212]:hover {\n  cursor: pointer;\n  transform: scale(1.02);\n  background-image: url(" + escape(__webpack_require__(/*! ../../../images/rotate.jpeg */ "./resources/images/rotate.jpeg")) + ");\n  background-position: bottom;\n}\n.my_card:hover a[data-v-18581212] {\n  text-decoration: none;\n}\n.my_card:hover h3[data-v-18581212] {\n  color: black;\n}\n.my_card:hover .references *[data-v-18581212] {\n  color: white;\n}\n.my_card:hover .request[data-v-18581212] {\n  background: rgba(28, 28, 28, 0.9);\n}\n.request[data-v-18581212] {\n  display: flex;\n  padding: 5px;\n  border-radius: 10px;\n  background: rgba(28, 28, 28, 0.8);\n  max-height: 200px;\n}\n.request ul[data-v-18581212] {\n  max-height: 150px;\n  overflow: scroll;\n}\n.request ul[data-v-18581212]::-webkit-scrollbar {\n  display: none;\n}\n.request ul[data-v-18581212] {\n  -ms-overflow-style: none;\n  /* IE and Edge */\n  scrollbar-width: none;\n  /* Firefox */\n}\n.categories li[data-v-18581212], .events li[data-v-18581212], .references li[data-v-18581212] {\n  list-style: none;\n  margin-left: 5px;\n  font-size: 17px;\n}\n.references ul[data-v-18581212] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.references li[data-v-18581212] {\n  display: inline;\n  font-size: 15px;\n}\n.references[data-v-18581212] {\n  padding: 0 50px;\n  /* margin-top: 20px; */\n}\n.categories li[data-v-18581212] {\n  color: rgb(91, 121, 93);\n}\n.events li[data-v-18581212] {\n  color: rgb(175, 108, 195);\n}\n.categories div[data-v-18581212], .events div[data-v-18581212] {\n  border-radius: 15px;\n  padding: 15px;\n}\n.top[data-v-18581212] {\n  display: flex;\n  flex-wrap: wrap;\n  padding: 15px 0;\n}\n\n/* .container{\n    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n    border-radius: 10px;\n    padding: 20px;\n    margin-bottom: 40px;\n}\n*/\n.info[data-v-18581212] {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n.info img[data-v-18581212] {\n  height: 200px;\n  width: 200px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.references img[data-v-18581212] {\n  width: 25px;\n  height: auto;\n  color: #527a5a;\n}\n.references li[data-v-18581212] {\n  color: black;\n  text-transform: capitalize;\n}\n.references #reviews[data-v-18581212] {\n  display: flex;\n}\n@media only screen and (max-width: 700px) {\n.categories[data-v-18581212], .events[data-v-18581212] {\n    padding: 0;\n}\n.categories div[data-v-18581212], .events div[data-v-18581212] {\n    max-width: 80%;\n}\n.my_card[data-v-18581212] {\n    max-width: 90%;\n}\n.references[data-v-18581212] {\n    padding: 0 30px;\n}\n}\n@media only screen and (max-width: 1000px) {\n.references p[data-v-18581212] {\n    display: none;\n}\n.references #reviews[data-v-18581212] {\n    margin-top: 10px;\n}\n.references ul[data-v-18581212] {\n    display: flex;\n    flex-direction: column;\n}\n}", ""]);
+exports.push([module.i, ".background[data-v-18581212] {\n  /* background-image: url(\"../../../images/pexels-picjumbocom-196652.jpg\");\n        background-repeat: no-repeat;\n        background-position: center;\n        background-size: cover; */\n  /* background: #E8EBF8; */\n  /* background: #595766ad; */\n  background: rgba(43, 43, 43, 0.361);\n}\n.background[data-v-18581212]::-webkit-scrollbar {\n  display: none;\n}\n.background[data-v-18581212] {\n  -ms-overflow-style: none;\n  /* IE and Edge */\n  scrollbar-width: none;\n  /* Firefox */\n}\nh1[data-v-18581212],\n.info h3[data-v-18581212] {\n  text-align: center;\n}\n.info h3[data-v-18581212],\n.request[data-v-18581212] {\n  color: white;\n  text-transform: capitalize;\n}\nh1[data-v-18581212] {\n  font-size: 55px;\n  color: black;\n}\n.my_card[data-v-18581212] {\n  margin: 50px auto;\n  max-width: 60%;\n  padding: 10px;\n  /* background: rgba(210, 206, 206, 0.861); */\n  /* background: #ededed; */\n  /* background-image: url('https://i.stack.imgur.com/MkSui.jpg'); */\n  background-image: url(" + escape(__webpack_require__(/*! ../../../images/card.jpeg */ "./resources/images/card.jpeg")) + ");\n  background-repeat: no-repeat;\n  background-size: cover;\n  border-radius: 10px;\n  /* border: 1px solid black; */\n  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);\n  transition: 0.5s;\n}\n.my_card[data-v-18581212]:hover {\n  cursor: pointer;\n  transform: scale(1.02);\n  background-image: url(" + escape(__webpack_require__(/*! ../../../images/rotate.jpeg */ "./resources/images/rotate.jpeg")) + ");\n  background-position: bottom;\n}\n.my_card:hover a[data-v-18581212] {\n  text-decoration: none;\n}\n.my_card:hover h3[data-v-18581212] {\n  color: black;\n}\n.my_card:hover .references *[data-v-18581212] {\n  color: white;\n}\n.my_card:hover .request[data-v-18581212] {\n  background: rgba(28, 28, 28, 0.9);\n}\n.request[data-v-18581212] {\n  display: flex;\n  padding: 5px;\n  border-radius: 10px;\n  background: rgba(28, 28, 28, 0.8);\n  max-height: 200px;\n}\n.request ul[data-v-18581212] {\n  max-height: 150px;\n  overflow: scroll;\n}\n.request ul[data-v-18581212]::-webkit-scrollbar {\n  display: none;\n}\n.request ul[data-v-18581212] {\n  -ms-overflow-style: none;\n  /* IE and Edge */\n  scrollbar-width: none;\n  /* Firefox */\n}\n.categories li[data-v-18581212],\n.events li[data-v-18581212],\n.references li[data-v-18581212] {\n  list-style: none;\n  margin-left: 5px;\n  font-size: 17px;\n}\n.references ul[data-v-18581212] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.references li[data-v-18581212] {\n  display: inline;\n  font-size: 15px;\n}\n.references[data-v-18581212] {\n  padding: 0 50px;\n  /* margin-top: 20px; */\n}\n.categories li[data-v-18581212] {\n  color: rgb(91, 121, 93);\n}\n.events li[data-v-18581212] {\n  color: rgb(175, 108, 195);\n}\n.categories div[data-v-18581212],\n.events div[data-v-18581212] {\n  border-radius: 15px;\n  padding: 15px;\n}\n.top[data-v-18581212] {\n  display: flex;\n  flex-wrap: wrap;\n  padding: 15px 0;\n}\n\n/* .container{\n        -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n        border-radius: 10px;\n        padding: 20px;\n        margin-bottom: 40px;\n    }\n    */\n.info[data-v-18581212] {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n.info img[data-v-18581212] {\n  height: 200px;\n  width: 200px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.references img[data-v-18581212] {\n  width: 25px;\n  height: auto;\n  color: #527a5a;\n}\n.references li[data-v-18581212] {\n  color: black;\n  text-transform: capitalize;\n}\n.references #reviews[data-v-18581212] {\n  display: flex;\n}\n@media only screen and (max-width: 700px) {\n.categories[data-v-18581212],\n.events[data-v-18581212] {\n    padding: 0;\n}\n.categories div[data-v-18581212],\n.events div[data-v-18581212] {\n    max-width: 80%;\n}\n.my_card[data-v-18581212] {\n    max-width: 90%;\n}\n.references[data-v-18581212] {\n    padding: 0 30px;\n}\n}\n@media only screen and (max-width: 1000px) {\n.references p[data-v-18581212] {\n    display: none;\n}\n.references #reviews[data-v-18581212] {\n    margin-top: 10px;\n}\n.references ul[data-v-18581212] {\n    display: flex;\n    flex-direction: column;\n}\n}", ""]);
 
 // exports
 
@@ -41606,6 +41633,10 @@ var render = function () {
               "div",
               { key: indiceSingle, staticClass: "my_card" },
               [
+                _vm.checkSponsorized(musician)
+                  ? _c("span", [_c("i", { staticClass: "fa-solid fa-star" })])
+                  : _vm._e(),
+                _vm._v(" "),
                 _c(
                   "router-link",
                   {

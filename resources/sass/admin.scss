@@ -584,3 +584,43 @@ li {
     color: $back-tertiary;
     font-size: 200px
 }
+
+
+//payment page
+#buttonPayment{
+    padding: 5px 30px;
+    background: transparent;
+    border: 1px solid black;
+    border-radius: 5px;
+    transition: 0.5s;
+    margin-left: 4px;
+}
+
+#buttonPayment:hover{
+    background: #a7df8d;
+    transform: scale(1.08);
+}
+
+#formPayment{
+    padding: 0 30px;
+}
+
+.pay{
+    margin-top: 20px;
+}
+
+#amount{
+    padding: 4px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.total{
+    font-size: 20px;
+}
+
+.selectSponsor{
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+}

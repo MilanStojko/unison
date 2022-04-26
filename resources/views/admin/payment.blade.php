@@ -2,18 +2,18 @@
 
 
 @section('content')
-    <div class="content">
-        <form method="post" id="payment-form" action="{{ route('admin.paymentcheckout', [Auth::user()->id]) }}">
+    <div class="content pay">
+        <form id="formPayment" method="post" id="payment-form" action="{{ route('admin.paymentcheckout', [Auth::user()->id]) }}">
             @csrf
             <section>
-                <select name="sponsorship_id" id="sponsorship_id">
-                    <option> Seleziona una sponsorizazione</option>
+                <select class="selectSponsor" name="sponsorship_id" id="sponsorship_id">
+                    <option> Seleziona una sponsorizzazione</option>
                     @foreach ($sponsorship as $element)
-                        <option value="{{ $element->id }}">{{ $element->duration }} - {{ $element->price }} </option>
+                        <option value="{{ $element->id }}">{{ $element->duration }} ore - {{ $element->price }} € </option>
                     @endforeach
                 </select>
                 <label for="amount">
-                    <span class="input-label">Amount</span>
+                    <span class="input-label total">Totale</span>
                     <div class="input-wrapper amount-wrapper">
                         <input id="amount" name="amount" type="tel" min="1"
                             placeholder="Inserisci l'importo della sponsorship"
@@ -30,7 +30,7 @@
             </section>
 
             <input id="nonce" name="payment_method_nonce" type="hidden" />
-            <button class="button" type="submit"><span>Launch</span></button>
+            <button id="buttonPayment" class="button" type="submit"><strong>Acquista</strong></button>
         </form>
     </div>
     </div>
