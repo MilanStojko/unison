@@ -496,10 +496,8 @@ li {
         background-color: transparent;
         width: 50%;
         transition: 0.2s;
-        a{
-            color: transparent;
-            text-decoration: none;
-        }
+        color: transparent;
+        text-decoration: none;
     }
     &::before{
         transition: 0.4s;
@@ -533,9 +531,7 @@ li {
         .u_btn_plan{
             background-color: black;
             transform: translate(0, 5px);
-            a{
-                color: white;
-            }
+            color: white;
             &:hover{
                 transform: scale(1.1);
             }

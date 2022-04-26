@@ -11444,9 +11444,6 @@ li {
   background-color: transparent;
   width: 50%;
   transition: 0.2s;
-}
-
-.plan-card .u_btn_plan a {
   color: transparent;
   text-decoration: none;
 }
@@ -11488,9 +11485,6 @@ li {
 .plan-card:hover .u_btn_plan {
   background-color: black;
   transform: translate(0, 5px);
-}
-
-.plan-card:hover .u_btn_plan a {
   color: white;
 }
 

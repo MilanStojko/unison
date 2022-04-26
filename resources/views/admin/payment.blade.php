@@ -31,6 +31,7 @@
 
             <input id="nonce" name="payment_method_nonce" type="hidden" />
             <button id="buttonPayment" class="button" type="submit"><strong>Acquista</strong></button>
+            <a class="btn" href="{{route('admin.sponsorships.index')}}">Torna indietro</a>
         </form>
     </div>
     </div>
