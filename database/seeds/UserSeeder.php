@@ -41,7 +41,7 @@ class UserSeeder extends Seeder
             $user->username = array_shift($usernames);
             $user->email = array_shift($emails);
             $user->slug = $this->slug($user->name, $user->id);
-            $user->address = $adresses[rand(0, count($adresses))];
+            $user->address = $adresses[rand(0, count($adresses) - 1)];
             $user->password = Hash::make(Str::of($user->name) . Str::of($user->name));
             $user->save();
 
