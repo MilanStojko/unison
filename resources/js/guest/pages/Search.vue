@@ -141,7 +141,68 @@
                  </div>
  
             </div>
-            
+
+            <div class="my_card" v-for="musician in startMusicians" :key="musician.id">
+                <span v-if="checkSponsorized(musician)"><i class="fa-solid fa-star"></i></span>
+                    <router-link :to="{ name: 'user-single', params: { slug: musician.slug } }">
+                        <div class="top">
+                            <div class="info col-lg-5 mb-4">
+                                <h3>{{musician.name}} {{musician.surname}} </h3>
+                                <img v-if="musician.avatar!=null" :src="`/storage/${musician.avatar}`" alt="">
+                                <img v-else src="https://thumbs.dreamstime.com/b/profilo-utente-vettoriale-avatar-predefinito-179376714.jpg" alt="">
+                            </div>
+                            <div class="request col-lg-7 col-sm-12 mt-4">
+                                <div class="events mw-50 col-lg-6 col-sm-6 col-xs-6">
+                                    <div>
+                                        <h5>Eventi:</h5>
+                                        <ul>
+                                            <li v-for="(availability, index) in musician.availabilities" :key="index"><strong>{{availability.name}}</strong></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="categories mw-50 col-lg-6 col-sm-6 col-xs-6">
+                                    <div>
+                                        <h5>Strumenti:</h5>
+                                        <ul>
+                                            <li v-for="(category, index) in musician.categories" :key="index"><strong>{{category.name}}</strong></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="references">
+                                <ul>
+                                    <li><i class="fa-solid fa-location-dot"></i> {{musician.address}}</li>
+                                    <li id="reviews" style="font-size: 20px">
+                                        <div class="text">
+                                            <p>Recensioni: <span>({{musician.reviews.length}})</span></p>
+                                            
+                                        </div>
+                                        <div v-if="musician.reviews.length > 0">
+                                                <!-- <img src="../../../images/music.svg" /> -->
+                                            <div class="notes big-notes">
+                                            <div
+                                                class="notes_inner"
+                                                :class="starsWidth(musician.reviews)"
+                                            ></div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div v-else>
+                                            <div class="notes big-notes">
+                                            <div
+                                                class="notes_inner starFill0"
+                                            ></div>
+                                            </div>
+                                        </div>
+                                        
+                                    </li>
+                                </ul>
+                            </p>
+                        </div>
+                    </router-link>
+            </div>
             
             <div class="my_card" v-for="musician in musicians" :key="musician.id">
                 <span v-if="checkSponsorized(musician)"><i class="fa-solid fa-star"></i></span>
@@ -229,7 +290,7 @@ export default {
       getMusicians(){
         axios.get("/api/users").then((apirisp) => {
         this.startMusicians = apirisp.data;
-        this.getSponsorizedStart();
+        this.getSponsorized(this.startMusicians);
     })
     },
     //Tutte le prestazioni
@@ -237,9 +298,9 @@ export default {
       axios
         .get(`/api/filtered/getavailability${this.$route.fullPath}`)
         .then((response) => {
+          this.startMusicians = [];
           this.musicians = response.data;
-          this.getSponsorized();
-          console.log(this.musicians);
+          this.getSponsorized(this.musicians);
         })
         .catch(function (error) {
           console.log(error.response.data);
@@ -254,9 +315,9 @@ export default {
           },
         })
         .then((response) => {
-          this.startMusicians=[];
+          this.startMusicians = [];
           this.musicians = response.data;
-          this.getSponsorized();
+          this.getSponsorized(this.musicians);
           
         })
         .catch(function (error) {
@@ -284,7 +345,6 @@ export default {
       if (count != 0) {
         boh = somma / count;
       }
-    console.log(Math.floor(boh));
       return Math.floor(boh);
     },
 
@@ -302,7 +362,6 @@ export default {
         })
         .then((response) => {
           this.musicians = response.data;
-          console.log(this.musicians);
         })
         .catch(function (error) {
           console.log(error.response.data);
@@ -310,16 +369,15 @@ export default {
       //this.$router.push({ name: "search", query: { name: this.ava, vote: this.selectVote} });
     },
 
-    getSponsorizedStart() {
+    getSponsorized(array) {
       let musicianSponsorized = [];
       let musicianNotSponsorized = [];
 
       const today = new Date();
 
-      this.startMusicians.forEach((element) => {
+         array.forEach((element) => {
         let sponsors = element.sponsorships.length;
         let found = true;
-        console.log(element);
         element.sponsorships.forEach((plan) => {
           if (Date.parse(plan.pivot.expiration) >= Date.parse(today)) {
             found = false;
@@ -332,35 +390,8 @@ export default {
           musicianNotSponsorized.push(element);
         }
       });
-      this.startMusicians = musicianSponsorized.concat(musicianNotSponsorized);
+      array = musicianSponsorized.concat(musicianNotSponsorized);
     },
-
-    getSponsorized() {
-      let musicianSponsorized = [];
-      let musicianNotSponsorized = [];
-
-      const today = new Date();
-
-      this.musicians.forEach((element) => {
-        let sponsors = element.sponsorships.length;
-        let found = true;
-        console.log(element);
-        element.sponsorships.forEach((plan) => {
-          if (Date.parse(plan.pivot.expiration) >= Date.parse(today)) {
-            found = false;
-            musicianSponsorized.push(element);
-          } else {
-            sponsors--;
-          }
-        });
-        if (sponsors == 0) {
-          musicianNotSponsorized.push(element);
-        }
-      });
-      this.musicians = musicianSponsorized.concat(musicianNotSponsorized);
-    },
-
-    
 
     checkSponsorized(musician) {
       const today = new Date();
@@ -379,7 +410,8 @@ export default {
   },
   created() {
       this.getMusicians();
-    this.getAvailability();
+     this.getAvailability();
+     
 
     //Api con tutte le prestazioni
     axios.get("/api/availability/index").then((respAll) => {

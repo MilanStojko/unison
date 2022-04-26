@@ -11054,6 +11054,7 @@ body {
 }
 
 .full-stars-example {
+  /* if none icon is checked, make it red */
   /* make none icon red on hover */
 }
 
@@ -11086,8 +11087,12 @@ body {
   color: #527a5a;
 }
 
+.full-stars-example .rating__input--none:checked + .rating__label .rating__icon--none {
+  color: red;
+}
+
 .full-stars-example .rating__icon--none {
-  color: #eee;
+  color: #ccc;
 }
 
 .full-stars-example .rating__input:checked ~ .rating__label .rating__icon--star {

@@ -122,8 +122,13 @@ body {
         color: #527a5a;
     }
 
+    /* if none icon is checked, make it red */
+    .rating__input--none:checked + .rating__label .rating__icon--none {
+        color: red;
+    }
+
     .rating__icon--none {
-        color: #eee;
+        color: #ccc;
     }
 
     .rating__input:checked ~ .rating__label .rating__icon--star {
@@ -145,7 +150,7 @@ body {
         color: #ededed;
     }
     /* make none icon red on hover */
-  .rating__input--none:hover + .rating__label .rating__icon--none {
-    color: red;
-  }
+    .rating__input--none:hover + .rating__label .rating__icon--none {
+        color: red;
+    }
 }
