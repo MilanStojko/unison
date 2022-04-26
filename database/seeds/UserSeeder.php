@@ -25,14 +25,14 @@ class UserSeeder extends Seeder
     {
         // array per avere degli user un minimo sensati, pur sempre memando un poco :)
 
-        $names = ['Leonardo', 'Francesco', 'Alessandro', 'Lorenzo', 'Mattia', 'Tommaso', 'Sofia', 'Giulia', 'Aurora', 'Ginevra', 'Alice', 'Beatrice'];
-        $surnames = ['Massaro', 'Abbrita', 'Bouzid', 'Pompei', 'Osnago', 'Bernardini', 'Salvalaggio', 'Tomei', 'Stojkovic', 'Napoli'];
-        $usernames = ['Zucchino Padawan', 'PYROMONKEY', 'BioJack', 'Lor_Para_Lisi', 'Xizzan', 'Ragadi_Banali', 'Mirage', 'Frasca16', 'Kiraks76', 'Napoli'];
-        $emails = ['Zucchino@example.it', 'PYROMOKEY@example.it', 'BioJack@example.it', 'ParaLor@example.it', 'xizzan@example.it', 'Ragadi@example.it', 'ErMirage@example.it', 'Frasca16@example.it', 'Kiraks@example.it', 'Napoli@napoli.com'];
-        $adresses = ['Via Andreotti', 'Via Ciampi', 'Via Prodi', 'Viale Sgarbi', 'Corso Craxi', 'Viale del Cavaliere', 'Corso Berlinguer', 'Viale Aldo Moro', 'Via Napolitano', 'Piazza Napli'];
+        $names = ['Leonardo', 'Francesco', 'Alessandro', 'Lorenzo', 'Mattia', 'Tommaso', 'Sofia', 'Giulia', 'Aurora', 'Ginevra', 'Alice', 'Beatrice', 'Simone', 'Giacomo', 'Aldo', 'Sam', 'Sonia', 'Lodovica', 'Federica', 'Jeredahia', 'Mario'];
+        $surnames = ['Massaro', 'Abbrita', 'Bouzid', 'Pompei', 'Osnago', 'Bernardini', 'Salvalaggio', 'Tomei', 'Stojkovic', 'Napoli', 'Rossi', 'Bianchi', 'Brambilla', 'Fachinetti', 'Poggi', 'Micheli', 'Fogliani', 'Fiumescu', 'Romanov', 'Smith'];
+        $usernames = ['Zucchino Padawan', 'PYROMONKEY', 'BioJack', 'Lor_Para_Lisi', 'Xizzan', 'Beatrix', 'Mirage', 'Frasca16', 'Kiraks76', 'Napoli', 'potatochips', 'crackers', 'gonegirl', 'snake', 'rocky', 'ludwig', 'vega', 'ikiru', 'icecream', 'nectarinesingerbeat', 'plutograntorinocat', 'starshipfluteeagle', 'asteroidpioneer10fox', 'chocolatebarlyrics', 'theapartmentscarface', 'teafogpancakesleoi', 'wheatbreadwinepepper', 'thedude', 'eggmementoseaglove', 'operativoMen'];
+        $emails = ['Zucchino@example.it', 'PYROMOKEY@example.it', 'BioJack@example.it', 'ParaLor@example.it', 'xizzan@example.it', 'Beatrix@example.it', 'ErMirage@example.it', 'Frasca16@example.it', 'Kiraks@example.it', 'Napoli@napoli.com', 'russmi03@eeetivsc.com', 'tatari1998@heepclla.com', 'exgymnast@gmailpro.cf', '2001ups@santonicrotone.it', 'nadyschagirl@mumbama.com', 'rhaat5im@piftir.com',  'kwikenz@icenhl.com', 'nucule@nalsci.com', 'successwork@literk.site', 'ellis88@ezybarber.com', 'lecasta@btcmod.com', 'bruno1871@iseovels.com', 'rz4jbk@cbarato.vip', 'krash448@appsmail.us', 'bighorn@wpdork.com', 'ingoramme@sharyndoll.com', 'msuguy@boranora.com', 'poslugakievua@samaltour.site', 'byyfp@adaov.com', 'disscontent@wpdork.com', 'virtume99@athdn.com', 'raykemp@nonise.com'];
+        $adresses = ['Via Andreotti', 'Via Ciampi', 'Via Prodi', 'Viale Sgarbi', 'Corso Craxi', 'Viale del Cavaliere', 'Corso Berlinguer', 'Viale Aldo Moro', 'Via Napolitano', 'Piazza Napli', 'Via del Tutto Eccezionale', 'Via Dante Alighieri', 'Piazza delle Erbe', 'Corso Garibaldi', 'Via Statuto', 'Corso Bernardini', 'Viale Mazzini', 'Piazza Cavour', 'Via del Popolo', 'Via Ragazzi del 99', 'Via Lodi'];
 
 
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 30; $i++) {
 
             $user = new User();
 
