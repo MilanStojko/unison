@@ -40,6 +40,18 @@
                          <!--Emoji Rating-->
                         <div class="full-stars-example">
                             <div class="rating-group">
+                                <input class="rating__input rating__input--none"
+                                 name="rating"
+                                  id="rating-none"
+                                   value="0"
+                                    type="radio"
+                                    v-model="selectVote"
+                                >
+                                <label aria-label="No rating"
+                                 class="rating__label"
+                                  for="rating-none">
+                                  <i class="rating__icon rating__icon--none fa fa-ban"></i>
+                                </label>
                                 <label
                                     aria-label="1 star"
                                     class="rating__label"
@@ -204,6 +216,7 @@ export default {
   data() {
     return {
       get: "",
+      startMusicians: [],
       newMusicians: [],
       musicians: [],
       selectVote: null,
@@ -213,6 +226,12 @@ export default {
     };
   },
   methods: {
+      getMusicians(){
+        axios.get("/api/users").then((apirisp) => {
+        this.startMusicians = apirisp.data;
+        this.getSponsorizedStart();
+    })
+    },
     //Tutte le prestazioni
     getAvailability() {
       axios
@@ -225,7 +244,6 @@ export default {
         .catch(function (error) {
           console.log(error.response.data);
         });
-      console.log(this.musicians);
     },
 
     changeAvailability() {
@@ -236,13 +254,16 @@ export default {
           },
         })
         .then((response) => {
+          this.startMusicians=[];
           this.musicians = response.data;
           this.getSponsorized();
-          this.$router.push({ path: "search", query: { name: this.valore } });
+          
         })
         .catch(function (error) {
           console.log(error.response.data);
         });
+
+        this.$router.push({ path: "search", query: { name: this.valore } });
     },
 
     starsWidth: function (numero) {
@@ -263,8 +284,8 @@ export default {
       if (count != 0) {
         boh = somma / count;
       }
-
-      return Math.round(boh);
+    console.log(Math.floor(boh));
+      return Math.floor(boh);
     },
 
     changeOrderReviews: function () {
@@ -288,6 +309,32 @@ export default {
         });
       //this.$router.push({ name: "search", query: { name: this.ava, vote: this.selectVote} });
     },
+
+    getSponsorizedStart() {
+      let musicianSponsorized = [];
+      let musicianNotSponsorized = [];
+
+      const today = new Date();
+
+      this.startMusicians.forEach((element) => {
+        let sponsors = element.sponsorships.length;
+        let found = true;
+        console.log(element);
+        element.sponsorships.forEach((plan) => {
+          if (Date.parse(plan.pivot.expiration) >= Date.parse(today)) {
+            found = false;
+            musicianSponsorized.push(element);
+          } else {
+            sponsors--;
+          }
+        });
+        if (sponsors == 0) {
+          musicianNotSponsorized.push(element);
+        }
+      });
+      this.startMusicians = musicianSponsorized.concat(musicianNotSponsorized);
+    },
+
     getSponsorized() {
       let musicianSponsorized = [];
       let musicianNotSponsorized = [];
@@ -313,6 +360,8 @@ export default {
       this.musicians = musicianSponsorized.concat(musicianNotSponsorized);
     },
 
+    
+
     checkSponsorized(musician) {
       const today = new Date();
 
@@ -325,8 +374,11 @@ export default {
       });
       return this.get;
     },
+
+    
   },
   created() {
+      this.getMusicians();
     this.getAvailability();
 
     //Api con tutte le prestazioni

@@ -7,14 +7,14 @@
                 </router-link>
             </div>
             <ul class="my_ul">
-                <li class="my_li">
+                <!-- <li class="my_li">
                     <router-link :to="{ name: 'list-musicians' }"
                         ><p>Vai ai musicisti</p></router-link
                     >
-                </li>
+                </li> -->
                 <li class="my_li">
                     <router-link :to="{ name: 'search' }"
-                        ><p>Cerca</p></router-link
+                        ><p>Cerca i musicisti</p></router-link
                     >
                 </li>
                 <li>
