@@ -1,77 +1,84 @@
 <template>
-<div>
-    <h1 class="mt-3 pl-3">Scopri i profili in evidenza...</h1>
-    <div class="container-xl d-flex justify-content-between">
-        <!-- <div class="row"> -->
-            <div class="my_card col-lg-4 col-md-5 col-xs-12" v-for="random in randoms" :key="random.id">
-                <span v-if="checkSponsorized(random)"><i class="fa-solid fa-star"></i></span>
-                    <router-link :to="{ name: 'user-single', params: { slug: random.slug } }">
-                        <div class="top">
-                            <div class="info col-lg-12">
-                                <h3>{{random.name}} {{random.surname}} </h3>
-                                <img v-if="random.avatar!=null" :src="`/storage/${random.avatar}`" alt="">
-                                <img v-else src="https://thumbs.dreamstime.com/b/profilo-utente-vettoriale-avatar-predefinito-179376714.jpg" alt="">
-                            </div>
-                            <div class="request col-lg-12 col-sm-12 mt-4">
-                                <div class="events mw-50 col-lg-6 col-sm-6 col-xs-6">
-                                    <div>
-                                        <h5>Eventi:</h5>
-                                        <ul>
-                                            <li v-for="(availability, index) in random.availabilities" :key="index"><strong>{{availability.name}}</strong></li>
-                                        </ul>
+<section>
+
+<div class="cont">
+        <h1 class="m-4 pl-3">Scopri i profili in evidenza...</h1>
+        <div class="container d-flex justify-content-between">
+                <div class="my_card col-lg-4 col-md-5 col-xs-12" v-for="random in randoms" :key="random.id">
+                    <!-- <span v-if="checkSponsorized(random)"><i class="fa-solid fa-star"></i></span> -->
+                        <router-link :to="{ name: 'user-single', params: { slug: random.slug } }">
+                            <div class="top">
+                                <div class="info col-lg-12">
+                                    <h3>{{random.name}} {{random.surname}} </h3>
+                                    <img v-if="random.avatar!=null" :src="`/storage/${random.avatar}`" alt="">
+                                    <img v-else src="https://thumbs.dreamstime.com/b/profilo-utente-vettoriale-avatar-predefinito-179376714.jpg" alt="">
+                                </div>
+                                <div class="request col-lg-12 col-sm-12 mt-4">
+                                    <div class="events mw-50 col-lg-6 col-sm-6 col-xs-6">
+                                        <div>
+                                            <h5>Eventi:</h5>
+                                            <ul>
+                                                <li v-for="(availability, index) in random.availabilities" :key="index"><strong>{{availability.name}}</strong></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="categories mw-50 col-lg-6 col-sm-6 col-xs-6">
+                                        <div>
+                                            <h5>Strumenti:</h5>
+                                            <ul>
+                                                <li v-for="(category, index) in random.categories" :key="index"><strong>{{category.name}}</strong></li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="categories mw-50 col-lg-6 col-sm-6 col-xs-6">
-                                    <div>
-                                        <h5>Strumenti:</h5>
-                                        <ul>
-                                            <li v-for="(category, index) in random.categories" :key="index"><strong>{{category.name}}</strong></li>
-                                        </ul>
-                                    </div>
-                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <p class="references">
-                                <ul>
-                                    <li><i class="fa-solid fa-location-dot"></i> {{random.address}}</li>
-                                    <li id="reviews" style="font-size: 20px">
-                                        <div class="text">
-                                            <p>Recensioni: <span>({{random.reviews.length}})</span></p>
-                                            
-                                        </div>
-                                        <div v-if="random.reviews.length > 0">
-                                                <!-- <img src="../../../images/music.svg" /> -->
-                                            <div class="notes big-notes">
-                                            <div
-                                                class="notes_inner"
-                                                :class="starsWidth(random.reviews)"
-                                            ></div>
+                            <div>
+                                <p class="references">
+                                    <ul>
+                                        <li><i class="fa-solid fa-location-dot"></i> {{random.address}}</li>
+                                        <li id="reviews" style="font-size: 20px">
+                                            <div class="text">
+                                                <p>Recensioni: <span>({{random.reviews.length}})</span></p>
+                                                
+                                            </div>
+                                            <div v-if="random.reviews.length > 0">
+                                                    <!-- <img src="../../../images/music.svg" /> -->
+                                                <div class="notes big-notes">
+                                                <div
+                                                    class="notes_inner"
+                                                    :class="starsWidth(random.reviews)"
+                                                ></div>
+                                                </div>
+                                                
+                                            </div>
+                                            <div v-else>
+                                                <div class="notes big-notes">
+                                                <div
+                                                    class="notes_inner starFill0"
+                                                ></div>
+                                                </div>
                                             </div>
                                             
-                                        </div>
-                                        <div v-else>
-                                            <div class="notes big-notes">
-                                            <div
-                                                class="notes_inner starFill0"
-                                            ></div>
-                                            </div>
-                                        </div>
-                                        
-                                    </li>
-                                </ul>
-                            </p>
-                        </div>
-                    </router-link>
-                </div>
-            <!-- </div> -->
-        
+                                        </li>
+                                    </ul>
+                                </p>
+                            </div>
+                        </router-link>
+                    </div>
+
+            
     </div>
+
+    
 </div>
+<div id="gradient">
+  </div>
+</section>
     
 </template>
 
 <script>
+
 export default {
     name: "RandomMusicians",
 
@@ -125,7 +132,7 @@ export default {
           musicianNotSponsorized.push(element);
         }
       });
-      this.musicians = musicianSponsorized.concat(musicianNotSponsorized);
+      this.musicians = musicianSponsorized;
     },
 
     checkSponsorized(musician) {
@@ -169,6 +176,21 @@ export default {
 </script>
 
 <style scoped>
+
+#gradient{
+        background: rgb(252,239,250);
+        background: linear-gradient(180deg, rgb(252,239,250) 0%, rgba(255,255,255,1) 100%);
+        height: 150px;
+    }
+
+.cont{
+    width: calc();
+    padding: 70px;
+    background: rgb(252,239,250);
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+}
 
 /* .container{
     max-width: 95%;
@@ -215,10 +237,11 @@ h1 {
 }
 
 .fa-star{
-    font-size: 35px;
+    font-size: 50px;
     color: yellow;
     position: absolute;
     right: 10px;
+    top: 70px;
 }
 
     .my_card{
@@ -383,10 +406,10 @@ h1 {
     padding: 0;
   }
 
-  .categories div,
+  /* .categories div,
   .events div {
-    /* max-width: 80%; */
-  }
+    /* max-width: 80%; 
+  } */
 
   .references {
     padding: 0 30px;
@@ -406,7 +429,7 @@ h1 {
   }
 
     @media only screen and (max-width: 1000px) {
-      .container-xl{
+      .container{
           justify-content: center !important;
           flex-wrap: wrap;
       }
