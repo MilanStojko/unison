@@ -9,7 +9,13 @@
             @foreach($messages as $message)
             <div class="u_message message-box">
                 <div class="u_message_text">
-                    <span></span>
+                    <div class="circle-div">
+                        <span class="circle"></span>
+                        <?php
+                            setlocale(LC_TIME, 'italian');
+                            echo $message->created_at->formatLocalized('%d %B %Y, %H:%M');
+                        ?>
+                    </div>
                 <h4>{{$message->name}} {{$message->surname}}</h4>
                 </div>
                 <p class="paragraph">{{$message->content}}</p>

@@ -11370,7 +11370,14 @@ li {
   border-bottom: 1px solid #f2f3f7;
 }
 
-.u_messages .u_message_text span {
+.u_messages .u_message_text .circle-div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.u_messages .u_message_text .circle {
   background-color: #212121;
   color: #fff;
   display: inline-block;
@@ -11379,7 +11386,7 @@ li {
   line-height: 30px;
   text-align: center;
   border-radius: 50%;
-  margin-bottom: 10px;
+  margin-right: 10px;
 }
 
 .u_messages a {
@@ -11493,8 +11500,8 @@ li {
 }
 
 .plan-a .plan-name {
-  color: #F44F41;
-  text-shadow: 2px 2px #4DA3B6;
+  color: #f44f41;
+  text-shadow: 2px 2px #4da3b6;
   font-family: "Crystal", sans-serif;
 }
 

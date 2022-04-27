@@ -289,7 +289,7 @@ export default {
       getMusicians(){
         axios.get("/api/users").then((apirisp) => {
         this.startMusicians = apirisp.data;
-        //this.getSponsorizedNew();
+        this.getSponsorizedNew();
     })
     },
     //Tutte le prestazioni
@@ -302,7 +302,7 @@ export default {
           if(this.musicians.length > 0 ){
               this.startMusicians = [];
           };
-          //this.getSponsorized();
+          this.getSponsorized();
           console.log(this.musicians)
         })
         .catch(function (error) {
@@ -320,7 +320,7 @@ export default {
         .then((response) => {
           this.startMusicians = [];
           this.musicians = response.data;
-          //this.getSponsorized();
+          this.getSponsorized();
           
         })
         .catch(function (error) {
@@ -355,7 +355,7 @@ export default {
       this.musicians.sort(function (a, b) {
         return b.reviews.length - a.reviews.length;
       });
-      
+
       this.startMusicians.sort(function (a, b) {
         return b.reviews.length - a.reviews.length;
       });
@@ -390,10 +390,9 @@ export default {
 
          this.startMusicians.forEach((element) => {
         let sponsors = element.sponsorships.length;
-        console.log(element.sponsorships)
         let found = true;
         element.sponsorships.forEach((plan) => {
-          if (Date.parse(plan.pivot.expiration) >= Date.parse(today)) {
+          if (Date.parse(plan.pivot.expiration) >= Date.parse(today) && found) {
             found = false;
             musicianSponsorized.push(element);
           } else {
@@ -404,6 +403,7 @@ export default {
           musicianNotSponsorized.push(element);
         }
       });
+      console.log(musicianSponsorized);
       this.startMusicians = musicianSponsorized.concat(musicianNotSponsorized);
     },
 
@@ -414,19 +414,19 @@ export default {
       const today = new Date();
 
          this.musicians.forEach((element) => {
-        let sponsors = element.sponsorships.length;
+         let sponsors = element.sponsorships.length;
         let found = true;
-        element.sponsorships.forEach((plan) => {
-          if (Date.parse(plan.pivot.expiration) >= Date.parse(today)) {
-            found = false;
-            musicianSponsorized.push(element);
-          } else {
-            sponsors--;
+          element.sponsorships.forEach((plan) => {
+            if (Date.parse(plan.pivot.expiration) >= Date.parse(today) && found) {
+              found = false;
+              musicianSponsorized.push(element);
+            } else {
+              sponsors--;
+            }
+          });
+          if (sponsors == 0) {
+            musicianNotSponsorized.push(element);
           }
-        });
-        if (sponsors == 0) {
-          musicianNotSponsorized.push(element);
-        }
       });
       this.musicians = musicianSponsorized.concat(musicianNotSponsorized);
     },

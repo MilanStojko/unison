@@ -1,22 +1,19 @@
 <template>
     <section class="instruments">
         <div class="instruments-heading">
-            <h2>Strumenti</h2>
+            <h2>Generi</h2>
         </div>
         <div class="container-xl">
             <div class="row">
-                <div class="col-lg-6 col-md-12 instruments-list">
+                <div class="col-lg-7 col-md-12 instruments-list">
                     <ul>
-                        <li
-                            v-for="(instrument, index) in instruments"
-                            :key="index"
-                        >
-                            <a href="#">{{ instrument.name }}</a>
+                        <li v-for="(genre, index) in genres" :key="index">
+                            {{ genre.name }}
                         </li>
                     </ul>
                 </div>
                 <div
-                    class="col-lg-6 col-md-12 instruments-image d-flex justify-content-center align-items-center"
+                    class="col-lg-5 col-md-12 instruments-image d-flex justify-content-center align-items-center"
                 >
                     <img
                         src="../../../../images/Composer-rafiki.svg"
@@ -34,42 +31,26 @@ export default {
 
     data() {
         return {
-            instruments: [
-                {
-                    name: "Cantante",
-                },
-                {
-                    name: "Chitarrista",
-                },
-                {
-                    name: "Sassofonista",
-                },
-                {
-                    name: "Bassista",
-                },
-                {
-                    name: "Batterista",
-                },
-                {
-                    name: "Pianista",
-                },
-                {
-                    name: "Trombettista",
-                },
-                {
-                    name: "Violinista",
-                },
-                {
-                    name: "DJ",
-                },
-                {
-                    name: "Clavicembalista",
-                },
-                {
-                    name: "Organista",
-                },
-            ],
+            genres: [],
         };
+    },
+
+    methods: {
+        getGenres() {
+            axios
+                .get("/api/category/index")
+                .then((response) => {
+                    this.genres = response.data;
+                    console.log(this.genres);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        },
+    },
+
+    created() {
+        this.getGenres();
     },
 };
 </script>
@@ -120,15 +101,16 @@ export default {
 
         li {
             list-style: none;
-            margin: 20px 10px;
-            width: 45%;
+            width: 32%;
+            height: 55px;
             display: flex;
             justify-content: center;
             align-items: center;
-
-            @media screen and (max-width: 1200px) {
-                margin: 20px 5px;
-            }
+            color: #fff;
+            background-color: #527a5a;
+            padding: 10px 20px;
+            border-radius: 20px;
+            margin: 10px 0px;
 
             @media screen and (max-width: 600px) {
                 width: 80%;
@@ -136,20 +118,6 @@ export default {
             }
         }
 
-        a {
-            color: #527a5a;
-            width: 100%;
-            padding: 10px 20px;
-            border: 2px solid #527a5a;
-            border-radius: 20px;
-            transition: 0.3s;
-
-            &:hover {
-                text-decoration: none;
-                color: #fff;
-                background-color: #527a5a;
-            }
-        }
     }
 }
 

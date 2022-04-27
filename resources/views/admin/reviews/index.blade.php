@@ -10,7 +10,14 @@
                 @foreach($reviews as $review)
                 <div class="u_message">
                     <div class="u_message_text">
-                        <span></span>
+                        <div class="circle-div">
+                            <span class="circle"></span>
+                            <?php
+                                        setlocale(LC_TIME, 'italian');
+                                        echo $review->created_at->formatLocalized('%d %B %Y, %H:%M');
+                            ?>
+                        </div>
+                         
                     <h4>{{$review->username}}</h4>
                     </div>
                     <p class="paragraph">{{$review->content}}</p>

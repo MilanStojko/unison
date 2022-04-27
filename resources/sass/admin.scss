@@ -144,11 +144,11 @@ li {
 }
 
 // Buttons
-.u_btn_log{
+.u_btn_log {
     color: #bd5db7;
     border: 1px solid #bd5db7;
     transition: 0.3s;
-    &:hover{
+    &:hover {
         color: #fff;
         background-color: #bd5db7;
     }
@@ -418,7 +418,14 @@ li {
         &_text {
             border-bottom: 1px solid #f2f3f7;
 
-            span {
+            .circle-div {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                margin-bottom: 10px;
+            }
+
+            .circle {
                 background-color: #212121;
                 color: #fff;
                 display: inline-block;
@@ -427,7 +434,7 @@ li {
                 line-height: 30px;
                 text-align: center;
                 border-radius: 50%;
-                margin-bottom: 10px;
+                margin-right: 10px;
             }
         }
     }
@@ -472,16 +479,15 @@ li {
     border-bottom-left-radius: 30px;
 }
 
-
 //Sponsorships
 
-.info{
+.info {
     font-size: 20px;
 }
 
-.plan-card{
+.plan-card {
     border: 1px solid black;
-    box-shadow: 1px 1px 11px 3px rgba(0,0,0,0.25);
+    box-shadow: 1px 1px 11px 3px rgba(0, 0, 0, 0.25);
     margin: 50px 0;
     min-height: 450px;
     z-index: 1;
@@ -492,14 +498,14 @@ li {
     transition: 0.4s;
     transform: scale(1.05);
     cursor: pointer;
-    .u_btn_plan{
+    .u_btn_plan {
         background-color: transparent;
         width: 50%;
         transition: 0.2s;
         color: transparent;
         text-decoration: none;
     }
-    &::before{
+    &::before {
         transition: 0.4s;
         border-radius: 25px;
         position: absolute;
@@ -510,80 +516,79 @@ li {
         background-size: cover;
         // filter: blur(2px);
         z-index: -1;
-        content: '';
+        content: "";
         opacity: 0.8;
         background-position: center;
     }
-    &:hover{
+    &:hover {
         transform: scale(1.1);
-        &::before{
+        &::before {
             filter: blur(5px);
             transform: scale(1.3);
         }
-        .plan-name{
+        .plan-name {
             transform: translate(0, 40px) scale(1.5);
             transition: 0.6s;
         }
-        .plan-text{
+        .plan-text {
             transform: translate(0, -25px) scale(1.5);
             transition: 0.6s;
         }
-        .u_btn_plan{
+        .u_btn_plan {
             background-color: black;
             transform: translate(0, 5px);
             color: white;
-            &:hover{
+            &:hover {
                 transform: scale(1.1);
             }
         }
     }
 }
 
-.plan-a{
-    .plan-name{
-        color: #F44F41;
-        text-shadow: 2px 2px #4DA3B6;
-        font-family: 'Crystal', sans-serif;
+.plan-a {
+    .plan-name {
+        color: #f44f41;
+        text-shadow: 2px 2px #4da3b6;
+        font-family: "Crystal", sans-serif;
     }
-    &::before{
-        background-image: url('../images/alladin.png');
+    &::before {
+        background-image: url("../images/alladin.png");
     }
 }
 
-.plan-b{
-    .plan-name{
+.plan-b {
+    .plan-name {
         color: red;
         // -webkit-text-stroke: 1px red;
-        font-family: 'Libre Baskerville', serif;
+        font-family: "Libre Baskerville", serif;
         letter-spacing: -2px;
     }
-    &::before{
-        background-image: url('../images/biggie.jpg');
+    &::before {
+        background-image: url("../images/biggie.jpg");
     }
 }
-.plan-c{
-    .plan-name{
+.plan-c {
+    .plan-name {
         -webkit-text-stroke: 0.5px black;
         font-weight: bold;
         color: #c1a801;
         // text-decoration: underline;
-        font-family: 'Adobe Garamond Pro', sans-serif;
+        font-family: "Adobe Garamond Pro", sans-serif;
     }
-    &::before{
-        background-image: url('../images/queen.jpg');
+    &::before {
+        background-image: url("../images/queen.jpg");
     }
 }
 
 //Empty inbox page
 
-.clef{
+.clef {
     color: $back-tertiary;
-    font-size: 200px
+    font-size: 200px;
 }
 
-
 //payment page
-#buttonPayment{
+#buttonPayment {
     padding: 5px 30px;
     background: transparent;
     border: 1px solid black;
@@ -592,30 +597,30 @@ li {
     margin-left: 4px;
 }
 
-#buttonPayment:hover{
+#buttonPayment:hover {
     background: #a7df8d;
     transform: scale(1.08);
 }
 
-#formPayment{
+#formPayment {
     padding: 0 30px;
 }
 
-.pay{
+.pay {
     margin-top: 20px;
 }
 
-#amount{
+#amount {
     padding: 4px;
     border: 1px solid black;
     border-radius: 5px;
 }
 
-.total{
+.total {
     font-size: 20px;
 }
 
-.selectSponsor{
+.selectSponsor {
     padding: 5px;
     border: 1px solid black;
     border-radius: 5px;

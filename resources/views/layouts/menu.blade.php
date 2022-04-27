@@ -106,7 +106,15 @@
            } else if(e.textContent == 'Read Less') {
             e.textContent = 'Read More'
            }
-       } 
+       };
+
+       function getDate(date) {
+            return new Date(date).toLocaleDateString("it", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+            });
+       };
         
     </script>
 </body>

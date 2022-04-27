@@ -6,14 +6,14 @@
         <div class="container-xl">
             <div class="row">
                 <div
-                    class="col-lg-6 col-md-12 events-image d-flex justify-content-center align-items-center"
+                    class="col-lg-5 col-md-12 events-image d-flex justify-content-center align-items-center"
                 >
                     <img src="../../../../images/band.svg" alt="Evento" />
                 </div>
-                <div class="col-lg-6 col-md-12 events-list">
+                <div class="col-lg-7 col-md-12 events-list">
                     <ul>
                         <li v-for="(event, index) in events" :key="index">
-                            <a href="#">{{ event.name }}</a>
+                            {{ event.name }}
                         </li>
                     </ul>
                 </div>
@@ -31,48 +31,26 @@ export default {
 
     data() {
         return {
-            events: [
-                {
-                    name: "Addio al nubilato / celibato",
-                },
-                {
-                    name: "Cerimonia / Celebrazione",
-                },
-                {
-                    name: "Festa Bambini",
-                },
-                {
-                    name: "Funerale",
-                },
-                {
-                    name: "Locale / Club / Bar",
-                },
-                {
-                    name: "Chiesa / Comunione",
-                },
-                {
-                    name: "Ristorante",
-                },
-                {
-                    name: "Aperitivo / Banchetto",
-                },
-                {
-                    name: "Compleanno / Anniversario",
-                },
-                {
-                    name: "Matrimonio",
-                },
-                {
-                    name: "Capodanno",
-                },
-                {
-                    name: "Natale",
-                },
-                {
-                    name: "Festa Privata",
-                },
-            ],
+            events: [],
         };
+    },
+
+    methods: {
+        getCategories() {
+            axios
+                .get("/api/availability/index")
+                .then((response) => {
+                    this.events = response.data;
+                    console.log(this.events);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        },
+    },
+
+    created() {
+        this.getCategories();
     },
 };
 </script>
@@ -117,34 +95,20 @@ export default {
 
         li {
             list-style: none;
-            margin: 20px 10px;
-            width: 45%;
+            width: 32%;
+            height: 55px;
             display: flex;
             justify-content: center;
             align-items: center;
-
-            @media screen and (max-width: 1200px) {
-                margin: 20px 5px;
-            }
+            color: #fff;
+            background-color: #bd5db7;
+            padding: 10px 20px;
+            border-radius: 20px;
+            margin: 10px 0px;
 
             @media screen and (max-width: 600px) {
                 width: 80%;
                 margin: 20px auto;
-            }
-        }
-
-        a {
-            color: #bd5db7;
-            width: 100%;
-            padding: 10px 20px;
-            border: 2px solid #bd5db7;
-            border-radius: 20px;
-            transition: 0.3s;
-
-            &:hover {
-                text-decoration: none;
-                color: #fff;
-                background-color: #bd5db7;
             }
         }
     }
