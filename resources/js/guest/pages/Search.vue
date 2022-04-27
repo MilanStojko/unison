@@ -267,8 +267,7 @@
                         </div>
                     </router-link>
             </div>
-        </div>
-    </div>
+  </div>
 </template>
 
 <script>
@@ -277,7 +276,6 @@ export default {
   name: "Search",
   data() {
     return {
-      get: "",
       startMusicians: [],
       newMusicians: [],
       musicians: [],
@@ -291,7 +289,7 @@ export default {
       getMusicians(){
         axios.get("/api/users").then((apirisp) => {
         this.startMusicians = apirisp.data;
-        this.getSponsorizedNew();
+        //this.getSponsorizedNew();
     })
     },
     //Tutte le prestazioni
@@ -354,12 +352,20 @@ export default {
     },
 
     changeOrderReviews: function () {
-      return this.musicians.sort(function (a, b) {
+      this.musicians.sort(function (a, b) {
+        return b.reviews.length - a.reviews.length;
+      });
+      
+      this.startMusicians.sort(function (a, b) {
         return b.reviews.length - a.reviews.length;
       });
     },
     changeOrderVotes: function () {
-      axios
+      if(this.selectVote == 0) {
+        this.changeAvailability() 
+
+      }else {
+        axios
         .get(`/api/filtered/getavailability${this.$route.fullPath}`, {
           params: {
             vote: this.selectVote,
@@ -372,6 +378,8 @@ export default {
           console.log(error.response.data);
         });
       //this.$router.push({ name: "search", query: { name: this.ava, vote: this.selectVote} });
+      }
+      
     },
 
     getSponsorizedNew() {
@@ -382,6 +390,7 @@ export default {
 
          this.startMusicians.forEach((element) => {
         let sponsors = element.sponsorships.length;
+        console.log(element.sponsorships)
         let found = true;
         element.sponsorships.forEach((plan) => {
           if (Date.parse(plan.pivot.expiration) >= Date.parse(today)) {
@@ -396,7 +405,6 @@ export default {
         }
       });
       this.startMusicians = musicianSponsorized.concat(musicianNotSponsorized);
-      console.log(this.startMusicians)
     },
 
     getSponsorized() {
@@ -426,15 +434,15 @@ export default {
     checkSponsorized(musician) {
       const today = new Date();
 
-      this.get = false;
+      let get = false;
 
 
       musician.sponsorships.forEach((element) => {
         if (Date.parse(element.pivot.expiration) >= Date.parse(today)) {
-          this.get = true;
+          get = true;
         }
       });
-      return this.get;
+      return get;
     },
 
     
@@ -447,7 +455,6 @@ export default {
     //Api con tutte le prestazioni
     axios.get("/api/availability/index").then((respAll) => {
       this.availabilities = respAll.data;
-      console.log(this.availabilities)
     });
   },
 };
