@@ -44,7 +44,7 @@
                             v-model="messageData.content"
                             required
                         ></textarea>
-                        <div class="cta text-center py-3">
+                        <div class="cta text-center py-sm-1 py-md-2 py-lg-3">
                             <button type="submit" class="px-5">
                                 Invia Messagio
                                 <i class="fa-solid fa-paper-plane"></i>
@@ -232,7 +232,7 @@
                     </div>
                 </div>
                 <div class="singleMusician-profile_right">
-                    <div class="cta">
+                    <div class="cta cta_margin">
                         <button @click="popupMessage = true">
                             Contattami <i class="fa-solid fa-envelope"></i>
                         </button>
@@ -506,6 +506,10 @@ li {
         background-color: #ededed;
         padding: 10px 0px;
 
+        @media only screen and (max-width: 991px) {
+            width: 100%;
+        }
+
         h2 {
             color: #2a2929;
             margin-top: 20px;
@@ -566,6 +570,10 @@ li {
         width: 70%;
         padding: 10px 20px;
 
+        @media only screen and (max-width: 700px) {
+            width: 100%;
+        }
+
         h2,
         h4 {
             color: #527a5a;
@@ -587,10 +595,18 @@ li {
             display: flex;
             align-items: flex-start;
             flex-wrap: wrap;
+
+            @media only screen and (max-width: 700px) {
+                justify-content: center;
+            }
         }
 
         .categorie {
             margin-right: 100px;
+
+            @media only screen and (max-width: 700px) {
+                margin-right: 50px;
+            }
         }
 
         .cv {
@@ -617,6 +633,14 @@ li {
         padding-bottom: 20px;
         border-bottom: 1px solid #ededed;
 
+        @media only screen and (max-width: 700px) {
+            flex-direction: column;
+
+            div:first-child {
+                margin-bottom: 20px;
+            }
+        }
+
         h4 {
             margin-bottom: 0px;
             font-weight: bold;
@@ -632,6 +656,10 @@ li {
         margin: 30px auto;
         -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
         box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+
+        @media only screen and (max-width: 700px) {
+            width: 100%;
+        }
 
         &-head {
             display: flex;
@@ -689,6 +717,10 @@ li {
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     animation: pop-up 0.3s linear;
+
+    @media only screen and (max-width: 700px) {
+        width: 80%;
+    }
 
     .message-heading {
         background-color: #2a2929;
@@ -755,6 +787,18 @@ li {
             -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
             box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
         }
+    }
+}
+
+.cta {
+    @media only screen and (max-width: 700px) {
+        text-align: center;
+    }
+}
+
+.cta_margin {
+    @media only screen and (max-width: 700px) {
+        margin-bottom: 50px;
     }
 }
 

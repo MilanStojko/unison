@@ -6,16 +6,14 @@
     </div>
     <h1>{{ ava }}</h1>
   </div> -->
-  <div class="background">
     <!-- <div class="select">
       Cerca:
       <select v-model="selectedAvailability" @change="getAvailability" name="categories" id="categories">
         <option  v-for="(category, index) in categories" :value="category.name" :key="index">{{category.name}}</option>
       </select>
     </div> -->
-    <div class="container">
-        <div class="container p-4">
-            <div class="search-filters">
+        <div class="container-xl p-md-4">
+          <div class="search-filters">
                 <div class="change-avaliability">
                     <select
                         name="availabilities"
@@ -33,9 +31,11 @@
                     </select>
                     <button @click="changeAvailability()">Cerca</button>
                  </div>
-                 <div class="filters">  
-                     <h3>Ordina per:</h3>
-                    <button @click="changeOrderReviews()"><i class="fa-solid fa-arrow-up"></i> Recensioni</button>
+                 <div class="filters">
+                    <div>
+                      <h3>Ordina per:</h3>
+                      <button @click="changeOrderReviews()"><i class="fa-solid fa-arrow-up"></i> Recensioni</button>
+                    </div>  
                     <div class="d-flex clacFileter">
                          <!--Emoji Rating-->
                         <div class="full-stars-example">
@@ -137,11 +137,12 @@
                         </div>
                         <!--Emoji Rating Ends-->
                         <button @click="changeOrderVotes()">Voto</button>
+                  </div>
                 </div>
-                 </div>
  
             </div>
-
+            
+            <div v-show="musicians.length <= 0">Non ci sono Musicisti</div>
             <div class="my_card" v-for="musician in startMusicians" :key="musician.id">
                 <span v-if="checkSponsorized(musician)"><i class="fa-solid fa-star"></i></span>
                     <router-link :to="{ name: 'user-single', params: { slug: musician.slug } }">
@@ -202,8 +203,9 @@
                             </p>
                         </div>
                     </router-link>
-            </div>
+             </div>
             
+
             <div class="my_card" v-for="musician in musicians" :key="musician.id">
                 <span v-if="checkSponsorized(musician)"><i class="fa-solid fa-star"></i></span>
                     <router-link :to="{ name: 'user-single', params: { slug: musician.slug } }">
@@ -267,7 +269,6 @@
             </div>
         </div>
     </div>
-</div>
 </template>
 
 <script>
@@ -290,7 +291,7 @@ export default {
       getMusicians(){
         axios.get("/api/users").then((apirisp) => {
         this.startMusicians = apirisp.data;
-        this.getSponsorized(this.startMusicians);
+        this.getSponsorizedNew();
     })
     },
     //Tutte le prestazioni
@@ -298,9 +299,13 @@ export default {
       axios
         .get(`/api/filtered/getavailability${this.$route.fullPath}`)
         .then((response) => {
-          this.startMusicians = [];
+          
           this.musicians = response.data;
-          this.getSponsorized(this.musicians);
+          if(this.musicians.length > 0 ){
+              this.startMusicians = [];
+          };
+          //this.getSponsorized();
+          console.log(this.musicians)
         })
         .catch(function (error) {
           console.log(error.response.data);
@@ -317,7 +322,7 @@ export default {
         .then((response) => {
           this.startMusicians = [];
           this.musicians = response.data;
-          this.getSponsorized(this.musicians);
+          //this.getSponsorized();
           
         })
         .catch(function (error) {
@@ -369,13 +374,13 @@ export default {
       //this.$router.push({ name: "search", query: { name: this.ava, vote: this.selectVote} });
     },
 
-    getSponsorized(array) {
+    getSponsorizedNew() {
       let musicianSponsorized = [];
       let musicianNotSponsorized = [];
 
       const today = new Date();
 
-         array.forEach((element) => {
+         this.startMusicians.forEach((element) => {
         let sponsors = element.sponsorships.length;
         let found = true;
         element.sponsorships.forEach((plan) => {
@@ -390,13 +395,39 @@ export default {
           musicianNotSponsorized.push(element);
         }
       });
-      array = musicianSponsorized.concat(musicianNotSponsorized);
+      this.startMusicians = musicianSponsorized.concat(musicianNotSponsorized);
+      console.log(this.startMusicians)
+    },
+
+    getSponsorized() {
+      let musicianSponsorized = [];
+      let musicianNotSponsorized = [];
+
+      const today = new Date();
+
+         this.musicians.forEach((element) => {
+        let sponsors = element.sponsorships.length;
+        let found = true;
+        element.sponsorships.forEach((plan) => {
+          if (Date.parse(plan.pivot.expiration) >= Date.parse(today)) {
+            found = false;
+            musicianSponsorized.push(element);
+          } else {
+            sponsors--;
+          }
+        });
+        if (sponsors == 0) {
+          musicianNotSponsorized.push(element);
+        }
+      });
+      this.musicians = musicianSponsorized.concat(musicianNotSponsorized);
     },
 
     checkSponsorized(musician) {
       const today = new Date();
 
       this.get = false;
+
 
       musician.sponsorships.forEach((element) => {
         if (Date.parse(element.pivot.expiration) >= Date.parse(today)) {
@@ -410,12 +441,13 @@ export default {
   },
   created() {
       this.getMusicians();
-     this.getAvailability();
+      this.getAvailability();
      
 
     //Api con tutte le prestazioni
     axios.get("/api/availability/index").then((respAll) => {
       this.availabilities = respAll.data;
+      console.log(this.availabilities)
     });
   },
 };
@@ -642,6 +674,12 @@ h1 {
   justify-content: center;
   flex-wrap: wrap;
   padding: 10px 0px;
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+
+  @media only screen and (max-width: 1000px) {
+    flex-direction: column;
+  }
 
   h3 {
     margin-right: 10px;
@@ -669,11 +707,32 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  div:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    width: 90%;
+    justify-content: space-around;
+  }
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+  }
 }
 
 .clacFileter {
   background-color: rgb(221, 221, 221);
   padding-left: 5px;
+
+  @media only screen and (max-width: 600px) {
+       margin-top: 10px;
+       justify-content: center;
+       align-items: center;
+  }
 
   button {
     margin-right: 0px;
@@ -690,8 +749,23 @@ h1 {
   margin-right: 20px;
   border-right: 1px solid rgb(188, 188, 188);
 
+  @media only screen and (max-width: 1000px) {
+    margin-right: 0px;
+    width: 90%;
+    border-right: none;
+    margin-bottom: 20px;
+    margin-right: 0px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
   select {
     min-width: 400px;
+
+    @media only screen and (max-width: 1000px) {
+      min-width: 70%;
+    }
   }
 }
 
@@ -707,7 +781,7 @@ h1 {
   }
 
   .my_card {
-    max-width: 90%;
+    max-width: 100%;
   }
 
   .references {

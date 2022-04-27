@@ -10977,6 +10977,7 @@ body {
   font-size: 16px;
   background-color: #ffffff;
   color: #2e3333;
+  overflow-x: hidden;
 }
 
 .notes {
