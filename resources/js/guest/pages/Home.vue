@@ -1,6 +1,7 @@
 <template>
     <div id="Home">
         <Jumbo />
+        <RandomMusicians />
         <Categories />
         <Instruments />
         <Service />
@@ -9,6 +10,7 @@
 
 <script>
 import Jumbo from "../components/sections/Jumbo.vue";
+import RandomMusicians from "../components/sections/RandomMusicians.vue";
 import Categories from "../components/sections/Categories.vue";
 import Instruments from '../components/sections/Instruments.vue';
 import Service from "../components/sections/Service.vue";
@@ -17,6 +19,7 @@ export default {
 
     components: {
         Jumbo,
+        RandomMusicians,
         Categories,
         Instruments,
         Service,
