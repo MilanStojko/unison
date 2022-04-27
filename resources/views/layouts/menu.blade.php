@@ -104,6 +104,25 @@
     </div>
 
     <script>
+<<<<<<< HEAD
+        
+       function changeButton(e) {
+           if(e.textContent == 'Read More') {
+            e.textContent = 'Read Less'
+           } else if(e.textContent == 'Read Less') {
+            e.textContent = 'Read More'
+           }
+       };
+
+       function getDate(date) {
+            return new Date(date).toLocaleDateString("it", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+            });
+       };
+        
+=======
         function changeButton(e) {
             if (e.textContent == 'Read More') {
                 e.textContent = 'Read Less'
@@ -111,6 +130,7 @@
                 e.textContent = 'Read More'
             }
         }
+>>>>>>> 982bfd4039dbccb5225463c2e077accf18b5cfca
     </script>
 </body>
 
