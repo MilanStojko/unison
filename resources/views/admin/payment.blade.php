@@ -3,6 +3,7 @@
 
 @section('content')
     <div class="content pay">
+        {{-- Rotta del checkout --}}
         <form id="formPayment" method="post" id="payment-form" action="{{ route('admin.paymentcheckout', [Auth::user()->id]) }}">
             @csrf
             <section>
@@ -15,6 +16,7 @@
                 <label for="amount">
                     <span class="input-label total">Totale</span>
                     <div class="input-wrapper amount-wrapper">
+                        {{-- Passing alla request dell'amount --}}
                         <input id="amount" name="amount" type="tel" min="1"
                             placeholder="Inserisci l'importo della sponsorship"
                             class="@error('amount') is-invalid @enderror">
@@ -39,8 +41,8 @@
     <script src="https://js.braintreegateway.com/web/dropin/1.13.0/js/dropin.min.js"></script>
 
     <script>
-        var form = document.querySelector('#payment-form');
-        var client_token = "{{ $token }}";
+        let form = document.querySelector('#payment-form');
+        let client_token = "{{ $token }}";
         braintree.dropin.create({
             authorization: client_token,
             selector: '#bt-dropin',
