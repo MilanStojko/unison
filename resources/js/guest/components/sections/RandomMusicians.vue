@@ -114,7 +114,7 @@ export default {
         let found = true;
         console.log(element);
         element.sponsorships.forEach((plan) => {
-          if (Date.parse(plan.pivot.expiration) >= Date.parse(today)) {
+          if (Date.parse(plan.pivot.expiration) >= Date.parse(today) && found) {
             found = false;
             musicianSponsorized.push(element);
           } else {
@@ -223,7 +223,7 @@ h1 {
 
     .my_card{
         position: relative;
-        margin: 50px 10px;
+        margin: 50px 10px 50px 0px;
         height: 450px;
         padding: 10px;
         /* background: rgba(210, 206, 206, 0.861); */
