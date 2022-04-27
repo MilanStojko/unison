@@ -41,13 +41,9 @@ class PaymentsController extends Controller
 
         $request->validate([
             'sponsorship_id' => 'required|integer|exists:sponsorships,id',
-            'amount' => [
-                'required',
-                Rule::exists('sponsorships', 'price')
-                    ->where('id', $request->sponsorship_id)
-            ]
         ]);
 
+        $sponsorship_price = Sponsorship::where('id', $request->sponsorship_id)->pluck('price')->first();
 
         $gateway = new \Braintree\Gateway([
             'environment' => config('services.braintree.environment'),
@@ -56,7 +52,7 @@ class PaymentsController extends Controller
             'privateKey' => config('services.braintree.privateKey')
         ]);
 
-        $amount = $request->amount;
+        $amount = $sponsorship_price;
         $nonce = $request->payment_method_nonce;
         /*         $userInfo = Auth::user();
  */
@@ -76,7 +72,6 @@ class PaymentsController extends Controller
         $data = $request->all();
 
 
-        $nuovaSponsorship = new Sponsorship();
         $start = Carbon::now();
 
 
@@ -92,7 +87,7 @@ class PaymentsController extends Controller
             }
         }
 
-        $sponsorshipDuration = intval(Sponsorship::where('iD', $data['sponsorship_id'])->pluck('duration')->first()); // pluck restituisce il solo valore e non anche la chiave! la first va usata perché è [value]
+        $sponsorshipDuration = intval(Sponsorship::where('id', $data['sponsorship_id'])->pluck('duration')->first()); // pluck restituisce il solo valore e non anche la chiave! la first va usata perché è [value]
         $expiration = clone $start;
         $expiration->add(new DateInterval('PT' . $sponsorshipDuration . 'H'));
 

@@ -28,37 +28,39 @@
 
 </head>
 
-<body>  
+<body>
     <nav class="u_navbar">
         <a class="logo" href="http://127.0.0.1:8000/">Home page</a>
-                <div>
-                    <a class="logout" href="{{ route('logout') }}" onclick="event.preventDefault();
+        <div>
+            <a class="logout" href="{{ route('logout') }}" onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
 
-<i class="bi bi-door-open-fill"></i> 
-{{ __('Logout') }}
-                    </a>
+                <i class="bi bi-door-open-fill"></i>
+                {{ __('Logout') }}
+            </a>
 
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                </div>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+        </div>
     </nav>
     <div class="container-fluid">
         <div class="row">
             <nav class="u_menu">
                 <div class="sidebar-sticky">
                     <div class="u_menu-info">
-                        @if(isset($user->avatar) || isset(auth()->user()->avatar))
-                            <img src="{{asset('storage/'.auth()->user()->avatar)}}" alt="">
-                         @else   
-                            <img src="https://thumbs.dreamstime.com/b/profilo-utente-vettoriale-avatar-predefinito-179376714.jpg">
-                         @endif
-                        <h4>{{auth()->user()->name}} {{auth()->user()->surname}}</h4>
+                        @if (isset($user->avatar) || isset(auth()->user()->avatar))
+                            <img src="{{ asset('storage/' . auth()->user()->avatar) }}" alt="">
+                        @else
+                            <img
+                                src="https://thumbs.dreamstime.com/b/profilo-utente-vettoriale-avatar-predefinito-179376714.jpg">
+                        @endif
+                        <h4>{{ auth()->user()->name }} {{ auth()->user()->surname }}</h4>
                     </div>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link u_menu-info-link {{request()->is('admin') ? 'menu-active' : ''}}" href="{{route('admin.home')}}">
+                            <a class="nav-link u_menu-info-link {{ request()->is('admin') ? 'menu-active' : '' }}"
+                                href="{{ route('admin.home') }}">
                                 <i class="bi bi-house-door"></i>
                                 Il mio profilo
                             </a>
@@ -70,19 +72,22 @@
                             </a>
                         </li> --}}
                         <li class="nav-item">
-                            <a class="nav-link u_menu-info-link {{request()->is('admin/messages') ? 'menu-active' : ''}}" href="{{route('admin.messages.index')}}">
+                            <a class="nav-link u_menu-info-link {{ request()->is('admin/messages') ? 'menu-active' : '' }}"
+                                href="{{ route('admin.messages.index') }}">
                                 <i class="bi bi-chat-dots"></i>
                                 Messaggi
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link u_menu-info-link {{request()->is('admin/reviews') ? 'menu-active' : ''}}" href="{{route('admin.reviews.index')}}">
+                            <a class="nav-link u_menu-info-link {{ request()->is('admin/reviews') ? 'menu-active' : '' }}"
+                                href="{{ route('admin.reviews.index') }}">
                                 <i class="bi bi-file-text"></i>
                                 Recensioni
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link u_menu-info-link {{request()->is('admin/sponsorships') ? 'menu-active' : ''}}" href="{{route('admin.sponsorships.index')}}">
+                            <a class="nav-link u_menu-info-link {{ request()->is('admin/sponsorships') ? 'menu-active' : '' }}"
+                                href="{{ route('admin.payment', auth()->user()) }}">
                                 <i class="bi bi-star-fill"></i>
                                 Premium
                             </a>
@@ -91,7 +96,7 @@
                 </div>
             </nav>
 
-            
+
             <main class="u_main">
                 @yield('content')
             </main>
@@ -99,21 +104,18 @@
     </div>
 
     <script>
-        
-       function changeButton(e) {
-           if(e.textContent == 'Read More') {
-            e.textContent = 'Read Less'
-           } else if(e.textContent == 'Read Less') {
-            e.textContent = 'Read More'
-           }
-       } 
-        
+        function changeButton(e) {
+            if (e.textContent == 'Read More') {
+                e.textContent = 'Read Less'
+            } else if (e.textContent == 'Read Less') {
+                e.textContent = 'Read More'
+            }
+        }
     </script>
 </body>
 
 <style>
-
-    img{
+    img {
         object-fit: cover;
         object-position: center;
     }
