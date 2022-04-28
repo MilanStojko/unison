@@ -512,7 +512,7 @@ h1,
 }
 
 .info h3{
-  max-height: 50px;
+  max-height: 70px;
   overflow: hidden;
 }
 
@@ -659,6 +659,10 @@ h1 {
         margin-bottom: 40px;
     }
     */
+
+.container-xl{
+  min-height: calc(100vh - 50px);
+}
 
 .info {
   display: flex;
