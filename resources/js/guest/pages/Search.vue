@@ -144,7 +144,8 @@
             
             <!-- <div v-show="musicians.length <= 0">Non ci sono Musicisti</div> -->
             <div class="my_card" v-for="musician in startMusicians" :key="musician.id">
-                <span v-if="checkSponsorized(musician)"><i class="fa-solid fa-star"></i></span>
+                <span v-if="checkSponsorized(musician)"><i class="fa-solid fa-star right"></i></span>
+                <span v-if="checkSponsorized(musician)"><i class="fa-solid fa-star left"></i></span>
                     <router-link :to="{ name: 'user-single', params: { slug: musician.slug } }">
                         <div class="top">
                             <div class="info col-lg-5 mb-4">
@@ -207,7 +208,8 @@
             
 
             <div class="my_card" v-for="musician in musicians" :key="musician.id">
-                <span v-if="checkSponsorized(musician)"><i class="fa-solid fa-star"></i></span>
+                <span v-if="checkSponsorized(musician)"><i class="fa-solid fa-star right"></i></span>
+                <span v-if="checkSponsorized(musician)"><i class="fa-solid fa-star left"></i></span>
                     <router-link :to="{ name: 'user-single', params: { slug: musician.slug } }">
                         <div class="top">
                             <div class="info col-lg-5 mb-4">
@@ -509,15 +511,28 @@ h1,
   text-transform: capitalize;
 }
 
+.info h3{
+  max-height: 50px;
+  overflow: hidden;
+}
+
 h1 {
   font-size: 55px;
 }
 
 .fa-star{
-    font-size: 35px;
+    font-size: 25px;
     color: yellow;
-    position: absolute;
-    right: 10px;
+}
+
+.right{
+  position: absolute;
+  right: 10px;
+}
+
+.left{
+  position: absolute;
+  left: 10px;
 }
 
     .my_card{
@@ -808,6 +823,11 @@ h1 {
   .references ul {
     display: flex;
     flex-direction: column;
+  }
+
+  .right, .left{
+    top: 30%;
+    font-size: 50px;
   }
 }
 </style>

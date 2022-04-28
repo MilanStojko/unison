@@ -97,7 +97,7 @@ class PaymentsController extends Controller
             $transaction = $result->transaction;
             // header("Location: transaction.php?id=" . $transaction->id);
 
-            return back()->with('success_message', 'Transaction successful');
+            return redirect()->route('admin.home')->with('success_message', 'La transazione ha avuto successo, complimenti!');
         } else {
             $errorString = "";
 
@@ -107,7 +107,7 @@ class PaymentsController extends Controller
 
             // $_SESSION["errors"] = $errorString;
             // header("Location: index.php");
-            return back()->withErrors('An error occurred with the message: ' . $result->message);
+            return redirect()->route('admin.home')->with('error_message', 'Non fa');
         }
     }
 }

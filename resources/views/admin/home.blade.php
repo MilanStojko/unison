@@ -49,6 +49,7 @@
                             <li>Il mio cv:</li>
                             <li>Categorie: </li>
                             <li>Disponibilità:</li>
+                            <li>Sponsorizzazioni:</li>
                         </ul>
                     </div>
 
@@ -99,7 +100,20 @@
                                 {{'-'}}
 
                                 @endif
-                            </li>                        
+                            </li>
+                            <li>
+                                @if(count($user->sponsorships) > 0 )
+                                    @foreach ($user->sponsorships as $plan)
+                                        {{$plan->type}}
+                                        @if( !$loop->last)
+                                        ,
+                                        @endif
+                                        
+                                    @endforeach
+                                @else 
+                                    {{'-'}}
+                                @endif
+                            </li>              
                         </ul>
                     </div>
                     
@@ -123,4 +137,14 @@
         </div>
     </div>
        
+
+    {{-- <script>
+         function getDate(user){
+            const today = new Date();
+            if(Date.parse(user) >= Date.parse(today)){
+                console.log(user);
+                return user.pivot.name;
+            }
+        }
+    </script> --}}
 @endsection

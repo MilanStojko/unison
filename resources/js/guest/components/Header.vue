@@ -40,14 +40,14 @@
         <Transition name="slide-fade">
         <div class="listmenu" v-show="click==1">
             <ul>
-                <li class="my_li">
+                <!-- <li class="my_li">
                     <router-link :to="{ name: 'list-musicians' }"
                         ><p @click="disappear(click)">Vai ai musicisti</p></router-link
                     >
-                </li>
+                </li> -->
                 <li class="my_li">
                     <router-link :to="{ name: 'search' }"
-                        ><p @click="disappear(click)">Cerca</p></router-link
+                        ><p @click="disappear(click)">Cerca i musicisti</p></router-link
                     >
                 </li>
                 <li>
