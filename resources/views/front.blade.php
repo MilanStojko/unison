@@ -12,7 +12,7 @@
 
     @endif
     
-    <title>Document</title>
+    <title>Unison</title>
     <link rel="stylesheet" href="{{ asset('css/front.css') }}">
 </head>
 

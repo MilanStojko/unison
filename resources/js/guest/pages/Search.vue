@@ -163,7 +163,7 @@
                                 </div>
                                 <div class="categories mw-50 col-lg-6 col-sm-6 col-xs-6">
                                     <div>
-                                        <h5>Strumenti:</h5>
+                                        <h5>Generi:</h5>
                                         <ul>
                                             <li v-for="(category, index) in musician.categories" :key="index"><strong>{{category.name}}</strong></li>
                                         </ul>
@@ -226,7 +226,7 @@
                                 </div>
                                 <div class="categories mw-50 col-lg-6 col-sm-6 col-xs-6">
                                     <div>
-                                        <h5>Strumenti:</h5>
+                                        <h5>Generi:</h5>
                                         <ul>
                                             <li v-for="(category, index) in musician.categories" :key="index"><strong>{{category.name}}</strong></li>
                                         </ul>
