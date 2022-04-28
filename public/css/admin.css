@@ -11443,7 +11443,6 @@ li {
   border-radius: 25px;
   overflow: hidden;
   transition: 0.4s;
-  transform: scale(1.05);
   cursor: pointer;
 }
 

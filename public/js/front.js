@@ -2247,34 +2247,23 @@ __webpack_require__.r(__webpack_exports__);
   name: "Categories",
   data: function data() {
     return {
-      events: [{
-        name: "Addio al nubilato / celibato"
-      }, {
-        name: "Cerimonia / Celebrazione"
-      }, {
-        name: "Festa Bambini"
-      }, {
-        name: "Funerale"
-      }, {
-        name: "Locale / Club / Bar"
-      }, {
-        name: "Chiesa / Comunione"
-      }, {
-        name: "Ristorante"
-      }, {
-        name: "Aperitivo / Banchetto"
-      }, {
-        name: "Compleanno / Anniversario"
-      }, {
-        name: "Matrimonio"
-      }, {
-        name: "Capodanno"
-      }, {
-        name: "Natale"
-      }, {
-        name: "Festa Privata"
-      }]
+      events: []
     };
+  },
+  methods: {
+    getCategories: function getCategories() {
+      var _this = this;
+
+      axios.get("/api/availability/index").then(function (response) {
+        _this.events = response.data;
+        console.log(_this.events);
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  },
+  created: function created() {
+    this.getCategories();
   }
 });
 
@@ -2413,37 +2402,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Categories",
   data: function data() {
     return {
-      instruments: [{
-        name: "Cantante"
-      }, {
-        name: "Chitarrista"
-      }, {
-        name: "Sassofonista"
-      }, {
-        name: "Bassista"
-      }, {
-        name: "Batterista"
-      }, {
-        name: "Pianista"
-      }, {
-        name: "Trombettista"
-      }, {
-        name: "Violinista"
-      }, {
-        name: "DJ"
-      }, {
-        name: "Clavicembalista"
-      }, {
-        name: "Organista"
-      }]
+      genres: []
     };
+  },
+  methods: {
+    getGenres: function getGenres() {
+      var _this = this;
+
+      axios.get("/api/category/index").then(function (response) {
+        _this.genres = response.data;
+        console.log(_this.genres);
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  },
+  created: function created() {
+    this.getGenres();
   }
 });
 
@@ -2680,7 +2659,7 @@ __webpack_require__.r(__webpack_exports__);
         var found = true;
         console.log(element);
         element.sponsorships.forEach(function (plan) {
-          if (Date.parse(plan.pivot.expiration) >= Date.parse(today)) {
+          if (Date.parse(plan.pivot.expiration) >= Date.parse(today) && found) {
             found = false;
             musicianSponsorized.push(element);
           } else {
@@ -3389,7 +3368,9 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get("/api/users").then(function (apirisp) {
-        _this.startMusicians = apirisp.data; //this.getSponsorizedNew();
+        _this.startMusicians = apirisp.data;
+
+        _this.getSponsorizedNew();
       });
     },
     //Tutte le prestazioni
@@ -3403,7 +3384,9 @@ __webpack_require__.r(__webpack_exports__);
           _this2.startMusicians = [];
         }
 
-        ; //this.getSponsorized();
+        ;
+
+        _this2.getSponsorized();
 
         console.log(_this2.musicians);
       })["catch"](function (error) {
@@ -3419,7 +3402,9 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         _this3.startMusicians = [];
-        _this3.musicians = response.data; //this.getSponsorized();
+        _this3.musicians = response.data;
+
+        _this3.getSponsorized();
       })["catch"](function (error) {
         console.log(error.response.data);
       });
@@ -3480,10 +3465,9 @@ __webpack_require__.r(__webpack_exports__);
       var today = new Date();
       this.startMusicians.forEach(function (element) {
         var sponsors = element.sponsorships.length;
-        console.log(element.sponsorships);
         var found = true;
         element.sponsorships.forEach(function (plan) {
-          if (Date.parse(plan.pivot.expiration) >= Date.parse(today)) {
+          if (Date.parse(plan.pivot.expiration) >= Date.parse(today) && found) {
             found = false;
             musicianSponsorized.push(element);
           } else {
@@ -3495,6 +3479,7 @@ __webpack_require__.r(__webpack_exports__);
           musicianNotSponsorized.push(element);
         }
       });
+      console.log(musicianSponsorized);
       this.startMusicians = musicianSponsorized.concat(musicianNotSponsorized);
     },
     getSponsorized: function getSponsorized() {
@@ -3505,7 +3490,7 @@ __webpack_require__.r(__webpack_exports__);
         var sponsors = element.sponsorships.length;
         var found = true;
         element.sponsorships.forEach(function (plan) {
-          if (Date.parse(plan.pivot.expiration) >= Date.parse(today)) {
+          if (Date.parse(plan.pivot.expiration) >= Date.parse(today) && found) {
             found = false;
             musicianSponsorized.push(element);
           } else {
@@ -8412,7 +8397,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".events[data-v-44af3f59] {\n  padding: 100px 0px;\n  position: relative;\n}\n.events-heading[data-v-44af3f59] {\n  margin-bottom: 50px;\n}\n.events-heading h2[data-v-44af3f59] {\n  font-size: 50px;\n  text-align: center;\n  font-weight: bold;\n  letter-spacing: 3px;\n}\n.events-image[data-v-44af3f59] {\n  z-index: 100;\n}\n.events-image img[data-v-44af3f59] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.events-list[data-v-44af3f59] {\n  background: rgba(255, 255, 255, 0.27);\n  border-radius: 16px;\n  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);\n  backdrop-filter: blur(6.2px);\n  -webkit-backdrop-filter: blur(6.2px);\n  border: 1px solid rgba(255, 255, 255, 0.26);\n  z-index: 100;\n}\n.events-list ul[data-v-44af3f59] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n}\n.events-list li[data-v-44af3f59] {\n  list-style: none;\n  margin: 20px 10px;\n  width: 45%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n@media screen and (max-width: 1200px) {\n.events-list li[data-v-44af3f59] {\n    margin: 20px 5px;\n}\n}\n@media screen and (max-width: 600px) {\n.events-list li[data-v-44af3f59] {\n    width: 80%;\n    margin: 20px auto;\n}\n}\n.events-list a[data-v-44af3f59] {\n  color: #bd5db7;\n  width: 100%;\n  padding: 10px 20px;\n  border: 2px solid #bd5db7;\n  border-radius: 20px;\n  transition: 0.3s;\n}\n.events-list a[data-v-44af3f59]:hover {\n  text-decoration: none;\n  color: #fff;\n  background-color: #bd5db7;\n}\n.wave[data-v-44af3f59] {\n  width: 100%;\n  position: absolute;\n  top: 50%;\n  left: 0;\n  overflow: hidden;\n}\n@media screen and (max-width: 991px) {\n.wave[data-v-44af3f59] {\n    top: 80%;\n}\n}\n.wave img[data-v-44af3f59] {\n  width: 100%;\n  height: 100%;\n}\n@media screen and (max-width: 2000px) {\n.wave img[data-v-44af3f59] {\n    width: 2000px;\n}\n}", ""]);
+exports.push([module.i, ".events[data-v-44af3f59] {\n  padding: 100px 0px;\n  position: relative;\n}\n.events-heading[data-v-44af3f59] {\n  margin-bottom: 50px;\n}\n.events-heading h2[data-v-44af3f59] {\n  font-size: 50px;\n  text-align: center;\n  font-weight: bold;\n  letter-spacing: 3px;\n}\n.events-image[data-v-44af3f59] {\n  z-index: 100;\n}\n.events-image img[data-v-44af3f59] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.events-list[data-v-44af3f59] {\n  background: rgba(255, 255, 255, 0.27);\n  border-radius: 16px;\n  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);\n  backdrop-filter: blur(6.2px);\n  -webkit-backdrop-filter: blur(6.2px);\n  border: 1px solid rgba(255, 255, 255, 0.26);\n  z-index: 100;\n}\n.events-list ul[data-v-44af3f59] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n}\n.events-list li[data-v-44af3f59] {\n  list-style: none;\n  width: 32%;\n  height: 55px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  color: #fff;\n  background-color: #bd5db7;\n  padding: 10px 20px;\n  border-radius: 20px;\n  margin: 10px 0px;\n}\n@media screen and (max-width: 600px) {\n.events-list li[data-v-44af3f59] {\n    width: 80%;\n    margin: 20px auto;\n}\n}\n.wave[data-v-44af3f59] {\n  width: 100%;\n  position: absolute;\n  top: 50%;\n  left: 0;\n  overflow: hidden;\n}\n@media screen and (max-width: 991px) {\n.wave[data-v-44af3f59] {\n    top: 80%;\n}\n}\n.wave img[data-v-44af3f59] {\n  width: 100%;\n  height: 100%;\n}\n@media screen and (max-width: 2000px) {\n.wave img[data-v-44af3f59] {\n    width: 2000px;\n}\n}", ""]);
 
 // exports
 
@@ -8431,7 +8416,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".instruments[data-v-349fd402] {\n  padding: 100px 0px;\n  position: relative;\n  background-color: #f9e1f6;\n}\n@media screen and (min-width: 2000px) {\n.instruments[data-v-349fd402] {\n    margin-top: 80px;\n}\n}\n.instruments-heading[data-v-349fd402] {\n  margin-bottom: 50px;\n}\n.instruments-heading h2[data-v-349fd402] {\n  font-size: 50px;\n  text-align: center;\n  font-weight: bold;\n  letter-spacing: 3px;\n}\n.instruments-image[data-v-349fd402] {\n  z-index: 100;\n}\n.instruments-image img[data-v-349fd402] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.instruments-list[data-v-349fd402] {\n  background: rgba(255, 255, 255, 0.27);\n  border-radius: 16px;\n  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);\n  backdrop-filter: blur(6.2px);\n  -webkit-backdrop-filter: blur(6.2px);\n  border: 1px solid rgba(255, 255, 255, 0.26);\n  z-index: 100;\n}\n.instruments-list ul[data-v-349fd402] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n}\n.instruments-list li[data-v-349fd402] {\n  list-style: none;\n  margin: 20px 10px;\n  width: 45%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n@media screen and (max-width: 1200px) {\n.instruments-list li[data-v-349fd402] {\n    margin: 20px 5px;\n}\n}\n@media screen and (max-width: 600px) {\n.instruments-list li[data-v-349fd402] {\n    width: 80%;\n    margin: 20px auto;\n}\n}\n.instruments-list a[data-v-349fd402] {\n  color: #527a5a;\n  width: 100%;\n  padding: 10px 20px;\n  border: 2px solid #527a5a;\n  border-radius: 20px;\n  transition: 0.3s;\n}\n.instruments-list a[data-v-349fd402]:hover {\n  text-decoration: none;\n  color: #fff;\n  background-color: #527a5a;\n}\n.wave[data-v-349fd402] {\n  width: 100%;\n  position: absolute;\n  top: 50%;\n  left: 0;\n  overflow: hidden;\n}\n@media screen and (max-width: 991px) {\n.wave[data-v-349fd402] {\n    top: 80%;\n}\n}\n.wave img[data-v-349fd402] {\n  width: 100%;\n  height: 100%;\n}\n@media screen and (max-width: 2000px) {\n.wave img[data-v-349fd402] {\n    width: 2000px;\n}\n}", ""]);
+exports.push([module.i, ".instruments[data-v-349fd402] {\n  padding: 100px 0px;\n  position: relative;\n  background-color: #f9e1f6;\n}\n@media screen and (min-width: 2000px) {\n.instruments[data-v-349fd402] {\n    margin-top: 80px;\n}\n}\n.instruments-heading[data-v-349fd402] {\n  margin-bottom: 50px;\n}\n.instruments-heading h2[data-v-349fd402] {\n  font-size: 50px;\n  text-align: center;\n  font-weight: bold;\n  letter-spacing: 3px;\n}\n.instruments-image[data-v-349fd402] {\n  z-index: 100;\n}\n.instruments-image img[data-v-349fd402] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.instruments-list[data-v-349fd402] {\n  background: rgba(255, 255, 255, 0.27);\n  border-radius: 16px;\n  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);\n  backdrop-filter: blur(6.2px);\n  -webkit-backdrop-filter: blur(6.2px);\n  border: 1px solid rgba(255, 255, 255, 0.26);\n  z-index: 100;\n}\n.instruments-list ul[data-v-349fd402] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n}\n.instruments-list li[data-v-349fd402] {\n  list-style: none;\n  width: 32%;\n  height: 55px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  color: #fff;\n  background-color: #527a5a;\n  padding: 10px 20px;\n  border-radius: 20px;\n  margin: 10px 0px;\n}\n@media screen and (max-width: 600px) {\n.instruments-list li[data-v-349fd402] {\n    width: 80%;\n    margin: 20px auto;\n}\n}\n.wave[data-v-349fd402] {\n  width: 100%;\n  position: absolute;\n  top: 50%;\n  left: 0;\n  overflow: hidden;\n}\n@media screen and (max-width: 991px) {\n.wave[data-v-349fd402] {\n    top: 80%;\n}\n}\n.wave img[data-v-349fd402] {\n  width: 100%;\n  height: 100%;\n}\n@media screen and (max-width: 2000px) {\n.wave img[data-v-349fd402] {\n    width: 2000px;\n}\n}", ""]);
 
 // exports
 
@@ -8606,7 +8591,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.slide-fade-enter-active[data-v-083b147e] {\n    transition: opacity 1.5s ease-out;\n}\n.slide-fade-leave-active[data-v-083b147e] {\n    transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);\n}\n.slide-fade-enter-from[data-v-083b147e],\n.slide-fade-leave-to[data-v-083b147e] {\n    transform: translateX(20px);\n    opacity: 0;\n}\n.fa-bars[data-v-083b147e], .fa-xmark[data-v-083b147e]{\n    font-size: 30px;\n}\n.fa-bars[data-v-083b147e]:hover, .fa-xmark[data-v-083b147e]:hover{\n    cursor: pointer;\n}\n.my_ul .my_li a[data-v-083b147e] {\n    text-decoration: none;\n    color: white;\n}\n.my_ul .my_li a p[data-v-083b147e] {\n    transition: 1s;\n}\n.my_ul .my_li a p[data-v-083b147e]:hover {\n    color: white;\n    transform: scale(1.3);\n}\n*[data-v-083b147e] {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n.logo[data-v-083b147e] {\n    font-size: 30px;\n    height: 50px;\n    border-radius: 25%;\n    overflow: hidden;\n}\n.logo a[data-v-083b147e]{\n  color: white;\n}\n.logo:hover a[data-v-083b147e]{\n  text-decoration: none;\n}\nnav[data-v-083b147e] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    background-color: rgb(42, 41, 41);\n    background-image: url(" + escape(__webpack_require__(/*! ../../../images/waveHeader.svg */ "./resources/images/waveHeader.svg")) + ");\n    background-repeat: no-repeat;\n    background-position: center;\n    background-size: cover;\n    height: 50px;\n    padding: 0px 20px;\n    color: white;\n    position: relative;\n}\n.logo img[data-v-083b147e]{\n    height: 41px;\n}\n.my_ul[data-v-083b147e] {\n    margin: 0;\n    padding: 0;\n    display: flex;\n    align-items: center;\n}\n.my_ul li[data-v-083b147e] {\n    float: left;\n    padding: 0px 15px;\n    list-style: none;\n}\n.my_a[data-v-083b147e] {\n    text-decoration: none;\n    color: white;\n}\n.my_ul .my_a p[data-v-083b147e] {\n    transition: 1s;\n}\n.my_ul .my_a p[data-v-083b147e]:hover {\n    color: white;\n    transform: scale(1.3);\n}\n.my_ul .my_a:hover .my_button[data-v-083b147e] {\n    color: white;\n    transform: scale(1.1);\n}\n.navbar-toggler-icon[data-v-083b147e],\n.navbar-toggler[data-v-083b147e],\n.nav-item p[data-v-083b147e] {\n    color: white;\n}\n.my_button[data-v-083b147e] {\n    padding: 5px 15px;\n    border: 0;\n    color: white;\n    background: #527a5a;\n    border-radius: 15px;\n}\n.my_ul-icon[data-v-083b147e] {\n    display: none;\n    margin: 0;\n    padding: 0;\n}\n.my_ul-icon li[data-v-083b147e] {\n    list-style: none;\n}\n.listmenu[data-v-083b147e] {\n    position: absolute;\n    right: 0;\n    z-index: 999;\n    padding: 20px;\n    width: 100%;\n    height: calc(100vh - 50px);\n    text-align: center;\n    background: rgb(255, 255, 255, 0.9);\n    display: flex;\n    flex-direction: column;\n}\n.listmenu li[data-v-083b147e] {\n    line-height: 100px;\n    font-weight: bold;\n    font-size: 40px;\n    list-style: none;\n}\n.listmenu a[data-v-083b147e]{\n    color: black;\n}\n.listmenu:hover a[data-v-083b147e]{\n    color: black;\n    text-decoration: none;\n}\n.listmenu .buttonlogin[data-v-083b147e] {\n    margin-top: 50px;\n}\n.my_a_mobile[data-v-083b147e] {\n    text-decoration: none;\n    color: black;\n}\n@media only screen and (max-width: 700px) {\n.my_ul-icon[data-v-083b147e] {\n        display: block;\n}\n.my_ul[data-v-083b147e] {\n        display: none;\n}\n}\n@media only screen and (min-width: 700px) {\n.listmenu[data-v-083b147e]{\n      display: none;\n}\n}\n", ""]);
+exports.push([module.i, "\n.slide-fade-enter-active[data-v-083b147e] {\r\n    transition: opacity 1.5s ease-out;\n}\n.slide-fade-leave-active[data-v-083b147e] {\r\n    transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);\n}\n.slide-fade-enter-from[data-v-083b147e],\r\n.slide-fade-leave-to[data-v-083b147e] {\r\n    transform: translateX(20px);\r\n    opacity: 0;\n}\n.fa-bars[data-v-083b147e], .fa-xmark[data-v-083b147e]{\r\n    font-size: 30px;\n}\n.fa-bars[data-v-083b147e]:hover, .fa-xmark[data-v-083b147e]:hover{\r\n    cursor: pointer;\n}\n.my_ul .my_li a[data-v-083b147e] {\r\n    text-decoration: none;\r\n    color: white;\n}\n.my_ul .my_li a p[data-v-083b147e] {\r\n    transition: 1s;\n}\n.my_ul .my_li a p[data-v-083b147e]:hover {\r\n    color: white;\r\n    transform: scale(1.3);\n}\n*[data-v-083b147e] {\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\n}\n.logo[data-v-083b147e] {\r\n    font-size: 30px;\r\n    height: 50px;\r\n    border-radius: 25%;\r\n    overflow: hidden;\n}\n.logo a[data-v-083b147e]{\r\n  color: white;\n}\n.logo:hover a[data-v-083b147e]{\r\n  text-decoration: none;\n}\nnav[data-v-083b147e] {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    background-color: rgb(42, 41, 41);\r\n    background-image: url(" + escape(__webpack_require__(/*! ../../../images/waveHeader.svg */ "./resources/images/waveHeader.svg")) + ");\r\n    background-repeat: no-repeat;\r\n    background-position: center;\r\n    background-size: cover;\r\n    height: 50px;\r\n    padding: 0px 20px;\r\n    color: white;\r\n    position: relative;\n}\n.logo img[data-v-083b147e]{\r\n    height: 41px;\n}\n.my_ul[data-v-083b147e] {\r\n    margin: 0;\r\n    padding: 0;\r\n    display: flex;\r\n    align-items: center;\n}\n.my_ul li[data-v-083b147e] {\r\n    float: left;\r\n    padding: 0px 15px;\r\n    list-style: none;\n}\n.my_a[data-v-083b147e] {\r\n    text-decoration: none;\r\n    color: white;\n}\n.my_ul .my_a p[data-v-083b147e] {\r\n    transition: 1s;\n}\n.my_ul .my_a p[data-v-083b147e]:hover {\r\n    color: white;\r\n    transform: scale(1.3);\n}\n.my_ul .my_a:hover .my_button[data-v-083b147e] {\r\n    color: white;\r\n    transform: scale(1.1);\n}\n.navbar-toggler-icon[data-v-083b147e],\r\n.navbar-toggler[data-v-083b147e],\r\n.nav-item p[data-v-083b147e] {\r\n    color: white;\n}\n.my_button[data-v-083b147e] {\r\n    padding: 5px 15px;\r\n    border: 0;\r\n    color: white;\r\n    background: #527a5a;\r\n    border-radius: 15px;\n}\n.my_ul-icon[data-v-083b147e] {\r\n    display: none;\r\n    margin: 0;\r\n    padding: 0;\n}\n.my_ul-icon li[data-v-083b147e] {\r\n    list-style: none;\n}\n.listmenu[data-v-083b147e] {\r\n    position: absolute;\r\n    right: 0;\r\n    z-index: 999;\r\n    padding: 20px;\r\n    width: 100%;\r\n    height: calc(100vh - 50px);\r\n    text-align: center;\r\n    background: rgb(255, 255, 255, 0.9);\r\n    display: flex;\r\n    flex-direction: column;\n}\n.listmenu li[data-v-083b147e] {\r\n    line-height: 100px;\r\n    font-weight: bold;\r\n    font-size: 40px;\r\n    list-style: none;\n}\n.listmenu a[data-v-083b147e]{\r\n    color: black;\n}\n.listmenu:hover a[data-v-083b147e]{\r\n    color: black;\r\n    text-decoration: none;\n}\n.listmenu .buttonlogin[data-v-083b147e] {\r\n    margin-top: 50px;\n}\n.my_a_mobile[data-v-083b147e] {\r\n    text-decoration: none;\r\n    color: black;\n}\n@media only screen and (max-width: 700px) {\n.my_ul-icon[data-v-083b147e] {\r\n        display: block;\n}\n.my_ul[data-v-083b147e] {\r\n        display: none;\n}\n}\n@media only screen and (min-width: 700px) {\n.listmenu[data-v-083b147e]{\r\n      display: none;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -8645,7 +8630,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* .container{\n    max-width: 95%;\n} */\n.background[data-v-ce0a16dc] {\n  /* background-image: url(\"../../../images/pexels-picjumbocom-196652.jpg\");\n        background-repeat: no-repeat;\n        background-position: center;\n        background-size: cover; */\n  /* background: #E8EBF8; */\n  /* background: #595766ad; */\n  padding: 15px 0;\n  background: #fff;\n}\n.background[data-v-ce0a16dc]::-webkit-scrollbar {\n  display: none;\n}\n.background[data-v-ce0a16dc] {\n  -ms-overflow-style: none; /* IE and Edge */\n  scrollbar-width: none; /* Firefox */\n}\nh1[data-v-ce0a16dc],\n.info h3[data-v-ce0a16dc] {\n  text-align: center;\n}\n.info h3[data-v-ce0a16dc]{\n    width: 250px;\n    max-height: 50px;\n    overflow: hidden;\n}\n.info h3[data-v-ce0a16dc],\n.request[data-v-ce0a16dc] {\n  color: white;\n  text-transform: capitalize;\n}\nh1[data-v-ce0a16dc] {\n  font-size: 55px;\n}\n.fa-star[data-v-ce0a16dc]{\n    font-size: 35px;\n    color: yellow;\n    position: absolute;\n    right: 10px;\n}\n.my_card[data-v-ce0a16dc]{\n        position: relative;\n        margin: 50px 10px;\n        height: 450px;\n        padding: 10px;\n        /* background: rgba(210, 206, 206, 0.861); */\n        /* background: #ededed; */\n        /* background-image: url('https://i.stack.imgur.com/MkSui.jpg'); */\n        background-image: url(" + escape(__webpack_require__(/*! ../../../../images/card.jpeg */ "./resources/images/card.jpeg")) + ");\n        background-repeat: no-repeat;\n        background-position: center;\n        background-size: cover;\n        border-radius: 10px;\n        /* border: 1px solid black; */\n        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);\n        transition: 0.5s;\n}\n.my_card[data-v-ce0a16dc]:hover{\n        cursor: pointer;\n        transform: scale(1.03);\n        background-image: url(" + escape(__webpack_require__(/*! ../../../../images/rotate.jpeg */ "./resources/images/rotate.jpeg")) + ");\n        background-position: bottom;\n}\n.my_card:hover a[data-v-ce0a16dc] {\n  text-decoration: none;\n}\n.my_card:hover .fa-star[data-v-ce0a16dc] {\n    color: #527A5A;\n}\n.my_card:hover h3[data-v-ce0a16dc]{\n        color: black;\n}\n.my_card:hover .references *[data-v-ce0a16dc]{\n        color: white;\n}\n.my_card:hover span[data-v-ce0a16dc]{\n        color: white !important;\n}\n.my_card:hover .request[data-v-ce0a16dc]{\n        background: rgba(28, 28, 28, 0.9);\n}\n.request[data-v-ce0a16dc]{\n        display: flex;\n        padding: 5px;\n        border-radius: 10px;\n        background: rgba(28, 28, 28, 0.8);\n        height: 150px;\n}\n.request ul[data-v-ce0a16dc] {\n  height: 70px;\n  overflow: scroll;\n}\n.request ul[data-v-ce0a16dc]::-webkit-scrollbar {\n  display: none;\n}\n.request ul[data-v-ce0a16dc] {\n  -ms-overflow-style: none; /* IE and Edge */\n  scrollbar-width: none; /* Firefox */\n}\n.categories li[data-v-ce0a16dc],\n.events li[data-v-ce0a16dc],\n.references li[data-v-ce0a16dc] {\n  list-style: none;\n  /* margin-left: 5px; */\n  font-size: 15px;\n}\n\n/* .w30{\n    width: 30% !important;\n} */\n.references ul[data-v-ce0a16dc] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.references li[data-v-ce0a16dc] {\n  display: inline;\n  font-size: 15px;\n}\n.references[data-v-ce0a16dc] {\n  padding: 0 50px;\n  /* margin-top: 20px; */\n}\n.categories li[data-v-ce0a16dc] {\n  color: rgba(91, 121, 93);\n}\n.events li[data-v-ce0a16dc] {\n  color: rgba(175, 108, 195);\n}\n.categories div[data-v-ce0a16dc],\n.events div[data-v-ce0a16dc] {\n  border-radius: 15px;\n  padding: 15px;\n}\n.top[data-v-ce0a16dc] {\n  display: flex;\n  flex-wrap: wrap;\n  padding-bottom: 15px;\n}\n\n/* .container{\n        -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\n        border-radius: 10px;\n        padding: 20px;\n        margin-bottom: 40px;\n    }\n    */\n.info[data-v-ce0a16dc] {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n.info img[data-v-ce0a16dc] {\n  height: 120px;\n  width: 120px;\n  border-radius: 50%;\n}\n.references img[data-v-ce0a16dc] {\n  width: 25px;\n  height: auto;\n  color: #527a5a;\n}\n.references li[data-v-ce0a16dc] {\n  color: black;\n  text-transform: capitalize;\n}\n.references #reviews[data-v-ce0a16dc] {\n  display: flex;\n}\n.categories[data-v-ce0a16dc],\n  .events[data-v-ce0a16dc] {\n    padding: 0;\n}\n.categories div[data-v-ce0a16dc],\n  .events div[data-v-ce0a16dc] {\n    /* max-width: 80%; */\n}\n.references[data-v-ce0a16dc] {\n    padding: 0 30px;\n}\n.references p[data-v-ce0a16dc] {\n    display: none;\n}\n.references #reviews[data-v-ce0a16dc] {\n    margin-top: 10px;\n}\n.references ul[data-v-ce0a16dc] {\n    display: flex;\n    flex-direction: column;\n}\n@media only screen and (max-width: 1000px) {\n.container-xl[data-v-ce0a16dc]{\n          justify-content: center !important;\n          flex-wrap: wrap;\n}\n.my_card[data-v-ce0a16dc]{\n          margin-right: 10px;\n}\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n\r\n/* .container{\r\n    max-width: 95%;\r\n} */\n.background[data-v-ce0a16dc] {\r\n  /* background-image: url(\"../../../images/pexels-picjumbocom-196652.jpg\");\r\n        background-repeat: no-repeat;\r\n        background-position: center;\r\n        background-size: cover; */\r\n  /* background: #E8EBF8; */\r\n  /* background: #595766ad; */\r\n  padding: 15px 0;\r\n  background: #fff;\n}\n.background[data-v-ce0a16dc]::-webkit-scrollbar {\r\n  display: none;\n}\n.background[data-v-ce0a16dc] {\r\n  -ms-overflow-style: none; /* IE and Edge */\r\n  scrollbar-width: none; /* Firefox */\n}\nh1[data-v-ce0a16dc],\r\n.info h3[data-v-ce0a16dc] {\r\n  text-align: center;\n}\n.info h3[data-v-ce0a16dc]{\r\n    width: 250px;\r\n    max-height: 50px;\r\n    overflow: hidden;\n}\n.info h3[data-v-ce0a16dc],\r\n.request[data-v-ce0a16dc] {\r\n  color: white;\r\n  text-transform: capitalize;\n}\nh1[data-v-ce0a16dc] {\r\n  font-size: 55px;\n}\n.fa-star[data-v-ce0a16dc]{\r\n    font-size: 35px;\r\n    color: yellow;\r\n    position: absolute;\r\n    right: 10px;\n}\n.my_card[data-v-ce0a16dc]{\r\n        position: relative;\r\n        margin: 50px 10px 50px 0px;\r\n        height: 450px;\r\n        padding: 10px;\r\n        /* background: rgba(210, 206, 206, 0.861); */\r\n        /* background: #ededed; */\r\n        /* background-image: url('https://i.stack.imgur.com/MkSui.jpg'); */\r\n        background-image: url(" + escape(__webpack_require__(/*! ../../../../images/card.jpeg */ "./resources/images/card.jpeg")) + ");\r\n        background-repeat: no-repeat;\r\n        background-position: center;\r\n        background-size: cover;\r\n        border-radius: 10px;\r\n        /* border: 1px solid black; */\r\n        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);\r\n        transition: 0.5s;\n}\n.my_card[data-v-ce0a16dc]:hover{\r\n        cursor: pointer;\r\n        transform: scale(1.03);\r\n        background-image: url(" + escape(__webpack_require__(/*! ../../../../images/rotate.jpeg */ "./resources/images/rotate.jpeg")) + ");\r\n        background-position: bottom;\n}\n.my_card:hover a[data-v-ce0a16dc] {\r\n  text-decoration: none;\n}\n.my_card:hover .fa-star[data-v-ce0a16dc] {\r\n    color: #527A5A;\n}\n.my_card:hover h3[data-v-ce0a16dc]{\r\n        color: black;\n}\n.my_card:hover .references *[data-v-ce0a16dc]{\r\n        color: white;\n}\n.my_card:hover span[data-v-ce0a16dc]{\r\n        color: white !important;\n}\n.my_card:hover .request[data-v-ce0a16dc]{\r\n        background: rgba(28, 28, 28, 0.9);\n}\n.request[data-v-ce0a16dc]{\r\n        display: flex;\r\n        padding: 5px;\r\n        border-radius: 10px;\r\n        background: rgba(28, 28, 28, 0.8);\r\n        height: 150px;\n}\n.request ul[data-v-ce0a16dc] {\r\n  height: 70px;\r\n  overflow: scroll;\n}\n.request ul[data-v-ce0a16dc]::-webkit-scrollbar {\r\n  display: none;\n}\n.request ul[data-v-ce0a16dc] {\r\n  -ms-overflow-style: none; /* IE and Edge */\r\n  scrollbar-width: none; /* Firefox */\n}\n.categories li[data-v-ce0a16dc],\r\n.events li[data-v-ce0a16dc],\r\n.references li[data-v-ce0a16dc] {\r\n  list-style: none;\r\n  /* margin-left: 5px; */\r\n  font-size: 15px;\n}\r\n\r\n/* .w30{\r\n    width: 30% !important;\r\n} */\n.references ul[data-v-ce0a16dc] {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\n}\n.references li[data-v-ce0a16dc] {\r\n  display: inline;\r\n  font-size: 15px;\n}\n.references[data-v-ce0a16dc] {\r\n  padding: 0 50px;\r\n  /* margin-top: 20px; */\n}\n.categories li[data-v-ce0a16dc] {\r\n  color: rgba(91, 121, 93);\n}\n.events li[data-v-ce0a16dc] {\r\n  color: rgba(175, 108, 195);\n}\n.categories div[data-v-ce0a16dc],\r\n.events div[data-v-ce0a16dc] {\r\n  border-radius: 15px;\r\n  padding: 15px;\n}\n.top[data-v-ce0a16dc] {\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  padding-bottom: 15px;\n}\r\n\r\n/* .container{\r\n        -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\r\n        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\r\n        border-radius: 10px;\r\n        padding: 20px;\r\n        margin-bottom: 40px;\r\n    }\r\n    */\n.info[data-v-ce0a16dc] {\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  align-items: center;\n}\n.info img[data-v-ce0a16dc] {\r\n  height: 120px;\r\n  width: 120px;\r\n  border-radius: 50%;\n}\n.references img[data-v-ce0a16dc] {\r\n  width: 25px;\r\n  height: auto;\r\n  color: #527a5a;\n}\n.references li[data-v-ce0a16dc] {\r\n  color: black;\r\n  text-transform: capitalize;\n}\n.references #reviews[data-v-ce0a16dc] {\r\n  display: flex;\n}\n.categories[data-v-ce0a16dc],\r\n  .events[data-v-ce0a16dc] {\r\n    padding: 0;\n}\n.categories div[data-v-ce0a16dc],\r\n  .events div[data-v-ce0a16dc] {\r\n    /* max-width: 80%; */\n}\n.references[data-v-ce0a16dc] {\r\n    padding: 0 30px;\n}\n.references p[data-v-ce0a16dc] {\r\n    display: none;\n}\n.references #reviews[data-v-ce0a16dc] {\r\n    margin-top: 10px;\n}\n.references ul[data-v-ce0a16dc] {\r\n    display: flex;\r\n    flex-direction: column;\n}\n@media only screen and (max-width: 1000px) {\n.container-xl[data-v-ce0a16dc]{\r\n          justify-content: center !important;\r\n          flex-wrap: wrap;\n}\n.my_card[data-v-ce0a16dc]{\r\n          margin-right: 10px;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -41463,12 +41448,16 @@ var render = function () {
       _c("div", { staticClass: "row" }, [
         _vm._m(1),
         _vm._v(" "),
-        _c("div", { staticClass: "col-lg-6 col-md-12 events-list" }, [
+        _c("div", { staticClass: "col-lg-7 col-md-12 events-list" }, [
           _c(
             "ul",
             _vm._l(_vm.events, function (event, index) {
               return _c("li", { key: index }, [
-                _c("a", { attrs: { href: "#" } }, [_vm._v(_vm._s(event.name))]),
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(event.name) +
+                    "\n                    "
+                ),
               ])
             }),
             0
@@ -41497,7 +41486,7 @@ var staticRenderFns = [
       "div",
       {
         staticClass:
-          "col-lg-6 col-md-12 events-image d-flex justify-content-center align-items-center",
+          "col-lg-5 col-md-12 events-image d-flex justify-content-center align-items-center",
       },
       [
         _c("img", {
@@ -41619,14 +41608,16 @@ var render = function () {
     _vm._v(" "),
     _c("div", { staticClass: "container-xl" }, [
       _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-lg-6 col-md-12 instruments-list" }, [
+        _c("div", { staticClass: "col-lg-7 col-md-12 instruments-list" }, [
           _c(
             "ul",
-            _vm._l(_vm.instruments, function (instrument, index) {
+            _vm._l(_vm.genres, function (genre, index) {
               return _c("li", { key: index }, [
-                _c("a", { attrs: { href: "#" } }, [
-                  _vm._v(_vm._s(instrument.name)),
-                ]),
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(genre.name) +
+                    "\n                    "
+                ),
               ])
             }),
             0
@@ -41644,7 +41635,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "instruments-heading" }, [
-      _c("h2", [_vm._v("Strumenti")]),
+      _c("h2", [_vm._v("Generi")]),
     ])
   },
   function () {
@@ -41655,7 +41646,7 @@ var staticRenderFns = [
       "div",
       {
         staticClass:
-          "col-lg-6 col-md-12 instruments-image d-flex justify-content-center align-items-center",
+          "col-lg-5 col-md-12 instruments-image d-flex justify-content-center align-items-center",
       },
       [
         _c("img", {
@@ -59376,7 +59367,7 @@ module.exports = "/images/card.jpeg?eaab38197510af157ae630342c7b37a0";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/github.svg?544edda74777448803c2d7fc364f5335";
+module.exports = "/images/github.svg?51a0c2d527d3a198d10766ad05ca472b";
 
 /***/ }),
 
@@ -59464,7 +59455,7 @@ module.exports = "/images/jumbo-6.jpg?f74a0b86e1e713f36c3e961f3462cdf1";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/linkedin.svg?34c3c12aa78fb79f214fcd87e00017d9";
+module.exports = "/images/linkedin.svg?0847cd97a934382c8c34a040c6ef2891";
 
 /***/ }),
 
@@ -59519,7 +59510,7 @@ module.exports = "/images/service-3.svg?eba2a9055d13786db8f54b0f3ba5d556";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/wave.svg?aef79995629b40b24f4277c44b0be010";
+module.exports = "/images/wave.svg?3d8bc604125d77811c1a4e9267f06eba";
 
 /***/ }),
 
@@ -61009,7 +61000,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/francescoabritta/Documents/unison/resources/js/guest/front.js */"./resources/js/guest/front.js");
+module.exports = __webpack_require__(/*! C:\Users\simon\Desktop\unison\resources\js\guest\front.js */"./resources/js/guest/front.js");
 
 
 /***/ })
