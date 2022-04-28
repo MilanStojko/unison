@@ -60,7 +60,7 @@
             <div class="form-group">
                 <label for="cellphone">Num. Cellulare</label>
                 <input type="tel" name="cellphone"
-                    class="form-control @error('cellphone') is-invalid @enderror" placeholder="">
+                    class="form-control @error('cellphone') is-invalid @enderror" placeholder="" value="{{ old('cellphone', $user->cellphone) }}">
             </div>
             {{-- INDIRIZZO --}}
             <div class="form-group">
