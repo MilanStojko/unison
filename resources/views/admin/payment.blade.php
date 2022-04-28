@@ -18,12 +18,6 @@
                             dei nostri utenti.</p>
                     </div>
                     <label for="amount">
-                        {{-- <span class="input-label total">Totale</span>
-                    <div class="input-wrapper amount-wrapper">
-                        <input id="amount" name="amount" type="tel" min="1"
-                            placeholder="Inserisci l'importo della sponsorship"
-                            class="@error('amount') is-invalid @enderror">
-                    </div> --}}
                         @error('amount')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -52,8 +46,6 @@
                                     <input id='sponsorship_id' value='{{ $sponsorship[1]->id }}' name='sponsorship_id'
                                         type="radio">
                                 </div>
-                                {{-- <button class="btn u_btn_plan"><a
-                                    href="{{ route('admin.payment', auth()->user()) }}">Acquista</a></button> --}}
                             </div>
                             <div
                                 class="col-lg-3 col-12 text-center d-flex justify-content-between flex-column align-items-center py-3 plan-c plan-card">
@@ -65,8 +57,6 @@
                                     <input id='sponsorship_id' value='{{ $sponsorship[2]->id }}' name='sponsorship_id'
                                         type="radio">
                                 </div>
-                                {{-- <button class="btn u_btn_plan"><a
-                                    href="{{ route('admin.payment', auth()->user()) }}">Acquista</a></button> --}}
                             </div>
                         </div>
                     </div>

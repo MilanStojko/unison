@@ -2520,14 +2520,14 @@ __webpack_require__.r(__webpack_exports__);
     },
     //Trasmissione del valore tramite emit bus a Search.vue
     sendSelected: function sendSelected() {
-      this.$router.push({
-        path: "search",
-        query: {
-          name: this.valore
-        }
-      }); // this.$emit('saveValue')
-
-      _front__WEBPACK_IMPORTED_MODULE_1__["bus"].$emit("saveValue", this.prestazione);
+      if (this.valore != '') {
+        this.$router.push({
+          path: "search",
+          query: {
+            name: this.valore
+          }
+        });
+      }
     }
   }
 });
@@ -2543,6 +2543,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2671,7 +2677,7 @@ __webpack_require__.r(__webpack_exports__);
           musicianNotSponsorized.push(element);
         }
       });
-      this.musicians = musicianSponsorized.concat(musicianNotSponsorized);
+      this.musicians = musicianSponsorized;
     },
     checkSponsorized: function checkSponsorized(musician) {
       var _this2 = this;
@@ -8397,7 +8403,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".events[data-v-44af3f59] {\n  padding: 100px 0px;\n  position: relative;\n}\n.events-heading[data-v-44af3f59] {\n  margin-bottom: 50px;\n}\n.events-heading h2[data-v-44af3f59] {\n  font-size: 50px;\n  text-align: center;\n  font-weight: bold;\n  letter-spacing: 3px;\n}\n.events-image[data-v-44af3f59] {\n  z-index: 100;\n}\n.events-image img[data-v-44af3f59] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.events-list[data-v-44af3f59] {\n  background: rgba(255, 255, 255, 0.27);\n  border-radius: 16px;\n  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);\n  backdrop-filter: blur(6.2px);\n  -webkit-backdrop-filter: blur(6.2px);\n  border: 1px solid rgba(255, 255, 255, 0.26);\n  z-index: 100;\n}\n.events-list ul[data-v-44af3f59] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n}\n.events-list li[data-v-44af3f59] {\n  list-style: none;\n  width: 32%;\n  height: 55px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  color: #fff;\n  background-color: #bd5db7;\n  padding: 10px 20px;\n  border-radius: 20px;\n  margin: 10px 0px;\n}\n@media screen and (max-width: 600px) {\n.events-list li[data-v-44af3f59] {\n    width: 80%;\n    margin: 20px auto;\n}\n}\n.wave[data-v-44af3f59] {\n  width: 100%;\n  position: absolute;\n  top: 50%;\n  left: 0;\n  overflow: hidden;\n}\n@media screen and (max-width: 991px) {\n.wave[data-v-44af3f59] {\n    top: 80%;\n}\n}\n.wave img[data-v-44af3f59] {\n  width: 100%;\n  height: 100%;\n}\n@media screen and (max-width: 2000px) {\n.wave img[data-v-44af3f59] {\n    width: 2000px;\n}\n}", ""]);
+exports.push([module.i, ".events[data-v-44af3f59] {\n  padding-bottom: 100px;\n  position: relative;\n}\n.events-heading[data-v-44af3f59] {\n  margin-bottom: 50px;\n}\n.events-heading h2[data-v-44af3f59] {\n  font-size: 50px;\n  text-align: center;\n  font-weight: bold;\n  letter-spacing: 3px;\n}\n.events-image[data-v-44af3f59] {\n  z-index: 100;\n}\n.events-image img[data-v-44af3f59] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.events-list[data-v-44af3f59] {\n  background: rgba(255, 255, 255, 0.27);\n  border-radius: 16px;\n  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);\n  backdrop-filter: blur(6.2px);\n  -webkit-backdrop-filter: blur(6.2px);\n  border: 1px solid rgba(255, 255, 255, 0.26);\n  z-index: 100;\n}\n.events-list ul[data-v-44af3f59] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n}\n.events-list li[data-v-44af3f59] {\n  list-style: none;\n  width: 32%;\n  height: 55px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  color: #fff;\n  background-color: #bd5db7;\n  padding: 10px 20px;\n  border-radius: 20px;\n  margin: 10px 0px;\n}\n@media screen and (max-width: 600px) {\n.events-list li[data-v-44af3f59] {\n    width: 80%;\n    margin: 20px auto;\n}\n}\n.wave[data-v-44af3f59] {\n  width: 100%;\n  position: absolute;\n  top: 50%;\n  left: 0;\n  overflow: hidden;\n}\n@media screen and (max-width: 991px) {\n.wave[data-v-44af3f59] {\n    top: 80%;\n}\n}\n.wave img[data-v-44af3f59] {\n  width: 100%;\n  height: 100%;\n}\n@media screen and (max-width: 2000px) {\n.wave img[data-v-44af3f59] {\n    width: 2000px;\n}\n}", ""]);
 
 // exports
 
@@ -8416,7 +8422,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".instruments[data-v-349fd402] {\n  padding: 100px 0px;\n  position: relative;\n  background-color: #f9e1f6;\n}\n@media screen and (min-width: 2000px) {\n.instruments[data-v-349fd402] {\n    margin-top: 80px;\n}\n}\n.instruments-heading[data-v-349fd402] {\n  margin-bottom: 50px;\n}\n.instruments-heading h2[data-v-349fd402] {\n  font-size: 50px;\n  text-align: center;\n  font-weight: bold;\n  letter-spacing: 3px;\n}\n.instruments-image[data-v-349fd402] {\n  z-index: 100;\n}\n.instruments-image img[data-v-349fd402] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.instruments-list[data-v-349fd402] {\n  background: rgba(255, 255, 255, 0.27);\n  border-radius: 16px;\n  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);\n  backdrop-filter: blur(6.2px);\n  -webkit-backdrop-filter: blur(6.2px);\n  border: 1px solid rgba(255, 255, 255, 0.26);\n  z-index: 100;\n}\n.instruments-list ul[data-v-349fd402] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n}\n.instruments-list li[data-v-349fd402] {\n  list-style: none;\n  width: 32%;\n  height: 55px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  color: #fff;\n  background-color: #527a5a;\n  padding: 10px 20px;\n  border-radius: 20px;\n  margin: 10px 0px;\n}\n@media screen and (max-width: 600px) {\n.instruments-list li[data-v-349fd402] {\n    width: 80%;\n    margin: 20px auto;\n}\n}\n.wave[data-v-349fd402] {\n  width: 100%;\n  position: absolute;\n  top: 50%;\n  left: 0;\n  overflow: hidden;\n}\n@media screen and (max-width: 991px) {\n.wave[data-v-349fd402] {\n    top: 80%;\n}\n}\n.wave img[data-v-349fd402] {\n  width: 100%;\n  height: 100%;\n}\n@media screen and (max-width: 2000px) {\n.wave img[data-v-349fd402] {\n    width: 2000px;\n}\n}", ""]);
+exports.push([module.i, ".instruments[data-v-349fd402] {\n  padding: 100px 0px;\n  position: relative;\n  background-color: #f9e1f6;\n}\n@media screen and (min-width: 2000px) {\n.instruments[data-v-349fd402] {\n    margin-top: 80px;\n}\n}\n.instruments-heading[data-v-349fd402] {\n  margin-bottom: 50px;\n}\n.instruments-heading h2[data-v-349fd402] {\n  font-size: 50px;\n  text-align: center;\n  font-weight: bold;\n  letter-spacing: 3px;\n}\n.instruments-image[data-v-349fd402] {\n  z-index: 100;\n}\n.instruments-image img[data-v-349fd402] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.instruments-list[data-v-349fd402] {\n  background: rgba(255, 255, 255, 0.27);\n  border-radius: 16px;\n  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);\n  backdrop-filter: blur(6.2px);\n  -webkit-backdrop-filter: blur(6.2px);\n  border: 1px solid rgba(255, 255, 255, 0.26);\n  z-index: 100;\n}\n.instruments-list ul[data-v-349fd402] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n}\n.instruments-list li[data-v-349fd402] {\n  list-style: none;\n  width: 32%;\n  height: 55px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  color: #fff;\n  background-color: #527a5a;\n  padding: 10px 20px;\n  border-radius: 20px;\n  margin: 10px 0px;\n}\n@media screen and (max-width: 600px) {\n.instruments-list li[data-v-349fd402] {\n    width: 80%;\n    margin: 20px auto;\n}\n}\n.wave[data-v-349fd402] {\n  width: 100%;\n  position: absolute;\n  top: 50%;\n  left: 0;\n  overflow: hidden;\n}\n@media screen and (max-width: 991px) {\n.wave[data-v-349fd402] {\n    top: 80%;\n}\n}\n@media screen and (max-width: 600px) {\n.wave[data-v-349fd402] {\n    display: none;\n}\n}\n.wave img[data-v-349fd402] {\n  width: 100%;\n  height: 100%;\n}\n@media screen and (max-width: 2000px) {\n.wave img[data-v-349fd402] {\n    width: 2000px;\n}\n}", ""]);
 
 // exports
 
@@ -8630,7 +8636,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n\r\n/* .container{\r\n    max-width: 95%;\r\n} */\n.background[data-v-ce0a16dc] {\r\n  /* background-image: url(\"../../../images/pexels-picjumbocom-196652.jpg\");\r\n        background-repeat: no-repeat;\r\n        background-position: center;\r\n        background-size: cover; */\r\n  /* background: #E8EBF8; */\r\n  /* background: #595766ad; */\r\n  padding: 15px 0;\r\n  background: #fff;\n}\n.background[data-v-ce0a16dc]::-webkit-scrollbar {\r\n  display: none;\n}\n.background[data-v-ce0a16dc] {\r\n  -ms-overflow-style: none; /* IE and Edge */\r\n  scrollbar-width: none; /* Firefox */\n}\nh1[data-v-ce0a16dc],\r\n.info h3[data-v-ce0a16dc] {\r\n  text-align: center;\n}\n.info h3[data-v-ce0a16dc]{\r\n    width: 250px;\r\n    max-height: 50px;\r\n    overflow: hidden;\n}\n.info h3[data-v-ce0a16dc],\r\n.request[data-v-ce0a16dc] {\r\n  color: white;\r\n  text-transform: capitalize;\n}\nh1[data-v-ce0a16dc] {\r\n  font-size: 55px;\n}\n.fa-star[data-v-ce0a16dc]{\r\n    font-size: 35px;\r\n    color: yellow;\r\n    position: absolute;\r\n    right: 10px;\n}\n.my_card[data-v-ce0a16dc]{\r\n        position: relative;\r\n        margin: 50px 10px 50px 0px;\r\n        height: 450px;\r\n        padding: 10px;\r\n        /* background: rgba(210, 206, 206, 0.861); */\r\n        /* background: #ededed; */\r\n        /* background-image: url('https://i.stack.imgur.com/MkSui.jpg'); */\r\n        background-image: url(" + escape(__webpack_require__(/*! ../../../../images/card.jpeg */ "./resources/images/card.jpeg")) + ");\r\n        background-repeat: no-repeat;\r\n        background-position: center;\r\n        background-size: cover;\r\n        border-radius: 10px;\r\n        /* border: 1px solid black; */\r\n        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);\r\n        transition: 0.5s;\n}\n.my_card[data-v-ce0a16dc]:hover{\r\n        cursor: pointer;\r\n        transform: scale(1.03);\r\n        background-image: url(" + escape(__webpack_require__(/*! ../../../../images/rotate.jpeg */ "./resources/images/rotate.jpeg")) + ");\r\n        background-position: bottom;\n}\n.my_card:hover a[data-v-ce0a16dc] {\r\n  text-decoration: none;\n}\n.my_card:hover .fa-star[data-v-ce0a16dc] {\r\n    color: #527A5A;\n}\n.my_card:hover h3[data-v-ce0a16dc]{\r\n        color: black;\n}\n.my_card:hover .references *[data-v-ce0a16dc]{\r\n        color: white;\n}\n.my_card:hover span[data-v-ce0a16dc]{\r\n        color: white !important;\n}\n.my_card:hover .request[data-v-ce0a16dc]{\r\n        background: rgba(28, 28, 28, 0.9);\n}\n.request[data-v-ce0a16dc]{\r\n        display: flex;\r\n        padding: 5px;\r\n        border-radius: 10px;\r\n        background: rgba(28, 28, 28, 0.8);\r\n        height: 150px;\n}\n.request ul[data-v-ce0a16dc] {\r\n  height: 70px;\r\n  overflow: scroll;\n}\n.request ul[data-v-ce0a16dc]::-webkit-scrollbar {\r\n  display: none;\n}\n.request ul[data-v-ce0a16dc] {\r\n  -ms-overflow-style: none; /* IE and Edge */\r\n  scrollbar-width: none; /* Firefox */\n}\n.categories li[data-v-ce0a16dc],\r\n.events li[data-v-ce0a16dc],\r\n.references li[data-v-ce0a16dc] {\r\n  list-style: none;\r\n  /* margin-left: 5px; */\r\n  font-size: 15px;\n}\r\n\r\n/* .w30{\r\n    width: 30% !important;\r\n} */\n.references ul[data-v-ce0a16dc] {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\n}\n.references li[data-v-ce0a16dc] {\r\n  display: inline;\r\n  font-size: 15px;\n}\n.references[data-v-ce0a16dc] {\r\n  padding: 0 50px;\r\n  /* margin-top: 20px; */\n}\n.categories li[data-v-ce0a16dc] {\r\n  color: rgba(91, 121, 93);\n}\n.events li[data-v-ce0a16dc] {\r\n  color: rgba(175, 108, 195);\n}\n.categories div[data-v-ce0a16dc],\r\n.events div[data-v-ce0a16dc] {\r\n  border-radius: 15px;\r\n  padding: 15px;\n}\n.top[data-v-ce0a16dc] {\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  padding-bottom: 15px;\n}\r\n\r\n/* .container{\r\n        -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\r\n        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\r\n        border-radius: 10px;\r\n        padding: 20px;\r\n        margin-bottom: 40px;\r\n    }\r\n    */\n.info[data-v-ce0a16dc] {\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  align-items: center;\n}\n.info img[data-v-ce0a16dc] {\r\n  height: 120px;\r\n  width: 120px;\r\n  border-radius: 50%;\n}\n.references img[data-v-ce0a16dc] {\r\n  width: 25px;\r\n  height: auto;\r\n  color: #527a5a;\n}\n.references li[data-v-ce0a16dc] {\r\n  color: black;\r\n  text-transform: capitalize;\n}\n.references #reviews[data-v-ce0a16dc] {\r\n  display: flex;\n}\n.categories[data-v-ce0a16dc],\r\n  .events[data-v-ce0a16dc] {\r\n    padding: 0;\n}\n.categories div[data-v-ce0a16dc],\r\n  .events div[data-v-ce0a16dc] {\r\n    /* max-width: 80%; */\n}\n.references[data-v-ce0a16dc] {\r\n    padding: 0 30px;\n}\n.references p[data-v-ce0a16dc] {\r\n    display: none;\n}\n.references #reviews[data-v-ce0a16dc] {\r\n    margin-top: 10px;\n}\n.references ul[data-v-ce0a16dc] {\r\n    display: flex;\r\n    flex-direction: column;\n}\n@media only screen and (max-width: 1000px) {\n.container-xl[data-v-ce0a16dc]{\r\n          justify-content: center !important;\r\n          flex-wrap: wrap;\n}\n.my_card[data-v-ce0a16dc]{\r\n          margin-right: 10px;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n#gradient[data-v-ce0a16dc]{\r\n        background: rgb(252,239,250);\r\n        background: linear-gradient(180deg, rgb(252,239,250) 0%, rgba(255,255,255,1) 100%);\r\n        height: 150px;\n}\n.cont[data-v-ce0a16dc]{\r\n   padding:0px 20px ;\r\n    background: rgb(252,239,250);\r\n    border-radius: 5px;\r\n    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);\n}\r\n\r\n/* .container{\r\n    max-width: 95%;\r\n} */\n.background[data-v-ce0a16dc] {\r\n  /* background-image: url(\"../../../images/pexels-picjumbocom-196652.jpg\");\r\n        background-repeat: no-repeat;\r\n        background-position: center;\r\n        background-size: cover; */\r\n  /* background: #E8EBF8; */\r\n  /* background: #595766ad; */\r\n  padding: 15px 0;\r\n  background: #fff;\n}\n.background[data-v-ce0a16dc]::-webkit-scrollbar {\r\n  display: none;\n}\n.background[data-v-ce0a16dc] {\r\n  -ms-overflow-style: none; /* IE and Edge */\r\n  scrollbar-width: none; /* Firefox */\n}\nh2[data-v-ce0a16dc] {\r\n  font-size: 50px;\r\n  text-align: center;\r\n  font-weight: bold;\r\n  letter-spacing: 3px;\n}\n.info h3[data-v-ce0a16dc] {\r\n  text-align: center;\n}\n.info h3[data-v-ce0a16dc]{\r\n    width: 250px;\r\n    max-height: 50px;\r\n    overflow: hidden;\n}\n.info h3[data-v-ce0a16dc],\r\n.request[data-v-ce0a16dc] {\r\n  color: white;\r\n  text-transform: capitalize;\n}\nh1[data-v-ce0a16dc] {\r\n  font-size: 55px;\n}\n.fa-star[data-v-ce0a16dc]{\r\n    font-size: 50px;\r\n    color: yellow;\r\n    position: absolute;\r\n    right: 10px;\r\n    top: 70px;\n}\n.my_card[data-v-ce0a16dc]{\r\n        position: relative;\r\n        margin: 50px 10px 50px 0px;\r\n        height: 450px;\r\n        padding: 10px;\r\n        /* background: rgba(210, 206, 206, 0.861); */\r\n        /* background: #ededed; */\r\n        /* background-image: url('https://i.stack.imgur.com/MkSui.jpg'); */\r\n        background-image: url(" + escape(__webpack_require__(/*! ../../../../images/card.jpeg */ "./resources/images/card.jpeg")) + ");\r\n        background-repeat: no-repeat;\r\n        background-position: center;\r\n        background-size: cover;\r\n        border-radius: 10px;\r\n        /* border: 1px solid black; */\r\n        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);\r\n        transition: 0.5s;\n}\n.my_card[data-v-ce0a16dc]:hover{\r\n        cursor: pointer;\r\n        transform: scale(1.03);\r\n        background-image: url(" + escape(__webpack_require__(/*! ../../../../images/rotate.jpeg */ "./resources/images/rotate.jpeg")) + ");\r\n        background-position: bottom;\n}\n.my_card:hover a[data-v-ce0a16dc] {\r\n  text-decoration: none;\n}\n.my_card:hover .fa-star[data-v-ce0a16dc] {\r\n    color: #527A5A;\n}\n.my_card:hover h3[data-v-ce0a16dc]{\r\n        color: black;\n}\n.my_card:hover .references *[data-v-ce0a16dc]{\r\n        color: white;\n}\n.my_card:hover span[data-v-ce0a16dc]{\r\n        color: white !important;\n}\n.my_card:hover .request[data-v-ce0a16dc]{\r\n        background: rgba(28, 28, 28, 0.9);\n}\n.request[data-v-ce0a16dc]{\r\n        display: flex;\r\n        padding: 5px;\r\n        border-radius: 10px;\r\n        background: rgba(28, 28, 28, 0.8);\r\n        height: 150px;\n}\n.request ul[data-v-ce0a16dc] {\r\n  height: 70px;\r\n  overflow: scroll;\n}\n.request ul[data-v-ce0a16dc]::-webkit-scrollbar {\r\n  display: none;\n}\n.request ul[data-v-ce0a16dc] {\r\n  -ms-overflow-style: none; /* IE and Edge */\r\n  scrollbar-width: none; /* Firefox */\n}\n.categories li[data-v-ce0a16dc],\r\n.events li[data-v-ce0a16dc],\r\n.references li[data-v-ce0a16dc] {\r\n  list-style: none;\r\n  /* margin-left: 5px; */\r\n  font-size: 15px;\n}\r\n\r\n/* .w30{\r\n    width: 30% !important;\r\n} */\n.references ul[data-v-ce0a16dc] {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\n}\n.references li[data-v-ce0a16dc] {\r\n  display: inline;\r\n  font-size: 15px;\n}\n.references[data-v-ce0a16dc] {\r\n  padding: 0 50px;\r\n  /* margin-top: 20px; */\n}\n.categories li[data-v-ce0a16dc] {\r\n  color: rgba(91, 121, 93);\n}\n.events li[data-v-ce0a16dc] {\r\n  color: rgba(175, 108, 195);\n}\n.categories div[data-v-ce0a16dc],\r\n.events div[data-v-ce0a16dc] {\r\n  border-radius: 15px;\r\n  padding: 15px;\n}\n.top[data-v-ce0a16dc] {\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  padding-bottom: 15px;\n}\r\n\r\n/* .container{\r\n        -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\r\n        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);\r\n        border-radius: 10px;\r\n        padding: 20px;\r\n        margin-bottom: 40px;\r\n    }\r\n    */\n.info[data-v-ce0a16dc] {\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  align-items: center;\n}\n.info img[data-v-ce0a16dc] {\r\n  height: 120px;\r\n  width: 120px;\r\n  border-radius: 50%;\n}\n.references img[data-v-ce0a16dc] {\r\n  width: 25px;\r\n  height: auto;\r\n  color: #527a5a;\n}\n.references li[data-v-ce0a16dc] {\r\n  color: black;\r\n  text-transform: capitalize;\n}\n.references #reviews[data-v-ce0a16dc] {\r\n  display: flex;\n}\n.categories[data-v-ce0a16dc],\r\n  .events[data-v-ce0a16dc] {\r\n    padding: 0;\n}\r\n\r\n  /* .categories div,\r\n  .events div {\r\n    /* max-width: 80%; \r\n  } */\n.references[data-v-ce0a16dc] {\r\n    padding: 0 30px;\n}\n.references p[data-v-ce0a16dc] {\r\n    display: none;\n}\n.references #reviews[data-v-ce0a16dc] {\r\n    margin-top: 10px;\n}\n.references ul[data-v-ce0a16dc] {\r\n    display: flex;\r\n    flex-direction: column;\n}\n@media only screen and (max-width: 1000px) {\n.container[data-v-ce0a16dc]{\r\n          justify-content: center !important;\r\n          flex-wrap: wrap;\n}\n.my_card[data-v-ce0a16dc]{\r\n          margin-right: 10px;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -41817,172 +41823,186 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("h1", { staticClass: "mt-3 pl-3" }, [
-      _vm._v("Scopri i profili in evidenza..."),
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "container-xl d-flex justify-content-between" },
-      _vm._l(_vm.randoms, function (random) {
-        return _c(
-          "div",
-          {
-            key: random.id,
-            staticClass: "my_card col-lg-4 col-md-5 col-xs-12",
-          },
-          [
-            _vm.checkSponsorized(random)
-              ? _c("span", [_c("i", { staticClass: "fa-solid fa-star" })])
-              : _vm._e(),
-            _vm._v(" "),
-            _c(
-              "router-link",
-              {
-                attrs: {
-                  to: { name: "user-single", params: { slug: random.slug } },
+  return _c("section", [
+    _c("div", { staticClass: "cont" }, [
+      _c("h2", { staticClass: "p-5 pl-3" }, [
+        _vm._v("Scopri i profili in evidenza..."),
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "container d-flex justify-content-between" },
+        _vm._l(_vm.randoms, function (random) {
+          return _c(
+            "div",
+            {
+              key: random.id,
+              staticClass: "my_card col-lg-4 col-md-5 col-xs-12",
+            },
+            [
+              _c(
+                "router-link",
+                {
+                  attrs: {
+                    to: { name: "user-single", params: { slug: random.slug } },
+                  },
                 },
-              },
-              [
-                _c("div", { staticClass: "top" }, [
-                  _c("div", { staticClass: "info col-lg-12" }, [
-                    _c("h3", [
-                      _vm._v(
-                        _vm._s(random.name) + " " + _vm._s(random.surname) + " "
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    random.avatar != null
-                      ? _c("img", {
-                          attrs: { src: "/storage/" + random.avatar, alt: "" },
-                        })
-                      : _c("img", {
-                          attrs: {
-                            src: "https://thumbs.dreamstime.com/b/profilo-utente-vettoriale-avatar-predefinito-179376714.jpg",
-                            alt: "",
-                          },
-                        }),
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "request col-lg-12 col-sm-12 mt-4" },
-                    [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "events mw-50 col-lg-6 col-sm-6 col-xs-6",
-                        },
-                        [
-                          _c("div", [
-                            _c("h5", [_vm._v("Eventi:")]),
-                            _vm._v(" "),
-                            _c(
-                              "ul",
-                              _vm._l(
-                                random.availabilities,
-                                function (availability, index) {
-                                  return _c("li", { key: index }, [
-                                    _c("strong", [
-                                      _vm._v(_vm._s(availability.name)),
-                                    ]),
-                                  ])
-                                }
-                              ),
-                              0
-                            ),
-                          ]),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "categories mw-50 col-lg-6 col-sm-6 col-xs-6",
-                        },
-                        [
-                          _c("div", [
-                            _c("h5", [_vm._v("Strumenti:")]),
-                            _vm._v(" "),
-                            _c(
-                              "ul",
-                              _vm._l(
-                                random.categories,
-                                function (category, index) {
-                                  return _c("li", { key: index }, [
-                                    _c("strong", [
-                                      _vm._v(_vm._s(category.name)),
-                                    ]),
-                                  ])
-                                }
-                              ),
-                              0
-                            ),
-                          ]),
-                        ]
-                      ),
-                    ]
-                  ),
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c("p", { staticClass: "references" }, [
-                    _c("ul", [
-                      _c("li", [
-                        _c("i", { staticClass: "fa-solid fa-location-dot" }),
-                        _vm._v(" " + _vm._s(random.address)),
+                [
+                  _c("div", { staticClass: "top" }, [
+                    _c("div", { staticClass: "info col-lg-12" }, [
+                      _c("h3", [
+                        _vm._v(
+                          _vm._s(random.name) +
+                            " " +
+                            _vm._s(random.surname) +
+                            " "
+                        ),
                       ]),
                       _vm._v(" "),
-                      _c(
-                        "li",
-                        {
-                          staticStyle: { "font-size": "20px" },
-                          attrs: { id: "reviews" },
-                        },
-                        [
-                          _c("div", { staticClass: "text" }, [
-                            _c("p", [
-                              _vm._v("Recensioni: "),
-                              _c("span", [
-                                _vm._v(
-                                  "(" + _vm._s(random.reviews.length) + ")"
+                      random.avatar != null
+                        ? _c("img", {
+                            attrs: {
+                              src: "/storage/" + random.avatar,
+                              alt: "",
+                            },
+                          })
+                        : _c("img", {
+                            attrs: {
+                              src: "https://thumbs.dreamstime.com/b/profilo-utente-vettoriale-avatar-predefinito-179376714.jpg",
+                              alt: "",
+                            },
+                          }),
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "request col-lg-12 col-sm-12 mt-4" },
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "events mw-50 col-lg-6 col-sm-6 col-xs-6",
+                          },
+                          [
+                            _c("div", [
+                              _c("h5", [_vm._v("Eventi:")]),
+                              _vm._v(" "),
+                              _c(
+                                "ul",
+                                _vm._l(
+                                  random.availabilities,
+                                  function (availability, index) {
+                                    return _c("li", { key: index }, [
+                                      _c("strong", [
+                                        _vm._v(_vm._s(availability.name)),
+                                      ]),
+                                    ])
+                                  }
                                 ),
+                                0
+                              ),
+                            ]),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "categories mw-50 col-lg-6 col-sm-6 col-xs-6",
+                          },
+                          [
+                            _c("div", [
+                              _c("h5", [_vm._v("Strumenti:")]),
+                              _vm._v(" "),
+                              _c(
+                                "ul",
+                                _vm._l(
+                                  random.categories,
+                                  function (category, index) {
+                                    return _c("li", { key: index }, [
+                                      _c("strong", [
+                                        _vm._v(_vm._s(category.name)),
+                                      ]),
+                                    ])
+                                  }
+                                ),
+                                0
+                              ),
+                            ]),
+                          ]
+                        ),
+                      ]
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _c("p", { staticClass: "references" }, [
+                      _c("ul", [
+                        _c("li", [
+                          _c("i", { staticClass: "fa-solid fa-location-dot" }),
+                          _vm._v(" " + _vm._s(random.address)),
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "li",
+                          {
+                            staticStyle: { "font-size": "20px" },
+                            attrs: { id: "reviews" },
+                          },
+                          [
+                            _c("div", { staticClass: "text" }, [
+                              _c("p", [
+                                _vm._v("Recensioni: "),
+                                _c("span", [
+                                  _vm._v(
+                                    "(" + _vm._s(random.reviews.length) + ")"
+                                  ),
+                                ]),
                               ]),
                             ]),
-                          ]),
-                          _vm._v(" "),
-                          random.reviews.length > 0
-                            ? _c("div", [
-                                _c("div", { staticClass: "notes big-notes" }, [
-                                  _c("div", {
-                                    staticClass: "notes_inner",
-                                    class: _vm.starsWidth(random.reviews),
-                                  }),
+                            _vm._v(" "),
+                            random.reviews.length > 0
+                              ? _c("div", [
+                                  _c(
+                                    "div",
+                                    { staticClass: "notes big-notes" },
+                                    [
+                                      _c("div", {
+                                        staticClass: "notes_inner",
+                                        class: _vm.starsWidth(random.reviews),
+                                      }),
+                                    ]
+                                  ),
+                                ])
+                              : _c("div", [
+                                  _c(
+                                    "div",
+                                    { staticClass: "notes big-notes" },
+                                    [
+                                      _c("div", {
+                                        staticClass: "notes_inner starFill0",
+                                      }),
+                                    ]
+                                  ),
                                 ]),
-                              ])
-                            : _c("div", [
-                                _c("div", { staticClass: "notes big-notes" }, [
-                                  _c("div", {
-                                    staticClass: "notes_inner starFill0",
-                                  }),
-                                ]),
-                              ]),
-                        ]
-                      ),
+                          ]
+                        ),
+                      ]),
                     ]),
                   ]),
-                ]),
-              ]
-            ),
-          ],
-          1
-        )
-      }),
-      0
-    ),
+                ]
+              ),
+            ],
+            1
+          )
+        }),
+        0
+      ),
+    ]),
+    _vm._v(" "),
+    _c("div", { attrs: { id: "gradient" } }),
   ])
 }
 var staticRenderFns = []
@@ -42678,21 +42698,6 @@ var render = function () {
           ]),
         ]),
       ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.musicians.length <= 0,
-              expression: "musicians.length <= 0",
-            },
-          ],
-        },
-        [_vm._v("Non ci sono Musicisti")]
-      ),
       _vm._v(" "),
       _vm._l(_vm.startMusicians, function (musician) {
         return _c(
