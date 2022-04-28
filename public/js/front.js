@@ -2488,8 +2488,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2726,15 +2724,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Gradient_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Gradient.vue */ "./resources/js/guest/components/Gradient.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -41771,8 +41760,12 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-lg-6 col-sm-12 jumbo-text" }, [
       _c("p", [
+        _vm._v("\n                    Hai bisogno di un artista? "),
+        _c("br"),
+        _vm._v(" Sei nel posto giusto! "),
+        _c("br"),
         _vm._v(
-          "\n                    Lorem Ipsum is simply dummy text of the printing and\n                    typesetting industry. Lorem Ipsum has been the\n                    industry's standard\n                "
+          " Comincia la tua ricerca e trova l'artista più adatto alla tua esigenza.\n                "
         ),
       ]),
     ])
@@ -42060,9 +42053,9 @@ var staticRenderFns = [
             _c("div", { staticClass: "service-card_text" }, [
               _c("h4", [_vm._v("Scegli il Musicista")]),
               _vm._v(" "),
-              _c("p", [
+              _c("p", { staticClass: "text-center" }, [
                 _vm._v(
-                  "\n                            Lorem ipsum dolor sit amet consectetur,\n                            adipisicing elit. Aspernatur quibusdam sequi\n                            beatae officia, qui expedita aliquam nesciunt\n                            cumque illum quae.\n                        "
+                  "\n                            Fai la scelta migliore secondo le tue esigenze: valuta curriculum, prezzo delle prestazioni e recensioni degli altri clienti.\n                        "
                 ),
               ]),
             ]),
@@ -42078,9 +42071,9 @@ var staticRenderFns = [
             _c("div", { staticClass: "service-card_text" }, [
               _c("h4", [_vm._v("Contatta il Musicista")]),
               _vm._v(" "),
-              _c("p", [
+              _c("p", { staticClass: "text-center" }, [
                 _vm._v(
-                  "\n                            Lorem ipsum dolor sit amet consectetur,\n                            adipisicing elit. Aspernatur quibusdam sequi\n                            beatae officia, qui expedita aliquam nesciunt\n                            cumque illum quae.\n                        "
+                  "\n                            Ti bastano pochi secondi: è facile e veloce, non serve telefonare e non è richiesta la carta di credito: pagherai direttamente al musicista.\n                        "
                 ),
               ]),
             ]),
@@ -42096,9 +42089,9 @@ var staticRenderFns = [
             _c("div", { staticClass: "service-card_text" }, [
               _c("h4", [_vm._v("Goditi la Musica")]),
               _vm._v(" "),
-              _c("p", [
+              _c("p", { staticClass: "text-center" }, [
                 _vm._v(
-                  "\n                            Lorem ipsum dolor sit amet consectetur,\n                            adipisicing elit. Aspernatur quibusdam sequi\n                            beatae officia, qui expedita aliquam nesciunt\n                            cumque illum quae.\n                        "
+                  "\n                            Divertiti grazie al tuo artista scelto. Dopo l'evento potrai lasciare una tua recensione che sarà utile per gli altri clienti.\n                        "
                 ),
               ]),
             ]),
@@ -42782,7 +42775,7 @@ var render = function () {
                         },
                         [
                           _c("div", [
-                            _c("h5", [_vm._v("Strumenti:")]),
+                            _c("h5", [_vm._v("Generi:")]),
                             _vm._v(" "),
                             _c(
                               "ul",
@@ -42942,7 +42935,7 @@ var render = function () {
                         },
                         [
                           _c("div", [
-                            _c("h5", [_vm._v("Strumenti:")]),
+                            _c("h5", [_vm._v("Generi:")]),
                             _vm._v(" "),
                             _c(
                               "ul",

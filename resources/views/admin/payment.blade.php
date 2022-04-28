@@ -22,42 +22,36 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </label>
-                    <div class="plan-box d-flex flex-lg-row flex-column justify-content-between px-md-5">
-                        <div
-                            class="col-lg-3 col-12 text-center d-flex justify-content-between flex-column align-items-center py-3 plan-a plan-card">
-                            <h2 class="plan-name">FLASH</h2>
-                            <div class="plan-text">
-                                <h1 class="plan-price">24 ore</h1>
-                                <p>a</p>
-                                <h3 class="plan-time">{{ $sponsorship[0]->price }}</h3>
-                                <input id='sponsorship_id' value='{{ $sponsorship[0]->id }}' name='sponsorship_id'
-                                    type="radio">
-                            </div>
-                            {{-- <button class="btn u_btn_plan"><a
-                                    href="{{ route('admin.payment', auth()->user()) }}">Acquista</a></button>--}}
-                        </div> 
-                            <div
-                                class="col-lg-3 col-12 text-center d-flex justify-content-between flex-column align-items-center py-3 plan-b plan-card">
-                                <h2 class="plan-name">NOTORIUS.</h2>
+                    <div class="plan-box container-fluid d-flex flex-lg-row flex-column">
+                        <div class="row w-100 g-5 my-1 justify-content-around">
+                            <div class="col-lg-4 col-md-6 col-12 text-center d-flex justify-content-between flex-column align-items-center py-3 plan-a plan-card">
+                                <h2 class="plan-name">FLASH</h2>
                                 <div class="plan-text">
-                                    <h1 class="plan-price">72 ore</h1>
+                                    <h1 class="plan-price">24 ore</h1>
                                     <p>a</p>
-                                    <h3 class="plan-time">{{ $sponsorship[1]->price }}</h3>
-                                    <input id='sponsorship_id' value='{{ $sponsorship[1]->id }}' name='sponsorship_id'
-                                        type="radio">
+                                    <h3 class="plan-time">{{ $sponsorship[0]->price }}</h3>
+                                    <input id='sponsorship_id' value='{{ $sponsorship[0]->id }}' name='sponsorship_id' type="radio">
                                 </div>
-                            </div>
-                            <div
-                                class="col-lg-3 col-12 text-center d-flex justify-content-between flex-column align-items-center py-3 plan-c plan-card">
-                                <h2 class="plan-name">CHAMPION</h2>
-                                <div class="plan-text">
-                                    <h1 class="plan-price">144 ore</h1>
-                                    <p>a</p>
-                                    <h3 class="plan-time">{{ $sponsorship[2]->price }}</h3>
-                                    <input id='sponsorship_id' value='{{ $sponsorship[2]->id }}' name='sponsorship_id'
-                                        type="radio">
+                            </div> 
+                                <div class="col-lg-4 col-md-6 col-12 text-center d-flex justify-content-between flex-column align-items-center py-3 plan-b plan-card">
+                                    <h2 class="plan-name">NOTORIUS.</h2>
+                                    <div class="plan-text">
+                                        <h1 class="plan-price">72 ore</h1>
+                                        <p>a</p>
+                                        <h3 class="plan-time">{{ $sponsorship[1]->price }}</h3>
+                                        <input id='sponsorship_id' value='{{ $sponsorship[1]->id }}' name='sponsorship_id' type="radio">
+                                    </div>
                                 </div>
-                            </div>
+                                <div class="col-lg-4 col-md-6 col-12 text-center d-flex justify-content-between flex-column align-items-center py-3 plan-c plan-card">
+                                    <h2 class="plan-name">CHAMPION</h2>
+                                    <div class="plan-text">
+                                        <h1 class="plan-price">144 ore</h1>
+                                        <p>a</p>
+                                        <h3 class="plan-time">{{ $sponsorship[2]->price }}</h3>
+                                        <input id='sponsorship_id' value='{{ $sponsorship[2]->id }}' name='sponsorship_id' type="radio">
+                                    </div>
+                                </div>
+                            </div>    
                         </div>
                     </div>
 

@@ -576,6 +576,7 @@ li {
     overflow: hidden;
     transition: 0.4s;
     transform: scale(1.05);
+    max-width: 300px;
     cursor: pointer;
     .u_btn_plan {
         background-color: transparent;
