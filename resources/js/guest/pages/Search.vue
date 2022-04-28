@@ -142,7 +142,7 @@
  
             </div>
             
-            <div v-show="musicians.length <= 0">Non ci sono Musicisti</div>
+            <!-- <div v-show="musicians.length <= 0">Non ci sono Musicisti</div> -->
             <div class="my_card" v-for="musician in startMusicians" :key="musician.id">
                 <span v-if="checkSponsorized(musician)"><i class="fa-solid fa-star"></i></span>
                     <router-link :to="{ name: 'user-single', params: { slug: musician.slug } }">

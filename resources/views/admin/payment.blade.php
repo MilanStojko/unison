@@ -28,7 +28,7 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </label>
-                    <div class="plan-box d-flex flex-lg-row flex-column justify-content-between px-5">
+                    <div class="plan-box d-flex flex-lg-row flex-column justify-content-between px-md-5">
                         <div
                             class="col-lg-3 col-12 text-center d-flex justify-content-between flex-column align-items-center py-3 plan-a plan-card">
                             <h2 class="plan-name">FLASH</h2>
@@ -40,8 +40,8 @@
                                     type="radio">
                             </div>
                             {{-- <button class="btn u_btn_plan"><a
-                                    href="{{ route('admin.payment', auth()->user()) }}">Acquista</a></button>
-                        </div> --}}
+                                    href="{{ route('admin.payment', auth()->user()) }}">Acquista</a></button>--}}
+                        </div> 
                             <div
                                 class="col-lg-3 col-12 text-center d-flex justify-content-between flex-column align-items-center py-3 plan-b plan-card">
                                 <h2 class="plan-name">NOTORIUS.</h2>

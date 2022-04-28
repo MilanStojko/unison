@@ -78,9 +78,9 @@ export default {
         },
         //Trasmissione del valore tramite emit bus a Search.vue
         sendSelected() {
-            this.$router.push({ path: "search", query: { name: this.valore } });
-            // this.$emit('saveValue')
-            bus.$emit("saveValue", this.prestazione);
+            if(this.valore != '') {
+                this.$router.push({ path: "search", query: { name: this.valore } });
+            }
         },
     },
 };
