@@ -3,7 +3,7 @@
 @section('content')
     <div class="show">
         <div class="card-header py-4 d-flex justify-content-between align-items-center">
-            <h2><i class="bi bi-people"></i>La mia dashboard</h2>
+            <h2><i class="bi bi-people"></i> La mia dashboard</h2>
 
             <div class="u_edit-user">
                 <a href="{{route('admin.users.edit', auth()->user())}}">

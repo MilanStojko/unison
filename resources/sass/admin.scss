@@ -705,3 +705,25 @@ li {
     border: 1px solid black;
     border-radius: 5px;
 }
+
+// PAYMENT BOX
+
+.braintree-sheet__header{
+    background-color: #212121;
+    .braintree-sheet__text{
+        color: white;
+    }
+}
+
+.braintree-form__hosted-field{
+    border-radius: 10px;
+}
+
+#buttonPayment{
+    color: #537a5a;
+    border: 1px solid #537a5a;
+    &:hover{
+        color: white;
+        background-color: #537a5a;
+    }
+}

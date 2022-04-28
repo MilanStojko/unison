@@ -61,7 +61,7 @@
                         <li class="nav-item">
                             <a class="nav-link u_menu-info-link {{ request()->is('admin') ? 'menu-active' : '' }}"
                                 href="{{ route('admin.home') }}">
-                                <i class="bi bi-house-door"></i>
+                                <i class="bi bi-people"></i>
                                 Il mio profilo
                             </a>
                         </li>

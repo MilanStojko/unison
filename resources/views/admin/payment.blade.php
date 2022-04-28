@@ -2,15 +2,15 @@
 
 
 @section('content')
+    <div class="card-header py-4 d-flex justify-content-between align-items-center">
+        <h2><i class="bi bi-star-fill"></i></i> Le nostre offerte</h2>
+    </div>
     <div class="content pay">
         <form id="formPayment" method="post" id="payment-form"
             action="{{ route('admin.paymentcheckout', [Auth::user()->id]) }}">
             @csrf
             <section>
                 <div class="show">
-                    <div class="card-header py-4 d-flex justify-content-between align-items-center">
-                        <h2><i class="bi bi-file-text"></i>Le nostre offerte</h2>
-                    </div>
                     <div class="info justify-content-center text-center my-2">
                         <p>Vuoi mettere in risalto le tue prestazioni?</p>
                         <p>Il team di Unison ha pensato a 3 piani di sponsorizzazione che ti permetteranno di risaltare tra
