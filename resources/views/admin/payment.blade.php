@@ -24,7 +24,7 @@
                     </label>
                     <div class="plan-box container-fluid d-flex flex-lg-row flex-column">
                         <div class="row w-100 g-5 my-1 justify-content-around">
-                            <div class="col-lg-4 col-md-6 col-12 text-center d-flex justify-content-between flex-column align-items-center py-3 plan-a plan-card">
+                            <div class="mx-3 col-lg-4 col-md-6 col-12 text-center d-flex justify-content-between flex-column align-items-center py-3 plan-a plan-card">
                                 <h2 class="plan-name">FLASH</h2>
                                 <div class="plan-text">
                                     <h1 class="plan-price">24 ore</h1>
@@ -33,7 +33,7 @@
                                     <input id='sponsorship_id' value='{{ $sponsorship[0]->id }}' name='sponsorship_id' type="radio">
                                 </div>
                             </div> 
-                                <div class="col-lg-4 col-md-6 col-12 text-center d-flex justify-content-between flex-column align-items-center py-3 plan-b plan-card">
+                                <div class="mx-3 col-lg-4 col-md-6 col-12 text-center d-flex justify-content-between flex-column align-items-center py-3 plan-b plan-card">
                                     <h2 class="plan-name">NOTORIUS.</h2>
                                     <div class="plan-text">
                                         <h1 class="plan-price">72 ore</h1>
@@ -42,7 +42,7 @@
                                         <input id='sponsorship_id' value='{{ $sponsorship[1]->id }}' name='sponsorship_id' type="radio">
                                     </div>
                                 </div>
-                                <div class="col-lg-4 col-md-6 col-12 text-center d-flex justify-content-between flex-column align-items-center py-3 plan-c plan-card">
+                                <div class="mx-3 col-lg-4 col-md-6 col-12 text-center d-flex justify-content-between flex-column align-items-center py-3 plan-c plan-card">
                                     <h2 class="plan-name">CHAMPION</h2>
                                     <div class="plan-text">
                                         <h1 class="plan-price">144 ore</h1>
