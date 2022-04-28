@@ -57,7 +57,7 @@
                         @endif
                         <h4>{{ auth()->user()->name }} {{ auth()->user()->surname }}</h4>
                     </div>
-                    <ul class="nav flex-column">
+                    <ul class="nav">
                         <li class="nav-item">
                             <a class="nav-link u_menu-info-link {{ request()->is('admin') ? 'menu-active' : '' }}"
                                 href="{{ route('admin.home') }}">
@@ -92,6 +92,37 @@
                                 Premium
                             </a>
                         </li>
+                        <!--Nav Mobile-->
+                        <li class="nav-item_mobile">
+                            <a class="nav-link u_menu-info-link {{ request()->is('admin') ? 'menu-active' : '' }}"
+                                href="{{ route('admin.home') }}">
+                                <i class="bi bi-house-door"></i>
+                            </a>
+                        </li>
+                        {{-- <li class="nav-item">
+                            <a class="nav-link u_menu-info-link {{request()->is('admin/users/*') ? 'menu-active' : ''}}" href="{{route('admin.users.show', auth()->user())}}">
+                                <i class="bi bi-people"></i>
+                                Il mio profilo
+                            </a>
+                        </li> --}}
+                        <li class="nav-item_mobile">
+                            <a class="nav-link u_menu-info-link {{ request()->is('admin/messages') ? 'menu-active' : '' }}"
+                                href="{{ route('admin.messages.index') }}">
+                                <i class="bi bi-chat-dots"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item_mobile">
+                            <a class="nav-link u_menu-info-link {{ request()->is('admin/reviews') ? 'menu-active' : '' }}"
+                                href="{{ route('admin.reviews.index') }}">
+                                <i class="bi bi-file-text"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item_mobile">
+                            <a class="nav-link u_menu-info-link {{ request()->is('admin/sponsorships') ? 'menu-active' : '' }}"
+                                href="{{ route('admin.payment', auth()->user()) }}">
+                                <i class="bi bi-star-fill"></i>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -104,7 +135,6 @@
     </div>
 
     <script>
-<<<<<<< HEAD
         
        function changeButton(e) {
            if(e.textContent == 'Read More') {
@@ -112,25 +142,7 @@
            } else if(e.textContent == 'Read Less') {
             e.textContent = 'Read More'
            }
-       };
-
-       function getDate(date) {
-            return new Date(date).toLocaleDateString("it", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-            });
-       };
-        
-=======
-        function changeButton(e) {
-            if (e.textContent == 'Read More') {
-                e.textContent = 'Read Less'
-            } else if (e.textContent == 'Read Less') {
-                e.textContent = 'Read More'
-            }
-        }
->>>>>>> 982bfd4039dbccb5225463c2e077accf18b5cfca
+       };   
     </script>
 </body>
 

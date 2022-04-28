@@ -22,9 +22,28 @@ li {
         width: calc(100% - 200px);
         margin-left: 200px;
     }
+    @media screen and (max-width: 1000px) {
+        width: 100%;
+        margin: 0 auto;
+        padding-top: 368px;
+    }
 }
 
 // NAVBAR
+
+.nav-item {
+    @media screen and (max-width: 800px) {
+        display: none;
+    }
+}
+
+.nav-item_mobile {
+    display: none;
+
+    @media screen and (max-width: 800px) {
+        display: block;
+    }
+}
 
 .u_navbar {
     width: calc(100% - 300px);
@@ -41,6 +60,14 @@ li {
     @media screen and (max-width: 1400px) {
         width: calc(100% - 200px);
         margin-left: 200px;
+    }
+
+    @media screen and (max-width: 1000px) {
+        width: 100%;
+        background-color: #fff;
+        margin-left: 0px;
+        z-index: 2;
+        position: fixed;
     }
 
     .logo {
@@ -81,6 +108,25 @@ li {
     position: fixed;
     z-index: 1000;
 
+    @media screen and (max-width: 1400px) {
+        width: 200px;
+    }
+
+    @media screen and (max-width: 1000px) {
+        width: 100% !important;
+        height: 300px;
+        position: absolute;
+        top: 68px;
+        left: 0px;
+        z-index: 1;
+    }
+
+    ul {
+        @media screen and (max-width: 1000px) {
+            justify-content: space-between;
+        }
+    }
+
     &-info {
         padding: 20px 0px;
         border-bottom: 1px solid #dcdcdc;
@@ -101,18 +147,32 @@ li {
         }
     }
 
-    @media screen and (max-width: 1400px) {
-        width: 200px;
+    li {
+        width: 100%;
+
+        @media screen and (max-width: 1000px) {
+            width: 25%;
+        }
     }
 
     a {
         color: #fff;
         font-size: 18px;
         padding: 20px 30px;
+        width: 100%;
+
+        @media screen and (max-width: 800px) {
+            text-align: center;
+        }
 
         &:hover {
             background-color: #0b0d0d;
             border-left: 2px solid $back-primary;
+
+            @media screen and (max-width: 1000px) {
+                border-left: none;
+                border-bottom: 2px solid $back-primary;
+            }
         }
     }
 
@@ -123,6 +183,12 @@ li {
     .menu-active {
         background-color: #0b0d0d;
         border-left: 2px solid $back-primary;
+
+        @media screen and (max-width: 1000px) {
+            justify-content: space-between;
+            border-left: none;
+            border-bottom: 2px solid $back-primary;
+        }
     }
 }
 
@@ -155,6 +221,7 @@ li {
 }
 
 .u_edit-user {
+    width: 250px;
     a {
         color: #000;
         border: 1px solid #000;
@@ -178,6 +245,10 @@ li {
     margin: 0 auto;
     margin-top: 50px;
 
+    @media screen and (max-width: 800px) {
+        width: 95%;
+    }
+
     &-head {
         padding: 20px;
         background-color: #fff;
@@ -187,6 +258,10 @@ li {
         justify-content: flex-start;
         align-items: center;
         border-radius: 10px;
+
+        @media screen and (max-width: 800px) {
+            flex-direction: column;
+        }
 
         &_text {
             margin-left: 20px;
@@ -283,6 +358,10 @@ li {
     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+
+    @media screen and (max-width: 800px) {
+        width: 95%;
+    }
 
     &_header {
         color: #f2f3f7;
@@ -400,7 +479,7 @@ li {
 // Messages
 
 .u_messages {
-    padding: 50px 0px;
+    padding: 50px 5px;
     display: flex;
     align-items: center;
     flex-wrap: wrap;

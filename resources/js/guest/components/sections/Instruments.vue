@@ -117,7 +117,6 @@ export default {
                 margin: 20px auto;
             }
         }
-
     }
 }
 
@@ -130,6 +129,10 @@ export default {
 
     @media screen and (max-width: 991px) {
         top: 80%;
+    }
+
+    @media screen and (max-width: 600px) {
+        display: none;
     }
 
     img {

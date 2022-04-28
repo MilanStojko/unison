@@ -2,7 +2,7 @@
 <section>
 
 <div class="cont">
-        <h1 class="m-4 pl-3">Scopri i profili in evidenza...</h1>
+        <h2 class="p-5 pl-3">Scopri i profili in evidenza...</h2>
         <div class="container d-flex justify-content-between">
                 <div class="my_card col-lg-4 col-md-5 col-xs-12" v-for="random in randoms" :key="random.id">
                     <!-- <span v-if="checkSponsorized(random)"><i class="fa-solid fa-star"></i></span> -->
@@ -184,8 +184,7 @@ export default {
     }
 
 .cont{
-    width: calc();
-    padding: 70px;
+   padding:0px 20px ;
     background: rgb(252,239,250);
     border-radius: 5px;
     -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
@@ -215,7 +214,13 @@ export default {
   scrollbar-width: none; /* Firefox */
 }
 
-h1,
+h2 {
+  font-size: 50px;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
 .info h3 {
   text-align: center;
 }

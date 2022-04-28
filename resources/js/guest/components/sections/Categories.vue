@@ -57,7 +57,7 @@ export default {
 
 <style lang="scss" scoped>
 .events {
-    padding: 100px 0px;
+    padding-bottom: 100px;
     position: relative;
 
     &-heading {
