@@ -804,7 +804,7 @@ li {
 
 //Pop Up Message/Review Send
 .PopUp-send {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 50%;
     transform: translateX(-50%);

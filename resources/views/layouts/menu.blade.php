@@ -129,6 +129,7 @@
 
 
             <main class="u_main">
+                
                 @yield('content')
             </main>
         </div>

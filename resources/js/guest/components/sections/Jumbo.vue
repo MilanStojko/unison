@@ -18,7 +18,9 @@
                         id="availabilities"
                         v-model="valore"
                     >
-                        <option value="" disabled selected>Seleziona la prestazione che ti interessa</option>
+                        <option value="" disabled selected>
+                            Seleziona la prestazione che ti interessa
+                        </option>
                         <option
                             v-for="(availability, index) in availabilities"
                             :value="availability.name"
@@ -62,7 +64,7 @@ export default {
             availabilities: [],
             prestazione: "",
             valore: "",
-            check: 'Seleziona una specializzazione'
+            check: "Seleziona una specializzazione",
         };
     },
     //Api con tutte le prestazioni
@@ -78,8 +80,11 @@ export default {
         },
         //Trasmissione del valore tramite emit bus a Search.vue
         sendSelected() {
-            if(this.valore != '') {
-                this.$router.push({ path: "search", query: { name: this.valore } });
+            if (this.valore != "") {
+                this.$router.push({
+                    path: "search",
+                    query: { name: this.valore },
+                });
             }
         },
     },
