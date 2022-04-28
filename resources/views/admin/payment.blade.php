@@ -30,7 +30,7 @@
                                     <h1 class="plan-price">24 ore</h1>
                                     <p>a</p>
                                     <h3 class="plan-time">{{ $sponsorship[0]->price }}</h3>
-                                    <input id='sponsorship_id' value='{{ $sponsorship[0]->id }}' name='sponsorship_id' type="radio">
+                                    <input id='sponsorship_id' value='{{ $sponsorship[0]->id }}' name='sponsorship_id' type="radio" checked>
                                 </div>
                             </div> 
                                 <div class="mx-3 col-lg-4 col-md-6 col-12 text-center d-flex justify-content-between flex-column align-items-center py-3 plan-b plan-card">
