@@ -406,7 +406,7 @@ export default {
         }
       });
       console.log(musicianSponsorized);
-      this.startMusicians = musicianSponsorized.concat(musicianNotSponsorized);
+      this.startMusicians = musicianSponsorized.reverse().concat(musicianNotSponsorized);
     },
 
     getSponsorized() {
@@ -430,7 +430,7 @@ export default {
             musicianNotSponsorized.push(element);
           }
       });
-      this.musicians = musicianSponsorized.concat(musicianNotSponsorized);
+      this.musicians = musicianSponsorized.reverse().concat(musicianNotSponsorized);
     },
 
     checkSponsorized(musician) {
