@@ -14,11 +14,8 @@
                         </div>
                         <div class="service-card_text">
                             <h4>Scegli il Musicista</h4>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur,
-                                adipisicing elit. Aspernatur quibusdam sequi
-                                beatae officia, qui expedita aliquam nesciunt
-                                cumque illum quae.
+                            <p class="text-center">
+                                Fai la scelta migliore secondo le tue esigenze: valuta curriculum, prezzo delle prestazioni e recensioni degli altri clienti.
                             </p>
                         </div>
                     </div>
@@ -28,11 +25,8 @@
                         </div>
                         <div class="service-card_text">
                             <h4>Contatta il Musicista</h4>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur,
-                                adipisicing elit. Aspernatur quibusdam sequi
-                                beatae officia, qui expedita aliquam nesciunt
-                                cumque illum quae.
+                            <p class="text-center">
+                                Ti bastano pochi secondi: è facile e veloce, non serve telefonare e non è richiesta la carta di credito: pagherai direttamente al musicista.
                             </p>
                         </div>
                     </div>
@@ -42,11 +36,8 @@
                         </div>
                         <div class="service-card_text">
                             <h4>Goditi la Musica</h4>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur,
-                                adipisicing elit. Aspernatur quibusdam sequi
-                                beatae officia, qui expedita aliquam nesciunt
-                                cumque illum quae.
+                            <p class="text-center">
+                                Divertiti grazie al tuo artista scelto. Dopo l'evento potrai lasciare una tua recensione che sarà utile per gli altri clienti.
                             </p>
                         </div>
                     </div>

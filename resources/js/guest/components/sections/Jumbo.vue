@@ -5,9 +5,7 @@
             <div class="row jumbo-content">
                 <div class="col-lg-6 col-sm-12 jumbo-text">
                     <p>
-                        Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry. Lorem Ipsum has been the
-                        industry's standard
+                        Hai bisogno di un artista? <br> Sei nel posto giusto! <br> Comincia la tua ricerca e trova l'artista più adatto alla tua esigenza.
                     </p>
                 </div>
                 <!-- SEARCH BAR -->
