@@ -512,7 +512,7 @@ h1,
 }
 
 .info h3{
-  max-height: 70px;
+  max-height: 90px;
   overflow: hidden;
 }
 
